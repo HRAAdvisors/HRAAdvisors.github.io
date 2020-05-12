@@ -1,0 +1,311 @@
+<html lang="en">
+<head>
+
+
+
+
+
+    <link rel="icon" type="image/x-icon" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/img/favicon.ico">
+    <link rel="icon" type="image/png" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/img/favicon-16x16.png" sizes="16x16">
+    <script src="https://www.hraadvisors.com/wp-includes/js/wp-emoji-release.min.js?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/javascript" defer=""></script>
+    <link rel="stylesheet" id="dashicons-css" href="https://www.hraadvisors.com/wp-includes/css/dashicons.min.css?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-block-library-css" href="https://www.hraadvisors.com/wp-includes/css/dist/block-library/style.min.css?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+    <link rel="stylesheet" id="bootstrap-css" href="https://www.hraadvisors.com/wp-content/themes/madeo/_include/css/bootstrap.min.css?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+    <link rel="stylesheet" id="font-awesome" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/css/font-awesome.css" type="text/css" media="all">
+
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src = 'd3.js'></script>
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
+    <link rel="stylesheet" id="main-styles-css" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/style.css?ver=1.10.10" type="text/css" media="all">
+    <link rel="stylesheet" id="custom-css" href="https://www.hraadvisors.com/wp-content/themes/madeo/_include/css/custom.css.php?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+    <link rel="stylesheet" id="dynamic-colors-css" href="https://www.hraadvisors.com/wp-content/themes/madeo/_include/css/color.css.php?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+    <meta property='og:title' content='The Ability to Work From Home is a Resiliency Strategy'/>
+    <meta property='og:image' content=''/>
+    <meta property='og:description' content='Working from home enables resilience for households, businesses and cities to withstand shocks, as cities recover from COVID-19, investing in infrastructure, technology and training could enable more people to work from home, enabling a more just and resilient recovery.'/>
+    <meta property='og:url' content=''/>
+
+
+    <title>Work From Home</title>
+</head>
+
+
+<body>
+    <!-- <div id="info">
+        a
+    </div> -->
+    <div id="tooltip"></div>
+    <div class="container-fluid">
+        <div class="row hidden-xs hidden-sm visible-md-block visible-lg-block">
+            
+        <div class="col-md-2 col-sm-3 col-xs-6">
+        <div id="logo">
+            <a href="https://www.hraadvisors.com" title="HR&amp;A">
+                                                            <img class="standard" src="https://github.com/ClyneKP/clynekp.github.io/blob/master/scroll2/logo.png?raw=true" alt="HR&amp;A" style="
+    margin-top: 70px;
+    margin-left: 75px;
+" width="89" height="41">
+                        <img class="retina" src="https://github.com/ClyneKP/clynekp.github.io/blob/master/scroll2/logo.png?raw=true" alt="HR&amp;A" style="
+    margin-top: 70px;
+    margin-left: 75px;
+" width="89" height="41">
+                                                </a>
+        </div>
+        </div>
+            
+        <div class="col-md-10 col-sm-9 col-xs-6">
+            <!-- Mobile Menu -->
+            <a id="mobile-nav" class="menu-nav" href="#menu-nav"><span class="menu-icon"></span></a>
+            <a id="search-button" class="search-toggle" href="#"><i class="fa fa-search fa-1"></i></a>
+            <!-- Standard Menu -->
+            <div id="menu" class="ajax-menu">
+                <ul id="menu-nav">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5457"><a href="https://www.hraadvisors.com/about/">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8714"><a href="https://www.hraadvisors.com/team/">Team</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9885"><a href="https://www.hraadvisors.com/practice-areas/">Practice Areas</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5354"><a href="https://www.hraadvisors.com/services/">Services</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5404"><a href="https://www.hraadvisors.com/portfolio/">Portfolio</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5419"><a href="https://www.hraadvisors.com/news/">News</a></li>
+    
+                <div id="marker" style="left: 701.469px; width: 63px; display: block;"></div>
+                </ul>
+            </div>
+        </div>
+      
+        </div>
+        
+            
+        <div class="row hidden-md hidden-lg visible-xs-block visible-sm-block">
+            
+            <div class="col-md-2 col-sm-2 col-xs-2">
+                <!-- Mobile Menu -->
+                <a id="mobile-nav" class="menu-trigger menu-nav" href="#"><span class="menu-icon"></span></a>
+                
+            </div>
+            
+            <div class="col-md-8 col-sm-8 col-xs-8 text-center">
+        <div id="logo">
+            <a href="https://www.hraadvisors.com" title="HR&amp;A">
+                                                            <img class="standard" src="https://github.com/ClyneKP/clynekp.github.io/blob/master/scroll2/logo.png?raw=true" alt="HR&amp;A" width="89" height="41">
+                        <img class="retina" src="https://github.com/ClyneKP/clynekp.github.io/blob/master/scroll2/logo.png?raw=true" alt="HR&amp;A" width="89" height="41">
+                                                </a>
+        </div>
+            </div>
+            
+            <div class="col-md-2 col-sm-2 col-xs-2 text-right">
+                <!-- Search Icon -->
+                <a id="search-button" class="search-toggle" href="#"><i class="fa fa-search fa-1"></i></a>
+            </div>
+        </div>
+             </div>
+    <div id="graphic">
+        <div id="sections">
+            <section class="step">
+                <div class="title"></div>
+                <br><br>
+                <h1 style="margin-top: 77.05;">The Ability to Work From Home is a Resiliency Strategy</h1>
+                <p>By <a href = 'https://www.hraadvisors.com/team/kate-wittels/'>Kate Wittels</a></p>
+                <p>
+                    Working from home enables resilience for households, businesses and cities to withstand shocks, be them health, climate or safety related. As stay at home orders set in across the country, some Americans, usually those with more education and higher incomes, were able to easily transition to working from home. Whereas others, who were more likely black or brown, were unable to conduct their work virtually. For these Americans they either lost their source of income or were forced to expose themselves to COVID-19 in order to receive a paycheck. The stay at home orders have shed a spotlight on vast inequities that exist among different types of jobs – those that can be conducted with a computer and high-speed internet and those that cannot.  As cities recover from COVID-19, investing in infrastructure, technology and training could enable more people to work from home, enabling a more just and resilient recovery. 
+                </p>
+                
+            </section>
+            <section class="step">
+                <p>
+                As we recover from COVID-19 and prepare for future shocks, policy makers need to consider how to increase the ability for more Americans to work from home. <br><br>To understand which occupations can work from home and which ones cannot, we evaluated the Occupational Information Network (O*NET) work activities profile to develop the following four categories of occupations:
+                </p>
+                <svg id = 'legend' width = '400px' height = '500px'></svg>
+            </section>
+            <section class = 'step'>
+                <svg id = 'legend2' width = '400px' height = '450px'></svg><br><br>
+                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </section>
+            <section class="step">
+                <br><br><br><br><br><br>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                </p>
+                
+            </section>
+            <section class="step">
+                
+                <p>
+                <h2>Lorem ipsum.</h2>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum  
+                </p>
+                 
+            </section>
+            <section class="step">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </section>
+            <section class="step">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum 
+                <svg id = 'legend3' width = '400px' height = '350px'></svg>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </section>
+            <section class="step">
+                <h1></h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                </p>
+                <span></span><span></span><span></span>                
+            </section>
+           
+
+        </div>
+        <div id="vis">
+
+        </div>
+    </div>
+    <footer>
+
+<!-- Start Footer Credits -->
+<section id="footer-content">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-12 locations">
+                <div class="col-md-6 col-xs-12 col-sm-6 hidden-lg hidden-md hidden-sm hidden-xs social-links-mobile">
+                    <div class="inner-content">
+                        <div class="social-links">
+                                    <li id="menu-item-7109" class="fa fa-linkedin menu-item menu-item-type-custom menu-item-object-custom menu-item-7109"><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/82288">LinkedIn</a></li>
+<li id="menu-item-7110" class="fa fa-twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-7110"><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/hraadvisors">Twitter</a></li>
+<li id="menu-item-7111" class="fa fa-facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-7111"><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/hraadvisors/">Facebook</a></li>
+<li id="menu-item-7112" class="fa fa-slideshare menu-item menu-item-type-custom menu-item-object-custom menu-item-7112"><a target="_blank" rel="noopener noreferrer" href="http://www.slideshare.net/HRAadvisors">Slide Share</a></li>
+                        </div>
+                        
+                        
+                    </div>
+                </div>  
+                
+                
+                
+                               
+            </div>
+            
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                                        <div class="inner-content" id="footer-logo">
+                        <a href="https://www.hraadvisors.com" title="HR&amp;A">
+                        <!--<img src="http://hraadvisors.pairserver.com/wp-content/uploads/2015/10/logo-retina.png" alt="HR&amp;A" >-->
+                                                                    <img src="https://www.hraadvisors.com/wp-content/uploads/2015/10/logo-retina.png" alt="HR&amp;A">
+                                        </a>
+                    </div>
+            </div>
+                    <!--col-md-offset-4-->
+            <div class="col-md-8">
+            <!-- footer sign up form  -->
+            <div class="col-md-12 subscribe-done" style="display: none;">
+                <h3>Thanks for signing up for our email list. Look out for our insights and updates in your inbox!</h3>
+            </div>    
+            <div class="form-div-container">    
+                <div class="col-md-12 intro-form-desc">
+                    <p>Stay up to date with our insights on the future of city building</p>
+                </div>
+                <div class="col-md-12">
+                    <div class="footer-form">
+                        <div class="row">
+                        <!-- Mailchimp singup form -->
+                        <div id="mc_embed_signup">
+                        <form action="https://hraadvisors.us9.list-manage.com/subscribe/post-json?u=569e6215860c116586a158d8f&amp;id=0f2eb5bc7f&amp;c=?" method="post" class="signup-email-form" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" novalidate="novalidate">
+                        <!-- <div class="indicates-required"><span class="asterisk"></span> indicates required</div> -->
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            
+                                <!-- <label for="mce-FNAME">First Name </label> -->
+                                <input type="text" value="" name="FNAME" required="" class="form-control footer-input" id="mce-FNAME" placeholder="First Name" aria-required="true">
+                           
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            
+                                <!-- <label for="mce-LNAME">Last Name </label> -->
+                                <input type="text" value="" name="LNAME" required="" class="form-control footer-input" id="mce-LNAME" placeholder="Last Name" aria-required="true">
+                            
+                        </div>
+
+                        <div class="col-md-5 col-sm-5 col-xs-10">
+                            
+                                <!-- <label for="mce-EMAIL">Email Address <span class="asterisk"></span>
+                                </label> -->
+                                <input type="email" value="" name="EMAIL" required="" class="required email form-control footer-input" id="mce-EMAIL" placeholder="Email Address" aria-required="true">
+                            
+                        </div>
+                        
+                        
+                        <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_569e6215860c116586a158d8f_0f2eb5bc7f" tabindex="-1" value=""></div>
+                        
+                        <div class="col-md-1 col-sm-1 col-xs-2 submit-col">
+                        <!-- <input type="submit" value="Subscribe" name="subscribe" class="submit-btn" id="mc-embedded-subscribe" class="button"> -->
+                            <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button submit-btn"><i class="fa fa-angle-right"></i></button>
+                        </div>
+
+                        <div class="col-md-12" id="subscribe-result"></div>
+                        </form>
+
+                        </div>
+                        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';fnames[4]='MMERGE4';ftypes[4]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+                        <!-- Mailchimp signup form end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- end of sign up form  -->
+
+                <div class="col-md-6">
+                    <div class="inner-content">
+                        <ul class="footer-menu">
+                            <li id="menu-item-6124" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6124"><a href="https://www.hraadvisors.com/about/">About</a></li>
+<li id="menu-item-8715" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8715"><a href="https://www.hraadvisors.com/contact/">Contact</a></li>
+<li id="menu-item-6125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6125"><a href="https://www.hraadvisors.com/clients/">Clients</a></li>
+<li id="menu-item-6126" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6126"><a href="https://www.hraadvisors.com/portfolio/">Portfolio</a></li>
+<li id="menu-item-4169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4169"><a href="https://www.hraadvisors.com/about/awards-and-recognition/">Awards</a></li>
+<li id="menu-item-6127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6127"><a href="https://www.hraadvisors.com/news/">News</a></li>
+<li id="menu-item-8557" class="no-ajaxy menu-item menu-item-type-post_type menu-item-object-page menu-item-8557"><a href="https://www.hraadvisors.com/career-opportunities/">Careers</a></li>
+<li id="menu-item-5625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5625"><a href="https://www.hraadvisors.com/services/">Services</a></li>
+<li id="menu-item-7929" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7929"><a href="https://www.hraadvisors.com/privacy-policy/">Privacy Policy</a></li>
+    
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="inner-content">
+                        <div class="social-links visible-sm-block visible-md-block visible-lg-block visible-md-block">
+                                        <li class="fa fa-linkedin menu-item menu-item-type-custom menu-item-object-custom menu-item-7109"><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/82288">LinkedIn</a></li>
+<li class="fa fa-twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-7110"><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/hraadvisors">Twitter</a></li>
+<li class="fa fa-facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-7111"><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/hraadvisors/">Facebook</a></li>
+<li class="fa fa-slideshare menu-item menu-item-type-custom menu-item-object-custom menu-item-7112"><a target="_blank" rel="noopener noreferrer" href="http://www.slideshare.net/HRAadvisors">Slide Share</a></li>
+                        </div>
+                        <ul>
+                                        <li>New York</li><li>Los Angeles</li><li>Washington, DC</li><li>Dallas</li><li>Raleigh</li>                                        
+                            
+                        </ul>
+                        <p class="copyright">© 2020 HR&amp;A Advisors. All Rights Reserved</p>
+                        <a class="madeo-copyright" href="http://madeostudio.com/" target="_blank"><p>Website by MADEO</p></a>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- Start Footer Credits -->
+
+</footer>
+    
+
+    
+    <script src = 'scroller.js'></script>
+    <script src = 'sections.js'></script>
+
+</body>
+</html>
