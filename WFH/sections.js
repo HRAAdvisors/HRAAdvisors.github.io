@@ -3,12 +3,12 @@ let salarySizeScale, salaryXScale, categoryColorScale
 let simulation, nodes
 let categoryLegend, salaryLegend
 
-const categories = ['Job can be conducted virtually','Job can be made virtual with institutional investments and planning','Cannot work remotely','Job likely to be automated']
+const categories = ['Job can be conducted virtually','Job can be made virtual with institutional investments and planning','Cannot work remotely, non-essential','Cannot work remotely, essential']
 
 const categoriesXY = {'Job can be conducted virtually': [200, 400, 42745, 31.2],
                         'Job can be made virtual with institutional investments and planning': [200, 600, 36900, 40.5],
-                        'Cannot work remotely': [200, 800, 36342, 35.0],
-                        'Job likely to be automated': [200, 200, 33062, 60.4],
+                        'Cannot work remotely, non-essential': [200, 800, 36342, 35.0],
+                        'Cannot work remotely, essential': [200, 200, 33062, 60.4],
                         }
 
 const margin = {left: 170, top: 50, bottom: 50, right: 20}
@@ -19,7 +19,7 @@ const height = 950 - margin.top - margin.bottom
 //Create the initial visualisation
 
 
-d3.csv('data/recent-grads.csv', function(d){
+d3.csv('data/occupations.csv', function(d){
     return {
         Major: d.Major,
         Total: +d.Total,
