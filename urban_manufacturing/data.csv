@@ -1,9 +1,9 @@
 id,name,type,city,founded,sf,rent,rentpsf,notes,loc
-1,Modern Meadow,<b>Advanced</b> Manufacturing,"Nutley, NJ",2011,73000,729000,10,"Creator of “animal-free” leather. Founded in Brooklyn and expanded to Nutley, New Jersey, but still maintains R&D in Brooklyn.",NJ
+1,Modern Meadow,Advanced Manufacturing,"Nutley, NJ",2011,73000,729000,10,"Creator of “animal-free” leather. Founded in Brooklyn and expanded to Nutley, New Jersey, but still maintains R&D in Brooklyn.",NJ
 9,Voodoo Manufacturing,Advanced Manufacturing,"Brooklyn, NY",2015,2000,56000,28,"3D printing, prototyping, and design services firm located in Brooklyn, NY.",NYC
 3,The Bronx Brewery,Food & Beverage,"Bronx, NY",2011,10000,190000,19,"Small craft beer brewery with a taproom, game room, and outdoor seating area located in The Bronx, NY.",NYC
 4,"B&G Foods",Food & Beverage,"Woodcliff, NJ",1996,120000,1320000,11,"Manufacturer and distributor of shelf and frozen foods located in Woodcliff, NJ.",NJ
-5,Stylex,Architecture <br>& Interiors,"Delanco, NJ",1956,131000,919800,7,"Manufacturer of stock office furniture located in Delanco, NJ.",NJ
+5,Stylex,Architecture & Interiors,"Delanco, NJ",1956,131000,919800,7,"Manufacturer of stock office furniture located in Delanco, NJ.",NJ
 6,Caliper Studio,Architecture & Interiors,"Brooklyn, NY",2003,17000,273600,16,"Combined architectural design and custom fabrication studio located in Brooklyn, NY.",NYC
 7,"Justin Paul",Fashion & Apparel,"Brooklyn, NY",1989,5000,110000,22,"Luxury handbag manufacturer located in Brooklyn, NY.",NYC
 8,Unionwear,Fashion & Apparel,"Newark, NJ",1992,70000,910000,13,"Manufacturer of hats, bags, and knits with custom embroidering located in Newark, NY.",NJ
