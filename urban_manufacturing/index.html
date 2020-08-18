@@ -28,7 +28,7 @@
   
 .item6 { grid-area: info;
   	
-  width: 275px;
+  width: 200px;
   line-height: 1.750em;
   padding:10px;
   padding-bottom:0px;
@@ -124,7 +124,7 @@ background-color: #d8d8d8;
 
 var tool_tip = d3.tip()
   .attr('class', 'd3-tip')
-  .offset(function(d){if(d.sf >= 60000){return [-6, -170]}else{return [180, 240]}}
+  .offset(function(d){if(d.sf >= 60000){return [-6, -150]}else{return [180, 240]}}
     )
   .html(function(d) {
     return "<div class='grid-container'><div class='item5'><img src =http://hraadvisors.imgix.net/" + d.id + ".jpg?w=150&h=150&dpr=1&fit=crop&crop=focalpoint&fm=pjpg&q=100> </div><div class='item6'><b><p style='line-height:1.2em'>" + d.name +"</b> (" + d.type + ")<p style='line-height:10em'></p>" + d.notes + "</p></div><div class='item7'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>"+d3.format(",.0f")(d.sf) + " SF space</span></div><div class='item8'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>$" + d3.format(",.0f")(d.rentpsf) +"/SF rent</span></div></div>"
