@@ -228,7 +228,7 @@ if (error) throw error;
       .data(rows)
       .enter()
       .append("text")
-  			.text(function(d){ return d.type})
+  			.html(function(d){ return d.type})
         .attr("x", function(d){ return x(d.sf) + 15 })
         .attr("y", function(d){ return y(d.rentpsf) + 15 })
         .attr("class", "sublabel")
