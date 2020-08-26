@@ -22,13 +22,13 @@
 .item3 { grid-area: title;
   text-align: center;}
 .item5 { grid-area: content;
-  	height: 150px;
+    height: 150px;
   width: 150px;
   padding:10px}
   
 .item6 { grid-area: info;
-  	
-  width: 275px;
+    
+  width: 200px;
   line-height: 1.750em;
   padding:10px;
   padding-bottom:0px;
@@ -36,8 +36,8 @@
   }
   
 .item7 { grid-area: info2;
-  	
-  width: 125px;
+    
+  width: 100px;
   line-height: 1.750em;
   padding-left:10px;
   color:white;
@@ -47,8 +47,8 @@
   }
   
 .item8 { grid-area: info3;
-  	
-  width: 150px;
+    
+  width: 100px;
    line-height: 1.750em;
   color:white;
   font-weight:800;
@@ -124,17 +124,17 @@ background-color: #d8d8d8;
 
 var tool_tip = d3.tip()
   .attr('class', 'd3-tip')
-  .offset(function(d){if(d.sf >= 80000){return [180, -240]}else{return [180, 240]}}
+  .offset(function(d){if(d.sf >= 80000){return [-6, -150]}if(d.sf >= 60000){return [-6, -100]}else{return [180, 210]}}
     )
   .html(function(d) {
-    return "<div class='grid-container'><div class='item5'><img src =http://hraadvisors.imgix.net/" + d.id + ".jpg?w=150&h=150&dpr=1&fit=crop&crop=focalpoint&fm=pjpg&q=100> </div><div class='item6'><b><p style='line-height:1.2em'>" + d.name +"</b> (" + d.type + ")<p style='line-height:10em'></p>" + d.notes + "</p></div><div class='item7'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>"+d3.format(",.0f")(d.sf) + " SF space</span></div><div class='item8'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>$" + d3.format(",.0f")(d.rentpsf) +"/SF rent</span></div></div>"
+    return "<div class='grid-container'><div class='item5'><img src =http://hraadvisors.imgix.net/" + d.id + ".jpg?w=150&h=150&dpr=1&fit=crop&crop=focalpoint&fm=pjpg&q=100> </div><div class='item6'><b><p style='line-height:1.2em'>" + d.name +"</b> (" + d.type + ")<p style='line-height:10em'></p>" + d.notes + "</p></div><div class='item7'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>"+(d.sf/1000) + "K SF space</span></div><div class='item8'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>$" + d3.format(",.0f")(d.rentpsf) +"/SF rent</span></div></div>"
   });
 
   //〈〉
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 110, bottom: 30, left: 60},
-    width = 811 - margin.left - margin.right,
-    height = 550 - margin.top - margin.bottom;
+var margin = {top: 10, right: 170, bottom: 30, left: 60},
+    width = 700 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -157,13 +157,13 @@ const colors = {'NJ': ['#F48C06'],
     .domain([0, 140000])
     .range([ 0, width ]);
   svg.append("g")
-  	.attr("class","axis")
-  	
+    .attr("class","axis")
+    
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
           .ticks(5)
           .tickSize(6)
-         	.tickFormat(function(tickVal) {
+          .tickFormat(function(tickVal) {
         return tickVal >= 1000 ? tickVal/1000 + "K SF" : tickVal;
     }));
 
@@ -173,10 +173,10 @@ const colors = {'NJ': ['#F48C06'],
     .domain([0, 30])
     .range([ height, 70]);
   svg.append("g")
-  	.attr("class","axis")
+    .attr("class","axis")
     .call(d3.axisLeft(y)
           .ticks(5)
-         	.tickFormat(function(d) { return "$" + d3.format(",.0f")(d); }));
+          .tickFormat(function(d) { return "$" + d3.format(",.0f")(d); }));
 
 
 d3.csv("https://docs.google.com/spreadsheets/d/1QkW8NJyBA4_1dZS_vrcRndGbTVrucxw4GgTC5Os88X8/gviz/tq?tqx=out:csv", function(d){
@@ -215,72 +215,72 @@ if (error) throw error;
       .data(rows)
       .enter()
       .append("text")
-  			.text(function(d){ return d.name})
+        .text(function(d){ return d.name})
         .attr("x", function(d){ return x(d.sf) + 15 })
         .attr("y", function(d){ return y(d.rentpsf) })
         .attr("class", "label")
-  			.attr("font-weight", 800)
-  			.attr('font-size',12)
-  			.attr("font-family", "Open Sans")
+        .attr("font-weight", 800)
+        .attr('font-size',12)
+        .attr("font-family", "Open Sans")
   
   var sublabels = svg
       .selectAll("Sublabels")
       .data(rows)
       .enter()
       .append("text")
-  			.text(function(d){ return d.type})
+        .html(function(d){ return d.type})
         .attr("x", function(d){ return x(d.sf) + 15 })
         .attr("y", function(d){ return y(d.rentpsf) + 15 })
         .attr("class", "sublabel")
-  			.attr("font-weight", 400)
-  			.attr('font-size',12)
-  			.attr("font-family", "Open Sans")
+        .attr("font-weight", 400)
+        .attr('font-size',12)
+        .attr("font-family", "Open Sans")
   
   var nyc = svg
       .append("text")
-  			.text('New York City Manufacturers')
-        .attr("x", x(30000))
+        .text('New York City Manufacturers')
+        .attr("x", x(32000))
         .attr("y", y(11))
         .attr("class", "city")
-  			.attr("font-weight", 800)
-  			.attr('font-size',16)
-  			.attr("font-family", "Open Sans")
-  			.style('fill',colors['NYC'])
-  			.attr('text-anchor','middle')
+        .attr("font-weight", 800)
+        .attr('font-size',14)
+        .attr("font-family", "Open Sans")
+        .style('fill',colors['NYC'])
+        .attr('text-anchor','middle')
   
   var nj = svg
       .append("text")
-  			.text('Inner New Jersey Manufacturers')
+        .text('Inner New Jersey Manufacturers')
         .attr("x", x(110000))
         .attr("y", y(16))
         .attr("class", "city")
-  			.attr("font-weight", 800)
-  			.attr('font-size',16)
-  			.attr("font-family", "Open Sans")
-  			.style('fill',colors['NJ'])
-  			.attr('text-anchor','middle')
+        .attr("font-weight", 800)
+        .attr('font-size',14)
+        .attr("font-family", "Open Sans")
+        .style('fill',colors['NJ'])
+        .attr('text-anchor','middle')
   
   var title = svg
       .append("text")
-  			.text("New York City and Inner New Jersey Manufacturers,")
+        .text("New York City and Inner New Jersey Manufacturers,")
         .attr("x", x(70000))
         .attr("y", 10)
         .attr("class", "title")
-  			.attr("font-weight", 800)
-  			.attr('font-size',16)
-  			.attr("font-family", "Open Sans")
-  			.attr('text-anchor','middle')
+        .attr("font-weight", 800)
+        .attr('font-size',16)
+        .attr("font-family", "Open Sans")
+        .attr('text-anchor','middle')
   
    var title = svg
       .append("text")
-  			.text("Rent ($/SF) and Space Size (SF)")
+        .text("Rent ($/SF) and Space Size (SF)")
         .attr("x", x(70000))
         .attr("y", 30)
         .attr("class", "title")
-  			.attr("font-weight", 400)
-  			.attr('font-size',16)
-  			.attr("font-family", "Open Sans")
-  			.attr('text-anchor','middle')
+        .attr("font-weight", 400)
+        .attr('font-size',16)
+        .attr("font-family", "Open Sans")
+        .attr('text-anchor','middle')
         
   
 
@@ -313,7 +313,7 @@ if (error) throw error;
       d3.selectAll(".city").attr('opacity',.3)
      
      
-    	tool_tip.show(d);
+      tool_tip.show(d);
     var tipSVG = d3.select("#tipDiv")
       .append("svg")
       .attr("width", 100)
