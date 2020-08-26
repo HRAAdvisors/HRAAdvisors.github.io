@@ -127,7 +127,7 @@ var tool_tip = d3.tip()
   .offset(function(d){if(d.sf >= 80000){return [-6, -150]}if(d.sf >= 60000){return [-6, -100]}else{return [180, 210]}}
     )
   .html(function(d) {
-    return "<div class='grid-container'><div class='item5'><img src =" + d.id + "> </div><div class='item6'><b><p style='line-height:1.2em'>" + d.name +"</b> (" + d.type + ")<p style='line-height:10em'></p>" + d.notes + "</p></div><div class='item7'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>"+(d.sf/1000) + "K SF space</span></div><div class='item8'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>$" + d3.format(",.0f")(d.rentpsf) +"/SF rent</span></div></div>"
+    return "<div class='grid-container'><div class='item5'><img src =" + d.id + "> </div><div class='item6'><b><p style='line-height:1.2em'>" + d.name +"</b> (" + d.type + ")<p style='line-height:10em'></p>" + d.notes + "</p></div><div class='item7'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>"+ d3.format(",.0f")(d.sf) + "SF</span></div><div class='item8'><span style='background-color:#A7A7A7; border:solid; border-width:1px; padding:5px'>$" + d3.format(",.0f")(d.rentpsf) +"/SF rent</span></div></div>"
   });
 
   //〈〉
