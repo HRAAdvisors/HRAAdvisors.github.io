@@ -1,27 +1,8 @@
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
 <!--  Last Published: Thu Feb 04 2021 15:16:17 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="601c049ad82b2e1c184dbcae" data-wf-site="601c049a7d7f2b0e4f241841">
-<script src="js/countUp.withPolyfill.min" type="text/javascript"></script>
-
-
-<script>
-	const easingFn = function (t, b, c, d) {
-  var ts = (t /= d) * t;
-  var tc = ts * t;
-  return b + c * (tc * ts + -5 * ts * ts + 10 * tc + -10 * ts + 5 * t);
-  }
-const options = {
-  easingFn,
-  suffix: ' SF',
-};
-let demo = new CountUp('myTargetElement', 22931912, options);
-if (!demo.error) {
-  demo.start();
-} else {
-  console.error(demo.error);
-}
-</script>
 <head>
+	<script src="js/jquery-3.5.1.js"></script>
   <meta charset="utf-8">
   <title>Miami DDA Office Market Report</title>
   <meta content="Miami DDA Office MArket Report" property="og:title">
@@ -87,11 +68,50 @@ if (!demo.error) {
           <div id="w-node-76c147234d41-184dbcae">
             <div class="home-section-wrap">
               <div class="label cc-light">The growing buzz</div>
-              <p class="paragraph-light">As COVID has upended traditional ideas of thr workplace and industries become less tied to specific geographies, many have been looking to relocate to areas with a higher quality of life and lower regulatory environment.....</p>
+              <p class="paragraph-light">As COVID has upended traditional ideas of the workplace and industries become less tied to specific geographies, many have been looking to relocate to areas with a higher quality of life and lower regulatory environment.....</p>
             </div>
           </div>
           <div class="w-container">
-            <div><h1 class="jumbo" id="myTargetElement">0</h1></div>
+ 
+<div class="counter" style='display: table-cell;
+  margin:1.5%;
+  font-size:50px;
+  background-color: #FFFFFF;
+  width:250px;
+  border-radius: 50%;
+  height:250px;
+  vertical-align: middle;
+  color:#EB529D;
+  max-width:1000px;
+  margin: 100px auto 0;
+  text-align: center;'data-count="1000000">0</div>
+
+  <script>
+            $('.counter').each(function() {
+  var $this = $(this),
+      countTo = $this.attr('data-count');
+  
+  $({ countNum: $this.text()}).animate({
+    countNum: countTo
+  },
+
+  {
+
+    duration: 1000,
+    easing:'swing',
+    step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+    complete: function() {
+      $this.text(this.countNum);
+      //alert('finished');
+    }
+
+  });  
+  
+  
+
+});</script>
           </div>
         </div>
       </div>
