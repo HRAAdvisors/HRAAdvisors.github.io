@@ -1171,7 +1171,8 @@ figcaption {
   margin-left: 0px;
   padding-top: 20px;
   padding-bottom: 40px;
-  padding-left: 40px;
+  padding-left: 60px;
+  padding-right: 60px;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
