@@ -29,18 +29,15 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
     <div id='menu' class='mobilehide'>
-        <div id='classabutton' class='on bordertop'><img src="images/classa.svg" height="20px" width="20px" style="vertical-align:middle"></img> Class A Offices (>50K SF)</div>
-        <div id='otherbutton' class='on'><img src="images/other.svg" height="20px" width="20px" style="vertical-align:middle"></img> Non-Class A Offices (>50K SF)</div>
-        <div id='condobutton' class='on'><img src="images/condo.svg" height="20px" width="20px" style="vertical-align:middle"></img> Condominium Properties</div>
-        <div id='rentalbutton' class='on'><img src="images/rental.svg" height="20px" width="20px" style="vertical-align:middle"></img> Rental Apartment Properties</div>
-        <div id='hotelbutton' class='on'><img src="images/hotel.svg" height="20px" width="20px" style="vertical-align:middle"></img> Hotels</div>
-        <div id='shoppingbutton' class='on'><img src="images/shopping.svg" height="20px" width="20px" style="vertical-align:middle"></img> Shopping Centers</div>
+        <div id='classabutton' class='on bordertop'>Office</div>
+        <div id='otherbutton' class='on'>Residential</div>
+        <div id='condobutton' class='on'>Transit</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
     <div id="map"></div>
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoibWRkYWNhcnRpZmFjdCIsImEiOiJja2VkYWh4NXgwMXc2MnFwcTd6NHIxZDV4In0.ErKeTGrDA41f5U-RBgvBpQ';
+        mapboxgl.accessToken = 'pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb3NqY3JmIn0._sGjIhmL5Xt08WIMWRsSsg';
         var bounds = [
 [-80.24975, 25.73521]
 , [-80.13341, 25.83169]
@@ -49,7 +46,7 @@
         const r = 255 * 0.65;
         var map = new mapboxgl.Map({
             container: 'map'
-            , style: 'mapbox://styles/mddacartifact/ckedanrsi0cqo19o8uom16pza'
+            , style: 'mapbox://styles/kpclyne/ckkwqzk693gwz17phu8n7d3kr'
             , center: [-80.19393, 25.77054]
             , zoom: 14.1
             , pitch: 47
@@ -68,14 +65,14 @@
             classatoggle.addEventListener('click', function () {
                 if (classatoggle.className === 'on bordertop') {
                     classatoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('classa', 'visibility', 'none');
-                    map.setLayoutProperty('classa', 'visibility', 'none');
+                    map.setLayoutProperty('office', 'visibility', 'none');
+                    map.setLayoutProperty('office', 'visibility', 'none');
                     classatoggle.className = 'off bordertop';
                 }
                 else {
                     classatoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('classa', 'visibility', 'visible');
-                    map.setLayoutProperty('classa', 'visibility', 'visible');
+                    map.setLayoutProperty('office', 'visibility', 'visible');
+                    map.setLayoutProperty('office', 'visibility', 'visible');
                     classatoggle.className = 'on bordertop';
                 }
             });
@@ -85,14 +82,14 @@
             othertoggle.addEventListener('click', function () {
                 if (othertoggle.className === 'on') {
                     othertoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('other', 'visibility', 'none');
-                    map.setLayoutProperty('other', 'visibility', 'none');
+                    map.setLayoutProperty('resi', 'visibility', 'none');
+                    map.setLayoutProperty('resi', 'visibility', 'none');
                     othertoggle.className = 'off';
                 }
                 else {
                     othertoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('other', 'visibility', 'visible');
-                    map.setLayoutProperty('other', 'visibility', 'visible');
+                    map.setLayoutProperty('resi', 'visibility', 'visible');
+                    map.setLayoutProperty('resi', 'visibility', 'visible');
                     othertoggle.className = 'on';
                 }
             });
@@ -102,100 +99,52 @@
             condotoggle.addEventListener('click', function () {
                 if (condotoggle.className === 'on') {
                     condotoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('condo', 'visibility', 'none');
-                    map.setLayoutProperty('condo', 'visibility', 'none');
+                    map.setLayoutProperty('metrorail', 'visibility', 'none');
+                    map.setLayoutProperty('metrorail', 'visibility', 'none');
                     condotoggle.className = 'off';
                 }
                 else {
                     condotoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('condo', 'visibility', 'visible');
-                    map.setLayoutProperty('condo', 'visibility', 'visible');
+                    map.setLayoutProperty('metrorail', 'visibility', 'visible');
+                    map.setLayoutProperty('metrorail', 'visibility', 'visible');
                     condotoggle.className = 'on';
                 }
             });
         });
-        map.on('load', function () {
-            var rentaltoggle = document.getElementById('rentalbutton');
-            rentaltoggle.addEventListener('click', function () {
-                if (rentaltoggle.className === 'on') {
-                    rentaltoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('rental', 'visibility', 'none');
-                    map.setLayoutProperty('rental', 'visibility', 'none');
-                    rentaltoggle.className = 'off';
-                }
-                else {
-                    rentaltoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('rental', 'visibility', 'visible');
-                    map.setLayoutProperty('rental', 'visibility', 'visible');
-                    rentaltoggle.className = 'on';
-                }
-            });
-        });
-        map.on('load', function () {
-            var hoteltoggle = document.getElementById('hotelbutton');
-            hoteltoggle.addEventListener('click', function () {
-                if (hoteltoggle.className === 'on') {
-                    hoteltoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('hotels', 'visibility', 'none');
-                    map.setLayoutProperty('hotels', 'visibility', 'none');
-                    hoteltoggle.className = 'off';
-                }
-                else {
-                    hoteltoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('hotels', 'visibility', 'visible');
-                    map.setLayoutProperty('hotels', 'visibility', 'visible');
-                    hoteltoggle.className = 'on';
-                }
-            });
-        });
-        map.on('load', function () {
-            var shoppingtoggle = document.getElementById('shoppingbutton');
-            shoppingtoggle.addEventListener('click', function () {
-                if (shoppingtoggle.className === 'on') {
-                    shoppingtoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('shopping', 'visibility', 'none');
-                    map.setLayoutProperty('shopping', 'visibility', 'none');
-                    shoppingtoggle.className = 'off';
-                }
-                else {
-                    shoppingtoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('shopping', 'visibility', 'visible');
-                    map.setLayoutProperty('shopping', 'visibility', 'visible');
-                    shoppingtoggle.className = 'on';
-                }
-            });
-        });
+
+
+       
         // callouts on click
         map.on('load', function () {
-            map.on('click', 'classa', function (e) {
-                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.name + '</div><div style = "padding-top:5px;"> Stories: <b>' + e.features[0].properties.stories + '</b></div><div> Square Feet: <b>' + e.features[0].properties.sf + '</b></div><div> Leasing Firm: <b>' + e.features[0].properties.leasing + '</b></div><div> Contact: <b>' + e.features[0].properties.contact + '</b></div><div> Phone: <b>' + e.features[0].properties.phone + '</b></div><div> Email: <b>' + e.features[0].properties.email + '</b></div>').setMaxWidth("700px").addTo(map);
+            map.on('click', 'office', function (e) {
+                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.name + '</div><!--<div style = "padding-top:5px;"> Type: <b>' + e.features[0].properties.type + '</b></div>-->').setMaxWidth("700px").addTo(map);
             });
-            map.on('mouseenter', 'classa', function () {
+            map.on('mouseenter', 'office', function () {
                 map.getCanvas().style.cursor = 'pointer';
             });
-            map.on('mouseleave', 'classa', function () {
+            map.on('mouseleave', 'office', function () {
                 map.getCanvas().style.cursor = '';
             });
         });
         map.on('load', function () {
-            map.on('click', 'other', function (e) {
-                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.name + '</div><div style = "padding-top:5px;"> Stories: <b>' + e.features[0].properties.stories + '</b></div><div> Square Feet: <b>' + e.features[0].properties.sf + '</b></div><div> Leasing Firm: <b>' + e.features[0].properties.leasing + '</b></div><div> Contact: <b>' + e.features[0].properties.contact + '</b></div><div> Phone: <b>' + e.features[0].properties.phone + '</b></div><div> Email: <b>' + e.features[0].properties.email + '</b></div>').setMaxWidth("700px").addTo(map);
+            map.on('click', 'resi', function (e) {
+                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.name + '</div>').setMaxWidth("700px").addTo(map);
             });
-            map.on('mouseenter', 'other', function () {
+            map.on('mouseenter', 'resi', function () {
                 map.getCanvas().style.cursor = 'pointer';
             });
-            map.on('mouseleave', 'other', function () {
+            map.on('mouseleave', 'resi', function () {
                 map.getCanvas().style.cursor = '';
             });
         });
         map.on('load', function () {
-            map.on('click', 'condo', function (e) {
+            map.on('click', 'metro', function (e) {
                 new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.Name + '</div><div style = "padding-top:5px;"> Stories: <b>' + e.features[0].properties.stories + '</b></div><div> Units: <b>' + e.features[0].properties.units + '</b></div><div> Property Mgmt Co: <b>' + e.features[0].properties.info + '</b></div>').setMaxWidth("700px").addTo(map);
             });
-            map.on('mouseenter', 'condo', function () {
+            map.on('mouseenter', 'metro', function () {
                 map.getCanvas().style.cursor = 'pointer';
             });
-            map.on('mouseleave', 'condo', function () {
+            map.on('mouseleave', 'metro', function () {
                 map.getCanvas().style.cursor = '';
             });
         });
@@ -256,7 +205,7 @@
     window.addEventListener('mousemove', function(e) {
         e.point = new mapboxgl.Point(e.clientX, e.clientY);
         console.time('query');
-        const features = map.queryRenderedFeatures(e.point, {layers: ['classa']});
+        const features = map.queryRenderedFeatures(e.point, {layers: ['office']});
         console.timeEnd('query');
 
         for (const feature of hovered) {
