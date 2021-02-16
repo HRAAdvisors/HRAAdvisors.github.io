@@ -1,41 +1,100 @@
 naics,category
-446,Dry Retail
-443,Dry Retail
-448,Dry Retail
-444,Dry Retail
-447,Dry Retail
-441,Dry Retail
+111,Industrial
+112,Industrial
+113,Industrial
+114,Industrial
+115,Industrial
+211,Industrial
+212,Industrial
+213,Industrial
+221,Services
+236,Industrial
+237,Industrial
+238,Services
+311,Grocery
+312,Industrial
+313,Industrial
+314,Industrial
+315,Industrial
+316,Industrial
+321,Industrial
+322,Industrial
+323,Services
+324,Industrial
+325,Industrial
+326,Industrial
+327,Industrial
+331,Industrial
+332,Industrial
+333,Industrial
+334,Industrial
+335,Industrial
+336,Industrial
+337,Industrial
+339,Services
+423,Dry Retail
+424,Services
+425,Dry Retail
+441,Auto
 442,Dry Retail
+443,Dry Retail
+444,Dry Retail
+445,Grocery
+446,Dry Retail
+447,Auto
+448,Dry Retail
 451,Dry Retail
 452,Dry Retail
 453,Dry Retail
-445,Grocery
-311,Grocery
-722,Food and Beverage
-522,Banks
-812,Services
-621,Services
-524,Services
-523,Services
-813,Services
-711,Services
-491,Services
-517,Services
-713,Services
-624,Services
-611,Services
-811,Services
-541,Services
-323,Services
-238,Services
-531,Services
-623,Services
-712,Services
-532,Services
-424,Services
-339,Services
-926,Services
+454,Industrial
+481,Services
 482,Services
-221,Services
+483,Services
+484,Services
+485,Services
+486,Industrial
+487,Services
+488,Services
+491,Services
+492,Services
+493,Industrial
+511,Industrial
+512,Industrial
+515,Industrial
+517,Services
+518,Industrial
+519,Office
+521,Civic
+522,Banks
+523,Office
+524,Office
+525,Office
+531,Services
+532,Services
+533,Office
+541,Office
+551,Office
+561,Office
 562,Services
-721,Services
+611,"Education, Healthcare, Social Assistance"
+621,"Education, Healthcare, Social Assistance"
+622,"Education, Healthcare, Social Assistance"
+623,"Education, Healthcare, Social Assistance"
+624,"Education, Healthcare, Social Assistance"
+711,"Arts, Entertainment, Recreation"
+712,"Arts, Entertainment, Recreation"
+713,"Arts, Entertainment, Recreation"
+721,Accommodation
+722,Food and Beverage
+811,Services
+812,Services
+813,Services
+814,Services
+921,Civic
+922,Civic
+923,Civic
+924,Civic
+925,Civic
+926,Civic
+927,Industrial
+928,Civic
