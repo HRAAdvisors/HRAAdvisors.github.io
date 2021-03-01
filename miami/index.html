@@ -1,5 +1,5 @@
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Fri Feb 26 2021 06:13:25 GMT+0000 (Coordinated Universal Time)  -->
+<!--  Last Published: Mon Mar 01 2021 10:51:36 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="601c049ad82b2e1c184dbcae" data-wf-site="601c049a7d7f2b0e4f241841">
 <head>
   <meta charset="utf-8">
@@ -20,25 +20,27 @@
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
 
-  <!--script src="js/interactive.js"></script> -->
-  <script src="https://d3js.org/d3.v4.js"></script>
-  <script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
-  <script src="https://d3js.org/d3-array.v1.min.js"></script>
-  <script src="https://d3js.org/d3-format.v2.min.js"></script>
-  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
-  <script src="https://clynekp.github.io/d3-tip.min.js"></script>
-  <script src="https://d3js.org/d3-scale.v3.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
-  <link href='css/mapboxoverride.css' rel='stylesheet' />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-  <link href='css/dda.css' rel='stylesheet' />
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+    <script src="https://d3js.org/d3-format.v2.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+    <script src="https://clynekp.github.io/d3-tip.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <link href='css/mapboxoverride.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href='css/dda.css' rel='stylesheet' />
 
 </head>
 <body>
@@ -72,272 +74,269 @@
         <div class="heading-jumbo-small">At the close of 2020, office markets across the country continued to feel the impact of the COVID-19 pandemic. The full effects of the pandemic might not be realized for some time to come; however, early indicators suggest resilience in the Downtown Miami Market.<br></div>
       </div>
       <div class="divider"></div>
-      <div class="home-content-wrap w-clearfix">
-        <div class="columns w-row">
-          <div class="column w-col w-col-2 w-col-stack w-col-small-small-stack">
-            <div class="div-block">
-              <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navbar-2 w-nav">
-                <div class="container-4 w-container">
-                  <nav role="navigation" class="nav-menu-2 w-nav-menu">
-                    <a href="#Office-Market" class="nav-link-2 w-nav-link">OFFICE MARKET</a>
-                    <a href="#Employment" class="nav-link-3 w-nav-link">EMPLOYMENT</a>
-                    <a href="#Return-to-Work" class="nav-link-4 w-nav-link">RETURN TO WORK</a>
-                    <a href="#District-Profiles" class="nav-link-5 w-nav-link">DISTRICT PROFILES</a>
-                  </nav>
-                  <div class="menu-button-2 w-nav-button">
-                    <div class="w-icon-nav-menu"></div>
+      <div class="home-content-wrap">
+        <div class="div-block">
+          <div data-collapse="small" data-animation="default" data-duration="400" role="banner" class="navbar-2 w-nav">
+            <div class="container-13 w-container">
+              <nav role="navigation" class="nav-menu-2 w-nav-menu">
+                <a href="#Office-Market" class="nav-link-3-copy w-nav-link">OFFICE MARKET</a>
+                <div class="div-block-27"></div>
+                <a href="#Employment" class="nav-link-3 w-nav-link">TALENT</a>
+                <div class="div-block-27"></div>
+                <a href="#District-Profiles" class="nav-link-5 w-nav-link">DISTRICT PROFILES</a>
+              </nav>
+              <div class="menu-button-3 w-nav-button">
+                <div class="w-icon-nav-menu"></div>
+              </div>
+            </div>
+          </div>
+          <div class="div-block-26"></div>
+        </div>
+        <div id="Office-Market" class="section-5">
+          <div class="section-heading w-container">
+            <div class="icon"><img src="images/Office-Market.png" loading="lazy" width="75" alt=""></div>
+            <h2 class="heading-2">KEY MARKET STATISTICS</h2>
+            <p class="paragraph-4">While the number of lease deals remains below 2019 totals, recent direct lease rates have remained on par with  pre-COVID figures. There was a slight increase in direct and sublease vacancy, however the scale is far more limited than in major markets such as SF, NY, LA, and Boston. Florida’s business friendly environment has spurred major interest in corporate relocations.</p>
+            <div class="div-block-29">
+              <div class="div-block-25">
+                <a href="#" class="button button-17 w-button"><strong class="bold-text-7" id="All">All office classes</strong></a>
+                <a href="#" class="button button-14 w-button"><strong class="bold-text-8" id="ClassA" >CLASS A</strong></a>
+                <a href="#" class="button button-15 w-button"><strong class="bold-text" id="ClassB">CLASS B</strong></a>
+                <a href="#" class="button button-16 w-button"><strong class="bold-text-9" id="ClassC">CLASS C</strong></a>
+              </div>
+              <div class="div-block-28">
+                <div class="div-block-21">
+                  <div class="columns-5 w-row">
+                    <div class="column-9 w-col w-col-3"><img src="images/REnt.png" loading="lazy" width="80" alt="" class="image-2"></div>
+                    <div class="column-10 w-col w-col-9">
+                      <div><strong class="bold-text-2">Market Rent per SF (GROSS)</strong></div>
+                      <div id="KeyRent" class="KeyMarket"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="div-block-21">
+                  <div class="columns-5 w-row">
+                    <div class="w-col w-col-3"><img src="images/Vacancy.png" loading="lazy" width="178" alt="" class="image-2"></div>
+                    <div class="column-8 w-col w-col-9">
+                      <div><strong class="bold-text-3">Vacancy rate</strong></div>
+                      <div id="KeyVacancy" class="KeyMarket"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="div-block-21">
+                  <div class="columns-5 w-row">
+                    <div class="w-col w-col-3"><img src="images/Absorption.png" loading="lazy" width="80" alt="" class="image-3"></div>
+                    <div class="w-col w-col-9">
+                      <div><strong class="bold-text-4">net absorption</strong></div>
+                      <div id="KeyAbsorbtion" class="KeyMarket"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="div-block-28-copy">
+                <div class="div-block-21">
+                  <div class="columns-5 w-row">
+                    <div class="w-col w-col-3"><img src="images/Inventory.png" loading="lazy" width="80" alt="" class="image"></div>
+                    <div class="w-col w-col-9">
+                      <div><strong class="bold-text-2">INVENTORY</strong></div>
+                      <div id="KeyInventory" class="KeyMarket"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="div-block-21">
+                  <div class="columns-5 w-row">
+                    <div class="w-col w-col-3"><img src="images/Construction.png" loading="lazy" width="178" alt="" class="image-2"></div>
+                    <div class="w-col w-col-9">
+                      <div><strong class="bold-text-3">UNDER CONSTRUCTION</strong></div>
+                      <div id="KeyUC" class="KeyMarket"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="column-4 w-col w-col-10 w-col-stack w-col-small-small-stack">
-            <div id="Office-Market" class="section-5">
-              <div class="section-heading w-container">
-                <div class="icon"><img src="images/Office-Market.png" loading="lazy" width="75" alt=""></div>
-                <h2 class="heading-2">KEY MARKET STATISTICS</h2>
-                <p class="paragraph-4">While the number of lease deals remains below 2019 totals, recent direct lease rates have remained on par with  pre-COVID figures. There was a slight increase in direct and sublease vacancy, however the scale is far more limited than in major markets such as SF, NY, LA, and Boston. Florida’s business friendly environment has spurred major interest in corporate relocations.</p>
-                <div>
-                  <div class="div-block-25">
-                    <a href="#" class="button button-17 w-button" id="All"><strong>All office classes</strong></a>
-                    <a href="#" class="button button-14 w-button" id="ClassA"><strong>CLASS A</strong></a>
-                    <a href="#" class="button button-15 w-button" id="ClassB"><strong class="bold-text">CLASS B</strong></a>
-                    <a href="#" class="button button-16 w-button" id="ClassC"><strong>CLASS C</strong></a>
-                  </div>
-                  <div class="div-block-20">
-                    <div class="div-block-21">
-                      <div><img src="images/Office-Market.png" loading="lazy" width="129" alt=""></div>
-                      <div class="div-block-22">
-                        <div><strong>Market Rent per SF (GROSS)</strong></div>
-                        <div id="KeyRent" class="KeyMarket"></div>
-                      </div>
-                    </div>
-                    <div class="div-block-21">
-                      <div><img src="images/Office-Market.png" loading="lazy" width="129" alt=""></div>
-                      <div class="div-block-22">
-                        <div><strong>Vacancy rate</strong></div>
-                        <div id="KeyVacancy" class="KeyMarket"></div>
-                      </div>
-                    </div>
-                    <div class="div-block-21">
-                      <div><img src="images/Office-Market.png" loading="lazy" width="129" alt=""></div>
-                      <div class="div-block-22">
-                        <div><strong>net absorption</strong></div>
-                        <div id="KeyAbsorbtion" class="KeyMarket"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="div-block-23">
-                    <div class="div-block-21">
-                      <div><img src="images/Office-Market.png" loading="lazy" width="129" alt=""></div>
-                      <div class="div-block-22">
-                        <div><strong>inventory</strong></div>
-                        <div id="KeyInventory" class="KeyMarket"></div>
-                      </div>
-                    </div>
-                    <div class="div-block-21">
-                      <div><img src="images/Office-Market.png" loading="lazy" width="129" alt=""></div>
-                      <div class="div-block-22">
-                        <div><strong>under construction</strong></div>
-                        <div id="KeyUC" class="KeyMarket"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="container-5 w-container">
-                <div class="div-block-14">
-                  <h1 class="heading-3">Who&#x27;s Here?</h1>
-                  <p class="paragraph-2">Downtown Miami’s diverse economy is reflected in the variety among its top employers including law, professional services, and tech companies. Many domestic and international firms are establishing regional offices in Miami and existing businesses are expanding to take advantage of a growing economy and trained workforce.</p>
-                  <div class="div-block-3"></div>
-                </div>
-                <div class="div-block-14">
-                  <h1 class="heading-4">Who&#x27;s Coming?</h1>
-                  <p class="paragraph-2">Leasing volumes were below historic levels in 2020 with a drop in activity in the Spring and Summer; however, trends have picked up recently with firms such as Shiftpixy using the COVID pandemic as an opportunity to relocate their business.</p>
-                  <div class="div-block-3"></div>
-                </div>
-              </div>
-              <div class="container-6 w-container">
-
-                <div class="div-block-5" id="map">
-                  <div id='menu' class='mobilehide'>
+          <div class="container-6 w-container">
+            <div class="div-block-5" id="map">
+              <div id='menu' class='mobilehide'>
                     <div id='classabutton' class='on bordertop'>Office</div>
                     <div id='otherbutton' class='on'>Residential</div>
                     <div id='condobutton' class='on'>Transit</div>
                 </div>
-                </div>
+            </div>
+          </div>
+          <div class="container-5 w-container">
+            <div class="div-block-14">
+              <h1 class="heading-3">Who&#x27;s Here?</h1>
+              <p class="paragraph-2-copy">Downtown Miami’s diverse economy is reflected in the variety among its top employers including law, professional services, and tech companies. Many domestic and international firms are establishing regional offices in Miami and existing businesses are expanding to take advantage of a growing economy and trained workforce.</p>
+              <div class="div-block-50" id="wrapper">
+                      <div class="outer">    
+                        <div id="chart" class="inner"></div>
+                      </div>
               </div>
             </div>
-            <div class="container-11 w-container">
-              <div class="divider2"></div>
+            <div class="div-block-14">
+              <h1 class="heading-3">Who&#x27;s Coming?</h1>
+              <p class="paragraph-2-copy">Leasing volumes were below historic levels in 2020 with a drop in activity in the Spring and Summer; however, trends have picked up recently with firms such as Shiftpixy using the COVID pandemic as an opportunity to relocate their business.</p>
+              <div class="div-block-3"></div>
             </div>
-            <div id="Employment" class="section-2">
-              <div class="icon"><img src="images/Employment.png" loading="lazy" width="75" alt=""></div>
-              <h2 class="heading">EMPLOYMENT</h2>
-              <div class="w-row">
-                <div class="column-6 w-col w-col-6 w-col-stack">
-                  <div class="div-block-17">
-                    <h1 class="heading-6">MIAMI DDA JOB GROWTH BETWEEN 2010-2020:<br></h1>
-                    <p class="paragraph-9">18%</p>
-                    <p class="paragraph-12">Professional Services, Government, and Finance &amp; Insurance make up 57% of total DDA jobs with Lawyers, Customer Service Reps, and Paralegals/ Legal Assistants as the top three occupations in 2020. In Greater Downtown, Computer Systems Design &amp; Related Services is the fastest growing industry, adding over one thousand jobs since 2010.</p>
-                  </div>
-                </div>
-                <div class="w-col w-col-6 w-col-stack">
-                  <div class="div-block-26">
+          </div>
+          <div class="container-12 w-container">
+            <h2 class="section-heading-copy">RETURN TO WORK</h2>
+            <p class="paragraph-14">Conversations with major office tenants suggest a return to work plan:</p>
+            <div class="div-block-7">[CONVERSATION GRAPHIC]</div>
+            <h1 class="heading-9">The Shift to Quality</h1>
+            <div class="w-row">
+              <div class="column-7 w-col w-col-6 w-col-stack">
+                <p class="paragraph-14">When workers return to the office, they’ll be heading to some of the most recent office stock in the country. Over the last 10 years, over a quarter of Miami’s office inventory has either been recently developed or has undergone major renovation such as buildings like 201 S Biscayne.</p>
+                <div class="div-block-8"></div>
+              </div>
+              <div class="w-col w-col-6 w-col-stack">
+                <div class="div-block-9"><iframe width=100% height = 100% src="inventory.html" frameborder="0" allowfullscreen scrolling="no"></iframe></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="Employment" class="section-2">
+          <div class="container-11 w-container">
+            <div class="divider2"></div>
+          </div>
+          <div class="icon"><img src="images/Employment.png" loading="lazy" width="75" alt=""></div>
+          <h2 class="heading">TALENT</h2>
+          <div class="w-row">
+            <div class="column-6 w-col w-col-3">
+              <div class="div-block-17">
+                <h1 class="heading-6">MIAMI DDA JOB GROWTH BETWEEN 2010-2020:<br></h1>
+                <p class="paragraph-9">18%</p>
+                <p class="paragraph-12">Professional Services, Government, and Finance &amp; Insurance make up 57% of total DDA jobs with Lawyers, Customer Service Reps, and Paralegals/ Legal Assistants as the top three occupations in 2020. In Greater Downtown, Computer Systems Design &amp; Related Services is the fastest growing industry, adding over one thousand jobs since 2010.</p>
+              </div>
+            </div>
+            <div class="w-col w-col-9">
+              <div class="div-block-26">
                   <a href="#" class="button-7 w-button" id="LargestInds" >Largest</a>
                   <a href="#" class="button-4 w-button" id="GrowingInds">Growing</a>
                   </div>
-                  <div class="div-block-13" id="top-industries"></div>
-                  <div class="div-block-26">
-                  <a href="#" class="button-7 w-button" id="LargestOccs" >Largest</a>
-                  <a href="#" class="button-4 w-button" id="GrowingOccs">Growing</a>
+              <div class="div-block-13" id="top-industries"></div>
+              <div class="div-block-26">
+                  <a href="#" class="button-7 w-button" id="LargestInds" >Largest</a>
+                  <a href="#" class="button-4 w-button" id="GrowingInds">Growing</a>
                   </div>
-                  <div class="div-block-13" id="top-occupations"></div>
-                </div>
-              </div>
-              <div class="container-7 w-container">
-                <h2 class="heading-7">Talent</h2>
-                <p class="paragraph-11">Miami has a growing pool of talent that want to stay in Miami. Education rates are increasing in Miami with 40K more secondary degree holders than in 2010. </p>
-                <div class="w-row">
-                  <div class="w-col w-col-6 w-col-stack">
-                    <div class="div-block-6"><svg id="educhart" width="100%" height="100%"></svg></div>
-                  <div class="range-wrap">
+              <div class="div-block-13" id="top-occupations"></div>
+            </div>
+          </div>
+          <div class="container-7 w-container">
+            <h2 class="heading-7">Education</h2>
+            <p class="paragraph-11">Miami has a growing pool of talent that want to stay in Miami. Education rates are increasing in Miami with 40K more secondary degree holders than in 2010. </p>
+            <div class="w-row">
+              <div class="w-col w-col-6 w-col-stack">
+                <div class="div-block-6"><svg id="educhart" width="100%" height="100%"></svg></div>
+                <div class="range-wrap">
                       <input id="slide" type="range" class="range" min="2010" max="2019" value="2010">
                       <output class="bubble" style="left: calc(0% + 8px);top: 28px;"></output>
                   </div>
+              </div>
+              <div class="column-5 w-col w-col-6 w-col-stack">
+                <p class="paragraph-12">TODAY:</p>
+                <div class="columns-3 w-row">
+                  <div class="w-col w-col-3">
+                    <p class="paragraph-9-copy">18%</p>
                   </div>
-
-                  <div class="column-5 w-col w-col-6 w-col-stack">
-                    <p class="paragraph-12">TODAY:</p>
-                    <div class="columns-3 w-row">
-                      <div class="w-col w-col-3">
-                        <p class="paragraph-9">18%</p>
-                      </div>
-                      <div class="w-col w-col-9">
-                        <p>STUDENT POPULATION</p>
-                      </div>
-                    </div>
-                    <div class="columns-4 w-row">
-                      <div class="w-col w-col-3">
-                        <p class="paragraph-9">75%</p>
-                      </div>
-                      <div class="column-2 w-col w-col-9">
-                        <p>OF POPULATION THAT SPEAKS A LANGUAGE OTHER THAN ENGLISH</p>
-                      </div>
-                    </div>
-                    <p class="paragraph-13">BETWEEN 2010-2019:</p>
-                    <div class="columns-3 w-row">
-                      <div class="w-col w-col-4">
-                        <p class="paragraph-9">40K+</p>
-                      </div>
-                      <div class="w-col w-col-8">
-                        <p>BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
-                      </div>
-                    </div>
-                    <div class="columns-3 w-row">
-                      <div class="w-col w-col-4">
-                        <p class="paragraph-9">39%+</p>
-                      </div>
-                      <div class="w-col w-col-8">
-                        <p>GROWTH IN BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
-                      </div>
-                    </div>
+                  <div class="w-col w-col-9">
+                    <p>STUDENT POPULATION</p>
                   </div>
                 </div>
-              </div>
-              <div class="container-8 w-container">
-                <h1 class="heading-7">Students</h1>
-                <p class="paragraph-11">Miami currently has a student population of 275K, making Miami the nation’s 6th largest college town, with schools like the University of Miami, Florida International University, and Florida Atlantic producing a growing pipeline of talent. </p>
-                <div class="div-block-7"><svg id="collegetowns" width="100%" height="100%"></svg></div>
-              </div>
-              <div class="container-10 w-container">
-                <h1 class="heading-7">Retention</h1>
-                <p class="paragraph-11">Miami talent likes to stay in Miami. 65% of alumni from Miami schools stay in Miami after graduation. Miami also attracts a large share of graduates from throughout the state.</p>
-                <div class="div-block-7">[MAP]</div>
-                <p class="paragraph-14">Recent trends show influx of national talent into Miami. </p>
-                <div class="w-row">
-                  <div class="column-3 w-col w-col-4 w-col-stack">
-                    <p class="paragraph-15">&quot;MIAMI STAKEHOLDER QUOTE&quot;<br>‍<br>- INTERVIEWEE</p>
+                <div class="columns-4 w-row">
+                  <div class="w-col w-col-3">
+                    <p class="paragraph-9-copy">75%</p>
                   </div>
-                  <div class="w-col w-col-8 w-col-stack">
-                    <div class="div-block-7"><iframe width=100% height = 100% src="https://flowmap.blue/1wiLanxSmo4W24N18dTczIu4vWA19AXL9yo1Vag5es9A/embed" frameborder="0" allowfullscreen></iframe></div>
+                  <div class="column-2 w-col w-col-9">
+                    <p>OF POPULATION THAT SPEAKS A LANGUAGE OTHER THAN ENGLISH</p>
                   </div>
                 </div>
-              </div>
-              <div class="container-10 w-container">
-                <h1 class="heading-7">The Growing Buzz</h1>
-                <p class="paragraph-11">As COVID has upended traditional ideas of thr workplace and industries become less tied to specific geographies, many have been looking to relocate to areas with a higher quality of life and lower regulatory environment.</p>
-                <div class="div-block-7"><div class='sk-ww-twitter-collection' data-embed-id='55161'></div><script src='https://www.sociablekit.com/app/embed/twitter-collections/widget.js' async defer></script></div>
-                <p class="paragraph-14" style="
-    padding-top: 40px;">With more Twitter users discussing a potential move to Miami by the day, the conversation is only just getting started ...</p>
-                <div class="text-block-2">[TWEET CHART]</div>
-              </div>
-            </div>
-            <div class="container-11 w-container">
-              <div class="divider2"></div>
-            </div>
-            <div id="Return-to-Work" class="section-3">
-              <div class="icon"><img src="images/Return-to-Work.png" loading="lazy" width="99" alt=""></div>
-              <h2 class="section-heading-copy">RETURN TO WORK</h2>
-              <p class="paragraph-14">Conversations with major office tenants suggest a return to work plan:</p>
-              <div class="div-block-7">[CONVERSATION GRAPHIC]</div>
-              <h1 class="heading-9">The Shift to Quality</h1>
-              <div class="w-row">
-                <div class="column-7 w-col w-col-6 w-col-stack">
-                  <p class="paragraph-14">When workers return to the office, they’ll be heading to some of the most recent office stock in the country. Over the last 10 years, over a quarter of Miami’s office inventory has either been recently developed or has undergone major renovation such as buildings like 201 S Biscayne.</p>
-                  <div class="div-block-8"></div>
+                <p class="paragraph-13">BETWEEN 2010-2019:</p>
+                <div class="columns-3 w-row">
+                  <div class="w-col w-col-4">
+                    <p class="paragraph-9-copy">40K+</p>
+                  </div>
+                  <div class="w-col w-col-8">
+                    <p>BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
+                  </div>
                 </div>
-                <div class="w-col w-col-6 w-col-stack">
-                  <div class="div-block-9"><iframe width=100% height = 100% src="inventory.html" frameborder="0" allowfullscreen scrolling="no"></iframe></div>
+                <div class="columns-3 w-row">
+                  <div class="w-col w-col-4">
+                    <p class="paragraph-9">39%+</p>
+                  </div>
+                  <div class="w-col w-col-8">
+                    <p>GROWTH IN BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div id="District-Profiles" class="section-4">
-              <div class="icon"><img src="images/District.png" loading="lazy" width="61" alt=""></div>
-              <h2 class="section-heading-copy-copy">DISTRICT PROFILES</h2>
-              <div class="div-block-25">
-                <a href="#" class="dbutton button-13 w-button" id="MiamiButton"><strong>MIAMI-DADE</strong></a>
-                <a href="#" class="dbutton  button-8 w-button" id="GDButton"><strong>GREATER DOWNTOWN</strong></a>
-                <a href="#" class="dbutton  button-9 w-button"><strong>DDA</strong></a>
-                <a href="#" class="dbutton  button-10 w-button"><strong>CBD</strong></a>
-                <a href="#" class="dbutton  button-11 w-button"><strong>A&amp;E</strong></a>
-                <a href="#" class="dbutton  button-12 w-button"><strong>BRICKELL</strong></a>
+          </div>
+          <div class="container-8 w-container">
+            <h1 class="heading-7">Students</h1>
+            <p class="paragraph-11">Miami currently has a student population of 275K, making Miami the nation’s 6th largest college town, with schools like the University of Miami, Florida International University, and Florida Atlantic producing a growing pipeline of talent. </p>
+            <div class="div-block-7"><svg id="collegetowns" width="100%" height="100%"></div>
+          </div>
+          <div class="container-10 w-container">
+            <h1 class="heading-7">Retention</h1>
+            <p class="paragraph-11">Miami talent likes to stay in Miami. 65% of alumni from Miami schools stay in Miami after graduation. Miami also attracts a large share of graduates from throughout the state.</p>
+            <div class="div-block-7"></div>
+            <p class="paragraph-14">Recent trends show influx of national talent into Miami. </p>
+            <p class="paragraph-15">&quot;MIAMI STAKEHOLDER QUOTE&quot;<br>‍<br>- INTERVIEWEE</p>
+            <div class="div-block-7"><iframe width=100% height = 100% src="https://flowmap.blue/1wiLanxSmo4W24N18dTczIu4vWA19AXL9yo1Vag5es9A/embed" frameborder="0" allowfullscreen></iframe></div>
+          </div>
+          <div class="container-10 w-container">
+            <h1 class="heading-7">The Growing Buzz</h1>
+            <p class="paragraph-11">As COVID has upended traditional ideas of the workplace and industries become less tied to specific geographies, many have been looking to relocate to areas with a higher quality of life and lower regulatory environment.</p>
+            <div class="div-block-7"><div class='sk-ww-twitter-collection' data-embed-id='55161'></div><script src='https://www.sociablekit.com/app/embed/twitter-collections/widget.js' async defer></script></div>
+          </div>
+        </div>
+        <div id="District-Profiles" class="section-4">
+          <div class="div-block-36">
+            <div class="icon"><img src="images/District.png" loading="lazy" width="61" alt=""></div>
+            <h2 class="section-heading-copy-copy">DISTRICT PROFILES</h2>
+            <div class="div-block-25">
+              <a href="#" class="dbutton button-13 w-button" id="MiamiButton"><strong class="bold-text-10">MIAMI-DADE</strong></a>
+              <a href="#" class="dbutton button-12 w-button" id="GDButton"><strong class="bold-text-11">GREATER DOWNTOWN</strong></a>
+              <a href="#" class="dbutton button-12 w-button" id="DDAButton"><strong class="bold-text-12">DDA</strong></a>
+              <a href="#" class="dbutton button-12 w-button" id="CBDButton"><strong class="bold-text-13">CBD</strong></a>
+              <a href="#" class="dbutton button-12 w-button" id="AEButton"><strong class="bold-text-14">A&amp;E</strong></a>
+              <a href="#" class="dbutton button-12 w-button" id="BrickellButton"><strong class="bold-text-14">BRICKELL</strong></a>
+            </div>
+            <div class="columns-2 w-row">
+              <div class="column-13 w-col w-col-3">
+                <div class="div-block-11">[MAP]</div>
               </div>
-              <div class="columns-2 w-row">
-                <div class="w-col w-col-3">
-                  <div class="div-block-11">[MAP]</div>
-                </div>
-                <div class="w-col w-col-3">
-                  <div class="div-block-21">
-                    <div><img src="images/Office-Market.png" loading="lazy" width="129" alt=""></div>
-                    <div class="div-block-22">
-                      <div><strong>Businesses</strong></div>
-                      <div id="businesses"></div>
-                    </div>
+              <div class="w-col w-col-3">
+                <div class="div-block-21">
+                  <div><img src="images/Business.png" loading="lazy" width="129" alt="" class="image-4"></div>
+                  <div class="div-block-22">
+                    <div><strong class="bold-text-16">Businesses</strong></div>
+                    <div class="div-block-35" id="businesses"></div>
                   </div>
                 </div>
-                <div class="w-col w-col-3">
-                  <div class="div-block-21">
-                    <div><img src="images/Office-Market.png" loading="lazy" width="129" alt=""></div>
-                    <div class="div-block-22">
-                      <div><strong>Population</strong></div>
-                      <div id="population"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-col w-col-3">
-                  <div class="div-block-21">
-                    <div><img src="images/Office-Market.png" loading="lazy" width="129" alt=""></div>
-                    <div class="div-block-22">
-                      <div><strong>Employees</strong></div>
-                      <div id="employees"></div>
-                    </div>
+              </div>
+              <div class="w-col w-col-3">
+                <div class="div-block-21">
+                  <div><img src="images/Population.png" loading="lazy" width="129" alt="" class="image-5"></div>
+                  <div class="div-block-22">
+                    <div><strong class="bold-text-17">Population</strong></div>
+                    <div class="div-block-34" id="population"></div>
                   </div>
                 </div>
               </div>
-              <div class="container-9 w-container">
-                <div class="div-block-12" id="conditions"></div>
+              <div class="w-col w-col-3">
+                <div class="div-block-21">
+                  <div><img src="images/Employee.png" loading="lazy" width="129" alt="" class="image-6"></div>
+                  <div class="div-block-22">
+                    <div><strong class="bold-text-18">Employees</strong></div>
+                    <div class="div-block-33" id="employees"></div>
+                  </div>
+                </div>
               </div>
+            </div>
+            <div class="container-9 w-container">
+              <div class="div-block-12" id="conditions"></div>
             </div>
           </div>
         </div>

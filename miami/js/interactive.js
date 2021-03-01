@@ -550,6 +550,156 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       });
 	  });
 
+//////WHO'S HERE TILE SCROLLER
+
+var scoll = 0
+ function autoScrollUp(){
+          $(".inner").css({top:0}) // jump back
+                     .animate({top:-$(".outer").outerHeight()},20000,"linear", autoScrollUp); // and animate
+      }
+      // fix hight of outer:
+      $('.outer').css({maxHeight: $('.inner').height()});
+      // duplicate content of inner:
+      $('.inner').html($('.inner').html() + $('.inner').html());
+
+
+ $( ".outer" ).scroll(function() {
+  $( ".inner" ).stop()
+});
+ 
+
+ autoScrollUp();
+
+
+
+
+
+ var radius = 80, padding = 6, cols = 3, parameter = 'employer';
+  var menu = [
+            {id: 'size', name: 'Size'},
+            {id: 'high', name: 'High ($)'},
+            {id: 'low', name: 'Low ($)'},
+            {id: 'open', name: 'Open ($)'},
+            {id: 'netChange', name: 'Net Change ($)'},
+            {id: 'percentChange', name: 'Percent Change (%)'},
+          ];
+      
+ colors = 
+   {technology:'#0F48C7',professionalservices:'#EE473B',financial:'#2BB450',food:'#16D2C0',venture:'#2AABE0',utilities:'#BB6C25',transport:'#FF58A3',healthcare:'#BA80F8'}
+
+/// HELPER FUNCTIONS
+function translateSVG(x, y) {
+  return 'translate('+x+','+y+')';
+}
+
+//// UI
+function menuClick(d) {
+  if(parameter === d.id)
+    return;
+
+  d3.select('#menu2').selectAll('div').classed('selected', false);
+  d3.select(this).classed('selected', true);
+
+  parameter = d.id;
+
+  updateChart();
+}
+
+function selectThis(d) {
+  d3.select(this).classed('selected', function() {return !d3.select(this).classed('selected');})
+}
+
+//// D3
+function updateChart() {
+
+  var nodes = d3.select('#chart')
+    .selectAll('div.node')
+    .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
+    .transition()
+    .duration(1000)
+    .style('left', function(d, i) {
+      var col = i % cols;
+      var x = 2 * col * (radius + padding);
+      return x + 'px';
+    })
+    .style('top', function(d, i) {
+      var row = Math.floor(i / cols);
+      var y = 2 * row * (radius + padding);
+      return y + 'px';
+    });
+
+  d3.select('#chart')
+    .selectAll('div.node .value')
+    .transition()
+    .duration(0)
+    .tween("text", function(d)
+      {
+        var x = d[parameter];
+        if (!(parameter == 'open' || parameter == 'high')) x;
+        var i = d3.interpolate(this.textContent, (x));
+        return function(t) {
+          this.textContent = (i(t));
+      };
+    });
+}
+
+ // Menu
+d3.select('#menu2')
+  .selectAll('div')
+  .data(menu)
+  .enter()
+  .append('div')
+  .text(function(d) {return d.name;})
+  .classed('selected', function(d, i) {return i==0;})
+  .on('click', menuClick);
+
+
+  d3.json("https://gist.githubusercontent.com/kvyb/5f0c4ee44a3adbba9996eb2fdf0dae60/raw/cbeca36c4144386ee86000af5056aee9d07ac4f9/marketdata.json", function(dataset) {
+    
+    d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=196727768", function(error, data1) {
+		  if (error) throw error;
+    
+    var nodes = d3.select('#chart')
+                      .selectAll('div')
+                      .data(data1)
+                      .enter()
+                      .append('div')
+                      .attr('id', function(d) {return 'entity-'+d.size;})
+    									.style('background-color',function(d){ return colors[d.industry]})
+                      .classed('node', true)
+                      .style('width', 2 * radius + 'px')
+                      .style('height', 2 * radius + 'px')
+                      .on('click', selectThis);
+
+        nodes
+          .append('div')
+          .classed('name', true)
+          .html(function(d) {return "<br>"})
+          .style('width', 2 * radius + 'px');
+
+        nodes
+          .append('div')
+          .classed('value', true)
+          .html(function(d) {return d[parameter]})
+          .style('color', '#FFFFFF')
+          .style('width', 2 * radius + 'px')
+          .style('height', 0.5 * radius + 'px')
+          .style('font-size', 15+'px')
+          .style('font-weight', 700);
+        nodes
+          .append('div')
+          .classed('name', true)
+          .html(function(d) {return d.name})
+          .style('width', 2 * radius + 'px');
+
+        updateChart();
+  });
+  });
+
+
+
+
+
 
 ///EDUCATIONAL ATTAINMENT SLIDER
 d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1283485067", function(error, csv) {
@@ -604,8 +754,6 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
 			d.total = d3.sum(keys, k => +d[k])
 			return d
 		})
-
-		console.log(csv)
 
 		const maxedu = csv.reduce(
 		  (max, i) => (i.total > max ? i.total : max),
@@ -764,7 +912,6 @@ var y = d3.scaleLinear()
 d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=2061632967", function(error, data) {
   if (error) throw error;
 
-  console.log(data)
 
   function wrap(text, width) {
         text.each(function() {
@@ -870,17 +1017,77 @@ bar_enter.append("text")
 d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1939873973", function(error, data1) {
 		  if (error) throw error;
 		  
-      d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=791286037", function(error, data2) {
+      d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=342967098", function(d){
+  return{
+    class: d.class,
+    businesses: +d.businesses,
+    population: +d.population,
+    employees: +d.employees
+  };
+}, function(error, rows) {
 		  if (error) throw error;
         
-      data = data1
+      data = data1.filter(f => f.geo == 'miami')
+      data.forEach(function(v){ delete v.geo });
+
+      console.log('here:')
+      console.log(data)
       
-      var growing = d3
+      var button = d3
+      .selectAll('.dbutton')
+
+      var miami = d3
       	.select("#MiamiButton")
       
-      var largest = d3
+      var gd = d3
       	.select("#GDButton")
-      
+
+      var dda = d3
+        .select("#DDAButton")
+        
+      var cbd = d3
+        .select("#CBDButton")
+
+      var ae = d3
+        .select("#AEButton")
+
+      var brickell = d3
+        .select("#BrickellButton") 
+
+
+      var businesses = d3.select("#businesses")
+      .append("svg")
+      .append("text")
+        .text(d3.format("(,.2r")(rows[0].businesses))
+        .attr("x", 10)
+        .attr("y", 40)
+        .attr("class", "label")
+        .style("font-weight", 700)
+        .style('font-size',40)
+        .style('fill','#FFFFFF')
+
+    var population = d3.select("#population")
+      .append("svg")
+      .append("text")
+        .text(d3.format("(,.2r")(rows[0].population))
+        .attr("x", 10)
+        .attr("y", 40)
+        .attr("class", "label")
+        .style("font-weight", 700)
+        .style('font-size',40)
+        .style('fill','#FFFFFF')
+
+    var employees = d3.select("#employees")
+      .append("svg")
+      .append("text")
+        .text(d3.format("(,.2r")(rows[0].employees) )
+        .attr("x", 10)
+        .attr("y", 40)
+        .attr("class", "label")
+        .style("font-weight", 700)
+        .style('font-size',40)
+        .style('fill','#FFFFFF') 
+          
 			
       
       var columns = d3.keys(data[0]);
@@ -914,10 +1121,31 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .text(function(d) { return d.value; })
         .style("color","#000000");
       
-      growing
+      miami
       .on('click', function(d){
+
+        newdata = data1.filter(f => f.geo == 'miami')
+        newdata.forEach(function(v){ delete v.geo });
+
+        button
+        .style("color","#FFFFFF")
+        .style("background-color", "#D3D3D3")
+        
+        miami
+        .style("background-color", "#FFFFFF")
+        .style("color","#242358")
+        
+        businesses
+          .text(d3.format("(,.2r")(rows[0].businesses))
+        population
+          .text(d3.format("(,.2r")(rows[0].population))
+        employees
+          .text(d3.format("(,.2r")(rows[0].employees))
+
+
+
         tbody.selectAll("tr")
-        .data(data2)
+        .data(newdata)
         .selectAll("td")
         .data(function(row) {
           return columns.map(function(column) {
@@ -931,10 +1159,178 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         
       })
       
-      largest
+      gd
       .on('click', function(d){
+
+        var newdata = data1.filter(f => f.geo == 'gd')
+        newdata.forEach(function(v){ delete v.geo });
+
+        button
+        .style("color","#FFFFFF")
+        .style("background-color", "#D3D3D3")
+        
+        gd
+        .style("background-color", "#FFFFFF")
+        .style("color","#242358")
+        
+        businesses
+          .text(d3.format("(,.2r")(rows[1].businesses))
+        population
+          .text(d3.format("(,.2r")(rows[1].population))
+        employees
+          .text(d3.format("(,.2r")(rows[1].employees))
+
+
         tbody.selectAll("tr")
-        .data(data1)
+        .data(newdata)
+        .selectAll("td")
+        .data(function(row) {
+          return columns.map(function(column) {
+            return {
+              column: column,
+              value: row[column]
+            };
+          });
+        })
+        .text(function(d) {return d.value;});
+        
+      })
+
+      dda
+      .on('click', function(d){
+
+        var newdata = data1.filter(f => f.geo == 'dda')
+        newdata.forEach(function(v){ delete v.geo });
+
+        button
+        .style("color","#FFFFFF")
+        .style("background-color", "#D3D3D3")
+        
+        dda
+        .style("background-color", "#FFFFFF")
+        .style("color","#242358")
+        
+        businesses
+          .text(d3.format("(,.2r")(rows[2].businesses))
+        population
+          .text(d3.format("(,.2r")(rows[2].population))
+        employees
+          .text(d3.format("(,.2r")(rows[2].employees))
+
+
+        tbody.selectAll("tr")
+        .data(newdata)
+        .selectAll("td")
+        .data(function(row) {
+          return columns.map(function(column) {
+            return {
+              column: column,
+              value: row[column]
+            };
+          });
+        })
+        .text(function(d) {return d.value;});
+        
+      })
+
+      cbd
+      .on('click', function(d){
+
+        var newdata = data1.filter(f => f.geo == 'cbd')
+        newdata.forEach(function(v){ delete v.geo });
+
+        button
+        .style("color","#FFFFFF")
+        .style("background-color", "#D3D3D3")
+        
+        cbd
+        .style("background-color", "#FFFFFF")
+        .style("color","#242358")
+
+        businesses
+          .text(d3.format("(,.2r")(rows[3].businesses))
+        population
+          .text(d3.format("(,.2r")(rows[3].population))
+        employees
+          .text(d3.format("(,.2r")(rows[3].employees))
+
+
+        tbody.selectAll("tr")
+        .data(newdata)
+        .selectAll("td")
+        .data(function(row) {
+          return columns.map(function(column) {
+            return {
+              column: column,
+              value: row[column]
+            };
+          });
+        })
+        .text(function(d) {return d.value;});
+        
+      })
+
+      ae
+      .on('click', function(d){
+
+        var newdata = data1.filter(f => f.geo == 'ae')
+        newdata.forEach(function(v){ delete v.geo });
+
+        button
+        .style("color","#FFFFFF")
+        .style("background-color", "#D3D3D3")
+        
+        ae
+        .style("background-color", "#FFFFFF")
+        .style("color","#242358")
+        
+        businesses
+          .text(d3.format("(,.2r")(rows[4].businesses))
+        population
+          .text(d3.format("(,.2r")(rows[4].population))
+        employees
+          .text(d3.format("(,.2r")(rows[4].employees))
+
+
+        tbody.selectAll("tr")
+        .data(newdata)
+        .selectAll("td")
+        .data(function(row) {
+          return columns.map(function(column) {
+            return {
+              column: column,
+              value: row[column]
+            };
+          });
+        })
+        .text(function(d) {return d.value;});
+        
+      })
+
+      brickell
+      .on('click', function(d){
+
+        var newdata = data1.filter(f => f.geo == 'brickell')
+        newdata.forEach(function(v){ delete v.geo });
+
+        button
+        .style("color","#FFFFFF")
+        .style("background-color", "#D3D3D3")
+        
+        brickell
+        .style("background-color", "#FFFFFF")
+        .style("font-color","#242358")
+        
+        businesses
+          .text(d3.format("(,.2r")(rows[5].businesses))
+        population
+          .text(d3.format("(,.2r")(rows[5].population))
+        employees
+          .text(d3.format("(,.2r")(rows[5].employees))
+
+
+        tbody.selectAll("tr")
+        .data(newdata)
         .selectAll("td")
         .data(function(row) {
           return columns.map(function(column) {
@@ -953,106 +1349,3 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
 	  });
 
 
-///// District Profiles
-
-d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=342967098", function(d){
-  return{
-    class: d.class,
-    businesses: +d.businesses,
-    population: +d.population,
-    employees: +d.employees
-  };
-}, function(error, rows){
-if (error) throw error;
- 
-// Initialize a circle
-
-var businesses = d3.select("#businesses")
-	.append("svg")
-  .append("text")
-    .text(d3.format("(,.2r")(rows[0].businesses))
-    .attr("x", 10)
-    .attr("y", 40)
-    .attr("class", "label")
-    .style("font-weight", 700)
-    .style('font-size',40)
-    .style('fill','#FFFFFF')
-
-var population = d3.select("#population")
-	.append("svg")
-  .append("text")
-    .text(d3.format("(,.2r")(rows[0].population))
-    .attr("x", 10)
-    .attr("y", 40)
-    .attr("class", "label")
-    .style("font-weight", 700)
-    .style('font-size',40)
-    .style('fill','#FFFFFF')
-
-var employees = d3.select("#employees")
-	.append("svg")
-  .append("text")
-    .text(d3.format("(,.2r")(rows[0].employees) )
-    .attr("x", 10)
-    .attr("y", 40)
-    .attr("class", "label")
-    .style("font-weight", 700)
-    .style('font-size',40)
-    .style('fill','#FFFFFF')
-
-
-
-var button = d3
-	.selectAll('.dbutton')
-
-var Miami = d3
-      .select("#MiamiButton")
-
-
-
-Miami
-  .on('click', function(d){
-  
-   button
-	.style("color","#1884B8")
-  .style("background-color", "#FFFFFF")
-  
-  Miami
-  .style("background-color", "#242358")
-  .style("color","white")
-  
-  businesses
-    .text(d3.format("(,.2r")(rows[0].businesses))
-  population
-    .text(d3.format("(,.2r")(rows[0].population))
-  employees
-    .text(d3.format("(,.2r")(rows[0].employees))
-
-
-})
-
-var greater = d3
-      .select("#GDButton")
-
-greater
-  .on('click', function(d){
-  
-  button
-	.style("color","#1884B8")
-  .style("background-color", "#FFFFFF")
-  
-  greater
-  .style("background-color", "#1884B8")
-  .style("color","white")
-  
-  businesses
-    .text(d3.format("(,.2r")(rows[1].businesses))
-  population
-    .text(d3.format("(,.2r")(rows[1].population))
-  employees
-    .text(d3.format("(,.2r")(rows[1].employees))
-})
-
-
-
-});

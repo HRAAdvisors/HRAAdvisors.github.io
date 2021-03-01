@@ -107,7 +107,8 @@
     table { 
         width: 100%;
         height: 100%; 
-        border-collapse: collapse; 
+        border-collapse: collapse;
+        background-color: white; 
     }
     /* Zebra striping */
     tr:nth-of-type(odd) { 
@@ -188,3 +189,102 @@
     }
     
 
+#wrapper {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+}
+
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Document styling */
+
+#wrapper {
+   position: relative;
+
+}
+
+#scrolltitle {
+  font-size: 22px;
+  font-weight: 100;
+  color: white;
+  margin-left: 20px;
+}
+#title div.large, #title span.large {
+  font-size: 36px;
+}
+
+
+
+
+/* SVG styling */
+
+
+
+
+#chart {
+   position: relative;
+   height: 480px;
+   margin: 10px;
+}
+
+
+div.node {
+   position: absolute;
+   background-color: #333333;
+   text-align: center;
+   color: #eeede4;
+   cursor: pointer;
+
+
+}
+
+div.node:hover {
+  background-color: #7F8289
+}
+
+div.node div.scrolltitle {
+   font-size: 20px;
+   font-weight: 400;
+   padding-top: 6px;
+   line-height: 15px;
+
+}
+
+div.node div.name {
+   font-size: 15px;
+   font-weight: 400;
+   padding-top: 6px;
+   line-height: 15px;
+
+}
+
+div.node div.value {
+   font-size: 12px;
+   font-weight: 400;
+   padding-top: 20px;
+
+
+}
+      
+.inner{
+    position:relative;
+    top:0px;
+}
+
+.inner:hover{
+    animation-play-state: paused;
+}
+.outer{
+    overflow:scroll;
+}
+
+.outer::-webkit-scrollbar {
+  display: none;
+}
