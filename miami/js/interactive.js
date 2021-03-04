@@ -1,4 +1,5 @@
 d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=0", function(d){
+  console.log(d)
   return{
     class: d.class,
     rent: +d.rent,
@@ -10,7 +11,7 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
 }, function(error, rows){
 if (error) throw error;
  
-
+console.log(rows)
 var KeyRent = d3.select("#KeyRent")
 	.append("svg")
   .append("text")
@@ -40,6 +41,7 @@ var KeyAbsorbtion = d3.select("#KeyAbsorbtion")
     .attr("class", "label")
     .style("font-weight", 700)
     .style('font-size',40)
+    .style('fill',)
 
 
  var KeyInventory = d3.select("#KeyInventory")
@@ -107,7 +109,7 @@ ClassA
   .style("background-color", "#FFFFFF")
   
   ClassA
-  .style("background-color", "#1884B8")
+  .style("background-color", "#242358")
   .style("color","white")
   
   KeyRent
@@ -177,6 +179,9 @@ ClassC
 });
 
 
+
+
+
 //MAP SECTION
 
 
@@ -198,10 +203,15 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb
             , maxZoom: 16
             , maxBounds: bounds
         });
+        map.scrollZoom.disable();
+
         map.addControl(new MapboxGeocoder({
             accessToken: mapboxgl.accessToken
             , mapboxgl: mapboxgl
         }));
+
+        
+
         // set functions for layer toggle buttons
         map.on('load', function () {
             var classatoggle = document.getElementById('classabutton');
@@ -374,6 +384,252 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb
         }
          });
 
+////PROFILES MAP
+//Profile Maps
+
+var map2 = new mapboxgl.Map({
+            container: 'map2'
+            , style: 'mapbox://styles/kpclyne/cjy9ts3mh0y9j1do9uss5fz8o'
+            , center: [-80.19393, 25.77054]
+            , zoom: 6
+            , minZoom: 2
+            , maxZoom: 16
+            ,interactive: false
+        });
+        map2.scrollZoom.disable();
+
+
+
+map2.on('load', function () {
+    map2.resize();
+
+      map2.addSource('greaterdda', {
+      'type': 'geojson',
+      'data':
+      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/greaterdda.geojsonl.json'
+      });
+      map2.addLayer(
+      {
+      'id': 'greaterdda-fill',
+      'type': 'fill',
+      'source': 'greaterdda',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+      'fill-color': '#f08',
+      'fill-opacity': 0.4
+      }
+    })
+
+      map2.addSource('brickell', {
+      'type': 'geojson',
+      'data':
+      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/brickell.geojsonl.json'
+      });
+      map2.addLayer(
+      {
+      'id': 'brickell-fill',
+      'type': 'fill',
+      'source': 'brickell',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+      'fill-color': '#f08',
+      'fill-opacity': 0.4
+      }
+    })
+
+    map2.addSource('ae', {
+      'type': 'geojson',
+      'data':
+      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/ae.geojsonl.json'
+      });
+      map2.addLayer(
+      {
+      'id': 'ae-fill',
+      'type': 'fill',
+      'source': 'ae',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+      'fill-color': '#f08',
+      'fill-opacity': 0.4
+      }
+    })
+
+    map2.addSource('cbd', {
+      'type': 'geojson',
+      'data':
+      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/cbd.geojsonl.json'
+      });
+      map2.addLayer(
+      {
+      'id': 'cbd-fill',
+      'type': 'fill',
+      'source': 'cbd',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+      'fill-color': '#f08',
+      'fill-opacity': 0.4
+      }
+    })
+
+      map2.addSource('dda', {
+      'type': 'geojson',
+      'data':
+      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/miamidda.geojsonl.json'
+      });
+      map2.addLayer(
+      {
+      'id': 'dda-fill',
+      'type': 'fill',
+      'source': 'dda',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+      'fill-color': '#f08',
+      'fill-opacity': 0.4
+      }
+    })
+
+    map2.addSource('miamidade', {
+      'type': 'geojson',
+      'data':
+      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/miamidade.geojsonl.json'
+      });
+      map2.addLayer(
+      {
+      'id': 'miamidade-fill',
+      'type': 'fill',
+      'source': 'miamidade',
+      'layout': {},
+      'paint': {
+      'fill-color': '#f08',
+      'fill-opacity': 0.4
+      }
+    })
+
+    var toggleableLayerIds = [ 'miamidade-fill', 'greaterdda-fill','dda-fill','cbd-fill','ae-fill','brickell-fill' ]
+
+    
+    function moveMap(layer,bounds){
+      for(var index in toggleableLayerIds) {
+                var clickedLayer = toggleableLayerIds[index];
+                map2.setLayoutProperty(clickedLayer, 'visibility', 'none');
+              }
+
+      map2.setLayoutProperty(layer, 'visibility', 'visible');
+
+      map2.fitBounds(bounds);
+    }
+
+    var GDtoggle = document.getElementById('GDButton');
+            GDtoggle.addEventListener('click', function (e) {
+              moveMap('greaterdda-fill',[
+      [-80.214268,
+      25.7456244],
+      [-80.1710619,
+      25.8199841]
+    ])   
+            });
+    var MiamiDadetoggle = document.getElementById('MiamiButton');
+        MiamiDadetoggle.addEventListener('click', function (e) {
+          moveMap('miamidade-fill',[
+      [-80.8735842,
+      25.1374249],
+      [-80.118074,
+      25.9794389]
+    ])   
+        });
+    var DDAtoggle = document.getElementById('DDAButton');
+        DDAtoggle.addEventListener('click', function (e) {
+          moveMap('dda-fill',[
+      [-80.2012045,
+      25.7573506],
+      [-80.1755337,
+      25.8002]])   
+        });
+    var CBDtoggle = document.getElementById('CBDButton');
+            CBDtoggle.addEventListener('click', function (e) {
+              moveMap('cbd-fill',[
+      [-80.2010044,
+      25.7688479],
+      [-80.1833007,
+      25.782989]
+    ])   
+            });
+    var AEtoggle = document.getElementById('AEButton');
+            AEtoggle.addEventListener('click', function (e) {
+              moveMap('ae-fill',[
+      [-80.1961861,
+      25.7827633],
+      [-80.1755337,
+      25.8002303]
+    ])   
+            });
+    var Brickelltoggle = document.getElementById('BrickellButton');
+            Brickelltoggle.addEventListener('click', function (e) {
+              moveMap('brickell-fill',[
+    [-80.1961369,
+    25.7573506],
+    [-80.1827413,
+    25.7700894]
+  ])   
+            });
+
+});
+
+
+////Retention Map
+var map3 = new mapboxgl.Map({
+            container: 'map3'
+            , style: 'mapbox://styles/kpclyne/cklun3glz1uuy17mnm8butfl0'
+            , center: [-80.971193, 34.032196]
+            , zoom: 3
+            , minZoom: 2
+            , maxZoom: 16
+            ,interactive: false
+        });
+        map3.scrollZoom.disable();
+
+var popup = new mapboxgl.Popup({
+closeButton: false,
+closeOnClick: false
+});
+ 
+map3.on('mouseenter', 'merged', function (e) {
+// Change the cursor style as a UI indicator.
+map3.getCanvas().style.cursor = 'pointer';
+ 
+var coordinates = e.features[0].geometry.coordinates.slice();
+var description = e.features[0].properties.fullname;
+var miamiret = e.features[0].properties.miami;
+var fulldesc = '<strong>' + description + '</strong><p>' + String(d3.format(".0%")(miamiret*.01)) + '</p>'
+// Ensure that if the map is zoomed out such that multiple
+// copies of the feature are visible, the popup appears
+// over the copy being pointed to.
+while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+}
+ 
+// Populate the popup and set its coordinates
+// based on the feature found.
+popup.setLngLat(coordinates).setHTML(fulldesc).addTo(map3);
+});
+ 
+map3.on('mouseleave', 'merged', function () {
+map3.getCanvas().style.cursor = '';
+popup.remove();
+});
+
+
+//document.getElementById('info').innerHTML = "Share of schools’ alumni who move to Miami"
 
     ///TOP INDUSTRY TABLES
 
@@ -555,26 +811,33 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
 var scoll = 0
  function autoScrollUp(){
           $(".inner").css({top:0}) // jump back
-                     .animate({top:-$(".outer").outerHeight()},20000,"linear", autoScrollUp); // and animate
+                     .animate({top:-$(".outer").outerHeight()},80000,"linear", autoScrollUp); // and animate
       }
       // fix hight of outer:
-      $('.outer').css({maxHeight: $('.inner').height()});
+      //$('.outer').css({maxHeight: $('.inner').height()});
       // duplicate content of inner:
       $('.inner').html($('.inner').html() + $('.inner').html());
 
 
- $( ".outer" ).scroll(function() {
-  $( ".inner" ).stop()
-});
- 
-
  autoScrollUp();
 
+ $( ".outer" ).scroll(function() {
+  $( ".inner" ).stop()
+  $( ".inner" ).css({top:0})
+});
+
+$( ".inner" ).scroll(function() {
+  $( ".inner" ).stop()
+  $( ".inner" ).css({top:0})
+});
+
+
+empwidth = document.getElementById("emp").clientWidth
 
 
 
+ var padding = 6, cols = 4, radius = ((empwidth/cols)/2) - padding*(1 + (1/(cols+1))), parameter = 'employer';
 
- var radius = 80, padding = 6, cols = 3, parameter = 'employer';
   var menu = [
             {id: 'size', name: 'Size'},
             {id: 'high', name: 'High ($)'},
@@ -643,6 +906,39 @@ function updateChart() {
     });
 }
 
+function updateChart2() {
+
+  var nodes = d3.select('#chart2')
+    .selectAll('div.node')
+    .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
+    .transition()
+    .duration(1000)
+    .style('left', function(d, i) {
+      var col = i % cols;
+      var x = 2 * col * (radius + padding) + (padding*2);
+      return x + 'px';
+    })
+    .style('top', function(d, i) {
+      var row = Math.floor(i / cols);
+      var y = 2 * row * (radius + padding);
+      return y + 'px';
+    });
+
+  d3.select('#chart2')
+    .selectAll('div.node .value')
+    .transition()
+    .duration(0)
+    .tween("text", function(d)
+      {
+        var x = d[parameter];
+        if (!(parameter == 'open' || parameter == 'high')) x;
+        var i = d3.interpolate(this.textContent, (x));
+        return function(t) {
+          this.textContent = (i(t));
+      };
+    });
+}
+
  // Menu
 d3.select('#menu2')
   .selectAll('div')
@@ -654,8 +950,6 @@ d3.select('#menu2')
   .on('click', menuClick);
 
 
-  d3.json("https://gist.githubusercontent.com/kvyb/5f0c4ee44a3adbba9996eb2fdf0dae60/raw/cbeca36c4144386ee86000af5056aee9d07ac4f9/marketdata.json", function(dataset) {
-    
     d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=196727768", function(error, data1) {
 		  if (error) throw error;
     
@@ -694,7 +988,46 @@ d3.select('#menu2')
 
         updateChart();
   });
+
+    d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1181381306", function(error, data1) {
+      if (error) throw error;
+    
+    var nodes = d3.select('#chart2')
+                      .selectAll('div')
+                      .data(data1)
+                      .enter()
+                      .append('div')
+                      .attr('id', function(d) {return 'entity-'+d.size;})
+                      .style('background-color',function(d){ return colors[d.industry]})
+                      .classed('node', true)
+                      .style('width', 2 * radius + 'px')
+                      .style('height', 2 * radius + 'px')
+                      .on('click', selectThis);
+
+        nodes
+          .append('div')
+          .classed('name', true)
+          .html(function(d) {return "<br>"})
+          .style('width', 2 * radius + 'px');
+
+        nodes
+          .append('div')
+          .classed('value', true)
+          .html(function(d) {return d[parameter]})
+          .style('color', '#FFFFFF')
+          .style('width', 2 * radius + 'px')
+          .style('height', 0.5 * radius + 'px')
+          .style('font-size', 15+'px')
+          .style('font-weight', 700);
+        nodes
+          .append('div')
+          .classed('name', true)
+          .html(function(d) {return d.name})
+          .style('width', 2 * radius + 'px');
+
+        updateChart2();
   });
+ 
 
 
 
@@ -1030,9 +1363,6 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       data = data1.filter(f => f.geo == 'miami')
       data.forEach(function(v){ delete v.geo });
 
-      console.log('here:')
-      console.log(data)
-      
       var button = d3
       .selectAll('.dbutton')
 

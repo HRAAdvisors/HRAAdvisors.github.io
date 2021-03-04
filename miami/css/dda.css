@@ -122,10 +122,18 @@
         background-repeat: no-repeat;
         background-position: 3% center;
     }
-    td, th { 
+    td { 
         padding: 6px; 
         border: 1px solid #ccc; 
         text-align: left; 
+        color: #000;
+    }
+
+    th { 
+        padding: 6px; 
+        border: 1px solid #ccc; 
+        text-align: left; 
+        color: #FFF;
     }
     
     th.des:after {
@@ -283,8 +291,32 @@ div.node div.value {
 }
 .outer{
     overflow:scroll;
+    height: 100%;
 }
 
 .outer::-webkit-scrollbar {
   display: none;
 }
+
+.mapboxgl-popup {
+max-width: 400px;
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+color: #000;
+}
+
+    #info {
+        display: block;
+        position: relative;
+        width: 50%;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        font-size: 25px;
+        font-weight: 700
+        text-align: left;
+        color: #FFF;
+        z-index: 5000;
+        text-shadow: 2px 2px 1px rgba(0,0,0, 0.75);
+        margin-top: 0px;
+        line-height: 40px;
+    }
