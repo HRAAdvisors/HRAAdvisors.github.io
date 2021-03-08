@@ -38,7 +38,6 @@ body {
 
 #overlay{
     z-index: 90;
-    background-color: blanchedalmond;
 }
 
 h1, h2 {
@@ -56,21 +55,17 @@ strong {
 }
 
 #graphic {
-    margin: auto;
-    width: 1500px;
+    width: 100vw;
     flex-direction: row;
     align-items: top;
     justify-content: space-around;
 }
 
 #vis {
-    display: inline-block;
-    position: fixed;
-    top: 0px;
     z-index: 1;
     margin-left: 0;
-    height: 1000px;
-    width: 1000px;
+    height: 80vh;
+    width: inherit
 }
 
 .tick line {
@@ -104,12 +99,20 @@ svg circle:hover{
 }
 
 a {
-    color: rgb(221, 0, 255);
-    text-decoration: none;
+    
+    text-decoration: none important!;
 }
 
 img {
     display: none;
+}
+
+p {
+    background-color: white;
+    margin-left: 25% !important;
+    margin-left: 15% !important;
+    padding: 20px;
+    opacity:90%;
 }
 
 .tab04_container {
@@ -117,7 +120,7 @@ img {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-width: 1140px;
+  
   margin-right: auto;
   margin-left: auto;
   -webkit-box-orient: vertical;
@@ -157,7 +160,7 @@ img {
   display: -ms-flexbox;
   display: flex;
   overflow: visible;
-  height: auto;
+  height: 80vh;
   margin-right: 35px;
   margin-bottom: 0px;
   padding: 30px;
@@ -187,11 +190,14 @@ img {
   border-radius: 8px;
   background-color: transparent;
   color: #0a1f44;
+
 }
 
 .tab04_tab.w--current {
   border: 1px solid #d5dff7;
   background-color: transparent;
+  color: #222222;
+  opacity: 100% !important;
 }
 
 .tab04_icon {
@@ -270,4 +276,7 @@ img {
 .tab04 {
   padding: 100px 5%;
   background-color: #fff;
+  position: fixed;
+  top: 0px;
+  width:90vw;
 }
