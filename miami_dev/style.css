@@ -38,6 +38,7 @@ body {
 
 #overlay{
     z-index: 90;
+    background-color: blanchedalmond;
 }
 
 h1, h2 {
@@ -63,10 +64,13 @@ strong {
 }
 
 #vis {
+    display: inline-block;
+    position: fixed;
+    top: 0px;
     z-index: 1;
     margin-left: 0;
-    height: 80vh;
-    width: inherit
+    height: 1000px;
+    width: 1000px;
 }
 
 .tick line {
@@ -100,19 +104,12 @@ svg circle:hover{
 }
 
 a {
-    
-    text-decoration: none important!;
+    color: rgb(221, 0, 255);
+    text-decoration: none;
 }
 
 img {
     display: none;
-}
-
-p {
-    background-color: white;
-    margin-left: 25% !important;
-    padding: 20px;
-    opacity:90%;
 }
 
 .tab04_container {
@@ -160,7 +157,7 @@ p {
   display: -ms-flexbox;
   display: flex;
   overflow: visible;
-  height: 80vh;
+  height: auto;
   margin-right: 35px;
   margin-bottom: 0px;
   padding: 30px;
@@ -190,14 +187,11 @@ p {
   border-radius: 8px;
   background-color: transparent;
   color: #0a1f44;
-
 }
 
 .tab04_tab.w--current {
   border: 1px solid #d5dff7;
   background-color: transparent;
-  color: #222222;
-  opacity: 100% !important;
 }
 
 .tab04_icon {
@@ -276,7 +270,4 @@ p {
 .tab04 {
   padding: 100px 5%;
   background-color: #fff;
-  position: fixed;
-  top: 0px;
-  width:70vw;
 }
