@@ -5,8 +5,14 @@
     <link rel="stylesheet" href="style.css">
     <link href="css/normalize.css" rel="stylesheet" type="text/css"> 
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
-    <script src = 'd3.js'></script>
-    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+    <script src="https://d3js.org/d3-format.v2.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+    <script src="https://clynekp.github.io/d3-tip.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
 
     <meta property='og:title' content='Best College Majors'/>
     <meta property='og:image' content='https://github.com/cuthchow/college-majors-visualisation/blob/master/preview.png'/>
@@ -28,51 +34,41 @@
     </div> -->
     <img src="https://github.com/cuthchow/college-majors-visualisation/blob/master/preview.png" alt="">
     <div id="tooltip"></div>
-    <div id="graphic">
+    <div id="graphic" class="container">
         <div id="sections">
             <section class="step">
                 <div class="title"></div>
-
-                
             </section>
             <section class="step" id="overlay">
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br><br>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br>
+                <p style="text-align: center">
+                Rents have remained stable in Downtown Miami despite slower absorption and higher vacancy.
                 </p>
-                <svg id = 'legend' width = '400px' height = '500px'></svg>
             </section>
-            <section class = 'step' id="passthrough">
-                <svg id = 'legend2' width = '400px' height = '450px'></svg><br><br>
-                
-            </section>
-            <section class="step" id="overlay">
-                <br><br><br><br><br><br>
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            <section class = 'step' id="overlay">
+                 <p style="text-align: center">
+                Class A office rents have buoyed the overall figure, demonstrating continuing demand for high-caliber workplaces compared to other major markets which saw sharp decreases following the beginning of the COVID-19 pandemic.
                 </p>
                 
             </section>
             <section class="step" id="overlay">
+                <p style="text-align: center">
+                Downtown Miami's vacancy rate has increased as a result of COVID, reversing a recent downward trend.
+                </p>
                 
+            </section>
+            <section class="step" id="overlay">
+                <p style="text-align: center">
+                However, the overal vacancy impact on Downtown Miami has been limited compared to other major markets.
+                </p>
 
                  
             </section>
             <section class="step" id="overlay">
                 <p>
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                While early 2020 saw weak absorption, a recent uptick in lease deals in Q4 are quickly reversing those trends. Developers and brokers are seeing increasing new-to-market activity and expect to see that reflected in vacancy and absorption data by mid-year 2021.
             </p>
             </section>
-            <section class="step" id="overlay">
-                <p>
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-            </p>
-            </section>
-            <section class="step" id="overlay">
-                <span></span><span></span><span></span>                
-            </section>
+
            
 
         </div>
@@ -84,24 +80,35 @@
                     <img src="images/rent.svg" alt="" class="tab04_icon">
                     <div class="tab04_title">Rents</div>
                   </a>
-                  <a data-w-tab="Tab 3" class="tab04_tab w-inline-block w-tab-link" id="male" style="display:inherit !important"><img src="images/vacancy.svg" alt="" class="tab04_icon">
+                  <a data-w-tab="Tab 3" class="tab04_tab w-inline-block w-tab-link" id="vacancy" style="display:inherit !important"><img src="images/vacancy.svg" alt="" class="tab04_icon">
                     <div class="tab04_title">Vacancy</div>
                   </a>
-                  <a data-w-tab="Tab 4" class="tab04_tab w-inline-block w-tab-link" id="female" style="display:inherit !important"><img src="images/absorption.svg" alt="" class="tab04_icon">
+                  <a data-w-tab="Tab 4" class="tab04_tab w-inline-block w-tab-link" id="absorption" style="display:inherit !important"><img src="images/absorption.svg" alt="" class="tab04_icon">
                     <div class="tab04_title">Absorption</div>
                   </a>
                 </div>
-                <div class="tab04_content w-tab-content">
-                  <svg data-w-tab="Tab 1" class="tab04_pane w-tab-pane w--tab-active" id="vis"></svg>
-                  <div data-w-tab="Tab 3" class="tab04_pane w-tab-pane"><p>Hey!</p></div>
-                  <div data-w-tab="Tab 4" class="tab04_pane w-tab-pane"></div>
+                <div class="tab04_content w-tab-content" id="contentpane">
+                  <svg data-w-tab="Tab 1" class="tab04_pane w-tab-pane w--tab-active" id="rentvis"></svg>
+                  <svg data-w-tab="Tab 3" class="tab04_pane w-tab-pane" id="vacancyvis"></svg>
+                  <svg data-w-tab="Tab 4" class="tab04_pane w-tab-pane" id= "absorbvis"></svg>
                 </div>
               </div>
             </div>
           </div>
       
     </div>
-
+    <div id="map" class="container">
+        <div id="sections2" >
+            <section class="step2" id="overlay">
+                <p style="text-align: center">
+                Rents have remained stable in Downtown Miami despite slower absorption and higher vacancy.
+                </p>
+            </section>
+        </div>
+        <div class="mapcontainer">
+            Hi!
+        </div>
+    </div>
     
 
     

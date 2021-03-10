@@ -7,7 +7,9 @@ body {
     overflow-x: hidden;
 }
 
-#sections {
+
+
+#sections2 {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -32,6 +34,19 @@ body {
     justify-content: space-around; */
 }
 
+.step2 {
+    margin-bottom: 100px;
+    height: 700px;
+    font-family: "Domine";
+    font-weight: 400;
+    line-height: 1.4em;
+    text-align: justify;
+    position: relative;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+}
+
 #passthrough{
     z-index: -10
 }
@@ -42,12 +57,16 @@ body {
 
 h1, h2 {
     font-weight: 700;
-    text-align: right;
+    text-align: center;
     line-height: 32px;
 }
 
 h1 {
     font-size: 35px;
+}
+
+h1 span { 
+    background-color: white; 
 }
 
 strong {
@@ -61,8 +80,24 @@ strong {
     justify-content: space-around;
 }
 
-#vis {
-    z-index: 1;
+
+
+#map {
+    width: 100vw;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-around;
+}
+
+#rentvis {
+    z-index: 0;
+    margin-left: 0;
+    height: 85vh;
+    width: inherit
+}
+
+#vacancyvis {
+    z-index: 0;
     margin-left: 0;
     height: 80vh;
     width: inherit
@@ -90,6 +125,7 @@ svg circle:hover{
     cursor: pointer;
 }
 
+
 .swatch {
     fill: #939393;
 }
@@ -98,6 +134,72 @@ svg circle:hover{
     opacity: 0.7
 }
 
+/* Chart Annotations */
+  :root {
+      --line-chart-color: #607D8B;
+      --annotation-context-color: #546E7A;
+      --annotation-badge-color:white;
+      --annotation-color: #E8336D;
+    }
+
+    svg .annotation.callout.rect path.subject{
+      fill-opacity: .1;
+    }
+
+    svg .annotation.callout.rect path.subject {
+      fill: var(--annotation-context-color);
+      stroke: none;
+      stroke-dasharray: 2, 8;
+    }
+
+    .annotation-note-bg {
+      fill: rgba(0, 0, 0, 0);
+    }
+
+    .annotation-note-title, text.title {
+      font-weight: bold;
+    }
+
+    svg .annotation.rect text {
+      fill: var(--annotation-context-color);
+      font-size: .6em;
+      text-transform: uppercase;
+    }
+
+/* Chart Tooltips */
+
+.focus circle {
+        fill: steelblue;
+    }
+
+    .tooltip {
+        width: 94px;
+        padding: 4px 10px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        position: absolute;
+        background-color: white;
+        font-size: 14px;
+        pointer-events: none;
+        -webkit-transition: all 0.25s;
+        -moz-transition: all 0.25s;
+        -ms-transition: all 0.25s;
+        -o-transition: all 0.25s;
+        transition: all 0.25s;
+    }
+
+    .tooltip div {
+        margin: 3px 0;
+    }
+
+    .tooltip-date, .tooltip-likes {
+        font-weight: bold;
+    }
+.ttoverlay {
+        fill: none;
+        pointer-events: all;
+    }
 a {
     
     text-decoration: none important!;
@@ -107,13 +209,7 @@ img {
     display: none;
 }
 
-p {
-    background-color: white;
-    margin-left: 25% !important;
-    margin-right: 15% !important;
-    padding: 20px;
-    opacity:90%;
-}
+
 
 .tab04_container {
   display: -webkit-box;
@@ -161,7 +257,6 @@ p {
   display: flex;
   overflow: visible;
   height: 85vh;
-  margin-right: 35px;
   margin-bottom: 0px;
   padding: 30px;
   -webkit-box-orient: vertical;
@@ -216,7 +311,6 @@ p {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 15px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -274,6 +368,14 @@ p {
 }
 
 .tab04 {
+  padding: 100px 5%;
+  background-color: #fff;
+  position: fixed;
+  top: 0px;
+  width:90vw;
+}
+
+.mapcontainer {
   padding: 100px 5%;
   background-color: #fff;
   position: fixed;

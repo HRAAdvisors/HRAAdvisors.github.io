@@ -365,7 +365,7 @@ label {
 fieldset[disabled] .w-input,
 fieldset[disabled] .w-select {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #ffffff;
 }
 textarea.w-input,
 textarea.w-select {
