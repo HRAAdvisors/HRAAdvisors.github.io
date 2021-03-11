@@ -18,7 +18,7 @@
         containerStart = 0,
         belowStart,
         eventId = Math.random(),
-        offset = -500
+        offset = -200
 
     function reposition(){
       var i1 = 0

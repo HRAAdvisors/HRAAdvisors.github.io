@@ -50,6 +50,19 @@ p{
   z-index:500;
   text-align: center
 }
+
+.tick line{
+  visibility:hidden;
+}
+
+.axis text{ 
+  font: 14px Nunito;
+  font-weight: bold;
+  fill: #b1b1b1;}
+
+  .axis path{ 
+  stroke: #b1b1b1;}
+
 #container{
   position: relative;
 }
@@ -58,8 +71,8 @@ p{
     width: auto;
     position: relative;
     margin: 0px auto;
-    margin-left: 40%;
-    margin-right: 28%;    
+    margin-left: 60vw;
+    margin-right: 10vw;    
 }
 
 
@@ -104,9 +117,10 @@ p{
   background: rgb(255 255 255 / 88%) !important;
 }
 
-.container-2 #sections{
+/*.container-2 #sections{
   margin-left: 30% !important
 }
+*/
 
 @media screen and (max-width: 925px)  {
   #graph{
@@ -266,23 +280,20 @@ Downtown Miami is arguable even better situated – its thriving restaurant scen
 <div id='container' class='container-1'>
   <div id='graph' class ="tab04">
     <div class="tab04_container">
-              <div data-duration-in="300" data-duration-out="100" data-easing="ease-out" class="tab04_tabs w-tabs">
-                <div class="tab04_menu w-tab-menu">
-                  <a data-w-tab="Tab 1" class="tab04_tab w-inline-block w-tab-link w--current" id="both" style="display:inherit !important">
-                    <img src="images/rent.svg" alt="" class="tab04_icon">
-                    <div class="tab04_title">Rents</div>
-                  </a>
-                  <a data-w-tab="Tab 3" class="tab04_tab w-inline-block w-tab-link" id="vacancy" style="display:inherit !important"><img src="images/vacancy.svg" alt="" class="tab04_icon">
-                    <div class="tab04_title">Vacancy</div>
-                  </a>
-                  <a data-w-tab="Tab 4" class="tab04_tab w-inline-block w-tab-link" id="absorption" style="display:inherit !important"><img src="images/absorption.svg" alt="" class="tab04_icon">
-                    <div class="tab04_title">Absorption</div>
-                  </a>
-                </div>
+              <div data-duration-in="300" data-duration-out="100" data-easing="ease-out" class="tab04_tabs w-tabs" style="border:none">
                 <div class="tab04_content w-tab-content" id="contentpane">
                   <svg data-w-tab="Tab 1" class="tab04_pane w-tab-pane w--tab-active" id="rentvis"></svg>
                   <svg data-w-tab="Tab 3" class="tab04_pane w-tab-pane" id="vacancyvis"></svg>
                   <svg data-w-tab="Tab 4" class="tab04_pane w-tab-pane" id= "absorbvis"></svg>
+                </div>
+                   <div class="tab04_menu w-tab-menu" style="width:100vw; background-color: #FFFFFF">
+                  <a data-w-tab="Tab 1" class="tab04_tab w-inline-block w-tab-link w--current" id="both" style="display:none !important">
+                    
+                  </a>
+                  <a data-w-tab="Tab 3" class="tab04_tab w-inline-block w-tab-link" id="vacancy" style="display:none !important">
+                  </a>
+                  <a data-w-tab="Tab 4" class="tab04_tab w-inline-block w-tab-link" id="absorption" style="display:none !important">
+                  </a>
                 </div>
               </div>
             </div>
@@ -591,7 +602,8 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
   return{
     location: d.location,
     class: d.class,
-    year: d.year,
+    year: +d.year,
+    period: d.period,
     rent: +d.rent,
     vacancy: +d.vacancy,
     absorption: d.absorption,
@@ -603,13 +615,17 @@ if (error) throw error;
 //})
 
 
+rows =  rows.filter(f => f.year >= 2015)
+
+const colors = {'Miami':['#00b5cc'],'NY':['#eb529d'],'SF':['#eb529d'],'Chicago':['#eb529d']}
+
 nested = d3.nest().key(function(d){return d.location}).entries(rows)
 nestkeys = nested.map(function(d){return d.key;})
 
 
 
 var vis = d3.select("#rentvis")
-var margin = {top: 20, right: 20, bottom: 95, left: 60};
+var margin = {top: 200, right: 50, bottom: 200, left: 60};
 element = vis.node();
 width = element.getBoundingClientRect().width - margin.left - margin.right,
 height = element.getBoundingClientRect().height - margin.top - margin.bottom;
@@ -621,11 +637,23 @@ rentsvg = d3
 
     const rentchart = rentsvg
     .append("g")
-    .attr("transform", `translate(${margin.left},0)`);
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 
 const rentgrp = rentchart
   .append("g")
-  .attr("transform", `translate(-${margin.left},-${margin.top})`);
+  .attr("transform", `translate(-${margin.left},0)`);
+
+
+rentgrp.append("text")
+    .text("Gross Rent PSF")
+    .attr("class","charttitle")
+    .attr("x",-30)
+    .attr("y",-30)
+    .attr("transform", `translate(${margin.left},0)`)
+    .attr("opacity",1)
+    .attr("font-family", "Nunito")
+    .attr("font-weight",700)
+    .attr("font-size", "25")
 
 // Create scales
 const RentyScale = d3
@@ -634,29 +662,32 @@ const RentyScale = d3
   .domain([0, d3.max(rows, d => d.rent + 5)]);
 const RentxScale = d3
   .scalePoint()
-  .range([0, width-40])
-  .domain(rows.map(function(d){ return d.year; }));
+  .range([3, width-40])
+  .domain(rows.map(function(d){ return d.period; }));
 
 const Rentline = d3
   .line()
-  .x(d => RentxScale(d.year))
-  .y(d => RentyScale(d.rent));
+  .x(d => RentxScale(d.period))
+  .y(d => RentyScale(d.rent))
+  .curve(d3.curveBasis);
 
 
 nestkeys.forEach(function(d){
 
     data =  rows.filter(f => f.location == d)
     
+    console.log(colors[d][0])
+
     path = rentgrp
       .append("path")
       .attr("class",d + "_rentpath")
       .attr("d", Rentline(data))
       .attr("transform", `translate(${margin.left},0)`)
       .attr("fill", "none")
-      .attr("stroke", "steelblue")
+      .attr("stroke", colors[d][0])
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
-      .attr("stroke-width", 1.5)
+      .attr("stroke-width", 5)
 
     pathLength = path.node().getTotalLength();
 
@@ -668,10 +699,26 @@ nestkeys.forEach(function(d){
 rentgrp.append("text")
     .text(d)
     .attr("class",d+"_rentlabel")
-    .attr("x",RentxScale(d3.max(RentxScale.domain())) + 5)
+    .attr("x",RentxScale(d3.max(RentxScale.domain())) + 10)
     .attr("y",RentyScale(data[data.length-1 ].rent))
     .attr("transform", `translate(${margin.left},0)`)
     .attr("opacity",0)
+    .attr("font-family", "Nunito")
+    .style("fill", colors[d][0])
+    .attr("font-weight",700)
+    .attr("font-size", "20")
+
+rentgrp.append("text")
+    .text(d3.format("($.0f")(data[data.length-1 ].rent))
+    .attr("class",d+"_rentlabelrent")
+    .attr("x",RentxScale(d3.max(RentxScale.domain())) + 10)
+    .attr("y",RentyScale(data[data.length-1 ].rent)+20)
+    .attr("transform", `translate(${margin.left},0)`)
+    .attr("opacity",0)
+    .attr("font-family", "Nunito")
+    .style("fill", colors[d][0])
+    .attr("font-weight",700)
+    .attr("font-size", "17")
 
 
 })
@@ -680,14 +727,18 @@ rentgrp.append("text")
 // Add the X Axis
 rentchart
   .append("g")
+  .attr("class", "axis")
   .attr("transform", `translate(0,${height})`)
-  .call(d3.axisBottom(RentxScale)
-.tickValues(RentxScale.domain().filter(function(d,i){ return !(i%4)})));
+  .call(d3.axisBottom(RentxScale).tickSizeOuter(0)
+.tickValues(RentxScale.domain().filter(function(d,i){ return !(i%4)})))
+  .style('fill-opacity', d => d === 0 ? 0.0 : 1.0);
 // Add the Y Axis
 rentchart
   .append("g")
+  .attr("class", "axis")
   .attr("transform", `translate(0, 0)`)
-  .call(d3.axisLeft(RentyScale).tickFormat(d3.format("($.0f")));
+  .call(d3.axisLeft(RentyScale).tickSizeOuter(0)
+    .tickFormat(d3.format("($.0f")));
 
 
 
@@ -699,11 +750,22 @@ vacancysvg = d3
 
     const vacancychart = vacancysvg
     .append("g")
-    .attr("transform", `translate(${margin.left},0)`);
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 
 const vacancygrp = vacancychart
   .append("g")
-  .attr("transform", `translate(-${margin.left},-${margin.top})`);
+  .attr("transform", `translate(-${margin.left},0)`);
+
+vacancygrp.append("text")
+    .text("Vacancy Rate")
+    .attr("class","charttitle")
+    .attr("x",-30)
+    .attr("y",-30)
+    .attr("transform", `translate(${margin.left},0)`)
+    .attr("opacity",1)
+    .attr("font-family", "Nunito")
+    .attr("font-weight",700)
+    .attr("font-size", "25")
 
 // Create scales
 const vacancyyScale = d3
@@ -712,13 +774,14 @@ const vacancyyScale = d3
   .domain([0, d3.max(rows, d => d.vacancy + .02)]);
 const vacancyxScale = d3
   .scalePoint()
-  .range([0, width-40])
-  .domain(rows.map(function(d){ return d.year; }));
+  .range([3, width-40])
+  .domain(rows.map(function(d){ return d.period; }));
 
 const vacancyline = d3
   .line()
-  .x(d => vacancyxScale(d.year))
-  .y(d => vacancyyScale(d.vacancy));
+  .x(d => vacancyxScale(d.period))
+  .y(d => vacancyyScale(d.vacancy))
+  .curve(d3.curveBasis);
 
 nestkeys.forEach(function(d){
 
@@ -730,10 +793,10 @@ nestkeys.forEach(function(d){
       .attr("d", vacancyline(data))
       .attr("transform", `translate(${margin.left},0)`)
       .attr("fill", "none")
-      .attr("stroke", "steelblue")
+      .attr("stroke", colors[d][0])
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
-      .attr("stroke-width", 1.5)
+      .attr("stroke-width", 5)
 
     pathLength = path.node().getTotalLength();
 
@@ -747,6 +810,23 @@ nestkeys.forEach(function(d){
     .attr("x",vacancyxScale(d3.max(vacancyxScale.domain())) + 5)
     .attr("y",vacancyyScale(data[data.length-1 ].vacancy))
     .attr("transform", `translate(${margin.left},0)`)
+    .attr("font-family", "Nunito")
+    .style("fill", colors[d][0])
+    .attr("font-weight",700)
+    .attr("font-size", "20")
+    .attr("opacity",0)
+
+    vacancygrp.append("text")
+    .text(d3.format(".0%")(data[data.length-1 ].vacancy))
+    .attr("class",d+"_vacancylabelvacancy")
+    .attr("x",vacancyxScale(d3.max(vacancyxScale.domain())) + 10)
+    .attr("y",vacancyyScale(data[data.length-1 ].vacancy)+20)
+    .attr("transform", `translate(${margin.left},0)`)
+    .attr("opacity",0)
+    .attr("font-family", "Nunito")
+    .style("fill", colors[d][0])
+    .attr("font-weight",700)
+    .attr("font-size", "17")
     .attr("opacity",0)
 
 
@@ -755,12 +835,14 @@ nestkeys.forEach(function(d){
 // Add the X Axis
 vacancychart
   .append("g")
+    .attr("class", "axis")
   .attr("transform", `translate(0,${height})`)
   .call(d3.axisBottom(vacancyxScale)
 .tickValues(vacancyxScale.domain().filter(function(d,i){ return !(i%4)})));
 // Add the Y Axis
 vacancychart
   .append("g")
+    .attr("class", "axis")
   .attr("transform", `translate(0, 0)`)
   .call(d3.axisLeft(vacancyyScale)
     .tickFormat(d3.format(".0%")));
@@ -775,11 +857,22 @@ absvg = d3
 
     const abchart = absvg
     .append("g")
-    .attr("transform", `translate(${margin.left},0)`);
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 
 const abgrp = abchart
   .append("g")
-  .attr("transform", `translate(-${margin.left},-${margin.top})`);
+  .attr("transform", `translate(-${margin.left},0)`);
+
+abgrp.append("text")
+    .text("Net Absorption")
+    .attr("class","charttitle")
+    .attr("x",-30)
+    .attr("y",-30)
+    .attr("transform", `translate(${margin.left},0)`)
+    .attr("opacity",1)
+    .attr("font-family", "Nunito")
+    .attr("font-weight",700)
+    .attr("font-size", "25")
 
 // Create scales
 const abyScale = d3
@@ -788,29 +881,30 @@ const abyScale = d3
   .domain([d3.min(rows, d => +d.absorption + .02), d3.max(rows, d => +d.absorption + .02)]);
 const abxScale = d3
   .scalePoint()
-  .range([0, width-40])
-  .domain(rows.map(function(d){ return d.year; }));
+  .range([3, width-40])
+  .domain(rows.map(function(d){ return d.period; }));
 
 const abline = d3
   .line()
-  .x(d => abxScale(d.year))
-  .y(d => abyScale(+d.absorption));
+  .x(d => abxScale(d.period))
+  .y(d => abyScale(+d.absorption))
+  .curve(d3.curveBasis);
 
 nestkeys.forEach(function(d){
 
     data =  rows.filter(f => f.location == d)
     
-    console.log(data)
+  
     path = abgrp
       .append("path")
       .attr("class",d + "_abpath")
       .attr("d", abline(data))
       .attr("transform", `translate(${margin.left},0)`)
       .attr("fill", "none")
-      .attr("stroke", "steelblue")
+      .attr("stroke", colors[d][0])
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
-      .attr("stroke-width", 1.5)
+      .attr("stroke-width", 5)
 
     pathLength = path.node().getTotalLength();
 
@@ -825,6 +919,22 @@ nestkeys.forEach(function(d){
     .attr("y",abyScale(+data[data.length-1 ].absorption))
     .attr("transform", `translate(${margin.left},0)`)
     .attr("opacity",0)
+    .attr("font-family", "Nunito")
+    .style("fill", colors[d][0])
+    .attr("font-weight",700)
+    .attr("font-size", "20")
+
+  abgrp.append("text")
+    .text(d3.format("(.0f")(data[data.length-1 ].absorption))
+    .attr("class",d+"_ablabelab")
+    .attr("x",abxScale(d3.max(abxScale.domain())) + 10)
+    .attr("y",abyScale(data[data.length-1 ].absorption)+20)
+    .attr("transform", `translate(${margin.left},0)`)
+    .attr("opacity",0)
+    .attr("font-family", "Nunito")
+    .style("fill", colors[d][0])
+    .attr("font-weight",700)
+    .attr("font-size", "17")
 
 
 })
@@ -832,16 +942,24 @@ nestkeys.forEach(function(d){
 // Add the X Axis
 abchart
   .append("g")
+    .attr("class", "axis")
   .attr("transform", `translate(0,${height})`)
   .call(d3.axisBottom(abxScale)
 .tickValues(abxScale.domain().filter(function(d,i){ return !(i%4)})));
 // Add the Y Axis
 abchart
   .append("g")
+    .attr("class", "axis")
   .attr("transform", `translate(0, 0)`)
   .call(d3.axisLeft(abyScale));
 
 
+d3.selectAll(".tick")
+    .filter(function (d) { return d === 0;  })
+    .remove();
+
+
+/*
 ////Annotations
 const annotations = [
         {
@@ -951,10 +1069,11 @@ const makeabAnnotations = d3.annotation()
         .append("g")
         .attr("class", "annotation-group")
         .call(makeabAnnotations)
-
+*/
 // Tooltip
 
-var bisect = d3.bisector(function(d) { return d.year; }).left;
+/*
+var bisect = d3.bisector(function(d) { return d.period; }).left;
 
 var tooltip = d3.select(".tab04_content.w-tab-content").append("div")
     .attr("class", "tooltip")
@@ -996,13 +1115,14 @@ function mousemove() {
         i = bisect(rows, x0, 0),
         d0 = rows[i - 1],
         d1 = rows[i],
-        d = x0 - d0.year > d1.year - x0 ? d1 : d0;
-    focus.attr("transform", "translate(" + (RentxScale(d.year) + margin.left) + "," + RentyScale(d.rent) + ")");
-    tooltip.attr("style", "left:" + (RentxScale(d.year) + 64) + "px;top:" + RentyScale(d.rent) + "px;");
-    tooltip.select(".tooltip-date").text(d.year);
+        d = x0 - d0.period > d1.period - x0 ? d1 : d0;
+    focus.attr("transform", "translate(" + (RentxScale(d.period) + margin.left) + "," + RentyScale(d.rent) + ")");
+    tooltip.attr("style", "left:" + (RentxScale(d.period) + 64) + "px;top:" + RentyScale(d.rent) + "px;");
+    tooltip.select(".tooltip-date").text(d.period);
     tooltip.select(".tooltip-likes").text(d3.format("($.2f")(d.rent));
 
 }
+*/
 
 });
 
@@ -1021,10 +1141,15 @@ d3.select(".Miami_rentpath")
 
 d3.select(".Miami_rentlabel")
     .transition()
-    .delay(6000)
+    .delay(4000)
   .duration(500)
   .attr("opacity", 1);
 
+d3.select(".Miami_rentlabelrent")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
 
 
 }
@@ -1052,24 +1177,44 @@ d3.select(".SF_rentpath")
 d3.select(".NY_rentlabel")
     .transition()
       .transition()
-    .delay(6000)
+    .delay(4000)
   .duration(500)
   .attr("opacity", 1);
 
 d3.select(".SF_rentlabel")
     .transition()
       .transition()
-    .delay(6000)
+    .delay(4000)
   .duration(500)
   .attr("opacity", 1);
 
 d3.select(".Chicago_rentlabel")
     .transition()
       .transition()
-    .delay(6000)
+    .delay(4000)
   .duration(500)
   .attr("opacity", 1);
 
+d3.select(".NY_rentlabelrent")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".SF_rentlabelrent")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".Chicago_rentlabelrent")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
 
 
 }
@@ -1085,6 +1230,12 @@ d3.select(".Miami_vacancypath")
   .attr("stroke-dashoffset", 0);
 
 d3.select(".Miami_vacancylabel")
+    .transition()
+    .delay(6000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".Miami_vacancylabelvacancy")
     .transition()
     .delay(6000)
   .duration(500)
@@ -1132,6 +1283,23 @@ d3.select(".SF_vacancylabel")
   .duration(500)
   .attr("opacity", 1);
 
+d3.select(".NY_vacancylabelvacancy")
+    .transition()
+    .delay(6000)
+  .duration(500)
+  .attr("opacity", 1);
+d3.select(".Chicago_vacancylabelvacancy")
+    .transition()
+    .delay(6000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".SF_vacancylabelvacancy")
+    .transition()
+    .delay(6000)
+  .duration(500)
+  .attr("opacity", 1);
+
 }
 
 function draw6(){
@@ -1144,6 +1312,12 @@ d3.select(".Miami_abpath")
   .attr("stroke-dashoffset", 0);
 
 d3.select(".Miami_ablabel")
+    .transition()
+    .delay(6000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".Miami_ablabelab")
     .transition()
     .delay(6000)
   .duration(500)
