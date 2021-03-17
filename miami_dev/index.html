@@ -35,12 +35,10 @@
 
 body{
   margin: 0px auto;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
-h1{
-  margin: 50px;
-}
+
 
 h1{
   text-align: center;
@@ -48,7 +46,6 @@ h1{
 
 p{
   z-index:500;
-  text-align: center
 }
 
 .tick line{
@@ -86,6 +83,7 @@ p{
 #sections p{
   background: rgba(255,255,255,.5);
   padding:2em;
+  text-align: center
 }
 #sections > div:last-child{
   margin-bottom: 30px;
@@ -232,6 +230,21 @@ circle{
 
 
 </style>
+<style type="text/css">
+      .mapboxgl-ctrl-logo{
+        display:none !important;
+      }
+      .mapboxgl-ctrl-bottom-right{
+        display:none !important;
+      }
+      .mapboxgl-ctrl-bottom-left{
+        display:none !important;
+      }
+
+      .css-9emwa5{
+        display:none !important;
+      }
+    </style>
 </head>
 <body>
   <div class="section cc-store-home-wrap">
@@ -246,326 +259,282 @@ circle{
     <div class="container">
       <div class="motto-wrap">
         <div class="label cc-light">INTRODUCTION</div>
-        <div class="heading-jumbo-small">While office markets across the country continue to feel the impact of the COVID-19 pandemic, early indicators suggest greater resilience in the Downtown Miami market. Asking rates not only remain stable, but have increased for Class A office spaces, while vacancy has only risen slightly compared to other markets. More importantly, the flurry of activity in the last few months of 2020 is a testament to Miami’s rising position as an attractive, world-class location for businesses and corporates, especially new-to-market players.
-
-Downtown Miami is arguable even better situated – its thriving restaurant scene, top-quality hotels, transit access, and upcoming state-of-the-art office buildings, will continue to make it a desirable market for tenants looking to relocate or expand in Miami, as well as young talent seeking job opportunities.
-<br></div>
+        <div class="heading-jumbo-small">While office markets across the country continue to feel the impact of the COVID-19 pandemic, early indicators suggest greater resilience in the Downtown Miami market. Asking rates not only remain stable, but have increased for Class A office spaces, while vacancy has only risen slightly compared to other markets. More importantly, the flurry of activity in the last few months of 2020 is a testament to Miami’s rising position as an attractive, world-class location for businesses and corporations, especially new-to-market players. <br><br>Downtown Miami is arguably even better situated – its thriving restaurant scene, top-quality hotels, transit access, and upcoming state-of-the-art office buildings, will continue to make it a desirable market for tenants looking to relocate or expand in Miami, as well as young talent seeking job opportunities.<br></div>
       </div>
       <div class="divider"></div>
       <div class="home-content-wrap">
-        <div class="div-block">
-          <div data-collapse="small" data-animation="default" data-duration="400" role="banner" class="navbar-2 w-nav">
-            <div class="container-13 w-container">
-              <nav role="navigation" class="nav-menu-2 w-nav-menu">
-                <a href="#Office-Market" class="nav-link-3-copy w-nav-link">OFFICE MARKET</a>
-                <div class="div-block-27"></div>
-                <a href="#District-Profiles" class="nav-link-3 w-nav-link">DISTRICT PROFILES</a>
-                <div class="div-block-27"></div>
-                <a href="#Employment" class="nav-link-5 w-nav-link">TALENT</a>
-              </nav>
-              <div class="menu-button-3 w-nav-button">
-                <div class="w-icon-nav-menu"></div>
-              </div>
-            </div>
+        <div data-duration-in="300" data-duration-out="100" class="w-tabs">
+          <div class="tabs-menu w-tab-menu">
+            <a data-w-tab="Tab 1" class="tab-link-copy w-inline-block w-tab-link w--current">
+              <div>OFFICE  REPORT</div>
+            </a>
+            <a data-w-tab="Tab 2" class="tab-link w-inline-block w-tab-link">
+              <div>DISTRICT DASHBOARD</div>
+            </a>
           </div>
-          <div class="div-block-26"></div>
-        </div>
-        <div id="Office-Market" class="section-5">
-          <div class="section-heading w-container">
-            <div class="icon"><img src="images/Office-Market.png" loading="lazy" width="75" alt=""></div>
-            <h2 class="heading-2">KEY MARKET STATISTICS</h2>
-          
-            </div>
-          </div>
-<div id='container' class='container-1'>
-  <div id='graph' class ="tab04">
-    <div class="tab04_container">
-              <div data-duration-in="300" data-duration-out="100" data-easing="ease-out" class="tab04_tabs w-tabs" style="border:none">
-                <div class="tab04_content w-tab-content" id="contentpane">
-                  <svg data-w-tab="Tab 1" class="tab04_pane w-tab-pane w--tab-active" id="rentvis"></svg>
-                  <svg data-w-tab="Tab 3" class="tab04_pane w-tab-pane" id="vacancyvis"></svg>
-                  <svg data-w-tab="Tab 4" class="tab04_pane w-tab-pane" id= "absorbvis"></svg>
-                </div>
-                   <div class="tab04_menu w-tab-menu" style="width:100vw; background-color: #FFFFFF">
-                  <a data-w-tab="Tab 1" class="tab04_tab w-inline-block w-tab-link w--current" id="both" style="display:none !important">
-                    
-                  </a>
-                  <a data-w-tab="Tab 3" class="tab04_tab w-inline-block w-tab-link" id="vacancy" style="display:none !important">
-                  </a>
-                  <a data-w-tab="Tab 4" class="tab04_tab w-inline-block w-tab-link" id="absorption" style="display:none !important">
-                  </a>
-                </div>
-              </div>
-            </div>
-  </div>
-  <div id='sections'>
-    <div>
-    </div>
+          <div class="w-tab-content">
+            <div data-w-tab="Tab 1" class="tab-pane-tab-1 w-tab-pane w--tab-active">
+              <div class="container-14 w-container">
+                <div class="icon"><img src="images/Office.svg" loading="lazy" width="75" alt=""></div>
+                <h2 class="heading-2">OFFICE MARKET</h2>
+                  <div id='container' class='container-2'>
+                    <div id='map'>
+                      <!--<div id='menu' class='mobilehide'>
+                        <div id='classabutton' class='on bordertop'>Office</div>
+                        <div id='otherbutton' class='on'>Residential</div>
+                        <div id='condobutton' class='on'>Transit</div>
+                    </div> -->
+                    </div>
 
-    <div>
-     <p>Rents have remained stable in Downtown Miami despite slower absorption and higher vacancy.</p>
-    </div>
-
-
-    <div>
-      <p>Class A office rents have buoyed the overall figure, demonstrating continuing demand for high-caliber workplaces compared to other major markets which saw sharp decreases following the beginning of the COVID-19 pandemic.</p>
-    </div>
-
-    <div>
-      <p>Downtown Miami's vacancy rate has increased as a result of COVID, reversing a recent downward trend.</p>
-    </div>
-
-    <div>
-      <p>However, the overal vacancy impact on Downtown Miami has been limited compared to other major markets.</p>
-    </div>
-
-    <div>
-      <p>While early 2020 saw weak absorption, a recent uptick in lease deals in Q4 are quickly reversing those trends. Developers and brokers are seeing increasing new-to-market activity and expect to see that reflected in vacancy and absorption data by mid-year 2021.
-      </p>
-    </div>
-
-        <div>
-    </div>
-
-  </div>
-
-</div>
-
-<h1>
-  
-</h1>
-
-<div id='container' class='container-2'>
-  <div id='map'>
-    <div id='menu' class='mobilehide'>
-      <div id='classabutton' class='on bordertop'>Office</div>
-      <div id='otherbutton' class='on'>Residential</div>
-      <div id='condobutton' class='on'>Transit</div>
-  </div>
-  </div>
-
-  <div id='sections'>
-    <div>
-           <p>Downtown Miami is host to a unique array of neighborhoods including the Central Business District, Brickell, and Arts & Entertainment District.
-      </p>
-    </div>
-    <div>
-      <p>The DDA Area has over 23 million square feet of office inventory.
-      </p>
-    </div>
-    <div>
-            <p>There is currently 1.5M SF of office development in the pipeline, including 830 Brickell, a standalone Class A-plus office tower adding 640,000 SF in the heart of Brickell.
-      </p>
-    </div>
-    <div>
-      <p> Downtown's extensive public transportation network including Metrorail, MetroMover, Tri-Rail, and Brightline connect downtown to Greater Miami and South Florida, bringing in workers and visitors.
-      </p>
-     </div> 
-    <div>
-    </div>
-  </div>
-
-
-</div>
-
-</div>
-<div id="District-Profiles" class="section-4">
-          <div class="div-block-36">
-            <div class="icon"><img src="images/District.png" loading="lazy" width="61" alt=""></div>
-            <h2 class="section-heading-copy-copy">DISTRICT PROFILES</h2>
-            <p style="color:#FFF">Downtown Miami is host to a unique array of neighborhoods that each have their own character. Brickell is Miami’s financial hub, with a growing residential component supporting new restaurants, nightlife, and shopping destinations. Tourists are also electing to stay and
-play in Brickell thanks to a host of hotels throughout the neighborhood. Just across the Miami River from Brickell, the Central Business
-District (CBD) is the historic center of business, commerce and culture in Miami. The CBD is now evolving into a hub of startups and
-modern companies, of restaurants and nightlife, and of the quintessential urban lifestyle. Miami DDA continues to lead the way as the largest downtown office market within Miami-Dade County and the state of Florida in terms
-of rentable square footage, and Class A rental rates.</p><br>
-            <div class="div-block-25">
-              <a href="#" class="dbutton button-13 w-button" id="MiamiButton"><strong class="bold-text-10">MIAMI-DADE</strong></a>
-              <a href="#" class="dbutton button-12 w-button" id="GDButton"><strong class="bold-text-11">GREATER DOWNTOWN</strong></a>
-              <a href="#" class="dbutton button-12 w-button" id="DDAButton"><strong class="bold-text-12">DDA</strong></a>
-              <a href="#" class="dbutton button-12 w-button" id="CBDButton"><strong class="bold-text-13">CBD</strong></a>
-              <a href="#" class="dbutton button-12 w-button" id="AEButton"><strong class="bold-text-14">A&amp;E</strong></a>
-              <a href="#" class="dbutton button-12 w-button" id="BrickellButton"><strong class="bold-text-14">BRICKELL</strong></a>
-            </div>
-            <div class="columns-2 w-row">
-              <div class="column-13 w-col w-col-3">
-                <div class="div-block-11" id="map2"></div>
-              </div>
-              <div class="w-col w-col-3">
-                <div class="div-block-21">
-                  <div><img src="images/Business.png" loading="lazy" width="129" alt="" class="image-4"></div>
-                  <div class="div-block-22">
-                    <div><strong class="bold-text-16">Businesses</strong></div>
-                    <div class="div-block-35" id="businesses"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="w-col w-col-3">
-                <div class="div-block-21">
-                  <div><img src="images/Population.png" loading="lazy" width="129" alt="" class="image-5"></div>
-                  <div class="div-block-22">
-                    <div><strong class="bold-text-17">Population</strong></div>
-                    <div class="div-block-34" id="population"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="w-col w-col-3">
-                <div class="div-block-21">
-                  <div><img src="images/Employee.png" loading="lazy" width="129" alt="" class="image-6"></div>
-                  <div class="div-block-22">
-                    <div><strong class="bold-text-18">Employees</strong></div>
-                    <div class="div-block-33" id="employees"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="container-9 w-container">
-              <div class="div-block-12" id="conditions"></div>
-            </div>
-          </div>
-        </div>
-       <div class="container-5 w-container">
-            <div class="div-block-14">
-              <h1 class="heading-3">Who&#x27;s Here?</h1>
-              <p class="paragraph-2-copy">Downtown Miami’s diverse economy is reflected in the variety among its top employers including law, professional services, and tech companies. Many domestic and international firms are establishing regional offices in Miami and existing businesses are expanding to take advantage of a growing economy and trained workforce.</p>
-              <div class="div-block-50" id="wrapper">
-                      <div class="outer" id="emp">    
-                        <div id="chart" class="inner"></div>
+                    <div id='sections'>
+                      <div>
+                             <p>Downtown Miami is host to a unique array of neighborhoods including the Central Business District, Brickell, and Arts & Entertainment District.
+                        </p>
                       </div>
+                      <div>
+                        <p>The DDA Area has over 23 million square feet of office inventory.
+                        </p>
+                      </div>
+                      <div>
+                              <p>There is currently 1.5M SF of office development in the pipeline, including 830 Brickell, a standalone Class A-plus office tower adding 640,000 SF in the heart of Brickell.
+                        </p>
+                      </div>
+                      <div>
+                        <p> When workers return to the office, they’ll be heading to some of the most recent office stock in the country. Over the last 10 years, <b class="text-span-10">more than a quarter</b> of Miami’s office inventory has either been <b class="text-span-10" style="color:#c5c531">recently developed</b> or has undergone <b class="text-span-10" style="color:#F77E08">major renovation</b>.
+                        </p>
+                       </div> 
+                      <div>
+                        <p> The office market is expected to continue to grow, with over 4 Million SF of new proposed office space in the next five years in developments like One Bayfront Plaza and MiamiCentral Phase 2.
+                        </p>
+                      </div>
+                      <div>
+                        <p> Downtown's extensive public transportation network including Metrorail, MetroMover, and Brightline connect downtown to Greater Miami and South Florida, bringing in workers and visitors.
+                        </p>
+                      </div>
+                      <div>
+                        <p>Miami is well suited to meet the post-COVID demand for flexible office space, with coworking facilities representing 4.5% of all leased office inventory.</p>   
+                      </div>
+                      <div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                <!--<div class="div-block-47">
+                  <div>[VACANCY CHART SCROLL]</div>
+                </div> -->
               </div>
-            </div>
-            <div class="div-block-14">
-              <h1 class="heading-3">Who&#x27;s Coming?</h1>
-              <p class="paragraph-2-copy">Leasing volumes were below historic levels in 2020 with a drop in activity in the Spring and Summer; however, trends have picked up recently with firms such as Shiftpixy using the COVID pandemic as an opportunity to relocate their business.</p>
-              <div class="div-block-50" id="wrapper">
-                <div class="outer" id="emp">    
-                      <div id="chart2" class="inner"></div>
+              <div class="container-15 w-container">
+                <h1 class="heading-9">Who&#x27;s Here</h1>
+                <div class="w-row"> 
+                  <div class="w-col w-col-8" id="wrapper">
+                    <div class="outer1" id="emp">    
+                        <div id="chart" class="inner1"></div>
+                      </div>
+                  </div> 
+                  <div class="column-14 w-col w-col-4"> 
+                    <p class="paragraph-14">Downtown Miami’s diverse economy is reflected in the variety of its top employers including law, professional services, and tech companies. Many domestic and international firms are establishing regional offices in Miami and existing businesses are expanding to take advantage of a growing economy and trained workforce.</p> 
+                  </div> 
+                </div> 
+              </div> 
+              <div class="container-15 w-container"> 
+                <h1 class="heading-9">Who&#x27;s Coming</h1> 
+                <div class="w-row"> 
+                  <div class="w-col w-col-8" id="wrapper">
+                    <div class="outer2" id="emp">    
+                      <div id="chart2" class="inner2"></div>
+                    </div>
+                  </div> 
+                  <div class="column-15 w-col w-col-4"> 
+                    <p class="paragraph-14">Recent relocations from firms like Shiftpixy and Blackstone reflect Miami as a strong hub for financial services, as well as an emerging destination for tech companies. New-to-market tenants, typically comprising 8% of lease deals, now make up 57%. </p> 
+                  </div> 
+                </div> 
+              </div>
+              <div class="container-15 w-container">
+                <div class="divider2"></div>
+                <div class="icon"><img src="images/Employment.png" loading="lazy" width="75" alt=""></div>
+                <h1 class="heading-2">TALENT</h1>
+                <h2 class="heading-7">Dynamic Talent Pool</h2>
+                <p class="paragraph-14">Miami-Dade County is one of the most dynamic employment markets in the nation with a year-over-year employment growth averaging 3.76% in the last three years. Approximately 85,000 employees work in Downtown Miami which represents 6.6% of the county’s workforce.</p>
+                <div class="w-layout-grid grid-4">
+                  <div class="div-block-17">
+                    <h1 class="heading-6-copy">MIAMI DDA JOB GROWTH BETWEEN 2010-2020:<br></h1>
+                    <p class="paragraph-9">18%</p>
+                  </div>
+                  <div class="div-block-17">
+                    <p class="heading-6-copy">TOP 3 INDUSTRIES MAKE UP <span class="text-span-10">57% </span>OF TOTAL DDA JOBS:<br></p>
+                    <ul role="list" class="list">
+                      <li class="list-item"><span class="text-span-11">Professional Services</span> (22%)</li>
+                      <li class="list-item-2"><span class="text-span-11">Government</span> (19%)</li>
+                      <li class="list-item-3"><span class="text-span-11">Finance &amp; Insurance</span> (15%)</li>
+                    </ul>
+                  </div>
+                </div>
+                <svg class="div-block-13" id="bubble" style="width:100%"></svg>
+                <div class="div-block-41">
+                  <div class="div-block-49">
+                    <h2 class="heading-7">6th Largest College Town</h2>
+                    <p class="paragraph-11">Miami currently has a student population of 275K, making Miami the nation’s 6th largest college town, with schools like the University of Miami, Florida International University, and Florida Atlantic producing a growing pipeline of talent.</p>
+                  </div>
+                  <div class="div-block-7"><svg id="collegetowns" width="100%" height="100%"></div>
+                  <p class="paragraph-11">Education rates are increasing in Miami with 40K more secondary degree holders in 2019 than in2010. As of 2019, Miami has a student population of 275K, making it the nation’s 6th largest college town with schools like the University of Miami, Florida International University, and Florida Atlantic producing a growing pipeline of talent. Miami talent likes to stay in Miami. As of 2019 65% of alumni from Miami schools stay in Miami after graduation. Miami also attracts a large share of graduates from throughout the state.</p>
+
+                  <div class="w-row">
+                    <div class="w-col w-col-6 w-col-stack">
+                      <div class="div-block-6">
+                        <svg id="educhart" width="100%" height="100%"></svg>
+                        <div class="range-wrap">
+                          <input id="slide" type="range" class="range" min="2010" max="2019" value="2010">
+                          <output class="bubble" style="left: calc(0% + 8px);top: 28px;"></output>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="column-5 w-col w-col-6 w-col-stack">
+                      <p class="paragraph-12">TODAY:</p>
+                      <div class="w-layout-grid grid-5">
+                        <p id="w-node-f6d3147c-8b49-46a2-3972-bc2f39c29b0d-f458ecee" class="paragraph-9-copy">18%</p>
+                        <p id="w-node-ec71e429-1526-5c75-ef54-1316a15c38a6-f458ecee" class="paragraph-17">STUDENT POPULATION</p>
+                        <p id="w-node-_6cecf1c7-0eef-3e8c-a026-9d8510453c5b-f458ecee" class="paragraph-9-copy">75%</p>
+                        <p id="w-node-_0fa72819-0b30-0023-db27-bdbca2171f47-f458ecee" class="paragraph-18">OF POPULATION THAT SPEAKS A LANGUAGE OTHER THAN ENGLISH</p>
+                      </div>
+                      <p class="paragraph-13">BETWEEN 2010-2019:</p>
+                      <div class="w-layout-grid grid-5">
+                        <p class="paragraph-9-copy">40K+</p>
+                        <p id="w-node-_0a126a8a-bf7a-ba9c-fa9c-8fbfdcbdb6d9-f458ecee" class="paragraph-17">BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
+                        <p class="paragraph-9-copy">39%+</p>
+                        <p class="paragraph-18">GROWTH IN BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container-15 w-container">
+                <h1 class="heading-7">Everyone is Coming to Miami</h1>
+                <p class="paragraph-11">Recent trends show an influx of national talent into Miami.<br></p>
+                <div class="div-block-7-copy">[USPS SCROLL MAP]</div>
+                <h1 class="heading-7">Growing Buzz</h1>
+                <div class="div-block-7"><div class='sk-ww-twitter-collection' data-embed-id='55161'></div><script src='https://www.sociablekit.com/app/embed/twitter-collections/widget.js' async defer></script></div>
+                <p class="paragraph-11">As COVID has upended traditional ideas of the workplace and industries become less tied to specific geographies, many have been looking to relocate to areas with a higher quality of life and lower regulatory environment.</p>
+                <div class="div-block-41-copy-copy">
+                  <div class="text-block-9-copy">“Companies used to come to Miami for tax purposes. For the first time, employees are making the decision – employees are saying, let’s go to Miami.”<br>‍<br><span class="text-span-7">– Danet Linares, Blanca Commercial Real Estate</span></div>
+                  <div class="text-block-9-copy">“South Florida and Miami have a lot of fundamentals going for it. We’ve experienced 5years of growth in the last few months. People are either looking to relocatedivisions, or establish satellite offices in Miami. What remains to be seen isthe scale of the migration.”<br>‍<br><span class="text-span-8">– Justin Oates, Cain International</span></div>
+                </div>
+                <div class="div-block-41-copy">
+                  <div class="text-block-9">“There is a significant need for coworking and flex space looking ahead, maybe even more so than previously as the way people use the office continues to evolve.” <br><br><span class="text-span-8">– Justin Oates, Cain International</span></div>
+                  <div class="text-block-9">“We are singing people up like crazy… People are looking to get our of their homes, and they want spaces where they can meet with clients.” <br><br><span class="text-span-7">– Yolaine Gil, Pipeline Workspaces</span></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="div-block-38"></div>
-          <div class="container-12 w-container">
-            <h2 class="section-heading-copy">OFFICE EXPERIENCE</h2>
-            <p class="paragraph-14">Conversations with major office tenants suggest a return to work plan:</p>
-            <div class="div-block-7">[CONVERSATION GRAPHIC]</div>
-            <h1 class="heading-9">The Shift to Quality</h1>
-            <div class="w-row">
-              <div class="column-7 w-col w-col-6 w-col-stack">
-                <p class="paragraph-14">When workers return to the office, they’ll be heading to some of the most recent office stock in the country. Over the last 10 years, over a quarter of Miami’s office inventory has either been recently developed or has undergone major renovation such as buildings like 201 S Biscayne.</p>
-                <div class="div-block-8">
-                  <div class="div-block-37"><img src="images/201-S-Biscayne-Blvd-Miami-FL-201-S-Biscayne-Blvd-1-Large.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 44vw, (max-width: 991px) 45vw, 23vw" srcset="images/201-S-Biscayne-Blvd-Miami-FL-201-S-Biscayne-Blvd-1-Large-p-500.jpeg 500w, images/201-S-Biscayne-Blvd-Miami-FL-201-S-Biscayne-Blvd-1-Large-p-800.jpeg 800w, images/201-S-Biscayne-Blvd-Miami-FL-201-S-Biscayne-Blvd-1-Large.jpg 883w" alt="" class="image-7"></div>
-                  <div class="text-block-7"><span class="text-span-6">201 S Biscayne Blvd</span><span class="text-span-5"><br></span><br><span class="text-span-2">Year Built: </span>1983<br><span class="text-span-3">Year Renovated: </span>2020<br><span class="text-span-4">GSF:</span> 813K<br>‍</div>
+            <div data-w-tab="Tab 2" class="w-tab-pane">
+              <div id="District-Profiles" class="section-4">
+                <div class="div-block-36">
+                  <div class="icon"><img src="images/District.png" loading="lazy" width="61" alt=""></div>
+                  <h2 class="section-heading-copy-copy">DISTRICT DASHBOARD</h2>
+                  <p class="paragraph-21">Downtown Miami is host to a unique array of neighborhoods that each have their own character. Pieced together, the Miami DDA continues to lead the way as the largest downtown office market within Miami-Dade County and the state of Florida in terms of rentable square footage, and Class A rental rates.</p>
+                  <div class="div-block-25">
+                    <a href="#" class="button-13 w-button" id="MiamiButton"><strong class="bold-text-10">MIAMI-DADE</strong></a>
+                    <a href="#" class="button-12 w-button" id="GDButton"><strong class="bold-text-11">GREATER DOWNTOWN</strong></a>
+                    <a href="#" class="button-12 w-button" id="DDAButton"><strong class="bold-text-12">DDA</strong></a>
+                    <a href="#" class="button-12 w-button" id="CBDButton"><strong class="bold-text-13">CBD</strong></a>
+                    <a href="#" class="button-12 w-button" id="AEButton"><strong class="bold-text-14">A&amp;E</strong></a>
+                    <a href="#" class="button-12 w-button" id="BrickellButton"><strong class="bold-text-15">BRICKELL</strong></a>
+                  </div>
+                  <div class="w-layout-grid grid-2">
+                    <div class="div-block-43">
+                      <div class="div-block-21">
+                        <div><img src="images/Business_1Business.png" loading="lazy" width="129" alt="" class="image-4"></div>
+                        <div class="div-block-22">
+                          <div><strong class="bold-text-16">Businesses</strong></div>
+                          <div class="div-block-35" id="businesses"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="div-block-43">
+                      <div class="div-block-21">
+                        <div><img src="images/Population_1Population.png" loading="lazy" width="129" alt="" class="image-5"></div>
+                        <div class="div-block-22">
+                          <div><strong class="bold-text-17">Population</strong></div>
+                            <div class="div-block-34" id="population"></div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="div-block-43">
+                      <div class="div-block-21">
+                        <div><img src="images/Employee_1Employee.png" loading="lazy" width="129" alt="" class="image-6"></div>
+                        <div class="div-block-22">
+                          <div><strong class="bold-text-18">Employees</strong></div>
+                          <div class="div-block-33" id="employees"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="div-block-43" id="map2">
+                     
+                    </div>
+                  </div>
+                  <div class="div-block-43">
+                    <div class="div-block-12" id="conditions"></div>
+                  </div>
+                  <div class="div-block-43">
+                    <div class="w-layout-grid grid-3">
+                      <div class="div-block-52">
+                        <div data-hover="" data-delay="0" class="dropdown w-dropdown">
+                          <div class="dropdown-toggle w-dropdown-toggle">
+                            <div class="w-icon-dropdown-toggle"></div>
+                            <div>Metric </div>
+                          </div>
+                          <nav class="w-dropdown-list">
+                            <a href="#" class="w-dropdown-link">Link 1</a>
+                            <a href="#" class="w-dropdown-link">Link 2</a>
+                            <a href="#" class="w-dropdown-link">Link 3</a>
+                          </nav>
+                        </div>
+                        <div data-hover="" data-delay="0" class="dropdown w-dropdown">
+                          <div class="dropdown-toggle w-dropdown-toggle">
+                            <div class="w-icon-dropdown-toggle"></div>
+                            <div>Geography</div>
+                          </div>
+                          <nav class="w-dropdown-list">
+                            <a href="#" class="w-dropdown-link">Link 1</a>
+                            <a href="#" class="w-dropdown-link">Link 2</a>
+                            <a href="#" class="w-dropdown-link">Link 3</a>
+                          </nav>
+                        </div>
+                      </div>
+                      <div class="div-block-12">
+                        <div id='graph' class ="tab04">
+                          <div class="tab04_container">
+                                    <div data-duration-in="300" data-duration-out="100" data-easing="ease-out" class="tab04_tabs w-tabs">
+                                      <div class="tab04_menu w-tab-menu">
+                                        <a data-w-tab="Tab 1" class="tab04_tab w-inline-block w-tab-link w--current" id="both" style="display:inherit !important">
+                                          <img src="images/rent.svg" alt="" class="tab04_icon">
+                                          <div class="tab04_title">Rents</div>
+                                        </a>
+                                        <a data-w-tab="Tab 3" class="tab04_tab w-inline-block w-tab-link" id="vacancy" style="display:inherit !important"><img src="images/vacancy.svg" alt="" class="tab04_icon">
+                                          <div class="tab04_title">Vacancy</div>
+                                        </a>
+                                        <a data-w-tab="Tab 4" class="tab04_tab w-inline-block w-tab-link" id="absorption" style="display:inherit !important"><img src="images/absorption.svg" alt="" class="tab04_icon">
+                                          <div class="tab04_title">Absorption</div>
+                                        </a>
+                                      </div>
+                                      <div class="tab04_content w-tab-content" id="contentpane">
+                                        <svg data-w-tab="Tab 1" class="tab04_pane w-tab-pane w--tab-active" id="rentvis"></svg>
+                                        <svg data-w-tab="Tab 3" class="tab04_pane w-tab-pane" id="vacancyvis"></svg>
+                                        <svg data-w-tab="Tab 4" class="tab04_pane w-tab-pane" id= "absorbvis"></svg>
+                                      </div>
+                                    </div>
+                                  </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="div-block-5">[ MAP]</div>
                 </div>
-              </div>
-              <div class="w-col w-col-6 w-col-stack">
-                <div class="div-block-9"><iframe id="iframe" width=100% height = 100% src="inventory.html" frameborder="0" allowfullscreen scrolling="no"></iframe></div>
               </div>
             </div>
-          </div>
-          <div id="Employment" class="section-2">
-          <div class="container-11 w-container">
-            <div class="divider2"></div>
-          </div>
-          <div class="icon"><img src="images/Employment.png" loading="lazy" width="75" alt=""></div>
-          <h2 class="heading">TALENT</h2>
-          <p style="color:#000">Miami-Dade County is one of the most dynamic employment
-markets in the nation with a year-over-year employment
-growth averaging 3.76% in the last three years. Approximately
-85,000 employees work in Downtown Miami which
-represents 6.6% of the county’s workforce.</p><br>
-          <div class="w-row">
-            <div class="column-6 w-col w-col-3">
-              <div class="div-block-17">
-                <h1 class="heading-6">MIAMI DDA JOB GROWTH BETWEEN 2010-2020:<br></h1>
-                <p class="paragraph-9">18%</p>
-                <p class="paragraph-12">Professional Services, Government, and Finance &amp; Insurance make up 57% of total DDA jobs with Lawyers, Customer Service Reps, and Paralegals/ Legal Assistants as the top three occupations in 2020. In Greater Downtown, Computer Systems Design &amp; Related Services is the fastest growing industry, adding over one thousand jobs since 2010.</p>
-              </div>
-            </div>
-            <div class="w-col w-col-9">
-              <div class="div-block-26">
-                  <a href="#" class="button-7 w-button" id="LargestInds" >Largest</a>
-                  <a href="#" class="button-4 w-button" id="GrowingInds">Growing</a>
-                  </div>
-              <div class="div-block-13" id="top-industries"></div>
-              <div class="div-block-26">
-                  <a href="#" class="button-7 w-button" id="LargestInds" >Largest</a>
-                  <a href="#" class="button-4 w-button" id="GrowingInds">Growing</a>
-                  </div>
-              <div class="div-block-13" id="top-occupations"></div>
-            </div>
-          </div>
-          <div class="container-7 w-container">
-            <h2 class="heading-7">Education</h2>
-            <p class="paragraph-11">Education rates are increasing in Miami with 40K more secondary degree holders in 2019 than in 2010. As of 2019, Miami has a student population of 275K, making it the nation’s 6th largest college town with schools like the University of Miami, Florida International University, and Florida Atlantic producing a growing pipeline of talent. Miami talent likes to stay in Miami. As of 2019 65% of alumni from Miami schools stay in Miami after graduation. Miami also attracts a large share of graduates from throughout the state.</p>
-            <div class="w-row">
-              <div class="w-col w-col-6 w-col-stack">
-                <div class="div-block-6"><svg id="educhart" width="100%" height="100%"></svg></div>
-                <div class="range-wrap">
-                      <input id="slide" type="range" class="range" min="2010" max="2019" value="2010">
-                      <output class="bubble" style="left: calc(0% + 8px);top: 28px;"></output>
-                  </div>
-              </div>
-              <div class="column-5 w-col w-col-6 w-col-stack">
-                <p class="paragraph-12">TODAY:</p>
-                <div class="columns-3 w-row">
-                  <div class="w-col w-col-3">
-                    <p class="paragraph-9-copy">18%</p>
-                  </div>
-                  <div class="w-col w-col-9">
-                    <p>STUDENT POPULATION</p>
-                  </div>
-                </div>
-                <div class="columns-4 w-row">
-                  <div class="w-col w-col-3">
-                    <p class="paragraph-9-copy">75%</p>
-                  </div>
-                  <div class="column-2 w-col w-col-9">
-                    <p>OF POPULATION THAT SPEAKS A LANGUAGE OTHER THAN ENGLISH</p>
-                  </div>
-                </div>
-                <p class="paragraph-13">BETWEEN 2010-2019:</p>
-                <div class="columns-3 w-row">
-                  <div class="w-col w-col-3">
-                    <p class="paragraph-9-copy">40K+</p>
-                  </div>
-                  <div class="w-col w-col-8">
-                    <p>BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
-                  </div>
-                </div>
-                <div class="columns-3 w-row">
-                  <div class="w-col w-col-3">
-                    <p class="paragraph-9">39%+</p>
-                  </div>
-                  <div class="w-col w-col-8">
-                    <p>GROWTH IN BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container-8 w-container">
-            <h1 class="heading-7">Students</h1>
-            <p class="paragraph-11">Miami currently has a student population of 275K, making Miami the nation’s 6th largest college town, with schools like the University of Miami, Florida International University, and Florida Atlantic producing a growing pipeline of talent. </p>
-            <div class="div-block-7"><svg id="collegetowns" width="100%" height="100%"></div>
-          </div>
-          <div class="container-10 w-container">
-            <h1 class="heading-7">Retention</h1>
-            <p class="paragraph-11">Miami talent likes to stay in Miami. 65% of alumni from Miami schools stay in Miami after graduation. Miami also attracts a large share of graduates from throughout the state.</p>
-            <div class="div-block-7" id="map3"></div>
-            <!-- <h1 id="info"></h1> -->
-            <p class="paragraph-14">Recent trends show influx of national talent into Miami. </p>
-            <p class="paragraph-15">&quot;MIAMI STAKEHOLDER QUOTE&quot;<br>‍<br>- INTERVIEWEE</p>
-            <div class="div-block-7"><iframe id="iframe" width=100% height = 100% src="https://flowmap.blue/1wiLanxSmo4W24N18dTczIu4vWA19AXL9yo1Vag5es9A/embed" frameborder="0" allowfullscreen></iframe></div>
-          </div>
-          <div class="container-10 w-container">
-            <h1 class="heading-7">The Growing Buzz</h1>
-            <p class="paragraph-11">As COVID has upended traditional ideas of the workplace and industries become less tied to specific geographies, many have been looking to relocate to areas with a higher quality of life and lower regulatory environment.</p>
-            <div class="div-block-7"><div class='sk-ww-twitter-collection' data-embed-id='55161'></div><script src='https://www.sociablekit.com/app/embed/twitter-collections/widget.js' async defer></script></div>
           </div>
         </div>
-        
       </div>
-</div>
     </div>
   </div>
 <script src="test/d3v4+jetpack.js"></script>
@@ -676,7 +645,7 @@ nestkeys.forEach(function(d){
 
     data =  rows.filter(f => f.location == d)
     
-    console.log(colors[d][0])
+
 
     path = rentgrp
       .append("path")
@@ -1338,6 +1307,7 @@ function draw7(){
     draw6,
     draw7]
 
+/*
   var gs = d3.graphScroll()
       .container(d3.select('.container-1'))
       .graph(d3.selectAll('container-1 #graph'))
@@ -1347,6 +1317,8 @@ function draw7(){
       .on('active', function(i){
         functions[i]()
       })
+
+*/
 
 //MAP
 
@@ -1379,16 +1351,16 @@ r
             , mapboxgl: mapboxgl
         }));*/
 
-        var bins = 16;
-        var maxHeight = 265;
+        var bins = 20;
+        var maxHeight = 290;
         var binWidth = maxHeight / bins;
 
         map.on('load', function () {
-            map.addSource('floorplan', {
+            map.addSource('office', {
           // GeoJSON Data source used in vector tiles, documented at
           // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
           'type': 'geojson',
-          'data':'miami3d.geojson'
+          'data':'gis/office3.geojson'
 
           });
 
@@ -1398,12 +1370,19 @@ r
           'type': 'geojson',
           'data':'gis/830Brickell.geojson'
           });
+
+          map.addSource('proposed', {
+          // GeoJSON Data source used in vector tiles, documented at
+          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+          'type': 'geojson',
+          'data':'gis/proposed2.geojson'
+          });
            
           for (var i = 0; i < bins; i++) {
           map.addLayer({
-          'id': 'room-extrusion' + i,
+          'id': 'office-extrude' + i,
           'type': 'fill-extrusion',
-          'source': 'floorplan',
+          'source': 'office',
           'filter': 
           ['all',
           ['>', 'height', i*binWidth],
@@ -1429,32 +1408,66 @@ r
           'fill-extrusion-opacity': 0
           }
           });}
+
+                  for (var i = 0; i < bins; i++) {
+          map.addLayer({
+          'id': 'proposed-developments' + i,
+          'type': 'fill-extrusion',
+          'source': 'proposed',
+          'filter': 
+          ['all',
+          ['>', 'Proposed_parcels_Height', i*binWidth],
+          ['<=', 'Proposed_parcels_Height', (i + 1) * binWidth]],
+          'paint': {
+          'fill-extrusion-color': "#314CCD",
+          'fill-extrusion-height': 0,
+          'fill-extrusion-base': ['get', 'minHeight'],
+          'fill-extrusion-height-transition':{
+                    duration: 2000,
+                    delay: 200
+                },
+          'fill-extrusion-opacity': 0
+          }
+          });}
         
         map.addLayer({
-'id': 'under-construction',
-'type': 'fill-extrusion',
-'source': 'underconstruction',
-'paint': {
-// See the Mapbox Style Specification for details on data expressions.
-// https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions
- 
-// Get the fill-extrusion-color from the source 'color' property.
-'fill-extrusion-color': "#314CCD",
- 
-// Get fill-extrusion-height from the source 'height' property.
-'fill-extrusion-height': 0,
- 
-// Get fill-extrusion-base from the source 'base_height' property.
-'fill-extrusion-base': ['get', 'minheight'],
-//Set the 
-'fill-extrusion-height-transition':{
-          duration: 2000,
-          delay: 2000
-      },
-// Make extrusions slightly opaque for see through indoor walls.
-'fill-extrusion-opacity': .9
-}
-})
+          'id': 'under-construction',
+          'type': 'fill-extrusion',
+          'source': 'underconstruction',
+          'paint': {
+          'fill-extrusion-color': "#314CCD",
+          'fill-extrusion-height': 0,
+          'fill-extrusion-base': ['get', 'minheight'],
+          'fill-extrusion-height-transition':{
+                    duration: 2000,
+                    delay: 2000
+                },
+          'fill-extrusion-color-transition':{
+                    duration: 2000
+                },
+          'fill-extrusion-opacity': .9
+          }
+        });
+
+        map.addLayer({
+          'id': 'proposed-developments',
+          'type': 'fill-extrusion',
+          'source': 'proposed',
+          'paint': {
+          'fill-extrusion-color': "#314CCD",
+          'fill-extrusion-height': 0,
+          'fill-extrusion-base': 0,
+          'fill-extrusion-height-transition':{
+                    duration: 2000,
+                    delay: 2000
+                },
+          'fill-extrusion-color-transition':{
+                    duration: 2000
+                },
+          'fill-extrusion-opacity': .9
+          }
+        })
+
     }); 
         
 /*
@@ -1648,12 +1661,12 @@ speed: 0.5
 for (var i = 0; i < bins; i++) {
 
 map.setPaintProperty(
-'room-extrusion' + i,
+'office-extrude' + i,
 'fill-extrusion-height',
 binWidth * i
 );
 map.setPaintProperty(
-'room-extrusion' + i,
+'office-extrude' + i,
 'fill-extrusion-opacity', 0.9);
 }
 
@@ -1685,28 +1698,95 @@ speed: 0.5
 
 function drawmap4(){
 
+for (var i = 0; i < bins; i++) {
+map.setPaintProperty(
+  'office-extrude' + i, 
+  'fill-extrusion-color',
+  [
+'interpolate',
+['exponential', 0.5],
+['zoom'],
+14.5,
+['match', ['get', "new"], 'RENO', '#F77E08' , 'NEW', '#F2F234', '#314CCD'],
+15.72,
+['match', ['get', "new"], 'RENO', '#314CCD' , 'NEW', '#314CCD', '#314CCD']
+] 
+);
+
+
+map.flyTo({
+center: [-80.183022, 25.769622],
+zoom: 14.25,
+bearing: 87.20,
+pitch: 80.00,
+speed: 0.5
+})
+
+
+}
+
+} 
+
+function drawmap5(){
+
+
+for (var i = 0; i < bins; i++) {
+
+map.setPaintProperty(
+'proposed-developments' + i,
+'fill-extrusion-height',
+binWidth * i
+);
+map.setPaintProperty(
+'proposed-developments' + i,
+'fill-extrusion-opacity', 0.9);
+
+ map.setPaintProperty(
+'proposed-developments' + i,
+'fill-extrusion-color', "#00674C"
+); 
+}
+
+
+}
+
+function drawmap6(){
+  
+map.flyTo({
+center: [-80.188965, 25.776679],
+zoom: 13,
+bearing: 0,
+pitch: 0,
+speed: 0.5
+})
+
 
 d3.json(
-            'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/hmm2.geojson',
+            'gis/transit3.geojson',
             function (err, data) {
                 if (err) throw err;
+                console.log(data)
 
                 // save full coordinate list for later
-                var coordinates = data.features[0].geometry.coordinates;
 
-                // start by showing just the first coordinate
-                data.features[0].geometry.coordinates = [coordinates[0]];
-
+                let newdata = JSON.parse(JSON.stringify(data));
+                var coordinates = new Array()
+                for (x = 0; x < newdata.features.length; x++){
+                  coords = newdata.features[x].geometry.coordinates
+                  coordinates.push(newdata.features[x].geometry.coordinates);
+                  newdata.features[x].geometry.coordinates = [coords[0]];
+                }
+                
                 // add it to the map
-                map.addSource('trace', { type: 'geojson', data: data });
+                map.addSource('trace', { type: 'geojson', data: newdata });
                 map.addLayer({
                     'id': 'trace',
                     'type': 'line',
                     'source': 'trace',
                     'paint': {
-                        'line-color': 'yellow',
-                        'line-opacity': 0.75,
-                        'line-width': 20
+                        'line-color': ['get','color'],
+                        'line-opacity': 1,
+                        'line-width': 3
                     }
                 });
 
@@ -1714,32 +1794,35 @@ d3.json(
 
                 // on a regular basis, add more coordinates from the saved list and update the map
                 var i = 0;
+                var maxlength = coordinates[coordinates.reduce((maxI,el,i,arr) => (el.length>arr[maxI].length) ? i : maxI, 0)].length;
                 var timer = window.setInterval(function () {
-                    if (i < coordinates.length) {
-                        data.features[0].geometry.coordinates.push(
-                            coordinates[i]
-                        );
-                        map.getSource('trace').setData(data);
+                    if (i < maxlength) {
+                        for (t=0; t < coordinates.length; t++){
+                          newdata.features[t].geometry.coordinates.push(
+                            coordinates[t][i]
+                          );
+                        }
+                         map.getSource('trace').setData(newdata);
                         i++;
                     } else {
                         window.clearInterval(timer);
                     }
-                }, 10);
+                }, 50000);
             }
         );
   
 
 } 
 
-function drawmap5(){
-  
-} 
-
-function drawmap6(){
-  
-} 
-
 function drawmap7(){
+
+
+  
+} 
+
+function drawmap8(){
+
+
   
 } 
       let functions2 = [
@@ -1749,7 +1832,8 @@ function drawmap7(){
     drawmap4,
     drawmap5, 
     drawmap6,
-    drawmap7]
+    drawmap7,
+    drawmap8]
 
   var gs2 = d3.graphScroll()
       .container(d3.select('.container-2'))
@@ -1974,6 +2058,7 @@ map2.on('load', function () {
 });
 
 
+/*
 ////Retention Map
 var map3 = new mapboxgl.Map({
             container: 'map3'
@@ -2015,7 +2100,137 @@ map3.on('mouseleave', 'merged', function () {
 map3.getCanvas().style.cursor = '';
 popup.remove();
 });
+*/
 
+///// Bubble Chart
+function bubbleChart() {
+var bubblesvg = d3.select("#bubble"),
+margin = {top: 35, left: 35, bottom: 0, right: 15},
+element = bubblesvg.node();
+width = element.getBoundingClientRect().width - margin.left - margin.right,
+height = element.getBoundingClientRect().height - margin.top - margin.bottom;
+
+  const centre = { x: width/2, y: height/2 };
+
+  // strength to apply to the position forces
+  const forceStrength = 0.03;
+
+  // these will be set in createNodes and chart functions
+  let svg = null;
+  let bubbles = null;
+  let labels = null;
+  let nodes = [];
+
+  // charge is dependent on size of the bubble, so bigger towards the middle
+  function charge(d) {
+    return Math.pow(d.radius, 2.0) * 0.01
+  }
+
+  // create a force simulation and add forces to it
+  const simulation = d3.forceSimulation()
+    .force('charge', d3.forceManyBody().strength(charge))
+    // .force('center', d3.forceCenter(centre.x, centre.y))
+    .force('x', d3.forceX().strength(forceStrength).x(centre.x))
+    .force('y', d3.forceY().strength(forceStrength).y(centre.y))
+    .force('collision', d3.forceCollide().radius(d => d.radius + 1));
+
+  // force simulation starts up automatically, which we don't want as there aren't any nodes yet
+  simulation.stop();
+
+  // set up colour scale
+  const fillColour = d3.scaleOrdinal()
+    .domain(["1", "2", "3", "5", "99"])
+    .range(["#0074D9", "#7FDBFF", "#39CCCC", "#3D9970", "#AAAAAA"]);
+
+  // data manipulation function takes raw data from csv and converts it into an array of node objects
+  // each node will store data and visualisation values to draw a bubble
+  // rawData is expected to be an array of data objects, read in d3.csv
+  // function returns the new node array, with a node for each element in the rawData input
+  function createNodes(rawData) {
+    // use max size in the data as the max in the scale's domain
+    // note we have to ensure that size is a number
+    const maxSize = d3.max(rawData, d => +d.size);
+
+    // size bubbles based on area
+    const radiusScale = d3.scaleSqrt()
+      .domain([0, maxSize])
+      .range([0, 80])
+
+    // use map() to convert raw data into node data
+    const myNodes = rawData.map(d => ({
+      ...d,
+      radius: radiusScale(+d.size),
+      size: +d.size,
+      x: Math.random() * 900,
+      y: Math.random() * 800
+    }))
+
+    return myNodes;
+  }
+
+  // main entry point to bubble chart, returned by parent closure
+  // prepares rawData for visualisation and adds an svg element to the provided selector and starts the visualisation process
+  let chart = function chart(selector, rawData) {
+    // convert raw data into nodes data
+    nodes = createNodes(rawData);
+
+    // create svg element inside provided selector
+    var svg = d3.select("#bubble")
+
+    // bind nodes data to circle elements
+    const elements = svg.selectAll('.bubble')
+      .data(nodes, d => d.id)
+      .enter()
+      .append('g')
+
+    bubbles = elements
+      .append('circle')
+      .classed('bubble', true)
+      .attr('r', d => d.radius)
+      .attr('fill', d => fillColour(d.groupid))
+
+    // labels
+    labels = elements
+      .append('text')
+      .attr('dy', '.3em')
+      .style('text-anchor', 'middle')
+      .style('font-size', 10)
+      .text(d => d.id)
+
+    // set simulation's nodes to our newly created nodes array
+    // simulation starts running automatically once nodes are set
+    simulation.nodes(nodes)
+      .on('tick', ticked)
+      .restart();
+  }
+
+  // callback function called after every tick of the force simulation
+  // here we do the actual repositioning of the circles based on current x and y value of their bound node data
+  // x and y values are modified by the force simulation
+  function ticked() {
+    bubbles
+      .attr('cx', d => d.x)
+      .attr('cy', d => d.y)
+
+    labels
+      .attr('x', d => d.x)
+      .attr('y', d => d.y)
+  }
+
+  // return chart function from closure
+  return chart;
+}
+
+// new bubble chart instance
+let myBubbleChart = bubbleChart();
+
+// function called once promise is resolved and data is loaded from csv
+// calls bubble chart function to display inside #vis div
+function display(data) {
+  myBubbleChart('#bubble', data);
+}
+
+d3.csv('nodes-data.csv').then(display)
 
 //document.getElementById('info').innerHTML = "Share of schools’ alumni who move to Miami"
 
@@ -2198,13 +2413,16 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
 
 var scoll = 0
  function autoScrollUp(){
-          $(".inner").css({top:0}) // jump back
-                     .animate({top:-$(".outer").outerHeight()},80000,"linear", autoScrollUp); // and animate
+          $(".inner1").css({top:0}) // jump back
+                     .animate({top:-$(".outer1").outerHeight()},80000,"linear", autoScrollUp);
+          $(".inner2").css({top:0}) // jump back
+                     .animate({top:-$(".outer2").outerHeight()},80000,"linear", autoScrollUp); // and animate
       }
       // fix hight of outer:
       //$('.outer').css({maxHeight: $('.inner').height()});
       // duplicate content of inner:
-      $('.inner').html($('.inner').html() + $('.inner').html());
+      $('.inner1').html($('.inner1').html() + $('.inner1').html());
+      $('.inner2').html($('.inner2').html() + $('.inner2').html());
 
 
  autoScrollUp();
@@ -2224,7 +2442,7 @@ empwidth = document.getElementById("emp").clientWidth
 
 
 
- var padding = 6, cols = 4, radius = ((empwidth/cols)/2) - padding*(1 + (1/(cols+1))), parameter = 'employer';
+ var padding = 6, cols = 4, radius = ((empwidth/cols)/2) - padding*(1 + (1/(cols+1))), parameter = 'industry';
 
   var menu = [
             {id: 'size', name: 'Size'},
@@ -2275,7 +2493,7 @@ function updateChart() {
     })
     .style('top', function(d, i) {
       var row = Math.floor(i / cols);
-      var y = 2 * row * (radius + padding);
+      var y = row * (radius + padding);
       return y + 'px';
     });
 
@@ -2303,12 +2521,12 @@ function updateChart2() {
     .duration(1000)
     .style('left', function(d, i) {
       var col = i % cols;
-      var x = 2 * col * (radius + padding) + (padding*2);
+      var x = 2 * col * (radius + padding);
       return x + 'px';
     })
     .style('top', function(d, i) {
       var row = Math.floor(i / cols);
-      var y = 2 * row * (radius + padding);
+      var y = row * (radius + padding);
       return y + 'px';
     });
 
@@ -2347,32 +2565,33 @@ d3.select('#menu2')
                       .enter()
                       .append('div')
                       .attr('id', function(d) {return 'entity-'+d.size;})
-                      .style('background-color',function(d){ return colors[d.industry]})
+                      .style('background-color', "#FFFFFF")
                       .classed('node', true)
                       .style('width', 2 * radius + 'px')
-                      .style('height', 2 * radius + 'px')
+                      .style('height', radius + 'px')
+
                       .on('click', selectThis);
 
         nodes
           .append('div')
           .classed('name', true)
-          .html(function(d) {return "<br>"})
-          .style('width', 2 * radius + 'px');
+          .html(function(d) {return d.employer})
+          .style('color', '#00B5CC')
+          .style('width', 2 * radius + 'px')
+          .style('height', 0.5 * radius + 'px')
+          .style('padding-top', 0.25 * radius + 'px')
+          .style('font-size', 23+'px')
+          .style('font-weight', 700);
 
         nodes
           .append('div')
           .classed('value', true)
           .html(function(d) {return d[parameter]})
-          .style('color', '#FFFFFF')
+          .style('color', '#00B5CC')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
           .style('font-size', 15+'px')
           .style('font-weight', 700);
-        nodes
-          .append('div')
-          .classed('name', true)
-          .html(function(d) {return d.name})
-          .style('width', 2 * radius + 'px');
 
         updateChart();
   });
@@ -2386,32 +2605,33 @@ d3.select('#menu2')
                       .enter()
                       .append('div')
                       .attr('id', function(d) {return 'entity-'+d.size;})
-                      .style('background-color',function(d){ return colors[d.industry]})
+                      .style('background-color', "#FFFFFF")
                       .classed('node', true)
                       .style('width', 2 * radius + 'px')
-                      .style('height', 2 * radius + 'px')
+                      .style('height', radius + 'px')
+
                       .on('click', selectThis);
 
         nodes
           .append('div')
           .classed('name', true)
-          .html(function(d) {return "<br>"})
-          .style('width', 2 * radius + 'px');
+          .html(function(d) {return d.employer})
+          .style('color', '#00B5CC')
+          .style('width', 2 * radius + 'px')
+          .style('height', 0.5 * radius + 'px')
+          .style('padding-top', 0.25 * radius + 'px')
+          .style('font-size', 23+'px')
+          .style('font-weight', 700);
 
         nodes
           .append('div')
           .classed('value', true)
           .html(function(d) {return d[parameter]})
-          .style('color', '#FFFFFF')
+          .style('color', '#00B5CC')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
           .style('font-size', 15+'px')
           .style('font-weight', 700);
-        nodes
-          .append('div')
-          .classed('name', true)
-          .html(function(d) {return d.name})
-          .style('width', 2 * radius + 'px');
 
         updateChart2();
   });
@@ -2629,7 +2849,7 @@ var y = d3.scaleLinear()
 
 
 ///////QUALITY
-
+/*
 d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=2061632967", function(error, data) {
   if (error) throw error;
 
@@ -2733,7 +2953,7 @@ bar_enter.append("text")
 
   });
 
-
+*/
 ////// DISTRICT PROFILES
 d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1939873973", function(error, data1) {
       if (error) throw error;

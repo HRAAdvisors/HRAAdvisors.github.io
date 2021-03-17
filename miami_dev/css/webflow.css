@@ -309,7 +309,7 @@ input[type="reset"] {
   display: none;
   padding: 20px;
   text-align: center;
-
+  background-color: #dddddd;
 }
 .w-form-fail {
   display: none;
@@ -365,7 +365,7 @@ label {
 fieldset[disabled] .w-input,
 fieldset[disabled] .w-select {
   cursor: not-allowed;
-  background-color: #ffffff;
+  background-color: #eeeeee;
 }
 textarea.w-input,
 textarea.w-select {
@@ -926,6 +926,7 @@ textarea.w-select {
   position: relative;
   height: 300px;
   text-align: center;
+  background: #dddddd;
   clear: both;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   tap-highlight-color: rgba(0, 0, 0, 0);
@@ -1108,6 +1109,7 @@ textarea.w-select {
 }
 .w-dropdown-list {
   position: absolute;
+  background: #dddddd;
   display: none;
   min-width: 100%;
 }
@@ -1582,6 +1584,7 @@ textarea.w-select {
 }
 .w-nav {
   position: relative;
+  background: #dddddd;
   z-index: 1000;
 }
 .w-nav:before,
@@ -1626,7 +1629,7 @@ textarea.w-select {
   top: 100%;
   left: 0;
   right: 0;
- 
+  background: #C8C8C8;
   text-align: center;
   overflow: visible;
   min-width: 200px;
@@ -1683,7 +1686,7 @@ textarea.w-select {
   outline: 0;
 }
 .w-nav-button.w--open {
-
+  background-color: #C8C8C8;
   color: white;
 }
 .w-nav[data-collapse="all"] .w-nav-menu {
@@ -1751,15 +1754,14 @@ textarea.w-select {
   display: inline-block;
   vertical-align: top;
   text-decoration: none;
-
+  padding: 9px 30px;
   text-align: left;
   cursor: pointer;
   color: #222222;
-  opacity: 50%;
-
+  background-color: #dddddd;
 }
 .w-tab-link.w--current {
-
+  background-color: #C8C8C8;
 }
 .w-tab-link:focus {
   outline: 0;
@@ -1767,7 +1769,6 @@ textarea.w-select {
 .w-tab-content {
   position: relative;
   display: block;
-  overflow: hidden;
 }
 .w-tab-pane {
   position: relative;
@@ -1794,7 +1795,7 @@ textarea.w-select {
 }
 .w-dyn-empty {
   padding: 10px;
-
+  background-color: #dddddd;
 }
 .w-dyn-hide {
   display: none !important;

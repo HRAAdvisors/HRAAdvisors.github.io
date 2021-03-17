@@ -185,9 +185,11 @@
 
 #wrapper {
     font-family: 'Montserrat', sans-serif;
+    height: 35vh;
     font-size: 16px;
     font-weight: 300;
     line-height: 28px;
+    box-shadow: 3.5px 3.5px 9px rgb(0 0 0 / 40%)
 }
 
 
@@ -235,6 +237,9 @@ div.node {
    text-align: center;
    color: #eeede4;
    cursor: pointer;
+    border-color: #00B5CC;
+    border-style: solid;
+    border-width: 2px;
 
 
 }
@@ -247,7 +252,7 @@ div.node div.scrolltitle {
    font-size: 20px;
    font-weight: 400;
    padding-top: 6px;
-   line-height: 15px;
+
 
 }
 
@@ -255,7 +260,7 @@ div.node div.name {
    font-size: 15px;
    font-weight: 400;
    padding-top: 6px;
-   line-height: 15px;
+
 
 }
 
@@ -267,23 +272,38 @@ div.node div.value {
 
 }
       
-.inner{
+.inner1{
     position:relative;
     top:0px;
 }
 
-.inner:hover{
+.inner1:hover{
     animation-play-state: paused;
 }
-.outer{
-    overflow:scroll;
+.outer1{
+    overflow-y:scroll;
+    overflow-x:hidden;
     height: 100%;
 }
 
-.outer::-webkit-scrollbar {
-  display: none;
+.inner2{
+    position:relative;
+    top:0px;
 }
 
+.inner2:hover{
+    animation-play-state: paused;
+}
+.outer2{
+    overflow-y:scroll;
+    overflow-x:hidden;
+    height: 100%;
+}
+
+/*.outer::-webkit-scrollbar {
+  display: none;
+}
+*/
 .mapboxgl-popup {
 max-width: 400px;
 font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
