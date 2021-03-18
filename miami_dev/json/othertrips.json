@@ -1,0 +1,46 @@
+[
+  {
+    "city_to": "Miami",
+    "latitude_target": 331,
+    "longitude_target": 25.78074,
+    "city_from": "DC",
+    "latitude_source": 200,
+    "longitude_source": 38.90633,
+    "category": "Northeast",
+    "moves": 248,
+    "width": 1.354821087
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 331,
+    "longitude_target": 25.78074,
+    "city_from": "SF",
+    "latitude_source": 940,
+    "longitude_source": 37.40928,
+    "category": "West",
+    "moves": 340,
+    "width": 1.857416007
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 331,
+    "longitude_target": 25.78074,
+    "city_from": "LA",
+    "latitude_source": 900,
+    "longitude_source": 34.04351,
+    "category": "West",
+    "moves": 592,
+    "width": 3.234089047
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 331,
+    "longitude_target": 25.78074,
+    "city_from": "Chicago",
+    "latitude_source": 606,
+    "longitude_source": 41.83322,
+    "category": "Midwest",
+    "moves": 475,
+    "width": 2.594919421
+  }
+]

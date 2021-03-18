@@ -1,0 +1,90 @@
+[
+  {
+    "city_to": "Miami",
+    "latitude_target": 25.78074,
+    "longitude_target": -80.5089,
+    "city_from": "New York",
+    "latitude_source": 40.78085,
+    "longitude_source": -73.9672,
+    "category": "Northeast",
+    "moves": 3661,
+    "width": 20
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 25.78074,
+    "longitude_target": -80.5089,
+    "city_from": "Boston",
+    "latitude_source": 42.31115,
+    "longitude_source": -71.0528,
+    "category": "Northeast",
+    "moves": 337,
+    "width": 1.841027042
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 25.78074,
+    "longitude_target": -80.5089,
+    "city_from": "DC",
+    "latitude_source": 38.90633,
+    "longitude_source": -77.0312,
+    "category": "Northeast",
+    "moves": 248,
+    "width": 1.354821087
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 25.78074,
+    "longitude_target": -80.5089,
+    "city_from": "SF",
+    "latitude_source": 37.40928,
+    "longitude_source": -122.296,
+    "category": "West",
+    "moves": 340,
+    "width": 1.857416007
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 25.78074,
+    "longitude_target": -80.5089,
+    "city_from": "Atlanta",
+    "latitude_source": 33.84902,
+    "longitude_source": -84.0648,
+    "category": "Southeast",
+    "moves": 503,
+    "width": 2.747883092
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 25.78074,
+    "longitude_target": -80.5089,
+    "city_from": "Houston",
+    "latitude_source": 29.79486,
+    "longitude_source": -95.406,
+    "category": "Texas",
+    "moves": 312,
+    "width": 1.704452335
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 25.78074,
+    "longitude_target": -80.5089,
+    "city_from": "LA",
+    "latitude_source": 34.04351,
+    "longitude_source": -118.312,
+    "category": "West",
+    "moves": 592,
+    "width": 3.234089047
+  },
+  {
+    "city_to": "Miami",
+    "latitude_target": 25.78074,
+    "longitude_target": -80.5089,
+    "city_from": "Chicago",
+    "latitude_source": 41.83322,
+    "longitude_source": -87.6835,
+    "category": "Midwest",
+    "moves": 475,
+    "width": 2.594919421
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "city_to": "New York",
+    "latitude_target": 40.7127753,
+    "longitude_target": -74.0059728,
+    "city_from": "Hamburg",
+    "latitude_source": 53.5510846,
+    "longitude_source": 9.9936819,
+    "category": "business",
+    "width": 5
+  },
+  {
+    "city_to": "Munich",
+    "latitude_target": 48.1351253,
+    "longitude_target": 11.5819805,
+    "city_from": "Hamburg",
+    "latitude_source": 53.5510846,
+    "longitude_source": 9.9936819,
+    "category": "private",
+    "width": 7
+  },
+  {
+    "city_to": "Treviso",
+    "latitude_target": 45.6668893,
+    "longitude_target": 12.2430437,
+    "city_from": "Hamburg",
+    "latitude_source": 53.5510846,
+    "longitude_source": 9.9936819,
+    "category": "private",
+    "width": 8
+  },
+  {
+    "city_to": "Basel",
+    "latitude_target": 47.5595986,
+    "longitude_target": 7.5885761,
+    "city_from": "Hamburg",
+    "latitude_source": 53.5510846,
+    "longitude_source": 9.9936819,
+    "category": "private",
+    "width": 2
+  },
+  {
+    "city_to": "Mallorca",
+    "latitude_target": 39.6952629,
+    "longitude_target": 3.0175712,
+    "city_from": "Hamburg",
+    "latitude_source": 53.5510846,
+    "longitude_source": 9.9936819,
+    "category": "private",
+    "width": 1
+  },
+  {
+    "city_to": "Bilbao",
+    "latitude_target": 43.2630126,
+    "longitude_target": -2.9349852,
+    "city_from": "Hamburg",
+    "latitude_source": 53.5510846,
+    "longitude_source": 9.9936819,
+    "category": "business",
+    "width": 12
+  },
+  {
+    "city_to": "Berlin",
+    "latitude_target": 52.5200066,
+    "longitude_target": 13.404954,
+    "city_from": "Hamburg",
+    "latitude_source": 53.5510846,
+    "longitude_source": 9.9936819,
+    "category": "business",
+    "width": 5
+  },
+  {
+    "city_to": "Hamburg",
+    "latitude_target": 53.5510846,
+    "longitude_target": 9.9936819,
+    "city_from": "Lviv",
+    "latitude_source": 49.839683,
+    "longitude_source": 24.029717,
+    "category": "private",
+    "width": 6
+  },
+  {
+    "city_to": "Hurgada",
+    "latitude_target": 27.2578957,
+    "longitude_target": 33.8116067,
+    "city_from": "Cairo",
+    "latitude_source": 30.0444196,
+    "longitude_source": 31.2357116,
+    "category": "private",
+    "width": 3
+  },
+  {
+    "city_to": "Lviv",
+    "latitude_target": 49.839683,
+    "longitude_target": 24.029717,
+    "city_from": "Hurgada",
+    "latitude_source": 27.2578957,
+    "longitude_source": 33.8116067,
+    "category": "private",
+    "width": 9
+  },
+  {
+    "city_to": "Cairo",
+    "latitude_target": 30.0444196,
+    "longitude_target": 31.2357116,
+    "city_from": "Luxor, Egypt",
+    "latitude_source": 25.6872431,
+    "longitude_source": 32.6396357,
+    "category": "private",
+    "width": 1
+  }
+]
