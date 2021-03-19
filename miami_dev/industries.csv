@@ -1,0 +1,302 @@
+industry,id,jobs,group,naics2
+Beverage Manufacturing,1,0,Manufacturing,31
+Unclassified Industry,2,103,Unclassified Industry,99
+Software Publishers,3,162,Information,51
+Taxi and Limousine Service,4,56,Transportation and Warehousing,48
+Utility System Construction,5,21,Construction,23
+Facilities Support Services,6,236,Administrative and Support and Waste Management and Remediation Services,56
+Nonmetallic Mineral Mining and Quarrying,7,6,"Mining, Quarrying, and Oil and Gas Extraction",21
+Local Messengers and Local Delivery,8,40,Transportation and Warehousing,49
+Commercial and Industrial Machinery and Equipment Rental and Leasing,9,58,Real Estate and Rental and Leasing,53
+Scientific Research and Development Services,10,27,"Professional, Scientific, and Technical Services",54
+Ship and Boat Building,11,19,Manufacturing,33
+Animal Food Manufacturing,12,0,Manufacturing,31
+Support Activities for Animal Production,13,0,"Agriculture, Forestry, Fishing and Hunting",11
+"Beer, Wine, and Distilled Alcoholic Beverage Merchant Wholesalers",14,33,Wholesale Trade,42
+Support Activities for Water Transportation,15,789,Transportation and Warehousing,48
+Other Information Services,16,201,Information,51
+Computer Systems Design and Related Services,17,995,"Professional, Scientific, and Technical Services",54
+Cement and Concrete Product Manufacturing,18,7,Manufacturing,32
+Fruit and Vegetable Preserving and Specialty Food Manufacturing,19,7,Manufacturing,31
+Activities Related to Real Estate,20,863,Real Estate and Rental and Leasing,53
+Dairy Product Manufacturing,21,5,Manufacturing,31
+Other Food Manufacturing,22,18,Manufacturing,31
+Remediation and Other Waste Management Services,23,14,Administrative and Support and Waste Management and Remediation Services,56
+"Foundation, Structure, and Building Exterior Contractors",24,255,Construction,23
+Elementary and Secondary Schools,25,126,Educational Services,61
+Nonresidential Building Construction,26,203,Construction,23
+Spectator Sports,27,278,"Arts, Entertainment, and Recreation",71
+Electronic Shopping and Mail-Order Houses,28,124,Retail Trade,45
+"Soap, Cleaning Compound, and Toilet Preparation Manufacturing",29,1,Manufacturing,32
+"Highway, Street, and Bridge Construction",30,22,Construction,23
+Education and Hospitals (State Government),31,2655,Government,90
+Inland Water Transportation,32,6,Transportation and Warehousing,48
+Other Transportation Equipment Manufacturing,33,3,Manufacturing,33
+"Other Professional, Scientific, and Technical Services",34,332,"Professional, Scientific, and Technical Services",54
+"Management, Scientific, and Technical Consulting Services",35,3534,"Professional, Scientific, and Technical Services",54
+Other Heavy and Civil Engineering Construction,36,93,Construction,23
+Other Schools and Instruction,37,376,Educational Services,61
+Other Amusement and Recreation Industries,38,351,"Arts, Entertainment, and Recreation",71
+Other Personal Services,39,849,Other Services (except Public Administration),81
+Nonscheduled Air Transportation,40,275,Transportation and Warehousing,48
+Metal and Mineral (except Petroleum) Merchant Wholesalers,41,35,Wholesale Trade,42
+Other Transit and Ground Passenger Transportation,42,23,Transportation and Warehousing,48
+Other Telecommunications,43,60,Information,51
+Outpatient Care Centers,44,153,Health Care and Social Assistance,62
+Insurance Carriers,45,977,Finance and Insurance,52
+Offices of Other Health Practitioners,46,164,Health Care and Social Assistance,62
+Building Equipment Contractors,47,38,Construction,23
+Lumber and Other Construction Materials Merchant Wholesalers,48,11,Wholesale Trade,42
+"Beer, Wine, and Liquor Stores",49,48,Retail Trade,44
+"General Merchandise Stores, including Warehouse Clubs and Supercenters",50,14,Retail Trade,45
+Couriers and Express Delivery Services,51,55,Transportation and Warehousing,49
+Special Food Services,52,297,Accommodation and Food Services,72
+Lawn and Garden Equipment and Supplies Stores,53,0,Retail Trade,44
+Insurance and Employee Benefit Funds,54,52,Finance and Insurance,52
+Support Activities for Air Transportation,55,6,Transportation and Warehousing,48
+Office Administrative Services,56,483,Administrative and Support and Waste Management and Remediation Services,56
+Lessors of Real Estate,57,676,Real Estate and Rental and Leasing,53
+Services to Buildings and Dwellings,58,1101,Administrative and Support and Waste Management and Remediation Services,56
+"Rooming and Boarding Houses, Dormitories, and Workers' Camps",59,16,Accommodation and Food Services,72
+Other Financial Investment Activities,60,1082,Finance and Insurance,52
+"Advertising, Public Relations, and Related Services",61,848,"Professional, Scientific, and Technical Services",54
+Employment Services,62,989,Administrative and Support and Waste Management and Remediation Services,56
+"Agencies, Brokerages, and Other Insurance Related Activities",63,956,Finance and Insurance,52
+Specialized Design Services,64,185,"Professional, Scientific, and Technical Services",54
+Other Specialty Trade Contractors,65,12,Construction,23
+Educational Support Services,66,196,Educational Services,61
+"Accounting, Tax Preparation, Bookkeeping, and Payroll Services",67,2123,"Professional, Scientific, and Technical Services",54
+Restaurants and Other Eating Places,68,3380,Accommodation and Food Services,72
+Medical and Diagnostic Laboratories,69,11,Health Care and Social Assistance,62
+Automobile Dealers,70,111,Retail Trade,44
+Activities Related to Credit Intermediation,71,83,Finance and Insurance,52
+Sound Recording Industries,72,6,Information,51
+Grocery and Related Product Merchant Wholesalers,73,84,Wholesale Trade,42
+Scheduled Air Transportation,74,22,Transportation and Warehousing,48
+Other Miscellaneous Store Retailers,75,88,Retail Trade,45
+Specialty Food Stores,76,72,Retail Trade,44
+Waste Collection,77,11,Administrative and Support and Waste Management and Remediation Services,56
+Social Advocacy Organizations,78,91,Other Services (except Public Administration),81
+Other Investment Pools and Funds,79,23,Finance and Insurance,52
+Furniture Stores,80,39,Retail Trade,44
+Other Fabricated Metal Product Manufacturing,81,6,Manufacturing,33
+Bakeries and Tortilla Manufacturing,82,24,Manufacturing,31
+Offices of Dentists,83,170,Health Care and Social Assistance,62
+General Freight Trucking,84,11,Transportation and Warehousing,48
+Offices of Real Estate Agents and Brokers,85,898,Real Estate and Rental and Leasing,53
+Building Finishing Contractors,86,43,Construction,23
+Warehousing and Storage,87,34,Transportation and Warehousing,49
+Building Material and Supplies Dealers,88,17,Retail Trade,44
+Management of Companies and Enterprises,89,686,Management of Companies and Enterprises,55
+"Deep Sea, Coastal, and Great Lakes Water Transportation",90,1410,Transportation and Warehousing,48
+"Colleges, Universities, and Professional Schools",91,485,Educational Services,61
+Specialized Freight Trucking,92,34,Transportation and Warehousing,48
+Crop Production,93,137,"Agriculture, Forestry, Fishing and Hunting",11
+Traveler Accommodation,94,4327,Accommodation and Food Services,72
+"Independent Artists, Writers, and Performers",95,144,"Arts, Entertainment, and Recreation",71
+Offices of Physicians,96,254,Health Care and Social Assistance,62
+Other Wood Product Manufacturing,97,5,Manufacturing,32
+Motion Picture and Video Industries,98,143,Information,51
+Grantmaking and Giving Services,99,138,Other Services (except Public Administration),81
+Furniture and Home Furnishing Merchant Wholesalers,100,11,Wholesale Trade,42
+"Promoters of Performing Arts, Sports, and Similar Events",101,268,"Arts, Entertainment, and Recreation",71
+Personal and Household Goods Repair and Maintenance,102,76,Other Services (except Public Administration),81
+Specialty (except Psychiatric and Substance Abuse) Hospitals,103,115,Health Care and Social Assistance,62
+Private Households,104,482,Other Services (except Public Administration),81
+Miscellaneous Durable Goods Merchant Wholesalers,105,368,Wholesale Trade,42
+Printing and Related Support Activities,106,16,Manufacturing,32
+Personal Care Services,107,354,Other Services (except Public Administration),81
+"Community Food and Housing, and Emergency and Other Relief Services",108,26,Health Care and Social Assistance,62
+Freight Transportation Arrangement,109,201,Transportation and Warehousing,48
+"Scenic and Sightseeing Transportation, Land",110,1,Transportation and Warehousing,48
+"Museums, Historical Sites, and Similar Institutions",111,102,"Arts, Entertainment, and Recreation",71
+Other Motor Vehicle Dealers,112,26,Retail Trade,44
+"Scenic and Sightseeing Transportation, Water",113,45,Transportation and Warehousing,48
+Child Day Care Services,114,177,Health Care and Social Assistance,62
+"Architectural, Engineering, and Related Services",115,456,"Professional, Scientific, and Technical Services",54
+General Medical and Surgical Hospitals,116,491,Health Care and Social Assistance,62
+Gasoline Stations,117,52,Retail Trade,44
+Securities and Commodity Contracts Intermediation and Brokerage,118,2944,Finance and Insurance,52
+Drinking Places (Alcoholic Beverages),119,215,Accommodation and Food Services,72
+"Automotive Parts, Accessories, and Tire Stores",120,24,Retail Trade,44
+Grocery Stores,121,582,Retail Trade,44
+Other Support Services,122,12,Administrative and Support and Waste Management and Remediation Services,56
+Death Care Services,123,0,Other Services (except Public Administration),81
+Travel Arrangement and Reservation Services,124,623,Administrative and Support and Waste Management and Remediation Services,56
+Business Schools and Computer and Management Training,125,48,Educational Services,61
+Motor Vehicle and Motor Vehicle Parts and Supplies Merchant Wholesalers,126,25,Wholesale Trade,42
+Performing Arts Companies,127,25,"Arts, Entertainment, and Recreation",71
+Health and Personal Care Stores,128,354,Retail Trade,44
+Department Stores,129,256,Retail Trade,45
+Other Ambulatory Health Care Services,130,6,Health Care and Social Assistance,62
+Home Furnishings Stores,131,17,Retail Trade,44
+Legal Services,132,7797,"Professional, Scientific, and Technical Services",54
+Continuing Care Retirement Communities and Assisted Living Facilities for the Elderly,133,9,Health Care and Social Assistance,62
+Home Health Care Services,134,10,Health Care and Social Assistance,62
+Drugs and Druggists' Sundries Merchant Wholesalers,135,294,Wholesale Trade,42
+Residential Building Construction,136,366,Construction,23
+"Residential Intellectual and Developmental Disability, Mental Health, and Substance Abuse Facilities",137,4,Health Care and Social Assistance,62
+"Apparel, Piece Goods, and Notions Merchant Wholesalers",138,46,Wholesale Trade,42
+Chemical and Allied Products Merchant Wholesalers,139,38,Wholesale Trade,42
+Professional and Commercial Equipment and Supplies Merchant Wholesalers,140,206,Wholesale Trade,42
+Cable and Other Subscription Programming,141,5,Information,51
+Electronic and Precision Equipment Repair and Maintenance,142,6,Other Services (except Public Administration),81
+Drycleaning and Laundry Services,143,37,Other Services (except Public Administration),81
+"Data Processing, Hosting, and Related Services",144,76,Information,51
+Vocational Rehabilitation Services,145,125,Health Care and Social Assistance,62
+Florists,146,17,Retail Trade,45
+Used Merchandise Stores,147,5,Retail Trade,45
+Securities and Commodity Exchanges,148,14,Finance and Insurance,52
+Nondepository Credit Intermediation,149,835,Finance and Insurance,52
+Support Activities for Road Transportation,150,1,Transportation and Warehousing,48
+"Machinery, Equipment, and Supplies Merchant Wholesalers",151,88,Wholesale Trade,42
+Automotive Repair and Maintenance,152,54,Other Services (except Public Administration),81
+Investigation and Security Services,153,546,Administrative and Support and Waste Management and Remediation Services,56
+Household Appliances and Electrical and Electronic Goods Merchant Wholesalers,154,70,Wholesale Trade,42
+"Jewelry, Luggage, and Leather Goods Stores",155,113,Retail Trade,44
+Farm Product Raw Material Merchant Wholesalers,156,5,Wholesale Trade,42
+Electronics and Appliance Stores,157,76,Retail Trade,44
+Religious Organizations,158,37,Other Services (except Public Administration),81
+"Navigational, Measuring, Electromedical, and Control Instruments Manufacturing",159,5,Manufacturing,33
+"Federal Government, Civilian",160,424,Government,90
+"Machine Shops; Turned Product; and Screw, Nut, and Bolt Manufacturing",161,11,Manufacturing,33
+Depository Credit Intermediation,162,3865,Finance and Insurance,52
+"Sporting Goods, Hobby, and Musical Instrument Stores",163,31,Retail Trade,45
+"Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures",164,11,"Arts, Entertainment, and Recreation",71
+Individual and Family Services,165,245,Health Care and Social Assistance,62
+Sawmills and Wood Preservation,166,1,Manufacturing,32
+Postal Service,167,1,Transportation and Warehousing,49
+Cutlery and Handtool Manufacturing,168,0,Manufacturing,33
+Office Furniture (including Fixtures) Manufacturing,169,0,Manufacturing,33
+Hunting and Trapping,170,0,"Agriculture, Forestry, Fishing and Hunting",11
+Support Activities for Forestry,171,0,"Agriculture, Forestry, Fishing and Hunting",11
+Coal Mining,172,0,"Mining, Quarrying, and Oil and Gas Extraction",21
+Metal Ore Mining,173,0,"Mining, Quarrying, and Oil and Gas Extraction",21
+Support Activities for Mining,174,0,"Mining, Quarrying, and Oil and Gas Extraction",21
+Natural Gas Distribution,175,0,Utilities,22
+"Water, Sewage and Other Systems",176,0,Utilities,22
+Grain and Oilseed Milling,177,0,Manufacturing,31
+Seafood Product Preparation and Packaging,178,0,Manufacturing,31
+"Fiber, Yarn, and Thread Mills",179,0,Manufacturing,31
+Fabric Mills,180,0,Manufacturing,31
+Leather and Hide Tanning and Finishing,181,0,Manufacturing,31
+Footwear Manufacturing,182,0,Manufacturing,31
+Other Leather and Allied Product Manufacturing,183,0,Manufacturing,31
+"Veneer, Plywood, and Engineered Wood Product Manufacturing",184,0,Manufacturing,32
+"Pulp, Paper, and Paperboard Mills",185,0,Manufacturing,32
+Converted Paper Product Manufacturing,186,0,Manufacturing,32
+Petroleum and Coal Products Manufacturing,187,0,Manufacturing,32
+"Resin, Synthetic Rubber, and Artificial and Synthetic Fibers and Filaments Manufacturing",188,0,Manufacturing,32
+"Pesticide, Fertilizer, and Other Agricultural Chemical Manufacturing",189,0,Manufacturing,32
+"Paint, Coating, and Adhesive Manufacturing",190,0,Manufacturing,32
+Other Chemical Product and Preparation Manufacturing,191,0,Manufacturing,32
+Lime and Gypsum Product Manufacturing,192,0,Manufacturing,32
+Other Nonmetallic Mineral Product Manufacturing,193,0,Manufacturing,32
+Iron and Steel Mills and Ferroalloy Manufacturing,194,0,Manufacturing,33
+Steel Product Manufacturing from Purchased Steel,195,0,Manufacturing,33
+Alumina and Aluminum Production and Processing,196,0,Manufacturing,33
+Foundries,197,0,Manufacturing,33
+"Boiler, Tank, and Shipping Container Manufacturing",198,0,Manufacturing,33
+Spring and Wire Product Manufacturing,199,0,Manufacturing,33
+"Agriculture, Construction, and Mining Machinery Manufacturing",200,0,Manufacturing,33
+Computer and Peripheral Equipment Manufacturing,201,0,Manufacturing,33
+Communications Equipment Manufacturing,202,0,Manufacturing,33
+Audio and Video Equipment Manufacturing,203,0,Manufacturing,33
+Household Appliance Manufacturing,204,0,Manufacturing,33
+Electrical Equipment Manufacturing,205,0,Manufacturing,33
+Other Electrical Equipment and Component Manufacturing,206,0,Manufacturing,33
+Motor Vehicle Manufacturing,207,0,Manufacturing,33
+Motor Vehicle Body and Trailer Manufacturing,208,0,Manufacturing,33
+Aerospace Product and Parts Manufacturing,209,0,Manufacturing,33
+Railroad Rolling Stock Manufacturing,210,0,Manufacturing,33
+Other Furniture Related Product Manufacturing,211,0,Manufacturing,33
+Petroleum and Petroleum Products Merchant Wholesalers,212,0,Wholesale Trade,42
+Interurban and Rural Bus Transportation,213,0,Transportation and Warehousing,48
+School and Employee Bus Transportation,214,0,Transportation and Warehousing,48
+Pipeline Transportation of Crude Oil,215,0,Transportation and Warehousing,48
+Pipeline Transportation of Natural Gas,216,0,Transportation and Warehousing,48
+Other Pipeline Transportation,217,0,Transportation and Warehousing,48
+"Scenic and Sightseeing Transportation, Other",218,0,Transportation and Warehousing,48
+Support Activities for Rail Transportation,219,0,Transportation and Warehousing,48
+Other Support Activities for Transportation,220,0,Transportation and Warehousing,48
+Monetary Authorities-Central Bank,221,0,Finance and Insurance,52
+General Rental Centers,222,0,Real Estate and Rental and Leasing,53
+Junior Colleges,223,0,Educational Services,61
+Gambling Industries,224,0,"Arts, Entertainment, and Recreation",71
+RV (Recreational Vehicle) Parks and Recreational Camps,225,0,Accommodation and Food Services,72
+Civic and Social Organizations,226,9,Other Services (except Public Administration),81
+Rail Transportation,227,4,Transportation and Warehousing,48
+Paper and Paper Product Merchant Wholesalers,228,6,Wholesale Trade,42
+"Hardware, and Plumbing and Heating Equipment and Supplies Merchant Wholesalers",229,7,Wholesale Trade,42
+Animal Production,230,6,"Agriculture, Forestry, Fishing and Hunting",11
+Lessors of Nonfinancial Intangible Assets (except Copyrighted Works),231,6,Real Estate and Rental and Leasing,53
+Glass and Glass Product Manufacturing,232,5,Manufacturing,32
+Support Activities for Crop Production,233,5,"Agriculture, Forestry, Fishing and Hunting",11
+Textile Furnishings Mills,234,5,Manufacturing,31
+Other General Purpose Machinery Manufacturing,235,5,Manufacturing,33
+Commercial and Industrial Machinery and Equipment (except Automotive and Electronic) Repair and Maintenance,236,1,Other Services (except Public Administration),81
+Forging and Stamping,237,5,Manufacturing,33
+Motor Vehicle Parts Manufacturing,238,5,Manufacturing,33
+Waste Treatment and Disposal,239,5,Administrative and Support and Waste Management and Remediation Services,56
+Apparel Knitting Mills,240,0,Manufacturing,31
+Basic Chemical Manufacturing,241,0,Manufacturing,32
+Vending Machine Operators,242,0,Retail Trade,45
+Medical Equipment and Supplies Manufacturing,243,1,Manufacturing,33
+Architectural and Structural Metals Manufacturing,244,1,Manufacturing,33
+Metalworking Machinery Manufacturing,245,1,Manufacturing,33
+Semiconductor and Other Electronic Component Manufacturing,246,1,Manufacturing,33
+Timber Tract Operations,247,1,"Agriculture, Forestry, Fishing and Hunting",11
+Forest Nurseries and Gathering of Forest Products,248,1,"Agriculture, Forestry, Fishing and Hunting",11
+Tobacco Manufacturing,249,1,Manufacturing,31
+Textile and Fabric Finishing and Fabric Coating Mills,250,1,Manufacturing,31
+Industrial Machinery Manufacturing,251,1,Manufacturing,33
+Charter Bus Industry,252,1,Transportation and Warehousing,48
+Clay Product and Refractory Manufacturing,253,0,Manufacturing,32
+Commercial and Service Industry Machinery Manufacturing,254,0,Manufacturing,33
+Other Textile Product Mills,255,0,Manufacturing,31
+Rubber Product Manufacturing,256,0,Manufacturing,32
+"Coating, Engraving, Heat Treating, and Allied Activities",257,0,Manufacturing,33
+"Ventilation, Heating, Air-Conditioning, and Commercial Refrigeration Equipment Manufacturing",258,0,Manufacturing,33
+Amusement Parks and Arcades,259,0,"Arts, Entertainment, and Recreation",71
+Apparel Accessories and Other Apparel Manufacturing,260,0,Manufacturing,31
+Plastics Product Manufacturing,261,0,Manufacturing,32
+"Federal Government, Military",262,282,Government,90
+Shoe Stores,263,47,Retail Trade,44
+Pharmaceutical and Medicine Manufacturing,264,6,Manufacturing,32
+"Local Government, Excluding Education and Hospitals",265,276,Government,90
+"State Government, Excluding Education and Hospitals",266,158,Government,90
+Automotive Equipment Rental and Leasing,267,62,Real Estate and Rental and Leasing,53
+Fishing,268,19,"Agriculture, Forestry, Fishing and Hunting",11
+Consumer Goods Rental,269,12,Real Estate and Rental and Leasing,53
+Electric Lighting Equipment Manufacturing,270,0,Manufacturing,33
+Nursing Care Facilities (Skilled Nursing Facilities),271,199,Health Care and Social Assistance,62
+Business Support Services,272,249,Administrative and Support and Waste Management and Remediation Services,56
+Manufacturing and Reproducing Magnetic and Optical Media,273,16,Manufacturing,33
+Logging,274,7,"Agriculture, Forestry, Fishing and Hunting",11
+Direct Selling Establishments,275,33,Retail Trade,45
+Clothing Stores,276,242,Retail Trade,44
+Miscellaneous Nondurable Goods Merchant Wholesalers,277,35,Wholesale Trade,42
+Household and Institutional Furniture and Kitchen Cabinet Manufacturing,278,2,Manufacturing,33
+Radio and Television Broadcasting,279,24,Information,51
+"Office Supplies, Stationery, and Gift Stores",280,43,Retail Trade,45
+Other Residential Care Facilities,281,2,Health Care and Social Assistance,62
+Book Stores and News Dealers,282,7,Retail Trade,45
+"Business, Professional, Labor, Political, and Similar Organizations",283,180,Other Services (except Public Administration),81
+Education and Hospitals (Local Government),284,10443,Government,90
+"Electric Power Generation, Transmission and Distribution",285,17,Utilities,22
+Animal Slaughtering and Processing,286,0,Manufacturing,31
+Wired and Wireless Telecommunications Carriers,287,348,Information,51
+Psychiatric and Substance Abuse Hospitals,288,0,Health Care and Social Assistance,62
+Satellite Telecommunications,289,0,Information,51
+Cut and Sew Apparel Manufacturing,290,5,Manufacturing,31
+Wholesale Electronic Markets and Agents and Brokers,291,323,Wholesale Trade,42
+Other Miscellaneous Manufacturing,292,25,Manufacturing,33
+"Newspaper, Periodical, Book, and Directory Publishers",293,231,Information,51
+Sugar and Confectionery Product Manufacturing,294,1,Manufacturing,31
+Technical and Trade Schools,295,5,Educational Services,61
+Land Subdivision,296,29,Construction,23
+Nonferrous Metal (except Aluminum) Production and Processing,297,1,Manufacturing,33
+Oil and Gas Extraction,298,0,"Mining, Quarrying, and Oil and Gas Extraction",21
+Hardware Manufacturing,299,0,Manufacturing,33
+"Engine, Turbine, and Power Transmission Equipment Manufacturing",300,0,Manufacturing,33
+Urban Transit Systems,301,0,Transportation and Warehousing,48
