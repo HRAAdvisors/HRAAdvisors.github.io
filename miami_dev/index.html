@@ -281,9 +281,17 @@ p{
       .css-9emwa5{
         display:none !important;
       }
+      .deck-tooltip {
+        font-family: Helvetica, Arial, sans-serif;
+        padding: 6px !important;
+        margin: 8px;
+        max-width: 300px;
+        font-size: 10px;
+      }
     </style>
 </head>
 <body>
+  <div id="tooltip"></div>
   <div class="section cc-store-home-wrap">
     <div class="intro-header">
       <div class="intro-content cc-homepage">
@@ -2574,10 +2582,10 @@ function drawmap8(){
 var map3 = new mapboxgl.Map({
     container: 'map3'
     , style: 'mapbox://styles/mapbox/dark-v9'
-    , center: [-88.304801, 35.501676]
+    , center: [-85.712915, 41.105394]
     , zoom: 3.16
-    , pitch: 72.50
-    , bearing: -32.80
+    , pitch: 0
+    , bearing: 0
     , maxPitch: 85
     ,renderWorldCopies: 1
 
@@ -2595,7 +2603,7 @@ requestAnimationFrame(rotateCamera);
 
 colorScale = d3.scaleOrdinal()
       .domain(['business', 'private'])
-      .range([[102,194,165], [141,160,203]])
+      .range([[102,194,165,50], [141,160,203,50]])
 
 
 class ArcBrushingLayer extends deck.ArcLayer {
@@ -2633,17 +2641,54 @@ class ArcBrushingLayer extends deck.ArcLayer {
       }
     }
 
+
+    class ArcBrushingLayer2 extends deck.ArcLayer {
+      getShaders() {
+        // here comes our custom shader
+        // we will use step function to create opacity gradient with colorA and color B
+        // for more information see https://thebookofshaders.com/05/
+        return Object.assign({}, super.getShaders(), {
+          inject: {
+            'vs:#decl': `
+             uniform float coef;
+            `,
+            'vs:#main-end': `
+            if (coef > 0.0) {
+              vec4 pct = vec4(segmentRatio);
+              pct.a = step(coef, segmentRatio) - step(coef + 0.1, segmentRatio);
+              vec4 colorA = instanceTargetColors;
+              vec4 colorB = vec4(instanceTargetColors.r, instanceTargetColors.g, instanceTargetColors.b, 0.0);
+              vec4 color = mix(colorA, colorB, pct) / 255.;
+              vColor = color;
+            }
+                        `,
+                        'fs:#main-start': `
+            if (vColor.a == 0.0) discard;
+                        `
+          }
+        });
+      }
+
+      draw(opts) {
+        const {coef} = this.props;
+        // add uniforms
+        const uniforms = Object.assign({}, opts.uniforms, { coef: coef });
+        super.draw(Object.assign({}, opts, {uniforms}));
+      }
+    }
+
  const arcsLayer = new deck.MapboxLayer({
        type: ArcBrushingLayer,
        id: `arcs`,
        data: "json/moves.json",
        opacity: 1,
        coef: 0.001,
+       pickable: true,
        getSourcePosition: d => [d.longitude_source, d.latitude_source],
        getTargetPosition: d => [d.longitude_target, d.latitude_target],
        getSourceColor: d => colorScale(d.category),
        getTargetColor: d => colorScale(d.category),
-       getStrokeWidth: d => d.width,
+       
     });
 
    map3.on('load', () => {
@@ -2655,7 +2700,7 @@ class ArcBrushingLayer extends deck.ArcLayer {
     map3.removeLayer(layers[i].id);
     }
     }
-     map3.addLayer(arcsLayer); // add arc layer
+     map3.addLayer(arcsLayer);
       
   });
 
@@ -2666,9 +2711,9 @@ function drawusps1(){
 }  
 
 function drawusps2(){
-    var coef = 0.01;
+    var coef = 0.001;
     const animationInterval = setInterval(()=> {
-      coef += 0.05;
+      coef += 0.005;
       if (coef >= 1.0) {
         clearInterval(animationInterval);
       }
