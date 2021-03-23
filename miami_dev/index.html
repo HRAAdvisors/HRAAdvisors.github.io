@@ -1566,7 +1566,7 @@ var valueLine = d3.line()
                 .transition()   
                 .duration(200)
                 .style("opacity", 1);    
-            tip .html(d.Geography + "<br/>"  + d.Value)  
+            tip .html("<b>"+ d.Geography +'</b>: '+ d.Quarter + "<br/>"  + formats[d.Metric](d.Value))  
                 .style("left", (d3.event.pageX) + "px")   
                 .style("top", (d3.event.pageY - 28) + "px");  
             })          
@@ -1667,13 +1667,13 @@ var valueLine = d3.line()
                   })
 
             selectFruit[0].value.year.forEach(function(item,index){
-              selectFruitGroups.selectAll("circle.circle" + item.key)
+            selectFruitGroups.selectAll("circle.circle" + item.key)
             .data(item.values)
             .transition()
             .duration(1000)
             .attr("cx", function(dd){return x(dd.Quarter)})
             .attr("cy", function(dd){return y(dd.Value)})
-
+            
             d3.select("."+item.key+"_label")
             .transition()
             .duration(1500)
