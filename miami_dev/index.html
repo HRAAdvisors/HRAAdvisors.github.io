@@ -697,12 +697,12 @@ p{
                   <h2 class="section-heading-copy-copy">DISTRICT DASHBOARD</h2>
                   <p class="paragraph-21">Downtown Miami is host to a unique array of neighborhoods that each have their own character. Pieced together, the Miami DDA continues to lead the way as the largest downtown office market within Miami-Dade County and the state of Florida in terms of rentable square footage, and Class A rental rates.</p>
                   <div class="div-block-25">
-                    <a href="#" class="button-13 w-button" id="MiamiButton"><strong class="bold-text-10">MIAMI-DADE</strong></a>
-                    <a href="#" class="button-12 w-button" id="GDButton"><strong class="bold-text-11">GREATER DOWNTOWN</strong></a>
-                    <a href="#" class="button-12 w-button" id="DDAButton"><strong class="bold-text-12">DDA</strong></a>
-                    <a href="#" class="button-12 w-button" id="CBDButton"><strong class="bold-text-13">CBD</strong></a>
-                    <a href="#" class="button-12 w-button" id="AEButton"><strong class="bold-text-14">A&amp;E</strong></a>
-                    <a href="#" class="button-12 w-button" id="BrickellButton"><strong class="bold-text-15">BRICKELL</strong></a>
+                    <a href="#" class="button-13 w-button dbutton" id="MiamiButton"><strong class="bold-text-10">MIAMI-DADE</strong></a>
+                    <a href="#" class="button-12 w-button dbutton" id="GDButton"><strong class="bold-text-11">GREATER DOWNTOWN</strong></a>
+                    <a href="#" class="button-12 w-button dbutton" id="DDAButton"><strong class="bold-text-12">DDA</strong></a>
+                    <a href="#" class="button-12 w-button dbutton" id="CBDButton"><strong class="bold-text-13">CBD</strong></a>
+                    <a href="#" class="button-12 w-button dbutton" id="AEButton"><strong class="bold-text-14">A&amp;E</strong></a>
+                    <a href="#" class="button-12 w-button dbutton" id="BrickellButton"><strong class="bold-text-15">BRICKELL</strong></a>
                   </div>
                   <div class="w-layout-grid grid-2">
                     <div class="div-block-43">
@@ -3525,178 +3525,7 @@ popup.remove();
 
     ///TOP INDUSTRY TABLES
 
-d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=2127750220", function(error, data1) {
-      if (error) throw error;
-      
-      d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1433347485", function(error, data2) {
-      if (error) throw error;
-        
-      data = data1
-      
-      var growing = d3
-        .select("#GrowingInds")
-      
-      var largest = d3
-        .select("#LargestInds")
-      
-      
-      
-      var columns = d3.keys(data[0]);
 
-      var table = d3.select('#top-industries').append("table");
-      var thead = table.append("thead");
-      var tbody = table.append("tbody");
-
-      thead.append("tr")
-        .selectAll("th")
-        .data(columns)
-        .enter()
-        .append("th")
-        .text(function(column) { return column; });
-
-      tbody.selectAll("tr")
-        .data(data)
-        .enter()
-        .append("tr")
-        .selectAll("td")
-        .data(function(row) {
-          return columns.map(function(column) {
-            return {
-              column: column,
-              value: row[column]
-            };
-          });
-        })
-        .enter()
-        .append("td")
-        .text(function(d) { return d.value; });
-      
-      growing
-      .on('click', function(d){
-        tbody.selectAll("tr")
-        .data(data2)
-        .selectAll("td")
-        .data(function(row) {
-          return columns.map(function(column) {
-            return {
-              column: column,
-              value: row[column]
-            };
-          });
-        })
-        .text(function(d) {return d.value;});
-        
-      })
-      
-      largest
-      .on('click', function(d){
-        tbody.selectAll("tr")
-        .data(data1)
-        .selectAll("td")
-        .data(function(row) {
-          return columns.map(function(column) {
-            return {
-              column: column,
-              value: row[column]
-            };
-          });
-        })
-        .text(function(d) {return d.value;});
-        
-      })
-      
-      
-      
-      
-        
-      });
-    });
-
-
-/// TOP OCCUPATION TABLE
-d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=632495073", function(error, data1) {
-      if (error) throw error;
-      
-      d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=791286037", function(error, data2) {
-      if (error) throw error;
-        
-      data = data1
-      
-      var growing = d3
-        .select("#GrowingOccs")
-      
-      var largest = d3
-        .select("#LargestOccs")
-      
-      
-      
-      var columns = d3.keys(data[0]);
-
-      var table = d3.select('#top-occupations').append("table");
-      var thead = table.append("thead");
-      var tbody = table.append("tbody");
-
-      thead.append("tr")
-        .selectAll("th")
-        .data(columns)
-        .enter()
-        .append("th")
-        .text(function(column) { return column; });
-
-      tbody.selectAll("tr")
-        .data(data)
-        .enter()
-        .append("tr")
-        .selectAll("td")
-        .data(function(row) {
-          return columns.map(function(column) {
-            return {
-              column: column,
-              value: row[column]
-            };
-          });
-        })
-        .enter()
-        .append("td")
-        .text(function(d) { return d.value; });
-      
-      growing
-      .on('click', function(d){
-        tbody.selectAll("tr")
-        .data(data2)
-        .selectAll("td")
-        .data(function(row) {
-          return columns.map(function(column) {
-            return {
-              column: column,
-              value: row[column]
-            };
-          });
-        })
-        .text(function(d) {return d.value;});
-        
-      })
-      
-      largest
-      .on('click', function(d){
-        tbody.selectAll("tr")
-        .data(data1)
-        .selectAll("td")
-        .data(function(row) {
-          return columns.map(function(column) {
-            return {
-              column: column,
-              value: row[column]
-            };
-          });
-        })
-        .text(function(d) {return d.value;});
-        
-      })
-      
-        
-      });
-    });
 
 //////WHO'S HERE TILE SCROLLER
 
@@ -4352,12 +4181,12 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       miami
       .on('click', function(d){
 
-        newdata = data1.filter(f => f.geo == 'miami')
+        newdata = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'miami')
         newdata.forEach(function(v){ delete v.geo });
 
         button
-        .style("color","#FFFFFF")
-        .style("background-color", "#D3D3D3")
+        .style("color","#242358")
+        .style("background-color", "#3B3C75")
         
         miami
         .style("background-color", "#FFFFFF")
@@ -4390,12 +4219,12 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       gd
       .on('click', function(d){
 
-        var newdata = data1.filter(f => f.geo == 'gd')
+        var newdata = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'gd')
         newdata.forEach(function(v){ delete v.geo });
 
         button
-        .style("color","#FFFFFF")
-        .style("background-color", "#D3D3D3")
+        .style("color","#242358")
+        .style("background-color", "#3B3C75")
         
         gd
         .style("background-color", "#FFFFFF")
@@ -4427,12 +4256,12 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       dda
       .on('click', function(d){
 
-        var newdata = data1.filter(f => f.geo == 'dda')
+        var newdata = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'dda')
         newdata.forEach(function(v){ delete v.geo });
 
         button
-        .style("color","#FFFFFF")
-        .style("background-color", "#D3D3D3")
+        .style("color","#242358")
+        .style("background-color", "#3B3C75")
         
         dda
         .style("background-color", "#FFFFFF")
@@ -4464,12 +4293,12 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       cbd
       .on('click', function(d){
 
-        var newdata = data1.filter(f => f.geo == 'cbd')
+        var newdata = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'cbd')
         newdata.forEach(function(v){ delete v.geo });
 
         button
-        .style("color","#FFFFFF")
-        .style("background-color", "#D3D3D3")
+        .style("color","#242358")
+        .style("background-color", "#3B3C75")
         
         cbd
         .style("background-color", "#FFFFFF")
@@ -4501,12 +4330,12 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       ae
       .on('click', function(d){
 
-        var newdata = data1.filter(f => f.geo == 'ae')
+        var newdata = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'ae')
         newdata.forEach(function(v){ delete v.geo });
 
         button
-        .style("color","#FFFFFF")
-        .style("background-color", "#D3D3D3")
+        .style("color","#242358")
+        .style("background-color", "#3B3C75")
         
         ae
         .style("background-color", "#FFFFFF")
@@ -4538,12 +4367,12 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       brickell
       .on('click', function(d){
 
-        var newdata = data1.filter(f => f.geo == 'brickell')
+        var newdata = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'brickell')
         newdata.forEach(function(v){ delete v.geo });
 
         button
-        .style("color","#FFFFFF")
-        .style("background-color", "#D3D3D3")
+        .style("color","#242358")
+        .style("background-color", "#3B3C75")
         
         brickell
         .style("background-color", "#FFFFFF")
