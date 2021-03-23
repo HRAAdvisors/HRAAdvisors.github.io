@@ -89,12 +89,13 @@ strong {
     justify-content: space-around;
 }
 
-#rentvis {
-    z-index: 0;
-    margin-left: 0;
-    height: 85vh;
-    width: inherit
+#graphics {
+    width: 100vw;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-around;
 }
+
 
 #vacancyvis {
     z-index: 0;

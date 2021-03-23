@@ -2,8 +2,8 @@
   display: -ms-grid;
   display: grid;
   grid-auto-columns: 1fr;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 8fr;
+  grid-template-columns: 1fr 8fr;
   -ms-grid-rows: auto auto;
   grid-template-rows: auto auto;
   grid-row-gap: 16px;
@@ -3446,7 +3446,8 @@ figcaption {
   }
 
   .div-block-12 {
-    height: 40vh;
+    height: 100%;
+    width: 100%;
   }
 
   .section-5 {
