@@ -1415,7 +1415,8 @@ var vis = d3.select("#rentvis")
 
 var formats = {'Rent':d3.format("($.0f"),'Absorption':d3.format("(.1s"),'Vacancy':d3.format(".0%")}
 var labels = {'Rent':"Gross Rent PSF",'Absorption':"Absorption",'Vacancy':"Vacancy Rate"}
-const colors = {'Miami':'#00b5cc','New York':'#eb529d','San Francisco':'#eb529d','Chicago':'#eb529d'}
+const colors = {'Miami':'#00b5cc','NY':'#eb529d','SF':'#eb529d','Chicago':'#eb529d'}
+const longname = {'Miami':'Miami','NY':'New York','SF':'San Francisco','Chicago':'Chicago'}
 
 
 
@@ -1578,7 +1579,7 @@ var valueLine = d3.line()
 
 
         vis.append("text")
-          .text(item.key)
+          .text(longname[item.key])
           .attr("class",item.key+"_label")
           .attr("x",x(d3.max(x.domain())) + 10)
           .attr("y",y(item.values[item.values.length-1 ].Value))
