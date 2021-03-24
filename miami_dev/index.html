@@ -775,6 +775,7 @@ p{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js" integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ==" crossorigin="anonymous"></script>
     <script src="webflow.js" type="text/javascript"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="simple_statistics.js"></script>
 <script>
 
 
@@ -3103,6 +3104,12 @@ colorScale = d3.scaleOrdinal()
       .domain(['business', 'private'])
       .range([[102,194,165,50], [141,160,203,50]])
 
+oppScale = d3.scaleThreshold()
+        .domain([230, 10640])
+      .range([[141,160,203,10],[141,160,203,30],[141,160,203,180]])
+
+MiamiScale = d3.scaleOrdinal().domain([33100]).range([[141,160,203,180]]).unknown([141,160,203,10])
+
 
 class ArcBrushingLayer extends deck.ArcLayer {
       getShaders() {
@@ -3132,48 +3139,15 @@ class ArcBrushingLayer extends deck.ArcLayer {
       }
 
       draw(opts) {
-        const {coef} = this.props;
+        const {coef, getSourceColor, getTargetColor} = this.props;
         // add uniforms
-        const uniforms = Object.assign({}, opts.uniforms, { coef: coef });
+        const uniforms = Object.assign({}, opts.uniforms, { coef: coef, getSourceColor: (d => MiamiScale(+d.city_to)), getTargetColor: (d => MiamiScale(+d.city_to)) });
         super.draw(Object.assign({}, opts, {uniforms}));
       }
     }
 
 
-    class ArcBrushingLayer2 extends deck.ArcLayer {
-      getShaders() {
-        // here comes our custom shader
-        // we will use step function to create opacity gradient with colorA and color B
-        // for more information see https://thebookofshaders.com/05/
-        return Object.assign({}, super.getShaders(), {
-          inject: {
-            'vs:#decl': `
-             uniform float coef;
-            `,
-            'vs:#main-end': `
-            if (coef > 0.0) {
-              vec4 pct = vec4(segmentRatio);
-              pct.a = step(coef, segmentRatio) - step(coef + 0.1, segmentRatio);
-              vec4 colorA = instanceTargetColors;
-              vec4 colorB = vec4(instanceTargetColors.r, instanceTargetColors.g, instanceTargetColors.b, 0.0);
-              vec4 color = mix(colorA, colorB, pct) / 255.;
-              vColor = color;
-            }
-                        `,
-                        'fs:#main-start': `
-            if (vColor.a == 0.0) discard;
-                        `
-          }
-        });
-      }
-
-      draw(opts) {
-        const {coef} = this.props;
-        // add uniforms
-        const uniforms = Object.assign({}, opts.uniforms, { coef: coef });
-        super.draw(Object.assign({}, opts, {uniforms}));
-      }
-    }
+const WIDTH_SCALE = d3.scaleLog().domain([35, 35000]).range([3, 8]);
 
  const arcsLayer = new deck.MapboxLayer({
        type: ArcBrushingLayer,
@@ -3184,9 +3158,11 @@ class ArcBrushingLayer extends deck.ArcLayer {
        pickable: true,
        getSourcePosition: d => [d.longitude_source, d.latitude_source],
        getTargetPosition: d => [d.longitude_target, d.latitude_target],
-       getSourceColor: d => colorScale(d.category),
-       getTargetColor: d => colorScale(d.category),
-       
+       //getSourceColor: d => MiamiScale(+d.city_to),
+       //getTargetColor: d => MiamiScale(+d.city_to),
+       getSourceColor: d => oppScale(d.total_perm20),
+       getTargetColor: d => oppScale(d.total_perm20),
+       getStrokeWidth: d => WIDTH_SCALE(d.total_perm20)
     });
 
    map3.on('load', () => {
@@ -3211,16 +3187,31 @@ function drawusps1(){
 function drawusps2(){
     var coef = 0.001;
     const animationInterval = setInterval(()=> {
-      coef += 0.005;
+      coef += 0.01;
       if (coef >= 1.0) {
         clearInterval(animationInterval);
       }
-      arcsLayer.setProps({coef});
+      arcsLayer.setProps({coef: coef});
     }, 1);
+
+ map3.flyTo({
+//center: [-80.188965, 25.776679],
+//zoom: 13,
+//bearing: 0,
+pitch: 60,
+//speed: 0.5
+})   
 }
 
 function drawusps3(){
 
+miamishade = function(d){
+  MiamiScale(+d.city_to)
+}
+
+arcsLayer.setProps({coef: 1, getSourceColor: miamishade(), getTargetColor: miamishade() })
+
+//arcsLayer.setProps({getSourceColor: '#FFFFFF'})
 } 
 
 function drawusps4(){
