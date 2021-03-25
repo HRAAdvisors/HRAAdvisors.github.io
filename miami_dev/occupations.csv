@@ -1,0 +1,22 @@
+industry,id,jobs20,jobs10,group,naics2
+Government,1,14238,16127,Government,90
+"Professional, Scientific, and Technical Services",2,16297,12391,"Professional, Scientific, and Technical Services",54
+Health Care and Social Assistance,3,2160,1830,Health Care and Social Assistance,62
+Accommodation and Food Services,4,8235,6111,Accommodation and Food Services,72
+Finance and Insurance,5,10831,9312,Finance and Insurance,52
+Transportation and Warehousing,6,2886,1844,Transportation and Warehousing,48
+Administrative and Support and Waste Management and Remediation Services,7,4269,3186,Administrative and Support and Waste Management and Remediation Services,56
+Educational Services,8,1236,875,Educational Services,61
+Retail Trade,9,1817,1612,Retail Trade,44
+Other Services (except Public Administration),10,2314,1830,Other Services (except Public Administration),81
+Real Estate and Rental and Leasing,11,2575,1717,Real Estate and Rental and Leasing,53
+Wholesale Trade,12,1685,1665,Wholesale Trade,42
+"Arts, Entertainment, and Recreation",13,1179,799,"Arts, Entertainment, and Recreation",71
+Construction,14,1082,846,Construction,23
+Information,15,1258,1257,Information,51
+Management of Companies and Enterprises,16,686,518,Management of Companies and Enterprises,55
+Manufacturing,17,68,44,Manufacturing,31
+"Agriculture, Forestry, Fishing and Hunting",18,176,147,"Agriculture, Forestry, Fishing and Hunting",11
+Unclassified Industry,19,103,8,Unclassified Industry,99
+Utilities,20,17,22,Utilities,22
+"Mining, Quarrying, and Oil and Gas Extraction",21,6,6,"Mining, Quarrying, and Oil and Gas Extraction",21

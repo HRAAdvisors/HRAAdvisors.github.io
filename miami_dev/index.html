@@ -494,6 +494,9 @@ p{
                         <div id='condobutton' class='on'>Transit</div>
                     </div> -->
                     </div>
+                  <div>
+                  <p class="paragraph-22">Source: Costar.</p>
+                </div>
 
                     <div id='sections'>
                       <div>
@@ -581,29 +584,32 @@ p{
                 </div>
                 <div id='container' class='container-1'>
                     <div id='graph'><svg id="bubble" style="width:100%; height:60vh; padding-top:5vh"></svg>
-                      <!--<div id='menu' class='mobilehide'>
-                        <div id='classabutton' class='on bordertop'>Office</div>
-                        <div id='otherbutton' class='on'>Residential</div>
-                        <div id='condobutton' class='on'>Transit</div>
-                    </div> -->
                     </div>
 
                     <div id='sections'>
                       <div>
-                        <p>[Industry statistics]</p>
                       </div>
                       <div>
-                        <p>[Industry statistics]</p>
+                        <p>Between 2010-2018, Miami DDA jobs grew 18%.<br>Approximately 85,000 employees work in Downtown Miami which represents 6.6% of the county’s workforce.</p>
                       </div>
                       <div>
-                        <p>[Industry statistics]</p>
+                        <p>The three largest industries within the DDA are Professional Services, Government, and Finance & Insurance, which make up 57% of total jobs.</p>
                       </div>
                       <div>
+                        <p>Within professional services & finance industries, the largest occupations are Lawyers, Paralegals, and Legal Assistants.<p>
                       </div>
+                       <div>
+                        <p>Between 2010 and 2019, Computer and Information Systems Managers (177%), Computer User Support Specialists (136%), and Software Developers (105%) are the fastest growing occupations. <br>Managerial positions have also grown significantly over the last ten years.
+</p>
+                      </div>
+                                          <div>
+                      </div>
+                                        
                     </div>
 
 
                   </div>
+                
                 <div class="div-block-41">
                   <div class="div-block-49">
                     <h2 class="heading-7">6th Largest College Town</h2>
@@ -659,15 +665,18 @@ p{
 
                     <div id='sections'>
                       <div>
+                      </div>
+                      <div>
                         <p>Data on permanent and temporary relocations from the United States Postal Services shows growing inter-city relocations post-COVID.
                         </p>
                       </div>
                       <div>
-                        <p>Permanent relocations from people originally living outside Florida grew 51% year-over-year in 2020. 60% of permanent newcomers from outside of Florida came from New York, Massachusetts, and Pennsylvania, with the majority from NY (53%). 
+                        <p>Permanent relocations from people originally living outside Florida grew 51% year-over-year in 2020. 
                         </p>
                       </div>
                       <div>
-                        <p>CA, IL, and DC also saw a substantial increase in outflow to Miami.
+                        <p>60% of permanent newcomers from outside of Florida came from New York, Massachusetts, and Pennsylvania, with the majority from NY (53%).<br>
+                         CA, IL, and DC also saw a substantial increase in outflow to Miami.
                         </p>
                       </div>
                       <div>
@@ -759,11 +768,12 @@ p{
                       <div id="rentvis"></div>
 
                   </div>
-                  
+                  <p class="paragraph-22-copy">Source: Costar.</p>
                 </div>
                 <div class="div-block-5" id="dashmap"><iframe id="iframe" width=100% height = 100% src="carti.html" frameborder="0" allowfullscreen scrolling="no"></iframe></div>
               </div>
             </div>
+            <p class="paragraph-11-copy-copy">This report is prepared by <a href="#https://www.hraadvisors.com/" target="_blank" class="link-4">HR&amp;A Advisors</a> on behalf of the Miami DDA.</p>
           </div>
         </div>
       </div>
@@ -794,8 +804,441 @@ element = bubblesvg.node();
 bwidth = element.getBoundingClientRect().width - margin.left - margin.right,
 bheight = element.getBoundingClientRect().height - margin.top - margin.bottom;
 
+histXScale = d3.scaleLinear().domain([1,15]).range([bwidth-((bwidth/6)*2.5), bwidth + (bwidth/6)])
+
+histYScale = d3.scaleLinear().domain([7, 1]).range([bheight*.25,bheight*.75])
+
+pct = d3.scaleLinear().domain([1,15]).range([-0.515083687,3.001915519])
+
+var defs = bubblesvg.append('defs');
+var filter = defs.append('filter').attr('id','gooey');
+filter.append('feGaussianBlur')
+  .attr('in','SourceGraphic')
+  .attr('stdDeviation', "10")
+  .attr('result','blur');
+filter.append('feColorMatrix')
+  .attr("class", "blurValues")
+  .attr('in','blur')
+  .attr('mode','matrix')
+  .attr('values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6')
+  .attr('result','gooey');
+filter.append("feBlend")
+  .attr("in", "SourceGraphic")
+  .attr("in2", "gooey")
+  .attr("operator", "atop");
+
+let xAxis = d3.axisBottom(histXScale).tickFormat(function(d) { return d3.format(".0%")(pct(d)); });
+
+bubblesvg.append('g')
+        .attr('class', 'histaxis')
+        .attr('transform', `translate(${-bwidth/1.95}, ${histYScale(0)})`)
+        .call(xAxis)
+        .style('opacity',0)
+
+bubblesvg.append("text")
+                .attr("y", histYScale(0)+ 30)
+                .attr("x", bwidth-((bwidth/6)*3.75))
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .text("Employment Growth (2010-2020)")
+                .attr("class", "histlabel")
+                .attr("font-family", "Nunito")
+                .style("fill", "#000")
+                .attr("font-weight",700)
+                .attr("font-size", "17")
+                .style('opacity',0)
 
 function bubbleChart() {
+
+
+function draw1(){
+
+
+
+}
+function draw2(){
+
+d3.selectAll('#inds')
+.transition(2000)
+.attr('r',function(d){ return d.radius2})
+
+d3.selectAll('#occs')
+.transition(2000)
+.attr('r',function(d){ return d.radius2})
+
+simulation
+    .force('collide', d3.forceCollide(d => d.radius2 + 2).strength(1))
+
+simulation2
+    .force('collide', d3.forceCollide(d => d.radius2 + 2).strength(1))
+/*
+  function transitionGoo(duration) {
+      d3.selectAll(".blurValues")
+        .transition().duration(duration)
+        .attrTween("values", function() {
+          return d3.interpolateString("1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -6", 
+                          "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6"); 
+        }); 
+    }
+
+  simulation.stop()
+
+  transitionGoo(3000)
+
+  d3.selectAll('.circle')
+       .transition()
+      .ease(d3.easeSin)
+      .duration(5000)
+            .attr("cx", function(d) { return d3.select("#Circle" + String(d.id)).attr("cx"); })
+            .attr("cy", function(d) { return d3.select("#Circle" + String(d.id)).attr("cy"); });
+
+  
+d3.select(".Miami_rentpath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+d3.select(".Miami_rentlabel")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".Miami_rentlabelrent")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+*/
+}
+
+function draw3(){
+
+  d3
+  .selectAll("#inds")
+  .filter(function (d) { return d.group != 'Finance and Insurance' && d.group != 'Professional, Scientific, and Technical Services' && d.group != 'Government'})
+  .each(function (d, i){
+        var $this = d3.select(this)
+        $this
+        .transition().duration(2000)
+        .style('opacity', .2)
+        .style('fill', '#808080')
+
+
+
+      })
+
+    simulation2.stop()
+/*
+graphNodes.forEach(function(d,i) {
+  if (d.group === 'Finance and Insurance' || d.group === 'Professional, Scientific, and Technical Services' || d.group === 'Government'){
+
+    d3.select("#bubble")
+    .append("text")
+    .attr("class","blabel")
+    .style("opacity",0)
+    .style("font-size", "10px")
+    .text(d.group)
+    .attr('text-anchor','middle')
+    .attr("dx",d3.select("#bubble_" + String(d.id)).attr("cx") - (bwidth/2))
+    .attr("dy",d3.select("#bubble_" + String(d.id)).attr("cy"))
+    .transition(2000)
+    .style("opacity",1)
+
+  }
+})*/
+/*
+d3.select(".NY_rentpath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+d3.select(".Chicago_rentpath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+d3.select(".SF_rentpath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+d3.select(".NY_rentlabel")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".SF_rentlabel")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".Chicago_rentlabel")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".NY_rentlabelrent")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".SF_rentlabelrent")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".Chicago_rentlabelrent")
+    .transition()
+      .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+*/
+
+}
+
+function draw4(){
+
+
+d3.selectAll(".blabel")
+.transition(1000)
+.style("opacity",0)
+
+graphNodes.forEach(function(d,i) {
+  if (d.group != 'Finance and Insurance' && d.group != 'Professional, Scientific, and Technical Services'){
+    r = nodes.findIndex(p => p.id === d.id)
+    nodes.splice(r, 1)
+  }
+})
+
+
+bubbles = bubbles.data(nodes, function(d){return d.id;})
+bubbles.exit().remove()
+simulation.nodes(nodes)
+simulation.tick()
+
+
+  function transitionGoo(duration) {
+      d3.selectAll(".blurValues")
+        .transition().duration(duration)
+        .attrTween("values", function() {
+          return d3.interpolateString("1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -6", 
+                          "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6"); 
+        }); 
+    }
+  simulation.stop()
+  transitionGoo(2000)
+
+  d3.selectAll('#inds')
+  .transition(2000)
+  .attr('stroke-width', 0)
+  .style('fill','steelblue')
+  .attr("cx", center.x)
+  .attr("cy", center.y)
+  .attr('r',125)
+  .transition(2000)
+  .delay(2000)
+  .attr("fill-opacity","0")
+  .attr('stroke-width', 1)
+
+  d3.selectAll('#occs')
+  .transition(2000)
+  .delay(2000)
+  .style('opacity',1)
+
+  d3
+  .selectAll("#occs")
+  .filter(function (d) { return d.group != 'Lawyers' && d.group != 'Paralegals and Legal Assistants'})
+  .each(function (d, i){
+        var $this = d3.select(this)
+        $this
+          .transition(2000)
+          .delay(2000)
+          .style('opacity', .2)
+      })
+
+    d3
+  .selectAll("#occs")
+  .filter(function (d) { return d.group === 'Lawyers' || d.group === 'Paralegals and Legal Assistants'})
+  .each(function (d, i){
+        var $this = d3.select(this)
+        $this
+          .transition(2000)
+          .delay(2000)
+          .style('opacity', 1)
+      })
+
+  d3.selectAll('#occs')
+  .on('mouseover', showDetail)
+  .on('mouseout', hideDetail);
+/*
+document.getElementById('vacancy').click();
+
+d3.select(".Miami_vacancypath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+d3.select(".Miami_vacancylabel")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".Miami_vacancylabelvacancy")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+*/
+}
+
+
+
+function draw5(){
+
+
+d3.selectAll('#occs')
+  .transition(4000)
+  .attr('cx', d => histXScale(d.col))
+  .attr('cy', d => histYScale(d.row))
+  .attr('r',20)
+  .style('opacity',1)
+
+
+ d3.select('.histlabel')
+ .transition(2000)
+ .style('opacity',1)
+
+ d3.select('.histaxis')
+ .transition(2000)
+ .style('opacity',1)
+
+ d3.selectAll('#inds')
+  .transition(1000)
+  .style('opacity',0)
+ /*
+d3.select(".NY_vacancypath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+d3.select(".Chicago_vacancypath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+d3.select(".SF_vacancypath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+
+d3.select(".NY_vacancylabel")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+d3.select(".Chicago_vacancylabel")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".SF_vacancylabel")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".NY_vacancylabelvacancy")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+d3.select(".Chicago_vacancylabelvacancy")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".SF_vacancylabelvacancy")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+*/
+}
+
+function draw6(){
+
+/*
+document.getElementById('absorption').click();
+
+d3.select(".Miami_abpath")
+    .transition()
+  .ease(d3.easeSin)
+  .duration(5000)
+  .attr("stroke-dashoffset", 0);
+
+d3.select(".Miami_ablabel")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);
+
+d3.select(".Miami_ablabelab")
+    .transition()
+    .delay(4000)
+  .duration(500)
+  .attr("opacity", 1);*/
+
+}
+
+function draw7(){
+  return
+}    
+
+      let functions = [
+        draw1,
+    draw2,
+    draw3,
+    draw4,
+    draw5, 
+    draw6,
+    draw7]
+
+
+  var gs = d3.graphScroll()
+      .container(d3.select('.container-1'))
+      .graph(d3.selectAll('container-1 #graph'))
+      .eventId('uniqueId1')  // namespace for scroll and resize events
+      .sections(d3.selectAll('.container-1 #sections > div'))
+      // .offset(innerWidth < 900 ? innerHeight - 30 : 200)
+      .on('active', function(i){
+        functions[i]()
+      })
+
   // Constants for sizing
 
   // tooltip for mouseover functionality
@@ -848,6 +1291,18 @@ function bubbleChart() {
   //  which we don't want as there aren't any nodes yet.
   simulation.stop();
 
+  var simulation2 = d3.forceSimulation()
+  .velocityDecay(0.2)
+  .force('x', d3.forceX().strength(forceStrength).x(center.x))
+  .force('y', d3.forceY().strength(forceStrength).y(center.y))
+  .force('charge', d3.forceManyBody().strength(charge))
+  .force('collide', d3.forceCollide(d => d.radius + 2).strength(1))
+  .on('tick', ticked);
+
+// @v4 Force starts up automatically,
+//  which we don't want as there aren't any nodes yet.
+simulation2.stop();
+
   // Nice looking colors - no reason to buck the trend
   // @v4 scales now have a flattened naming scheme
   var fillColor = d3.scaleOrdinal()
@@ -870,7 +1325,8 @@ function bubbleChart() {
   function createNodes(rawData) {
     // Use the max total_amount in the data as the max in the scale's domain
     // note we have to ensure the total_amount is a number.
-    var maxAmount = d3.max(rawData, function (d) { return +d.jobs; });
+    var maxAmount = 16297
+    //d3.max(rawData, function (d) { return +d.jobs10; });
 
     // Sizes bubbles based on area.
     // @v4: new flattened scale names.
@@ -886,19 +1342,26 @@ function bubbleChart() {
       return {
         id: d.id,
         name: d.industry,
-        radius: radiusScale(+d.jobs),
-        value: +d.jobs,
+        radius: radiusScale(+d.jobs10),
+        radius2: radiusScale(+d.jobs20),
+        value10: +d.jobs10,
+        value20: +d.jobs20,
         group: d.group,
+        growth: +d.growth,
+        col: +d.bin_column,
+        row: +d.bin_row,
         x: Math.random() * bwidth*2,
         y: Math.random() * bheight
       };
     });
 
     // sort them to prevent occlusion of smaller nodes.
-    myNodes.sort(function (a, b) { return b.value - a.value; });
+    myNodes.sort(function (a, b) { return b.value10 - a.value10; });
 
     return myNodes;
   }
+
+
 
   /*
    * Main entry point to the bubble chart. This function is returned
@@ -914,16 +1377,28 @@ function bubbleChart() {
    * a d3 loading function like d3.csv.
    */
   var chart = function chart(selector, rawData ) {
+
+    industries = JSON.parse(JSON.stringify(rawData)).filter(f => f.industry == 'Industry')
+    occupation = JSON.parse(JSON.stringify(rawData)).filter(f => f.industry == 'Occupation')
     // convert raw data into nodes data
-    nodes = createNodes(rawData);
+    nodes = createNodes(industries);
+    nodes2 = createNodes(occupation);
+    graphNodes = createNodes(industries);
+
+
 
     // Create a SVG element inside the provided selector
     // with desired size.
 
+    var circleGroup = bubblesvg.append("g")
+    .style("filter", "url(#gooey)");
 
     // Bind nodes data to what will become DOM elements to represent them.
-    bubbles = bubblesvg.selectAll('.bubble')
+    bubbles = circleGroup.selectAll('.bubble')
       .data(nodes, function (d) { return d.id; });
+
+     bubbles2 = circleGroup.selectAll('.bubble')
+      .data(nodes2, function (d) { return d.id; });
 
     // Create new circle elements each with class `bubble`.
     // There will be one circle.bubble for each object in the nodes array.
@@ -932,6 +1407,8 @@ function bubbleChart() {
     //  enter selection to apply our transtition to below.
     var bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
+      .attr("id",function(d){ return "bubble_" + String(d.id)})
+      .attr("id","inds")
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.group); })
       .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
@@ -939,8 +1416,19 @@ function bubbleChart() {
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
 
+    var bubblesE2 = bubbles2.enter().append('circle')
+      .classed('bubble', true)
+      .attr("id",function(d){ return "bubble2_" + String(d.id)})
+      .attr("id","occs")
+      .attr('r', 0)
+      .attr('fill', function (d) { return fillColor(d.group); })
+      .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
+      .attr('stroke-width', 2)
+      .style("opacity",0)
+
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
+    bubbles2 = bubbles2.merge(bubblesE2);
 
     // Fancy transition to make bubbles appear, ending with the
     // correct radius
@@ -948,9 +1436,14 @@ function bubbleChart() {
       .duration(2000)
       .attr('r', function (d) { return d.radius; });
 
+    bubbles2.transition()
+      .duration(2000)
+      .attr('r', function (d) { return d.radius; });
+
     // Set the simulation's nodes to our newly created nodes array.
     // @v4 Once we set the nodes, the simulation will start running automatically!
     simulation.nodes(nodes);
+    simulation2.nodes(nodes2);
 
     // Set initial layout to single group.
     groupBubbles();
@@ -965,6 +1458,10 @@ function bubbleChart() {
    */
   function ticked() {
     bubbles
+      //.attr('cx', function (d) { return d.x; })
+      .attr('cx', d => d.x)
+      .attr('cy', function (d) { return d.y; });
+    bubbles2
       //.attr('cx', function (d) { return d.x; })
       .attr('cx', d => d.x)
       .attr('cy', function (d) { return d.y; });
@@ -990,6 +1487,11 @@ function bubbleChart() {
 
     // @v4 We can reset the alpha value and restart the simulation
     simulation.alpha(1).restart();
+
+    simulation2.force('x', d3.forceX().strength(forceStrength).x(center.x));
+
+    // @v4 We can reset the alpha value and restart the simulation
+    simulation2.alpha(1).restart();
   }
 
 
@@ -1014,11 +1516,11 @@ function bubbleChart() {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
-    var content = '<span class="name">Industry: </span><span class="value">' +
-                  d.name +
+    var content = '<span class="name">'+ d.name + ': </span><span class="value">' +
+                  d.group +
                   '</span><br/>' +
                   '<span class="name">Jobs: </span><span class="value">' +
-                  addCommas(d.value) +
+                  addCommas(d.value10) +
                   '</span><br/>' 
                 ;
 
@@ -1077,26 +1579,7 @@ function display(error, data ) {
 /*
  * Sets up the layout buttons to allow for toggling between view modes.
  */
-function setupButtons() {
-  d3.select('#toolbar')
-    .selectAll('.button')
-    .on('click', function () {
-      // Remove active class from all buttons
-      d3.selectAll('.button').classed('active', false);
-      // Find the button just clicked
-      var button = d3.select(this);
 
-      // Set it as the active button
-      button.classed('active', true);
-
-      // Get the id of the button
-      var buttonId = button.attr('id');
-
-      // Toggle the bubble chart based on
-      // the currently clicked button.
-      myBubbleChart.toggleDisplay(buttonId);
-    });
-}
 
 /*
  * Helper function to convert a number into a string
@@ -1121,9 +1604,6 @@ d3.csv("industries.csv", function(error, data) {
 display(null,data)
     });
 
-
-// setup the buttons.
-setupButtons();
 
 
 /*
@@ -1211,170 +1691,6 @@ function floatingTooltip(tooltipId, bwidth) {
     updatePosition: updatePosition
   };
 }
-
-/*
-d3.csv("data.csv", function(d){
-  return{
-    name: d.name,
-    long: +d.long,
-    lat: +d.lat,
-    status: d.status,
-    category: d.category,
-    category2: d.category2,
-    essential: d.essential_flag,
-    chain: d.chain_flag,
-    corridor: d.corridor,
-    id: +d.id,
-    sidewalk: +d.sidewalk_width,
-    histogram_column: +d.histogram_column,
-    image: d.image
-  };
-}, function(error, rows){
-if (error) throw error;
-
-
-occs = JSON.parse(JSON.stringify(rows));
-
-rows.forEach(function(d) { 
-    d.total = Math.random() * 10;
-    d.x = Math.random() * 900;
-    d.y = Math.random() * 800
-  });
-
-occs.forEach(function(d) { 
-    d.total = Math.random() * 10;
-    d.x = (bwidth/4)*3 
-    d.y = bheight/2
-  });
-
-
-
-var defs = bubblesvg.append('defs');
-var filter = defs.append('filter').attr('id','gooey');
-filter.append('feGaussianBlur')
-  .attr('in','SourceGraphic')
-  .attr('stdDeviation', "10")
-  .attr('result','blur');
-filter.append('feColorMatrix')
-  .attr("class", "blurValues")
-  .attr('in','blur')
-  .attr('mode','matrix')
-  .attr('values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6')
-  .attr('result','gooey');
-filter.append("feBlend")
-  .attr("in", "SourceGraphic")
-  .attr("in2", "gooey")
-  .attr("operator", "atop");
-
-var center = { x: bwidth / 2, y: bheight / 2 };
-
-var forceStrength = 0.03;
-
-function charge(d) {
-    return -Math.pow(d.radius, 2.0) * forceStrength;
-  }
-
-var simulation = d3.forceSimulation()
-    .velocityDecay(0.2)
-    .force('x', d3.forceX().strength(forceStrength).x(center.x))
-    .force('y', d3.forceY().strength(forceStrength).y(center.y))
-    .force('charge', d3.forceManyBody().strength(charge))
-    .on('tick', ticked);
-
-simulation.stop();
-
-function groupBubbles() {
-    // @v4 Reset the 'x' force to draw the bubbles to the center.
-    simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
-
-    // @v4 We can reset the alpha value and restart the simulation
-    simulation.alpha(1).restart();
-  }
-
-function createNodes(rawData) {
-    // Use the max total_amount in the data as the max in the scale's domain
-    // note we have to ensure the total_amount is a number.
-    var maxAmount = d3.max(rawData, function (d) { return +d.total; });
-
-    // Sizes bubbles based on area.
-    // @v4: new flattened scale names.
-    var radiusScale = d3.scalePow()
-      .exponent(0.5)
-      .range([2, 85])
-      .domain([0, maxAmount]);
-
-    // Use map() to convert raw data into node data.
-    // Checkout http://learnjsdata.com/ for more on
-    // working with data.
-    var myNodes = rawData.map(function (d) {
-      return {
-        id: d.id,
-        radius: radiusScale(+d.total),
-        value: +d.total,
-        name: d.name,
-        org: d.corridor,
-        group: d.category,
-        x: Math.random() * 900,
-        y: Math.random() * 800
-      };
-    });
-
-    // sort them to prevent occlusion of smaller nodes.
-    myNodes.sort(function (a, b) { return b.value - a.value; });
-
-    return myNodes;
-  }
-
-  nodes = createNodes(rows);
-
-var circleGroup = bubblesvg.append("g")
-  .style("filter", "url(#gooey)");
-
-
-bubbles = circleGroup.selectAll('.bubble')
-      .data(nodes, function (d) { return d.id; });
-
-var bubblesE = bubbles.enter().append('circle')
-      .classed('bubble', true)
-      .attr('r', 0)
-      .attr('fill', function (d) { return categoryColors[d.category][0]; })
-      .attr('stroke', function (d) { return d3.rgb(categoryColors[d.category][0]).darker(); })
-      .attr('stroke-width', 2)
-      .on('mouseover', showDetail)
-      .on('mouseout', hideDetail);
-
- bubbles = bubbles.merge(bubblesE);
-
-bubbles.transition()
-      .duration(2000)
-      .attr('r', function (d) { return d.radius; });
-
-simulation.nodes(nodes);
-
-/*var occcircles = bubblesvg
-      .selectAll("OccCircles")
-      .data(occs)
-      .enter()
-      .append("circle")
-      .filter(function (d) { return d.status === "Occupied"; })
-      .each(function (d, i){
-              var $this = d3.select(this)
-              
-              $this
-              .attr("r", function(d){ return d.radius})
-              .attr("class", "circle")
-              .attr("id", function(d){ return "Circle" + String(d.id)})
-              .attr("stroke", "#003E7A")
-              .attr("stroke-width", 0)
-              .attr("fill-opacity", 1)
-              .style("fill", function(d){ return categoryColors[d.category][0]})}) */
-
-
-
-
-
-
-
 
 
 
@@ -1553,7 +1869,6 @@ var valueLine = d3.line()
             .attr("class", "line")
 
         selectFruit[0].value.year.forEach(function(item,index){
-          console.log(item.values)
           selectFruitGroups.append("g").selectAll(".circle" + item.key)
         .data(item.values)
         .enter()
@@ -2302,252 +2617,6 @@ function mousemove() {
 
 
 
-function draw1(){
-
-}
-function draw2(){
-
-/*
-  function transitionGoo(duration) {
-      d3.selectAll(".blurValues")
-        .transition().duration(duration)
-        .attrTween("values", function() {
-          return d3.interpolateString("1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -6", 
-                          "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6"); 
-        }); 
-    }
-
-  simulation.stop()
-
-  transitionGoo(3000)
-
-  d3.selectAll('.circle')
-       .transition()
-      .ease(d3.easeSin)
-      .duration(5000)
-            .attr("cx", function(d) { return d3.select("#Circle" + String(d.id)).attr("cx"); })
-            .attr("cy", function(d) { return d3.select("#Circle" + String(d.id)).attr("cy"); });
-
-  
-d3.select(".Miami_rentpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Miami_rentlabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Miami_rentlabelrent")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-*/
-}
-
-function draw3(){
-/*
-d3.select(".NY_rentpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Chicago_rentpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".SF_rentpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".NY_rentlabel")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".SF_rentlabel")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Chicago_rentlabel")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".NY_rentlabelrent")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".SF_rentlabelrent")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Chicago_rentlabelrent")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-*/
-
-}
-
-function draw4(){
-/*
-document.getElementById('vacancy').click();
-
-d3.select(".Miami_vacancypath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Miami_vacancylabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Miami_vacancylabelvacancy")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-*/
-}
-
-
-
-function draw5(){
- 
- /*
-d3.select(".NY_vacancypath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Chicago_vacancypath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".SF_vacancypath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-
-d3.select(".NY_vacancylabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-d3.select(".Chicago_vacancylabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".SF_vacancylabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".NY_vacancylabelvacancy")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-d3.select(".Chicago_vacancylabelvacancy")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".SF_vacancylabelvacancy")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-*/
-}
-
-function draw6(){
-
-/*
-document.getElementById('absorption').click();
-
-d3.select(".Miami_abpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Miami_ablabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Miami_ablabelab")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);*/
-
-}
-
-function draw7(){
-  return
-}    
-
-      let functions = [
-        draw1,
-    draw2,
-    draw3,
-    draw4,
-    draw5, 
-    draw6,
-    draw7]
-
-
-  var gs = d3.graphScroll()
-      .container(d3.select('.container-1'))
-      .graph(d3.selectAll('container-1 #graph'))
-      .eventId('uniqueId1')  // namespace for scroll and resize events
-      .sections(d3.selectAll('.container-1 #sections > div'))
-      // .offset(innerWidth < 900 ? innerHeight - 30 : 200)
-      .on('active', function(i){
-        functions[i]()
-      })
-
 
 
 //MAP
@@ -3105,7 +3174,7 @@ colorScale = d3.scaleOrdinal()
       .range([[102,194,165,50], [141,160,203,50]])
 
 oppScale = d3.scaleThreshold()
-        .domain([230, 10640])
+        .domain([230, 5000])
       .range([[141,160,203,10],[141,160,203,30],[141,160,203,180]])
 
 MiamiScale = d3.scaleOrdinal().domain([33100]).range([[141,160,203,180]]).unknown([141,160,203,10])
@@ -3141,18 +3210,50 @@ class ArcBrushingLayer extends deck.ArcLayer {
       draw(opts) {
         const {coef, getSourceColor, getTargetColor} = this.props;
         // add uniforms
-        const uniforms = Object.assign({}, opts.uniforms, { coef: coef, getSourceColor: (d => MiamiScale(+d.city_to)), getTargetColor: (d => MiamiScale(+d.city_to)) });
+        const uniforms = Object.assign({}, opts.uniforms, { coef: coef, getSourceColor:getSourceColor, getTargetColor:getTargetColor });
         super.draw(Object.assign({}, opts, {uniforms}));
       }
     }
 
 
-const WIDTH_SCALE = d3.scaleLog().domain([35, 35000]).range([3, 8]);
+const WIDTH_SCALE = d3.scaleLog().domain([35, 14000]).range([3, 10]);
 
  const arcsLayer = new deck.MapboxLayer({
        type: ArcBrushingLayer,
        id: `arcs`,
-       data: "json/moves.json",
+       data: "json/moves2.json",
+       opacity: 1,
+       coef: 0.001,
+       pickable: true,
+       getSourcePosition: d => [d.longitude_source, d.latitude_source],
+       getTargetPosition: d => [d.longitude_target, d.latitude_target],
+       //getSourceColor: d => MiamiScale(+d.city_to),
+       //getTargetColor: d => MiamiScale(+d.city_to),
+       getSourceColor: d => oppScale(d.total_perm20),
+       getTargetColor: d => oppScale(d.total_perm20),
+       getStrokeWidth: d => WIDTH_SCALE(d.total_perm20)
+    });
+
+ const miamiLayer = new deck.MapboxLayer({
+       type: ArcBrushingLayer,
+       id: `miami`,
+       data: "json/miamimoves.json",
+       opacity: 1,
+       coef: 0.001,
+       pickable: true,
+       getSourcePosition: d => [d.longitude_source, d.latitude_source],
+       getTargetPosition: d => [d.longitude_target, d.latitude_target],
+       //getSourceColor: d => MiamiScale(+d.city_to),
+       //getTargetColor: d => MiamiScale(+d.city_to),
+       getSourceColor: d => oppScale(d.total_perm19),
+       getTargetColor: d => oppScale(d.total_perm19),
+       getStrokeWidth: d => WIDTH_SCALE(d.total_perm19)
+    });
+
+ const miamiLayer2 = new deck.MapboxLayer({
+       type: ArcBrushingLayer,
+       id: `miami2`,
+       data: "json/miamimoves.json",
        opacity: 1,
        coef: 0.001,
        pickable: true,
@@ -3174,7 +3275,9 @@ const WIDTH_SCALE = d3.scaleLog().domain([35, 35000]).range([3, 8]);
     map3.removeLayer(layers[i].id);
     }
     }
-     map3.addLayer(arcsLayer);
+     map3.addLayer(arcsLayer)
+     map3.addLayer(miamiLayer)
+     map3.addLayer(miamiLayer2);
       
   });
 
@@ -3205,11 +3308,19 @@ pitch: 60,
 
 function drawusps3(){
 
-miamishade = function(d){
-  MiamiScale(+d.city_to)
-}
 
-arcsLayer.setProps({coef: 1, getSourceColor: miamishade(), getTargetColor: miamishade() })
+arcsLayer.setProps({coef: 0.0001, getSourceColor: [141,160,203,0], getTargetColor: [141,160,203,0]})
+
+miamiLayer.setProps({coef: 1 })
+
+var coef = 0.001;
+    const animationInterval = setInterval(()=> {
+      coef += 0.01;
+      if (coef >= 1.0) {
+        clearInterval(animationInterval);
+      }
+      miamiLayer2.setProps({coef: coef});
+    }, 1);
 
 //arcsLayer.setProps({getSourceColor: '#FFFFFF'})
 } 
