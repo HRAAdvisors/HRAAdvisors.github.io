@@ -18,6 +18,7 @@
 <script src="https://d3js.org/d3-geo.v1.min.js"></script>
 <script src="https://clynekp.github.io/d3-tip.min.js"></script>
 <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js" integrity="sha512-wNH6xsp2n8CfB91nrBtfc4sfLwYPBMjSWVUwQOp60AYYXH6i8yCwuKFZ4rgK2i6pQek/b+bSyR7b01/922IBzQ==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
@@ -300,7 +301,14 @@ p{
     width: 100%;
 }
 
+.clabelsswatch{
+  stroke-width: 3;
+}
 
+
+.clabelslabel{
+  fill: #B1B1B1;
+}
 
 #map3 {
   height: 100%;
@@ -495,7 +503,6 @@ p{
                     </div> -->
                     </div>
                   <div>
-                  <p class="paragraph-22">Source: Costar.</p>
                 </div>
 
                     <div id='sections'>
@@ -512,15 +519,15 @@ p{
                         </p>
                       </div>
                       <div>
-                        <p> When workers return to the office, they’ll be heading to some of the most recent office stock in the country. Over the last 10 years, <b class="text-span-10">more than a quarter</b> of Miami’s office inventory has either been <b class="text-span-10" style="color:#c5c531">recently developed</b> or has undergone <b class="text-span-10" style="color:#F77E08">major renovation</b>.
+                        <p> When workers return to the office, they’ll be heading to some of the most recent office stock in the country. Over the last 10 years, <b class="text-span-10">more than a quarter</b> of Miami’s office inventory has either been <b class="text-span-10" style="color:#CF60B6">recently developed</b> or has undergone <b class="text-span-10" style="color:#F77E08">major renovation</b>.
                         </p>
                        </div> 
                       <div>
-                        <p> The office market is expected to continue to grow, with over 4 Million SF of new proposed office space in the next five years in developments like One Bayfront Plaza and MiamiCentral Phase 2.
+                        <p> The office market is expected to continue to grow, with over 4 Million SF of <b class="text-span-10" style="color:#146251">new proposed</b> office space in the next five years in developments like One Bayfront Plaza and MiamiCentral Phase 2.
                         </p>
                       </div>
                       <div>
-                        <p> Downtown's extensive public transportation network including Metrorail, MetroMover, and Brightline connect downtown to Greater Miami and South Florida, bringing in workers and visitors.
+                        <p> Downtown's extensive public transportation network including <b class="text-span-10" style="color:#2D892A">Metrorail</b>, <b class="text-span-10" style="color:#1567B6">MetroMover</b>, and <b class="text-span-10" style="color:#F7E73B">Brightline</b> connect downtown to Greater Miami and South Florida, bringing in workers and visitors.
                         </p>
                       </div>
                       <div>
@@ -593,13 +600,13 @@ p{
                         <p>Between 2010-2018, Miami DDA jobs grew 18%.<br>Approximately 85,000 employees work in Downtown Miami which represents 6.6% of the county’s workforce.</p>
                       </div>
                       <div>
-                        <p>The three largest industries within the DDA are Professional Services, Government, and Finance & Insurance, which make up 57% of total jobs.</p>
+                        <p>The three largest industries within the DDA are <b class="text-span-10" style="color:#AA4588">Professional Services</b>, <b class="text-span-10" style="color:#770D55">Government</b>, and <b class="text-span-10" style="color:#4577AA">Finance & Insurance</b>, which make up 57% of total jobs.</p>
                       </div>
                       <div>
-                        <p>Within professional services & finance industries, the largest occupations are Lawyers, Paralegals, and Legal Assistants.<p>
+                        <p>Looking more closely into occupations within Professional Services and Finance industries reveals trends in Miami's changing workforce.<p>
                       </div>
                        <div>
-                        <p>Between 2010 and 2019, Computer and Information Systems Managers (177%), Computer User Support Specialists (136%), and Software Developers (105%) are the fastest growing occupations. <br>Managerial positions have also grown significantly over the last ten years.
+                        <p>Managerial roles such as <b class="text-span-10" style="color:#CC99BB">Marketing Managers</b> and <b class="text-span-10" style="color:#AAAA45">Market Research Analysts</b> have grown significantly over the last ten years. <br> Tech occupations are also on the rise. Between 2010 and 2019, <b class="text-span-10" style="color:#AA4588">Computer and Information Systems Managers</b> (177%), <b class="text-span-10" style="color:#DDDD77">Computer User Support Specialists</b> (136%), and <b class="text-span-10" style="color:#77AADD">Software Developers</b> (105%) are some of the fastest growing occupations. 
 </p>
                       </div>
                                           <div>
@@ -613,12 +620,12 @@ p{
                 <div class="div-block-41">
                   <div class="div-block-49">
                     <h2 class="heading-7">6th Largest College Town</h2>
-                    <p class="paragraph-11">Miami currently has a growing and diverse student population of 275K, making Miami the nation’s 6th largest college town, with schools like the <a href="https://welcome.miami.edu/">University of Miami</a>, <a href="https://www.fiu.edu/">Florida International University</a>, and <a href="https://www.fau.edu/">Florida Atlantic</a> producing a growing pipeline of talent. Miami is on par with Boston, Philadelphia, Dallas, DC, San Francisco, and Houston.</p>
+                    <p class="paragraph-14">Miami currently has a growing and diverse student population of 300K, making Miami the nation’s 6th largest college town, with schools like the <a style="display:contents !important" href="https://welcome.miami.edu/">University of Miami</a>, <a href="https://www.fiu.edu/" style="display:contents !important">Florida International University</a>, and <a href="https://www.fau.edu/" style="display:contents !important">Florida Atlantic</a> producing a growing pipeline of talent. Miami is on par with Boston, Philadelphia, Dallas, DC, San Francisco, and Houston.</p>
                   </div>
                   <div class="div-block-7"><svg id="collegetowns" width="100%" height="100%"></div>
 
                   <h2 class="heading-7">A Growing Diverse Talent Base</h2>
-                  <p class="paragraph-11">Education rates are increasing in Miami with 40K more secondary degree holders in 2019 than in 2010. Miami also celebrates a diverse talent base - 58% of Miami's population is foreign-born (vs. 14% nationwide) and 25% of the Latinx population over 25 years of age hold a bachelor's degree in Miami (vs. 3% nationwide).</p>
+                  <p class="paragraph-11">Education rates are increasing in Miami with 40K more secondary degree holders in 2019 than in 2010. Miami also celebrates a diverse talent base - 58% of Miami's population is foreign-born (vs. 14% nationwide) and 75% speak a language other than English. Moreover, 25% of the Latinx population over 25 years of age hold a bachelor's degree in Miami (vs. 3% nationwide).</p>
 
                   <div class="w-row">
                     <div class="w-col w-col-6 w-col-stack">
@@ -631,13 +638,6 @@ p{
                       </div>
                     </div>
                     <div class="column-5 w-col w-col-6 w-col-stack">
-                      <p class="paragraph-12">TODAY:</p>
-                      <div class="w-layout-grid grid-5">
-                        <p id="w-node-f6d3147c-8b49-46a2-3972-bc2f39c29b0d-f458ecee" class="paragraph-9-copy">18%</p>
-                        <p id="w-node-ec71e429-1526-5c75-ef54-1316a15c38a6-f458ecee" class="paragraph-17">STUDENT POPULATION</p>
-                        <p id="w-node-_6cecf1c7-0eef-3e8c-a026-9d8510453c5b-f458ecee" class="paragraph-9-copy">75%</p>
-                        <p id="w-node-_0fa72819-0b30-0023-db27-bdbca2171f47-f458ecee" class="paragraph-18">OF POPULATION THAT SPEAKS A LANGUAGE OTHER THAN ENGLISH</p>
-                      </div>
                       <p class="paragraph-13">BETWEEN 2010-2019:</p>
                       <div class="w-layout-grid grid-5">
                         <p class="paragraph-9-copy">40K+</p>
@@ -645,6 +645,7 @@ p{
                         <p class="paragraph-9-copy">39%+</p>
                         <p class="paragraph-18">GROWTH IN BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
                       </div>
+                      <svg id='edulegend' height='10vh'></svg>
                     </div>
                   </div>
                 </div>
@@ -742,14 +743,16 @@ p{
                         </div>
                       </div>
                     </div>
-                    <div class="div-block-43" id="map2">
+                    <!--<div class="div-block-43" id="map2"> -->
                      
                     </div>
                   </div>
+
                   <div class="div-block-43" id="conditions">
                     <!-- <div class="div-block-12" id="conditions"></div> -->
                   </div>
                   <div class="div-block-43">
+                    <h2 class="heading-7" style="color:white !important">2010 - 2020 Market Metrics</h2>
                     <div class="w-layout-grid grid-3">
                       <div class="div-block-52">
                         <div  class="dropdown w-dropdown">
@@ -804,11 +807,11 @@ element = bubblesvg.node();
 bwidth = element.getBoundingClientRect().width - margin.left - margin.right,
 bheight = element.getBoundingClientRect().height - margin.top - margin.bottom;
 
-histXScale = d3.scaleLinear().domain([1,15]).range([bwidth-((bwidth/6)*2.5), bwidth + (bwidth/6)])
+histXScale = d3.scaleLinear().domain([1,15]).range([bwidth-((bwidth/6)*2.5), bwidth + (bwidth/6)]).nice()
 
 histYScale = d3.scaleLinear().domain([7, 1]).range([bheight*.25,bheight*.75])
 
-pct = d3.scaleLinear().domain([1,15]).range([-0.515083687,3.001915519])
+pct = d3.scaleLinear().domain([1,15]).range([-0.5,3])
 
 var defs = bubblesvg.append('defs');
 var filter = defs.append('filter').attr('id','gooey');
@@ -827,7 +830,8 @@ filter.append("feBlend")
   .attr("in2", "gooey")
   .attr("operator", "atop");
 
-let xAxis = d3.axisBottom(histXScale).tickFormat(function(d) { return d3.format(".0%")(pct(d)); });
+let xAxis = d3.axisBottom(histXScale).tickFormat(function(d) { return d3.format(".0%")(pct(Math.ceil(d/.25)*.25)); });
+
 
 bubblesvg.append('g')
         .attr('class', 'histaxis')
@@ -847,6 +851,20 @@ bubblesvg.append("text")
                 .attr("font-weight",700)
                 .attr("font-size", "17")
                 .style('opacity',0)
+
+bubblesvg.append("text")
+                .attr("y", histYScale.domain()[1] + 15)
+                .attr("x", bwidth/2)
+                .attr("dy", "1em")
+                .attr('id','bubblelabel')
+                .style("text-anchor", "middle")
+                .text("Miami Industries")
+                .attr("class", "histlabel")
+                .attr("font-family", "Nunito")
+                .style("fill", "#000")
+                .attr("font-weight",700)
+                .attr("font-size", "17")
+                .style('opacity',1)
 
 function bubbleChart() {
 
@@ -1043,50 +1061,38 @@ simulation.tick()
         }); 
     }
   simulation.stop()
-  transitionGoo(2000)
+  transitionGoo(3000)
 
   d3.selectAll('#inds')
-  .transition(2000)
+  .transition()
+  .duration(1000)
   .attr('stroke-width', 0)
   .style('fill','steelblue')
   .attr("cx", center.x)
   .attr("cy", center.y)
   .attr('r',125)
-  .transition(2000)
-  .delay(2000)
+  .transition()
+  .duration(4000)
   .attr("fill-opacity","0")
   .attr('stroke-width', 1)
 
   d3.selectAll('#occs')
-  .transition(2000)
-  .delay(2000)
+  .transition()
+  .duration(1000)
+  .delay(1000)
   .style('opacity',1)
 
-  d3
-  .selectAll("#occs")
-  .filter(function (d) { return d.group != 'Lawyers' && d.group != 'Paralegals and Legal Assistants'})
-  .each(function (d, i){
-        var $this = d3.select(this)
-        $this
-          .transition(2000)
-          .delay(2000)
-          .style('opacity', .2)
-      })
-
-    d3
-  .selectAll("#occs")
-  .filter(function (d) { return d.group === 'Lawyers' || d.group === 'Paralegals and Legal Assistants'})
-  .each(function (d, i){
-        var $this = d3.select(this)
-        $this
-          .transition(2000)
-          .delay(2000)
-          .style('opacity', 1)
-      })
 
   d3.selectAll('#occs')
   .on('mouseover', showDetail)
   .on('mouseout', hideDetail);
+
+  d3.select('#bubblelabel')
+  .transition()
+  .delay(2000)
+  .duration(1000)
+  .text('Professional Services and Finance Occupations')
+
 /*
 document.getElementById('vacancy').click();
 
@@ -1116,24 +1122,50 @@ function draw5(){
 
 
 d3.selectAll('#occs')
-  .transition(4000)
+ .filter(function (d) { return d.group === 'Market Research Analysts and Marketing Specialists' || d.group === 'Computer and Information Systems Managers' || d.group === 'Computer User Support Specialists' || d.group === 'Software Developers and Software Quality Assurance Analysts and Testers' || d.group === 'Marketing Managers' })
+  .transition()
+  .duration(2000)
   .attr('cx', d => histXScale(d.col))
   .attr('cy', d => histYScale(d.row))
   .attr('r',20)
+  .attr('stroke-width',2)
+  .attr('stroke',"#000000")
   .style('opacity',1)
 
 
  d3.select('.histlabel')
- .transition(2000)
+ .transition()
+ .duration(2000)
  .style('opacity',1)
 
  d3.select('.histaxis')
- .transition(2000)
+ .transition()
+ .duration(2000)
  .style('opacity',1)
 
  d3.selectAll('#inds')
-  .transition(1000)
+  .transition()
+  .duration(1000)
   .style('opacity',0)
+
+
+
+  d3
+  .selectAll("#occs")
+  .filter(function (d) { return d.group != 'Market Research Analysts and Marketing Specialists' && d.group != 'Computer and Information Systems Managers' && d.group != 'Computer User Support Specialists' && d.group != 'Software Developers and Software Quality Assurance Analysts and Testers' && d.group != 'Marketing Managers' })
+  .each(function (d, i){
+        var $this = d3.select(this)
+        $this
+          .transition()
+         .duration(2000)
+           .attr('cx', d => histXScale(d.col))
+          .attr('cy', d => histYScale(d.row))
+          .attr('r',20)
+        .style('opacity', .3)
+        
+
+
+      })
  /*
 d3.select(".NY_vacancypath")
     .transition()
@@ -1705,7 +1737,7 @@ function floatingTooltip(tooltipId, bwidth) {
 var vis = d3.select("#rentvis")
 
 
-var cmargin = {top: window.innerHeight*.04, right: window.innerWidth*.07, bottom: window.innerHeight*.04, left: window.innerWidth*.05};
+var cmargin = {top: window.innerHeight*.04, right: window.innerWidth*.02, bottom: window.innerHeight*.07, left: window.innerWidth*.05};
 
 cwidth = (window.innerWidth*.8) - cmargin.left - cmargin.right,
 cheight = (window.innerHeight*.4) - cmargin.top - cmargin.bottom;
@@ -1715,6 +1747,7 @@ var formatMonth = d3.timeFormat("%b");
 
 var formatYear = d3.timeFormat("%Y");
 var parseYear = d3.timeParse("%Y");
+
 
 
 
@@ -1734,6 +1767,35 @@ var formats = {'Rent':d3.format("($.0f"),'Absorption':d3.format("(.1s"),'Vacancy
 var labels = {'Rent':"Gross Rent PSF",'Absorption':"Absorption",'Vacancy':"Vacancy Rate"}
 const colors = {'Miami':'#00b5cc','NY':'#eb529d','SF':'#eb529d','Chicago':'#eb529d'}
 const longname = {'Miami':'Miami','NY':'New York','SF':'San Francisco','Chicago':'Chicago'}
+
+
+var ordinal = d3.scaleOrdinal()
+  .domain(["Miami", "New York", "San Francisco", "Chicago"])
+  .range([ "#EB529D", "rgb(56, 106, 197)", "rgb(93, 199, 76)", "rgb(223, 199, 31)", "rgb(234, 118, 47)"]);
+
+
+
+vis.append("g")
+  .attr("class", "legendOrdinal")
+  .attr("transform", `translate(0,${cheight+50})`);
+
+var legendOrdinal = d3.legendColor()
+  //d3 symbol creates a path-string, for example
+  //"M0,-8.059274488676564L9.306048591020996,
+  //8.059274488676564 -9.306048591020996,8.059274488676564Z"
+  .shape("line")
+  .labelWrap(30)
+  .shapeWidth(90)
+  .labelAlign("start")
+  .shapePadding(130)
+  .orient("horizontal")
+  .classPrefix('clabels')
+  //use cellFilter to hide the "e" cell
+  .cellFilter(function(d){ return d.label !== "e" })
+  .scale(ordinal);
+
+vis.select(".legendOrdinal")
+  .call(legendOrdinal);
 
 
 
@@ -1866,6 +1928,7 @@ var valueLine = d3.line()
             .attr("d", function(d){
                 return valueLine(d.values)
             })
+            .style('stroke',function(d){ return ordinal(longname[d.key])})
             .attr("class", "line")
 
         selectFruit[0].value.year.forEach(function(item,index){
@@ -1893,7 +1956,7 @@ var valueLine = d3.line()
                 .style("opacity", 0); 
         });
 
-
+        /*
         vis.append("text")
           .text(longname[item.key])
           .attr("class",item.key+"_label")
@@ -1914,7 +1977,7 @@ var valueLine = d3.line()
           .attr("font-family", "Nunito")
           .style("fill", colors[item.key])
           .attr("font-weight",700)
-          .attr("font-size", "17")      
+          .attr("font-size", "17")      */
 
 
         }
@@ -1991,6 +2054,7 @@ var valueLine = d3.line()
             .attr("cx", function(dd){return x(dd.Quarter)})
             .attr("cy", function(dd){return y(dd.Value)})
             
+            /*
             d3.select("."+item.key+"_label")
             .transition()
             .duration(1500)
@@ -2000,9 +2064,9 @@ var valueLine = d3.line()
             .transition()
             .duration(1500)
             .text(formats[fruit](item.values[item.values.length-1 ].Value))
-            .attr("y",y(item.values[item.values.length-1 ].Value)+20)
-            })
+            .attr("y",y(item.values[item.values.length-1 ].Value)+20) */
 
+            })
         // Update the Y-axis
             d3.select(".y")
                     .transition()
@@ -2990,7 +3054,7 @@ speed: 0.5
 
     map.setPaintProperty(
 'under-construction',
-'fill-extrusion-color', "#F2F234"
+'fill-extrusion-color', "#CF60B6"
 ); 
 
 } 
@@ -3006,7 +3070,7 @@ map.setPaintProperty(
 ['exponential', 0.5],
 ['zoom'],
 14.5,
-['match', ['get', "new"], 'RENO', '#F77E08' , 'NEW', '#F2F234', '#314CCD'],
+['match', ['get', "new"], 'RENO', '#F77E08' , 'NEW', '#CF60B6', '#314CCD'],
 15.72,
 ['match', ['get', "new"], 'RENO', '#314CCD' , 'NEW', '#314CCD', '#314CCD']
 ] 
@@ -3253,7 +3317,7 @@ const WIDTH_SCALE = d3.scaleLog().domain([35, 14000]).range([3, 10]);
  const miamiLayer2 = new deck.MapboxLayer({
        type: ArcBrushingLayer,
        id: `miami2`,
-       data: "json/miamimoves.json",
+       data: "json/nymoves.json",
        opacity: 1,
        coef: 0.001,
        pickable: true,
@@ -3309,23 +3373,28 @@ pitch: 60,
 function drawusps3(){
 
 
-arcsLayer.setProps({coef: 0.0001, getSourceColor: [141,160,203,0], getTargetColor: [141,160,203,0]})
+arcsLayer.setProps({coef: 1, getSourceColor: [141,160,203,10], getTargetColor: [141,160,203,10]})
 
-miamiLayer.setProps({coef: 1 })
+miamiLayer.setProps({coef: 1, getSourceColor: [141,160,203,180], getTargetColor: [141,160,203,180] })
 
-var coef = 0.001;
-    const animationInterval = setInterval(()=> {
-      coef += 0.01;
-      if (coef >= 1.0) {
-        clearInterval(animationInterval);
-      }
-      miamiLayer2.setProps({coef: coef});
-    }, 1);
 
 //arcsLayer.setProps({getSourceColor: '#FFFFFF'})
 } 
 
 function drawusps4(){
+
+ map3.flyTo({
+center: [-79.217804, 37.127725
+],
+zoom: 4.23,
+bearing: -74.09,
+pitch: 60,
+speed: 0.5
+}) 
+
+miamiLayer.setProps({coef: 1, getSourceColor: [141,160,203,20], getTargetColor: [141,160,203,20] })
+
+miamiLayer2.setProps({coef: 1, getSourceColor: [141,160,203,180], getTargetColor: [141,160,203,180] })  
 }
 
 function drawusps5(){
@@ -3379,7 +3448,7 @@ d3.select(window).on('resize', render)
 <script>
   ////PROFILES MAP
 //Profile Maps
-
+/*
 var map2 = new mapboxgl.Map({
             container: 'map2'
             , style: 'mapbox://styles/kpclyne/cjy9ts3mh0y9j1do9uss5fz8o'
@@ -3579,7 +3648,7 @@ map2.on('load', function () {
 
 });
 
-
+*/
 /*
 ////Retention Map
 var map3 = new mapboxgl.Map({
@@ -3632,6 +3701,7 @@ popup.remove();
 
 //////WHO'S HERE TILE SCROLLER
 
+/*
 var scoll = 0
  function autoScrollUp(){
           $(".inner1").css({top:0}) // jump back
@@ -3657,7 +3727,7 @@ $( ".inner" ).scroll(function() {
   $( ".inner" ).stop()
   $( ".inner" ).css({top:0})
 });
-
+*/
 
 empwidth = document.getElementById("emp").clientWidth
 
@@ -3775,6 +3845,7 @@ d3.select('#menu2')
   .classed('selected', function(d, i) {return i==0;})
   .on('click', menuClick);
 
+    fontScale = d3.scaleLinear().domain([3,60]).range([23,12])
 
     d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=196727768", function(error, data1) {
       if (error) throw error;
@@ -3800,7 +3871,7 @@ d3.select('#menu2')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
           .style('padding-top', 0.25 * radius + 'px')
-          .style('font-size', 23+'px')
+          .style('font-size', function(d){return fontScale(d.employer.length) +'px'})
           .style('font-weight', 700);
 
         nodes
@@ -3819,6 +3890,7 @@ d3.select('#menu2')
     d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1181381306", function(error, data1) {
       if (error) throw error;
     
+
     var nodes = d3.select('#chart2')
                       .selectAll('div')
                       .data(data1)
@@ -3840,7 +3912,7 @@ d3.select('#menu2')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
           .style('padding-top', 0.25 * radius + 'px')
-          .style('font-size', 23+'px')
+          .style('font-size', function(d){return fontScale(d.employer.length) +'px'})
           .style('font-weight', 700);
 
         nodes
@@ -3856,9 +3928,6 @@ d3.select('#menu2')
         updateChart2();
   });
  
-
-
-
 
 
 
@@ -3885,6 +3954,22 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
     .paddingOuter(0.2)
     .paddingInner(0.2)
 
+   
+    svg
+    .append("text")
+                .attr("y", 20)
+                .attr("x", width/2)
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .text("Miami Educational Attainment")
+                .attr("class", "edulabel")
+                .attr("font-family", "Nunito")
+                .style("fill", "#000")
+                .attr("font-weight",700)
+                .attr("font-size", "17")
+                .style('opacity',1)
+
+
   var x = d3.scaleLinear()
     .range([margin.left, width - margin.right])
 
@@ -3899,6 +3984,23 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
   var z = d3.scaleOrdinal()
     .range(["#7F7F7F", "#9DC3E6", "#2E75B6","#002060"])
     .domain(keys);
+
+var edulegend = d3.select("#edulegend")
+    edulegend.append("g")
+      .attr("class", "legendOrdinal")
+      .attr("transform", `translate(10,5)`);
+
+    var legendOrdinal = d3.legendColor()
+      //d3 symbol creates a path-string, for example
+      //"M0,-8.059274488676564L9.306048591020996,
+      //8.059274488676564 -9.306048591020996,8.059274488676564Z"
+      .shapePadding(10)
+      //use cellFilter to hide the "e" cell
+      .cellFilter(function(d){ return d.label !== "e" })
+      .scale(z);
+
+    edulegend.select(".legendOrdinal")
+      .call(legendOrdinal);
 
   update(d3.select("#slide").property("value"), 0)
 
@@ -3954,6 +4056,7 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       .attr("x", d => x(d[0]))
       .attr("width", d => x(d[1]) - x(d[0]))
 
+    /*
     var text = svg.selectAll(".text")
       .data(data, d => d.Bucket);
 
@@ -3966,7 +4069,7 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
     .transition().duration(speed)
       .attr("y", d => y(d.Bucket) + y.bandwidth() / 2)
       .attr("x", d => x(d.total) + 5)
-      .text(d => d.total)
+      .text(d => d.total)*/
   }
 
 
@@ -4022,8 +4125,8 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
 var x = d3.scaleBand()
           .range([margin.left, width-margin.right])
           .padding(0.1);
-var y = d3.scaleLinear()
-          .range([height-margin.bottom, margin.top]);
+var ey = d3.scaleLinear()
+          .range([height, margin.top]);
           
 // append the svg object to the body of the page
 // append a 'group' element to 'svg'
@@ -4037,7 +4140,7 @@ var y = d3.scaleLinear()
 
   // Scale the range of the data in the domains
   x.domain(data.map(function(d) { return d.city; }));
-  y.domain([0, d3.max(data, function(d) { return d.students; })]);
+  ey.domain([0, d3.max(data, function(d) { return d.students; })]);
 
   // append the rectangles for the bar chart
   svg.selectAll(".bar")
@@ -4046,8 +4149,8 @@ var y = d3.scaleLinear()
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.city); })
       .attr("width", x.bandwidth())
-      .attr("y", function(d) { return y(d.students); })
-      .attr("height", function(d) { return height - y(d.students); })
+      .attr("y", function(d) { return ey(d.students); })
+      .attr("height", function(d) { return height - ey(d.students); })
       .style ("fill", function(d) {
        if (d.city === "Miami") {return "#EB529D"}  // <== Add these
        else    { return "#A6CEE3" } 
@@ -4060,8 +4163,8 @@ var y = d3.scaleLinear()
 
   // add the y Axis
   svg.append("g")
-      .attr("transform", "translate("+ margin.left + "," + margin.top + ")")
-      .call(d3.axisLeft(y));
+      .attr("transform", "translate("+ margin.left + ",0)")
+      .call(d3.axisLeft(ey));
 
 });
 
@@ -4188,9 +4291,10 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
 }, function(error, rows) {
       if (error) throw error;
         
-      data = data1.filter(f => f.geo == 'miami')
+      console.log(data1)
+      data = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'miami')
       data.forEach(function(v){ delete v.geo });
-
+      console.log(data)
       var button = d3
       .selectAll('.dbutton')
 
@@ -4219,6 +4323,7 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .attr("x", (window.innerWidth*0.15625)/2)
         .attr("y", (window.innerHeight*0.12388503468780972)/2)
         .attr("text-anchor","middle")
+        .attr("alignment-baseline","middle")
         .attr("class", "label")
         .style("font-weight", 700)
         .style('font-size',40)
@@ -4231,6 +4336,7 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .attr("x", (window.innerWidth*0.15625)/2)
         .attr("y", (window.innerHeight*0.12388503468780972)/2)
         .attr("text-anchor","middle")
+        .attr("alignment-baseline","middle")
         .attr("class", "label")
         .style("font-weight", 700)
         .style('font-size',40)
@@ -4243,6 +4349,7 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .attr("x", (window.innerWidth*0.15625)/2)
         .attr("y", (window.innerHeight*0.12388503468780972)/2)
         .attr("text-anchor","middle")
+        .attr("alignment-baseline","middle")
         .attr("class", "label")
         .style("font-weight", 700)
         .style('font-size',40)

@@ -2887,10 +2887,7 @@ figcaption {
 }
 
 .div-block-43 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   margin-top: 10px;
   margin-right: 0px;
   margin-left: 0px;
@@ -3034,6 +3031,7 @@ figcaption {
   font-weight: 700;
 }
 
+/* EDITOUT 32521
 .grid-2 {
   margin-top: 10px;
   grid-column-gap: 11px;
@@ -3042,6 +3040,16 @@ figcaption {
   -ms-grid-rows: auto;
   grid-template-rows: auto;
 }
+*/
+.grid-2 {
+  margin-top: 10px;
+  grid-column-gap: 11px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+}
+
 
 .div-block-emp {
   display: block;
