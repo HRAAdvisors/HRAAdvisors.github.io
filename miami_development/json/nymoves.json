@@ -1,0 +1,26 @@
+[
+  {
+    "city_to": 35620,
+    "latitude_source": 40.77493,
+    "longitude_source": -73.873758,
+    "city_from": 33100,
+    "latitude_target": 26.1018281,
+    "longitude_target": -80.4787552,
+    "category": "private",
+    "fam_perm19": 1560,
+    "fam_temp19": 1641,
+    "ind_perm19": 5635,
+    "ind_temp19": 0,
+    "total_temp19": 1641,
+    "total_perm19": 7195,
+    "total19": 8836,
+    "fam_perm20": 2464,
+    "fam_temp20": 2840,
+    "ind_perm20": 8797,
+    "ind_temp20": 0,
+    "total_temp20": 2840,
+    "total_perm20": 11261,
+    "total20": 14101,
+    "width": 11.7830448
+  }
+]
