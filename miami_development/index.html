@@ -290,7 +290,7 @@ p{
 }
 
 .map {
-  height: 75vh;
+  height: 85vh;
   width: 100%;
   position: -webkit-sticky;
   position: sticky;
@@ -463,8 +463,8 @@ p{
     </style>
 </head>
 <body>
-  <div style="height:8vh">
-  <iframe id="iframe" width=100% src="header.html" frameborder="0" allowfullscreen scrolling="no" style="height:8vh"></iframe></div>
+  <div style="height:5.2em">
+  <iframe id="iframe" width=100% src="header.html" frameborder="0" allowfullscreen scrolling="no"></iframe></div>
   <div id="tooltip"></div>
   <div class="section cc-store-home-wrap">
     <div class="intro-header">
@@ -609,7 +609,7 @@ p{
                         <p>Looking more closely into occupations within Professional Services and Finance industries reveals trends in Miami's changing workforce.<p>
                       </div>
                        <div>
-                        <p>Managerial roles such as <b class="text-span-10" style="color:#CC99BB">Marketing Managers</b> and <b class="text-span-10" style="color:#AAAA45">Market Research Analysts</b> have grown significantly over the last ten years. <br> Tech occupations are also on the rise. Between 2010 and 2019, <b class="text-span-10" style="color:#AA4588">Computer and Information Systems Managers</b> (177%), <b class="text-span-10" style="color:#DDDD77">Computer User Support Specialists</b> (136%), and <b class="text-span-10" style="color:#77AADD">Software Developers</b> (105%) are some of the fastest growing occupations. 
+                        <p>Managerial roles such as <b class="text-span-10" style="color:#CC99BB">Marketing Managers</b> and <b class="text-span-10" style="color:#AAAA45">Market Research Analysts</b> have grown significantly over the last ten years. <br><br> Tech occupations are also on the rise. Between 2010 and 2019, <b class="text-span-10" style="color:#AA4588">Computer and Information Systems Managers</b> (177%), <b class="text-span-10" style="color:#DDDD77">Computer User Support Specialists</b> (136%), and <b class="text-span-10" style="color:#77AADD">Software Developers</b> (105%) are some of the fastest growing occupations. 
 </p>
                       </div>
                                           <div>
@@ -648,7 +648,7 @@ p{
                         <p class="paragraph-9-copy">39%+</p>
                         <p class="paragraph-18">GROWTH IN BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
                       </div>
-                      <svg id='edulegend' height='10vh'></svg>
+                      <svg id='edulegend' height='15vh'></svg>
                     </div>
                   </div>
                   <div>
@@ -657,11 +657,12 @@ p{
                 </div>
               </div>
               <div class="container-15 w-container">
+                <h1 class="heading-7">Everyone is Coming to Miami</h1>
+                <p class="paragraph-11">Recent trends show an influx of national talent into Miami.<br></p>
                 <div class="div-block-7-copy">
                     <div id='container' class='container-3'>
                     <div class="map">
-                                      <h1 class="heading-7">Everyone is Coming to Miami</h1>
-                <p class="paragraph-11">Recent trends show an influx of national talent into Miami.<br></p>
+                                      
                     <div id='map3'>
                       <p class="paragraph-22" style="margin-bottom: 0px;padding: 10px 20px;font-size: 11px;line-height: 14px;font-style: italic;text-align: right;     position: absolute;bottom: 2vh;right: 2vw; background-color:#ffffff75">Source: USPS.</p>
                       <!--<div id='menu' class='mobilehide'>
@@ -764,7 +765,7 @@ p{
                   <div class="div-block-43">
                     <h2 class="heading-7" style="color:white !important">2010 - 2020 Market Metrics</h2>
                     <div class="w-layout-grid grid-3">
-                      <div class="div-block-52">
+                      <div class="div-block-52" style="width:14vw !important">
                         <div  class="dropdown w-dropdown">
                           <div style="color:#FFF">Metric: </div>
                           <div id="metric" class="select">
@@ -1296,7 +1297,7 @@ function draw7(){
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
-  var center = { x: bwidth, y: bheight / 2 };
+  var center = { x: bwidth, y: (bheight / 5)*3 };
 
 
 
@@ -3872,6 +3873,7 @@ d3.select('#menu2')
   .on('click', menuClick);
 
     fontScale = d3.scaleLinear().domain([3,60]).range([23,12])
+    centerScale = d3.scaleLinear().domain([3,60]).range([.4,.05])
 
     d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=196727768", function(error, data1) {
       if (error) throw error;
@@ -3896,7 +3898,7 @@ d3.select('#menu2')
           .style('color', '#00B5CC')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
-          .style('padding-top', 0.4 * radius + 'px')
+          .style('padding-top',function(d){return centerScale(d.employer.length) * radius + 'px'})
           .style('font-size', function(d){return fontScale(d.employer.length) +'px'})
           .style('font-weight', 700);
 
@@ -3938,7 +3940,7 @@ d3.select('#menu2')
           .style('color', '#00B5CC')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
-          .style('padding-top', 0.4 * radius + 'px')
+          .style('padding-top',function(d){return centerScale(d.employer.length) * radius + 'px'})
           .style('font-size', function(d){return fontScale(d.employer.length) +'px'})
           .style('font-weight', 700);
 
