@@ -1821,9 +1821,12 @@ figcaption {
 
 .div-block-6 {
   overflow: auto;
-  height: 50vh;
+  height: 60vh;
   margin-right: 40px;
   margin-left: 0px;
+  padding-top: 20px;
+  padding-bottom:8vh;
+  overflow: hidden
 }
 
 .container-8 {

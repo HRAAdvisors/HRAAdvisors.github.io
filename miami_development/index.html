@@ -593,7 +593,7 @@ p{
                   </div>
                 </div>
                 <div id='container' class='container-1'>
-                    <div id='graph'><p class="paragraph-22" style="margin-bottom: 0px;padding: 10px 20px;font-size: 11px;line-height: 14px;font-style: italic;text-align: right;     position: absolute;bottom: 2vh;right: 4vw;">Source: EMSI.</p><svg id="bubble" style="width:100%; height:60vh; padding-top:5vh"></svg>
+                    <div id='graph'><p class="paragraph-22" style="margin-bottom: 0px;padding: 10px 20px;font-size: 11px;line-height: 14px;font-style: italic;text-align: right;     position: absolute;bottom: 2vh;right: 4vw;">Source: EMSI.</p><svg id="bubble" style="width:100%; height:85vh; padding-top:5vh"></svg>
                     </div>
 
                     <div id='sections'>
@@ -648,7 +648,7 @@ p{
                         <p class="paragraph-9-copy">39%+</p>
                         <p class="paragraph-18">GROWTH IN BACHELOR &amp; ABOVE DEGREE HOLDERS</p>
                       </div>
-                      <svg id='edulegend' height='15vh'></svg>
+                      <svg id='edulegend' height='20vh'></svg>
                     </div>
                   </div>
                   <div>
@@ -771,7 +771,7 @@ p{
                           <div id="metric" class="select">
                           </div>
                         </div>
-                        <svg id="linelegend" height='15vh'></svg>
+                        <svg id="linelegend" height='25vh'></svg>
                         <div class="dropdown w-dropdown">
                           <!--<div style="color:#FFF">Geography: </div>
                           <div id="geography" class="select">
@@ -1297,7 +1297,7 @@ function draw7(){
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
-  var center = { x: bwidth, y: (bheight / 5)*3 };
+  var center = { x: bwidth, y: (bheight / 2) };
 
 
 
@@ -3872,8 +3872,8 @@ d3.select('#menu2')
   .classed('selected', function(d, i) {return i==0;})
   .on('click', menuClick);
 
-    fontScale = d3.scaleLinear().domain([3,60]).range([23,12])
-    centerScale = d3.scaleLinear().domain([3,60]).range([.4,.05])
+    fontScale = d3.scaleLinear().domain([3,60]).range([20,12])
+    centerScale = d3.scaleLinear().domain([3,60]).range([.2,.05])
 
     d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=196727768", function(error, data1) {
       if (error) throw error;
