@@ -62,9 +62,20 @@
         // set functions for layer toggle buttons
         map.on('load', function () {
 
-            console.log(map.getSource('composite'))
+            //console.log(map.getSource('composite'))
 
-            console.log(map.queryRenderedFeatures({layers: ['brightline']}))
+            console.log(map.getStyle().layers);
+
+		console.log(map.querySourceFeatures('composite', {
+		sourceLayer: 'combinedbuildings-782d1o'
+		}))
+
+		console.log(map.querySourceFeatures('composite', {
+		sourceLayer: 'miamiresibuildings-cumrhg'
+		}))
+
+
+            //console.log(map.queryRenderedFeatures({layers: ['brightline']}))
             var classatoggle = document.getElementById('classabutton');
             classatoggle.addEventListener('click', function () {
                 if (classatoggle.className === 'on bordertop') {
@@ -81,6 +92,8 @@
                 }
             });
         });
+
+
         map.on('load', function () {
             var othertoggle = document.getElementById('otherbutton');
             othertoggle.addEventListener('click', function () {

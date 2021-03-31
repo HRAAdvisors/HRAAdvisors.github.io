@@ -1,0 +1,98 @@
+@media screen and (max-width: 600px) {
+  #menu, #logo {
+    visibility: hidden;
+  }
+}
+    a {
+        text-decoration: none
+    }
+    a:link {
+        color: #51b3c9;
+    }
+    a:visited {
+        color: #51b3c9;
+    }
+    a:active {
+        color: #51b3c9;
+    }
+    #logo {
+        position: absolute;
+        z-index: 1;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    #footeremail {
+        background: #fff;
+        font-family: 'Nunito', sans-serif;
+        font-size: 15px;
+        z-index: 1;
+        padding-bottom: 10px;
+        color: #fff;
+        text-align: center;}
+
+    #menu {
+        background: white;
+        font-family: 'Nunito', sans-serif;
+        font-size: 15px;
+        position: absolute;
+        z-index: 1;
+        top: 20px;
+        right: 20px;
+        width: 275px;
+        display: inline-block;
+        color: #fff;
+        box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.2)
+    }
+    #header {
+        background: #fff;
+    }
+    #header:hover {
+        background: #fff;
+    }
+    .on {
+        background: white;
+        background-origin: content-box;
+        background-size: 18px 18px;
+        display: block;
+        margin: 0;
+        padding: 10px;
+        color: black;
+        border-bottom: 1px solid #d5dcde;
+    }
+.bordertop{border-top: 1px solid #8D9192;}
+    .on:hover {
+        cursor: pointer;
+    }
+    .off {
+        background: #e2e2e2;
+        background-origin: content-box;
+        background-size: 18px 18px;
+        color: #949494;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        border-bottom: 1px solid #d5dcde;
+    }
+
+    .off img{
+        opacity: 30%;
+    }
+
+    .legend {
+        padding: 10px;
+        background: #fff;
+        color: #C7354D;
+        vertical-align:middle;
+    }
+    .row {
+        display: table-row;
+    }
+    .noborder {
+        border-bottom: 0px solid white;
+    }
+
