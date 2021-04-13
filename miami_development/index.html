@@ -362,10 +362,7 @@ p{
   }
 
   #sections > div{
-    background: rgba(255,255,255,.5);
     padding: 10px;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
     margin-bottom: 80vh;
   }
 
@@ -436,6 +433,18 @@ p{
   font-family: monospace;
 }
 
+@media print {
+    #print{
+      display: block !important;
+      width: 97%;
+    }
+
+    #body {
+        display: none;
+    }
+
+
+}
 
 
 </style>
@@ -463,6 +472,9 @@ p{
     </style>
 </head>
 <body>
+  <img id="print" style="display:none" src="office/Slide1.png" frameborder="0" allowfullscreen scrolling="no"></img>
+<img id="print" style="display:none" src="office/Slide2.png" frameborder="0" allowfullscreen scrolling="no"></img>
+  <div id="body">
   <div style="height:5.2em">
   <iframe id="iframe" width=100% src="header.html" frameborder="0" allowfullscreen scrolling="no"></iframe></div>
   <div id="tooltip"></div>
@@ -548,13 +560,20 @@ p{
               </div>
               <div class="container-15 w-container">
                 <h1 class="heading-9">Who&#x27;s Here</h1>
+               
                 <div class="w-row"> 
                   <div class="w-col w-col-8" id="wrapper">
                     <div class="outer1" id="emp">    
                         <div id="chart" class="inner1"></div>
                       </div>
                   </div> 
-                  <div class="column-14 w-col w-col-4"> 
+                  <div class="column-14 w-col w-col-4">
+                   <div  class="dropdown w-dropdown" style="padding-bottom:3%; padding-top:6%">
+                          <div style="color:#000">Filter: </div>
+                          <div id="industries" class="select">
+                          </div>
+                        </div>
+                        <br> 
                     <p class="paragraph-14">Downtown Miami’s diverse economy is reflected in the variety among its top employers including <b>law</b>, professional services, and <b>tech</b> companies. Many domestic and international firms are establishing regional offices in Miami and existing businesses are expanding to take advantage of a growing economy and trained workforce.</p> 
                   </div> 
                 </div> 
@@ -579,7 +598,7 @@ p{
                 <h2 class="heading-7">Dynamic Talent Pool</h2>
                 <p class="paragraph-14">Miami-Dade County is one of the most dynamic employment markets in the nation with a year-over-year employment growth averaging 3.76% in the last three years. Approximately 85,000 employees work in Downtown Miami which represents 6.6% of the county’s workforce..</p>
                 <div class="w-layout-grid grid-4">
-                  <div class="div-block-17">
+                  <div class="div-block-17" style="display:inherit;">
                     <h1 class="heading-6-copy">MIAMI DDA JOB GROWTH BETWEEN 2010-2020:<br></h1>
                     <p class="paragraph-9">18%</p>
                   </div>
@@ -588,19 +607,15 @@ p{
                     <ul role="list" class="list">
                       <li class="list-item"><span class="text-span-11">Professional Services</span> (22%)</li>
                       <ul role="list" class="list">
-                        <li class="list-item">Law</li>
-                        <li class="list-item">Consulting</li>
-                        <li class="list-item">Accounting</li>
+                        <li class="list-item">Law, Consulting, Accounting</li>
                       </ul>
                       <li class="list-item-2"><span class="text-span-11">Government</span> (19%)</li>
                       <ul role="list" class="list">
-                        <li class="list-item">Public Schools</li>
-                        <li class="list-item">Hospitals</li>
+                        <li class="list-item">Public Schools, Hospitals</li>
                       </ul>
                       <li class="list-item-3"><span class="text-span-11">Finance &amp; Insurance</span> (15%)</li>
                       <ul role="list" class="list">
-                        <li class="list-item">Commercial Banking</li>
-                        <li class="list-item">Securities Brokerage</li>
+                        <li class="list-item">Commercial Banking, Securities Brokerage</li>
                       </ul>
                     </ul>
                   </div>
@@ -814,6 +829,7 @@ p{
       </div>
     </div>
   </div>
+</div>
 <script src="test/d3v4+jetpack.js"></script>
 <script src="test/graph-scroll.js"></script>
  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6041a54707ac14648370b006" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -823,7 +839,15 @@ p{
     <script src="simple_statistics.js"></script>
 <script>
 
+docwidth = document.body.offsetWidth
 
+if (docwidth >= 600){
+  size = 'mobile'
+}else if(docwidth >= 900){
+  size = 'tablet'
+}else{
+  size = 'regular'
+}
 
 
 
@@ -2145,6 +2169,7 @@ var valueLine = d3.line()
 
 
     // Change color of selected line when year dropdown changes
+    /*
     yearMenu.on('change', function(){
 
         // Find which year was selected
@@ -2162,7 +2187,7 @@ var valueLine = d3.line()
               // Set class to selected for matching line
               .classed("selected", true)
               .raise()
-    })
+    })*/
 
 
 })
@@ -3771,19 +3796,18 @@ $( ".inner" ).scroll(function() {
 
 empwidth = document.getElementById("emp").clientWidth
 
+if(empwidth <= 600){
+  cols = 2
+} else if(empwidth <= 960){
+  cols = 3
+}else{
+  cols = 4
+}
+
+ var padding = 6, radius = ((empwidth/cols)/2) - padding*(1 + (1/(cols+1))), parameter = 'size', indfilter = 'All Industries';
 
 
- var padding = 6, cols = 4, radius = ((empwidth/cols)/2) - padding*(1 + (1/(cols+1))), parameter = 'industry';
-
-  var menu = [
-            {id: 'size', name: 'Size'},
-            {id: 'high', name: 'High ($)'},
-            {id: 'low', name: 'Low ($)'},
-            {id: 'open', name: 'Open ($)'},
-            {id: 'netChange', name: 'Net Change ($)'},
-            {id: 'percentChange', name: 'Percent Change (%)'},
-          ];
-      
+images = {'Consumer Goods': 'consumergoods.svg','Coworking': 'coworking.svg','Education': 'education.svg','Finance': 'finance.svg','FinTech': 'fintech.svg','Healthcare': 'healthcare.svg','Insurance': 'insurance.svg','Law': 'law.svg','Manufacturing': 'manufacturing.svg','Marketing': 'marketing.svg','Media + Entertainment': 'media.svg','Professional Services': 'professionalservices.svg','Real Estate': 'realestate.svg','Services': 'services.svg','Technology': 'technology.svg','Tourism': 'tourism.svg','Venture Capital': 'venturecapital.svg'}      
  
 
 /// HELPER FUNCTIONS
@@ -3791,27 +3815,18 @@ function translateSVG(x, y) {
   return 'translate('+x+','+y+')';
 }
 
-//// UI
-function menuClick(d) {
-  if(parameter === d.id)
-    return;
 
-  d3.select('#menu2').selectAll('div').classed('selected', false);
-  d3.select(this).classed('selected', true);
-
-  parameter = d.id;
-
-  updateChart();
-}
 
 function selectThis(d) {
   d3.select(this).classed('selected', function() {return !d3.select(this).classed('selected');})
 }
 
 //// D3
-function updateChart() {
+function updateChart(k) {
 
-  var nodes = d3.select('#chart')
+
+  if(k === 'All Industries'){
+    var nodes = d3.select('#chart')
     .selectAll('div.node')
     .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
     .transition()
@@ -3821,6 +3836,26 @@ function updateChart() {
       var x = 2 * col * (radius + padding);
       return x + 'px';
     })
+    .style('opacity',1)
+    .style('top', function(d, i) {
+      var row = Math.floor(i / cols);
+      var y = row * (radius + padding);
+      return y + 'px';
+    });
+  } else {
+    
+  d3.select('#chart')
+    .selectAll('div.node')
+    .filter(f => f['industry'] === k)
+    .sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['employer'], b['employer']) : d3.ascending(a['employer'], b['employer']);})
+    .transition()
+    .duration(1000)
+    .style('left', function(d, i) {
+      var col = i % cols;
+      var x = 2 * col * (radius + padding);
+      return x + 'px';
+    })
+    .style('opacity',1)
     .style('top', function(d, i) {
       var row = Math.floor(i / cols);
       var y = row * (radius + padding);
@@ -3828,6 +3863,75 @@ function updateChart() {
     });
 
   d3.select('#chart')
+    .selectAll('div.node')
+    .filter(f => f['industry'] != k)
+    .transition()
+    .duration(1000)
+    .style('opacity', 0)
+
+  }
+
+  d3.select('#chart')
+    .selectAll('div.node .value')
+    .transition()
+    .duration(0)
+    .tween("text", function(d)
+      {
+        var x = d[parameter];
+        if (!(parameter == 'open' || parameter == 'high')) x;
+        var i = d3.interpolate(this.textContent, (x));
+        return function(t) {
+          this.textContent = (i(t));
+      };
+    });
+
+    if(k === 'All Industries'){
+    var nodes = d3.select('#chart2')
+    .selectAll('div.node')
+    .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
+    .transition()
+    .duration(1000)
+    .style('left', function(d, i) {
+      var col = i % cols;
+      var x = 2 * col * (radius + padding);
+      return x + 'px';
+    })
+    .style('opacity',1)
+    .style('top', function(d, i) {
+      var row = Math.floor(i / cols);
+      var y = row * (radius + padding);
+      return y + 'px';
+    });
+  } else {
+    
+  d3.select('#chart2')
+    .selectAll('div.node')
+    .filter(f => f['industry'] === k)
+    .sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['industry'], b['industry']) : d3.ascending(a['industry'], b['industry']);})
+    .transition()
+    .duration(1000)
+    .style('left', function(d, i) {
+      var col = i % cols;
+      var x = 2 * col * (radius + padding);
+      return x + 'px';
+    })
+    .style('opacity',1)
+    .style('top', function(d, i) {
+      var row = Math.floor(i / cols);
+      var y = row * (radius + padding);
+      return y + 'px';
+    });
+
+  d3.select('#chart2')
+    .selectAll('div.node')
+    .filter(f => f['industry'] != k)
+    .transition()
+    .duration(1000)
+    .style('opacity', 0)
+
+  }
+
+  d3.select('#chart2')
     .selectAll('div.node .value')
     .transition()
     .duration(0)
@@ -3876,20 +3980,68 @@ function updateChart2() {
 }
 
  // Menu
-d3.select('#menu2')
-  .selectAll('div')
-  .data(menu)
-  .enter()
-  .append('div')
-  .text(function(d) {return d.name;})
-  .classed('selected', function(d, i) {return i==0;})
-  .on('click', menuClick);
 
-    fontScale = d3.scaleLinear().domain([3,60]).range([20,12])
-    centerScale = d3.scaleLinear().domain([3,60]).range([.2,.05])
+
+    fontScale = d3.scaleLinear().domain([.75,60]).range([20*cols/4,15*cols/4])
+    centerScale = d3.scaleLinear().domain([.75,60]).range([.2,.05])
+    marginScale = d3.scaleLinear().domain([0,6]).range([0,2])
 
     d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=196727768", function(error, data1) {
       if (error) throw error;
+
+       // Create 2nd dropdown
+    var indsMenu = d3.select("#industries")
+
+    var indsnest = d3.nest()
+        .key(function(d){
+            return d.industry;
+        })
+        .rollup(function(leaves){
+            var inds = d3.nest().key(function(d){
+                return d.industry
+            })
+            .entries(leaves);
+            return {inds:inds};
+            })
+      .entries(data1)
+
+    
+
+    indsnest.sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['key'], b['key']) : d3.ascending(a['key'], b['key']);})
+
+    indsnest.unshift({key:'All Industries'})
+
+    console.log(data1)
+    console.log(indsnest)
+
+    indsMenu
+        .append("select")
+        .attr("id","standard-select")
+        .selectAll("option")
+        .data(indsnest)
+        .enter()
+        .append("option")
+        .attr("value", function(d){
+            return d.key;
+        })
+        .text(function(d){
+            return d.key;
+        })
+
+
+    indsMenu.on('change', function(){
+
+        // Find which fruit was selected from the dropdown
+        var indfilter = d3.select(this)
+            .select("select")
+            .property("value")
+        // Run update function with the selected fruit
+        updateChart(indfilter);
+
+
+    });
+        
+    
     
     var nodes = d3.select('#chart')
                       .selectAll('div')
@@ -3911,22 +4063,25 @@ d3.select('#menu2')
           .style('color', '#00B5CC')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
+          .style('padding', 0.1 * radius + 'px')
+          .style('line-height', '150%')
           .style('padding-top',function(d){return centerScale(d.employer.length) * radius + 'px'})
-          .style('font-size', function(d){return fontScale(d.employer.length) +'px'})
+          .style('font-size', function(d){return fontScale(d.employer.length*((d.employer.split(" ").length - 1)+1)*.25) +'px'})
           .style('font-weight', 700);
 
-            /*
+            
         nodes
           .append('div')
           .classed('value', true)
-          .html(function(d) {return d[parameter]})
+           .html(function(d) {return '<center><img width ="' + .3 * radius + 'px" src="images/tiles/' + images[d.industry] + '" style="margin-top:'+marginScale((d.employer.split(" ").length - 1)) + '%"></center>'})
           .style('color', '#00B5CC')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
           .style('font-size', 15+'px')
-          .style('font-weight', 700);*/
+          .style('font-weight', 700)
+          .style('padding-top', 0);
 
-        updateChart();
+        updateChart(indfilter);
   });
 
     d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1181381306", function(error, data1) {
@@ -3953,20 +4108,24 @@ d3.select('#menu2')
           .style('color', '#00B5CC')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
+          .style('line-height', '150%')
+                .style('padding', 0.1 * radius + 'px')
           .style('padding-top',function(d){return centerScale(d.employer.length) * radius + 'px'})
-          .style('font-size', function(d){return fontScale(d.employer.length) +'px'})
+          .style('font-size', function(d){return fontScale(d.employer.length*((d.employer.split(" ").length - 1)+1)*.25) +'px'})
           .style('font-weight', 700);
 
-            /*
+            
         nodes
           .append('div')
           .classed('value', true)
-          .html(function(d) {return d[parameter]})
+           .html(function(d) {return '<center><img width ="' + .3 * radius + 'px" src="images/tiles/' + images[d.industry] + '" style="margin-top:'+marginScale((d.employer.split(" ").length - 1)) + '%"></center>'})
           .style('color', '#00B5CC')
           .style('width', 2 * radius + 'px')
           .style('height', 0.5 * radius + 'px')
           .style('font-size', 15+'px')
-          .style('font-weight', 700);*/
+          .style('font-weight', 700)
+          .style('padding-top', 0);
+
 
         updateChart2();
   });
@@ -4333,11 +4492,10 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
   };
 }, function(error, rows) {
       if (error) throw error;
-        
-      console.log(data1)
+   
       data = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'miami')
       data.forEach(function(v){ delete v.geo });
-      console.log(data)
+
       var button = d3
       .selectAll('.dbutton')
 

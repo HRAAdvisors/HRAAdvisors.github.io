@@ -66,7 +66,8 @@
             , mapboxgl: mapboxgl
         }));
 
-
+        //Cut here
+        /*
         var modelOrigin = [-80.184516, 25.776999];
         var modelAltitude = 0;
         var modelRotate = [Math.PI / 2, 1, 0];
@@ -84,9 +85,7 @@
         rotateX: modelRotate[0],
         rotateY: modelRotate[1],
         rotateZ: modelRotate[2],
-        /* Since our 3D model is in real world meters, a scale transform needs to be
-        * applied since the CustomLayerInterface expects units in MercatorCoordinates.
-        */
+
         scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits()*.05
         };
          
@@ -167,6 +166,8 @@
         this.map.triggerRepaint();
         }
         };
+
+        */
 
         map.on('style.load', function () {
         
@@ -383,7 +384,7 @@
           }
         });
 
-        map.addLayer(customLayer);
+        //map.addLayer(customLayer);
 
             //console.log(map.getSource('composite'))
 
