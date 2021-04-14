@@ -711,11 +711,7 @@ p{
                         </p>
                       </div>
                       <div>
-                        <p>Most of this movement has been driven from the Northeast, with <b>53%</b> of permanent newcomers coming from New York City. CA, IL, DC, MA, and PA also saw a substantial increase in permanent moves to Miami. 
-                        </p>
-                      </div>
-                      <div>
-                        <p>Miami has also experienced a great number of temporary movers. Temporary relocations grew <b>511%</b> overall. Close to 2,000 people temporarily changed their mailing address to Miami during this past year of remote work, 84% of whom came from New York. While we have yet to see the effects of this play out, trends from google searches and twitter continue to indicate that many are moving to Miami.
+                        <p>Most of this movement has been driven from the Northeast, with <b>53%</b> of permanent newcomers coming from New York City. <br><br>L.A., San Francisco, Chicago, Boston, and Philadelphia also saw a substantial increase in permanent moves to Miami. 
                         </p>
                       </div>
                       <div>
@@ -724,6 +720,7 @@ p{
 
 
                   </div>
+                  <p class="paragraph-11">Miami has also experienced a great number of temporary movers. Temporary relocations grew <b>511%</b> overall. Close to 2,000 people temporarily changed their mailing address to Miami during this past year of remote work, 84% of whom came from New York. While we have yet to see the effects of this play out, trends from google searches and twitter continue to indicate that many are moving to Miami.<br></p>
                 </div>
                 <h1 class="heading-7">Growing Buzz</h1>
                 <div class="div-block-7"><div class='sk-ww-twitter-collection' data-embed-id='55161'></div><script src='https://www.sociablekit.com/app/embed/twitter-collections/widget.js' async defer></script></div>
@@ -851,6 +848,7 @@ if (docwidth >= 600){
   size = 'regular'
 }
 
+window.step = 0
 
 
 var oldWidth = 0
@@ -929,10 +927,41 @@ function bubbleChart() {
 
 function draw1(){
 
+if(window.step === 1){
+  d3.selectAll('#inds')
+.transition(2000)
+.attr('r',function(d){ return d.radius})
 
+d3.selectAll('#occs')
+.transition(2000)
+.attr('r',function(d){ return d.radius})
+
+simulation
+    .force('collide', d3.forceCollide(d => d.radius + 2).strength(1))
+
+simulation2
+    .force('collide', d3.forceCollide(d => d.radius + 2).strength(1))
+
+}
+
+simulation.restart()
+
+window.step = 0
 
 }
 function draw2(){
+
+
+  if(window.step === 2){
+    d3
+    .selectAll("#inds")
+    .transition("recolor")
+    .duration(500)
+    .style('fill', function (d) { return fillColor(d.group); })
+    .style("opacity", 1)
+
+
+  }
 
 d3.selectAll('#inds')
 .transition(2000)
@@ -947,50 +976,64 @@ simulation
 
 simulation2
     .force('collide', d3.forceCollide(d => d.radius2 + 2).strength(1))
-/*
-  function transitionGoo(duration) {
-      d3.selectAll(".blurValues")
-        .transition().duration(duration)
-        .attrTween("values", function() {
-          return d3.interpolateString("1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -6", 
-                          "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6"); 
-        }); 
-    }
 
-  simulation.stop()
+groupBubbles()
 
-  transitionGoo(3000)
+window.step = 1
 
-  d3.selectAll('.circle')
-       .transition()
-      .ease(d3.easeSin)
-      .duration(5000)
-            .attr("cx", function(d) { return d3.select("#Circle" + String(d.id)).attr("cx"); })
-            .attr("cy", function(d) { return d3.select("#Circle" + String(d.id)).attr("cy"); });
-
-  
-d3.select(".Miami_rentpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Miami_rentlabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Miami_rentlabelrent")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-*/
 }
 
 function draw3(){
+
+  if(window.step === 3){
+
+    d3.selectAll('#occs')
+      .transition()
+      .duration(1000)
+      .style('opacity',0)
+      .on('mouseover',null)
+      .on('mouseout',null)
+
+      d3
+      .selectAll("#inds")
+      .transition().duration(500)
+      .style('fill', function (d) { return fillColor(d.group); })
+      .style("opacity", 1)
+      .attr("fill-opacity","1")
+      .attr('r',function(d){ return d.radius2})
+
+
+      bubbles = bubbles.data(graphNodes, function(d) { return d.id;});
+        //  EXIT
+      bubbles.exit().remove();
+      //  ENTER
+      var newNode = bubbles.enter().append("circle")
+        .classed('bubble', true)
+        .attr("id",function(d){ return "bubble_" + String(d.id)})
+        .attr("id","inds")
+        .attr('r',function(d){ return d.radius2})
+        .style('opacity', .2)
+        .style('fill', '#808080')
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
+        .attr('stroke-width', 2)
+        .on('mouseover', showDetail)
+        .on('mouseout', hideDetail);
+
+        newNode.append("title")
+          .text(function(d) { return "group: " + d.group + "\n" + "id: " + d.id; });
+      //  ENTER + UPDATE
+      bubbles = bubbles.merge(newNode);
+
+      simulation.nodes(graphNodes)
+
+      simulation
+        .force('collide', d3.forceCollide(d => d.radius2 + 2).strength(1))
+
+    simulation.restart()
+
+    groupBubbles()
+
+    }
 
   d3
   .selectAll("#inds")
@@ -1007,89 +1050,51 @@ function draw3(){
       })
 
     simulation2.stop()
-/*
-graphNodes.forEach(function(d,i) {
-  if (d.group === 'Finance and Insurance' || d.group === 'Professional, Scientific, and Technical Services' || d.group === 'Government'){
 
-    d3.select("#bubble")
-    .append("text")
-    .attr("class","blabel")
-    .style("opacity",0)
-    .style("font-size", "10px")
-    .text(d.group)
-    .attr('text-anchor','middle')
-    .attr("dx",d3.select("#bubble_" + String(d.id)).attr("cx") - (bwidth/2))
-    .attr("dy",d3.select("#bubble_" + String(d.id)).attr("cy"))
-    .transition(2000)
-    .style("opacity",1)
+    window.step = 2
 
-  }
-})*/
-/*
-d3.select(".NY_rentpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Chicago_rentpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".SF_rentpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".NY_rentlabel")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".SF_rentlabel")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Chicago_rentlabel")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".NY_rentlabelrent")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".SF_rentlabelrent")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Chicago_rentlabelrent")
-    .transition()
-      .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-*/
 
 }
 
 function draw4(){
+
+
+  if(window.step === 4){
+
+  transitionGoo(0)
+ d3.select('.histlabel')
+ .transition()
+ .duration(2000)
+ .style('opacity',0)
+
+ d3.select('.histaxis')
+ .transition()
+ .duration(2000)
+ .style('opacity',0)
+
+ d3.selectAll('#inds')
+  .transition()
+  .duration(1000)
+  .style('opacity',1)
+
+  simulation2.restart()
+
+  d3
+  .selectAll("#occs")
+  .attr('fill', function (d) { return fillColor(d.group); })
+  .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
+  .attr('stroke-width', 2)
+  .style("opacity",1)
+  .attr('r',function(d){ return d.radius2})
+
+  simulation2
+        .force('collide', d3.forceCollide(d => d.radius2 + 2).strength(1))
+
+  
+
+  groupBubbles()
+
+  }
 
 
 d3.selectAll(".blabel")
@@ -1108,6 +1113,9 @@ bubbles = bubbles.data(nodes, function(d){return d.id;})
 bubbles.exit().remove()
 simulation.nodes(nodes)
 simulation.tick()
+
+
+
 
 
   function transitionGoo(duration) {
@@ -1151,32 +1159,16 @@ simulation.tick()
   .duration(1000)
   .text('Professional Services and Finance Occupations')
 
-/*
-document.getElementById('vacancy').click();
+  window.step = 3
 
-d3.select(".Miami_vacancypath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
 
-d3.select(".Miami_vacancylabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Miami_vacancylabelvacancy")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-*/
 }
 
 
 
 function draw5(){
+
+
 
 
 d3.selectAll('#occs')
@@ -1224,60 +1216,9 @@ d3.selectAll('#occs')
 
 
       })
- /*
-d3.select(".NY_vacancypath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Chicago_vacancypath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".SF_vacancypath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
 
 
-d3.select(".NY_vacancylabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-d3.select(".Chicago_vacancylabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".SF_vacancylabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".NY_vacancylabelvacancy")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-d3.select(".Chicago_vacancylabelvacancy")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".SF_vacancylabelvacancy")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-*/
+window.step = 4
 }
 
 function draw6(){
