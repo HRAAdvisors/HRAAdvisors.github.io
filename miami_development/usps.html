@@ -119,13 +119,15 @@ function toggle2(){
  
  g.airports.selectAll("circle.airport")
   .transition()
-  .duration(2000)
+  .duration(500)
   .style("stroke", d => scales.highlight(d.iata))
   .style("stroke-width", d => scales.highlightsize(d.iata))
  .style("opacity", d => scales.highlightopacity(d.iata))
  
  d3.selectAll("#focus")
- .style("stroke-opacity", "1")
+ .transition()
+  .duration(500)
+ .style("stroke-opacity", ".7")
 }
 
 const width  = parseInt(svg.attr("width"));
@@ -156,17 +158,17 @@ const scales = {
   .unknown("#252525"),
   
   highlightsize: d3.scaleOrdinal()
-  .domain(['35620','12060'])
+  .domain(['35620'])
   .range(['3px'])
   .unknown("1px"),
   
   highlightopacity: d3.scaleOrdinal()
-  .domain(['35620','12060'])
-  .range(['1'])
+  .domain(['35620'])
+  .range(['.7'])
   .unknown(".3"),
   
   focus: d3.scaleOrdinal()
-  .domain(['35620','12060'])
+  .domain(['35620'])
   .range(['focus'])
   .unknown("ignore"),
 
