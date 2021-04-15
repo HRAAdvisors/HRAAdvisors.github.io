@@ -4060,16 +4060,15 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
 }, function(error, rows) {
       if (error) throw error;
       
-      if(size === 'mobile'){
+       if(size != 'regular'){
         data1 = data1.filter(f => f.device == 'mobile')
-        data1.forEach(function(v){ delete v.device });
+        data1.forEach(function(v){ delete v.device })
+               console.log(data1)
       }else{
         data1 = data1.filter(f => f.device == 'desktop')
         data1.forEach(function(v){ delete v.device });
+        console.log(data1)
       }
-      
-      data1 = data1.filter(f => f.device == 'mobile')
-      data1.forEach(function(v){ delete v.device });
    
       data = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'miami')
       data.forEach(function(v){ delete v.geo });
