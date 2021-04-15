@@ -194,7 +194,12 @@ label {
   margin-top: 2rem;
 }
 
-
+.grid-content{
+  background-color: rgb(243 242 242) !important
+}
+p{
+  z-index:500;
+}
 
 .line {
   fill: none;
@@ -332,6 +337,25 @@ p{
 */
 
 @media screen and (max-width: 925px)  {
+
+.grid-3 {
+
+    grid-template-columns: 1fr;
+}
+  .div-block-43{
+    font-size: 7px;
+  }
+
+  .div-block-43 td{
+    padding: 0px;
+  }
+
+  .histaxis{
+    font-size: 7px;
+  }
+  .list{
+    text-align: left;
+  }
   #graph{
     width: 100%;
     margin-left: 0px;
@@ -503,14 +527,14 @@ p{
             <a data-w-tab="Tab 1" class="tab-link-copy w-inline-block w-tab-link w--current">
               <div>OFFICE  REPORT</div>
             </a>
-            <a href="#ddashboard" data-w-tab="Tab 2" class="tab-link w-inline-block w-tab-link">
+            <a href="#top" data-w-tab="Tab 2" class="tab-link w-inline-block w-tab-link">
               <div>DISTRICT DASHBOARD</div>
             </a>
           </div>
           <div class="w-tab-content">
             <div data-w-tab="Tab 1" class="tab-pane-tab-1 w-tab-pane w--tab-active">
               <div class="container-14 w-container">
-                <div class="icon"><img src="images/Office.svg" loading="lazy" width="75" alt=""></div>
+                <div id="ddashboard" class="icon"><img src="images/Office.svg" loading="lazy" width="75" alt=""></div>
                 <h2 class="heading-2">OFFICE MARKET</h2>
                   <div id='container' class='container-2'>
                     <div id='map' class="map">
@@ -526,7 +550,7 @@ p{
 
                     <div id='sections'>
                       <div>
-                             <p>Downtown Miami is host to a unique array of neighborhoods including the Central Business District, Brickell, and Arts & Entertainment District.
+                             <p>Downtown Miami is host to a unique array of neighborhoods including the <b class="text-span-10" style="color:#FFBEE8">Central Business District</b>, <b class="text-span-10" style="color:#9FA4EE">Brickell</b>, and <b class="text-span-10" style="color:#FFD37F">Arts & Entertainment District</b>.
                         </p>
                       </div>
                       <div>
@@ -534,7 +558,7 @@ p{
                         </p>
                       </div>
                       <div>
-                              <p>There is currently <b>1.5 million SF</b> of office development in the pipeline, including 830 Brickell, a standalone Class A-plus office tower adding 640,000 SF in the heart of Brickell.
+                              <p>There is currently <b>1.5 million SF</b> of office development in the pipeline, including <b class="text-span-10" style="color:#CF60B6">830 Brickell</b>, a standalone Class A-plus office tower adding 640,000 SF in the heart of Brickell.
                         </p>
                       </div>
                       <div>
@@ -632,7 +656,7 @@ p{
                       <div>
                       </div>
                       <div>
-                        <p>Between 2010-2018, Miami DDA jobs grew <b>18%</b>.<br>The close to 85,000 employees work in Downtown Miami represent 7% of the county’s workforce.</p>
+                        <p>Between 2010-2018, Miami DDA jobs grew <b>18%</b>.<br><br>The close to 85,000 employees work in Downtown Miami represent 7% of the county’s workforce.</p>
                       </div>
                       <div>
                         <p>The three largest industries within the DDA are <b class="text-span-10" style="color:#AA4588">Professional Services</b>, <b class="text-span-10" style="color:#770D55">Government</b>, and <b class="text-span-10" style="color:#4577AA">Finance & Insurance</b>, which make up close to 60% of total jobs.</p>
@@ -744,7 +768,7 @@ p{
               <div id="District-Profiles" class="section-4">
                 <div class="div-block-36">
                   <div class="icon"><img src="images/District.png" loading="lazy" width="61" alt=""></div>
-                  <h2 id="ddashboard" class="section-heading-copy-copy">DISTRICT DASHBOARD</h2>
+                  <h2 class="section-heading-copy-copy">DISTRICT DASHBOARD</h2>
                   <p class="paragraph-21">Downtown Miami is host to a unique array of neighborhoods that each have their own character. Pieced together, the Miami DDA continues to lead the way as the largest downtown office market within Miami-Dade County and the state of Florida in terms of rentable square footage, and Class A rental rates.</p>
                   <div class="div-block-25">
                     <a href="#" class="button-13 w-button dbutton" id="MiamiButton"><strong class="bold-text-10">MIAMI-DADE</strong></a>
@@ -760,7 +784,8 @@ p{
                         <div><img src="images/Business_1Business.png" loading="lazy" width="129" alt="" class="image-4"></div>
                         <div class="div-block-22">
                           <div><strong class="bold-text-16">Businesses</strong></div>
-                          <div class="div-block-35" id="businesses"></div>
+                          <div class="div-block-35" id="businesses" style="font-size: 40px;
+    font-weight: 700;"></div>
                         </div>
                       </div>
                     </div>
@@ -769,7 +794,8 @@ p{
                         <div><img src="images/Population_1Population.png" loading="lazy" width="129" alt="" class="image-5"></div>
                         <div class="div-block-22">
                           <div><strong class="bold-text-17">Population</strong></div>
-                            <div class="div-block-34" id="population"></div>
+                            <div class="div-block-34" id="population" style="font-size: 40px;
+    font-weight: 700;"></div>
                           
                         </div>
                       </div>
@@ -779,7 +805,8 @@ p{
                         <div><img src="images/Employee_1Employee.png" loading="lazy" width="129" alt="" class="image-6"></div>
                         <div class="div-block-22">
                           <div><strong class="bold-text-18">Jobs</strong></div>
-                          <div class="div-block-33" id="employees"></div>
+                          <div class="div-block-33" id="employees" style="font-size: 40px;
+    font-weight: 700;"></div>
                         </div>
                       </div>
                     </div>
@@ -842,18 +869,26 @@ p{
     <script src="simple_statistics.js"></script>
 <script>
 
+  $("a[href='#top']").click(function() {
+  $('html, body').animate({
+    scrollTop: ($('#ddashboard').offset().top)
+},500);
+});
+
 docwidth = document.body.offsetWidth
 
-if (docwidth >= 600){
+if (docwidth <= 600){
   size = 'mobile'
-}else if(docwidth >= 900){
+}else if(docwidth <= 900){
   size = 'tablet'
 }else{
   size = 'regular'
 }
 
+
 window.step = 0
 
+window.dropdown = 0
 
 var oldWidth = 0
 function render(){
@@ -861,15 +896,28 @@ function render(){
 
 ///// Bubble Chart
 
-var bubblesvg = d3.select("#bubble"),
-margin = {top: 35, left: 35, bottom: 0, right: 15},
+var bubblesvg = d3.select("#bubble")
+
+if (size != 'regular'){
+  margin = {top: 35, left: 5, bottom: 0, right: 5}
+} else{
+  margin = {top: 35, left: 35, bottom: 0, right: 15}
+}
+
+
 element = bubblesvg.node();
 bwidth = element.getBoundingClientRect().width - margin.left - margin.right,
 bheight = element.getBoundingClientRect().height - margin.top - margin.bottom;
 
-histXScale = d3.scaleLinear().domain([1,15]).range([bwidth-((bwidth/6)*2.5), bwidth + (bwidth/6)]).nice()
 
-histYScale = d3.scaleLinear().domain([7, 1]).range([bheight*.25,bheight*.75])
+if (size != 'regular'){
+  histXScale = d3.scaleLinear().domain([1,15]).range([bwidth-((bwidth/2.15)), bwidth + (bwidth/2)]).nice()
+  histYScale = d3.scaleLinear().domain([7, 1]).range([bheight*.3,bheight*.6])}else{
+  histXScale = d3.scaleLinear().domain([1,15]).range([bwidth-((bwidth/6)*2.5), bwidth + (bwidth/6)]).nice()
+  histYScale = d3.scaleLinear().domain([7, 1]).range([bheight*.25,bheight*.75])
+}
+
+
 
 pct = d3.scaleLinear().domain([1,15]).range([-0.5,3])
 
@@ -899,7 +947,22 @@ bubblesvg.append('g')
         .call(xAxis)
         .style('opacity',0)
 
+
+if (size != 'regular'){
 bubblesvg.append("text")
+                .attr("y", histYScale(0)+ 30)
+                .attr("x", bwidth/2)
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .text("Employment Growth (2010-2020)")
+                .attr("class", "histlabel")
+                .attr("font-family", "Nunito")
+                .style("fill", "#000")
+                .attr("font-weight",700)
+                .attr("font-size", "13")
+                .style('opacity',0)
+}else{
+  bubblesvg.append("text")
                 .attr("y", histYScale(0)+ 30)
                 .attr("x", bwidth-((bwidth/6)*3.75))
                 .attr("dy", "1em")
@@ -909,8 +972,9 @@ bubblesvg.append("text")
                 .attr("font-family", "Nunito")
                 .style("fill", "#000")
                 .attr("font-weight",700)
-                .attr("font-size", "17")
+                .attr("font-size", "13")
                 .style('opacity',0)
+}
 
 bubblesvg.append("text")
                 .attr("y", histYScale.domain()[1] + 15)
@@ -931,7 +995,7 @@ function bubbleChart() {
 
 function draw1(){
 
-if(window.step === 1){
+if(window.step === 7){
   d3.selectAll('#inds')
 .transition(2000)
 .attr('r',function(d){ return d.radius})
@@ -950,13 +1014,13 @@ simulation2
 
 simulation.restart()
 
-window.step = 0
+window.step = 6
 
 }
 function draw2(){
 
 
-  if(window.step === 2){
+  if(window.step === 8){
     d3
     .selectAll("#inds")
     .transition("recolor")
@@ -983,13 +1047,13 @@ simulation2
 
 groupBubbles()
 
-window.step = 1
+window.step = 7
 
 }
 
 function draw3(){
 
-  if(window.step === 3){
+  if(window.step === 9){
 
     d3.selectAll('#occs')
       .transition()
@@ -1055,7 +1119,7 @@ function draw3(){
 
     simulation2.stop()
 
-    window.step = 2
+    window.step = 8
 
 
 }
@@ -1063,7 +1127,7 @@ function draw3(){
 function draw4(){
 
 
-  if(window.step === 4){
+  if(window.step === 10){
 
   transitionGoo(0)
  d3.select('.histlabel')
@@ -1163,7 +1227,7 @@ simulation.tick()
   .duration(1000)
   .text('Professional Services and Finance Occupations')
 
-  window.step = 3
+  window.step = 9
 
 
 }
@@ -1174,7 +1238,33 @@ function draw5(){
 
 
 
+if (size != 'regular'){
+d3.selectAll('#occs')
+ .filter(function (d) { return d.group === 'Market Research Analysts and Marketing Specialists' || d.group === 'Computer and Information Systems Managers' || d.group === 'Computer User Support Specialists' || d.group === 'Software Developers and Software Quality Assurance Analysts and Testers' || d.group === 'Marketing Managers' })
+  .transition()
+  .duration(2000)
+  .attr('cx', d => histXScale(d.col))
+  .attr('cy', d => histYScale(d.row))
+  .attr('r',5)
+  .attr('stroke-width',2)
+  .attr('stroke',"#000000")
+  .style('opacity',1)
 
+    d3
+  .selectAll("#occs")
+  .filter(function (d) { return d.group != 'Market Research Analysts and Marketing Specialists' && d.group != 'Computer and Information Systems Managers' && d.group != 'Computer User Support Specialists' && d.group != 'Software Developers and Software Quality Assurance Analysts and Testers' && d.group != 'Marketing Managers' })
+  .each(function (d, i){
+        var $this = d3.select(this)
+        $this
+          .transition()
+         .duration(2000)
+           .attr('cx', d => histXScale(d.col))
+          .attr('cy', d => histYScale(d.row))
+          .attr('r',5)
+        .style('opacity', .3)
+        
+      })
+}else{
 d3.selectAll('#occs')
  .filter(function (d) { return d.group === 'Market Research Analysts and Marketing Specialists' || d.group === 'Computer and Information Systems Managers' || d.group === 'Computer User Support Specialists' || d.group === 'Software Developers and Software Quality Assurance Analysts and Testers' || d.group === 'Marketing Managers' })
   .transition()
@@ -1185,24 +1275,6 @@ d3.selectAll('#occs')
   .attr('stroke-width',2)
   .attr('stroke',"#000000")
   .style('opacity',1)
-
-
- d3.select('.histlabel')
- .transition()
- .duration(2000)
- .style('opacity',1)
-
- d3.select('.histaxis')
- .transition()
- .duration(2000)
- .style('opacity',1)
-
- d3.selectAll('#inds')
-  .transition()
-  .duration(1000)
-  .style('opacity',0)
-
-
 
   d3
   .selectAll("#occs")
@@ -1221,45 +1293,40 @@ d3.selectAll('#occs')
 
       })
 
+}
 
-window.step = 4
+ d3.select('.histlabel')
+ .transition()
+ .duration(2000)
+ .style('opacity',1)
+
+ d3.select('.histaxis')
+ .transition()
+ .duration(2000)
+ .style('opacity',1)
+
+ d3.selectAll('#inds')
+  .transition()
+  .duration(1000)
+  .style('opacity',0)
+
+
+
+window.step = 10
 }
 
 function draw6(){
-
-/*
-document.getElementById('absorption').click();
-
-d3.select(".Miami_abpath")
-    .transition()
-  .ease(d3.easeSin)
-  .duration(5000)
-  .attr("stroke-dashoffset", 0);
-
-d3.select(".Miami_ablabel")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);
-
-d3.select(".Miami_ablabelab")
-    .transition()
-    .delay(4000)
-  .duration(500)
-  .attr("opacity", 1);*/
-
 }
 
 function draw7(){
-  return
-}    
+}
 
       let functions = [
         draw1,
     draw2,
     draw3,
     draw4,
-    draw5, 
+    draw5,
     draw6,
     draw7]
 
@@ -1365,10 +1432,20 @@ simulation2.stop();
 
     // Sizes bubbles based on area.
     // @v4: new flattened scale names.
-    var radiusScale = d3.scalePow()
+    
+    if (size === 'regular'){
+      var radiusScale = d3.scalePow()
       .exponent(0.5)
       .range([2, 60])
       .domain([0, maxAmount]);
+    }else{
+      var radiusScale = d3.scalePow()
+      .exponent(0.5)
+      .range([2, 40])
+      .domain([0, maxAmount]);
+    }
+
+
 
     // Use map() to convert raw data into node data.
     // Checkout http://learnjsdata.com/ for more on
@@ -2696,7 +2773,7 @@ function mousemove() {
 
 
 //MAP
-
+window.step = 0
 mapboxgl.accessToken = 'pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb3NqY3JmIn0._sGjIhmL5Xt08WIMWRsSsg';
         var bounds = [
 [-80.24975, 25.73521]
@@ -2739,6 +2816,14 @@ r
 
           });
 
+          map.addSource('subdistricts', {
+          // GeoJSON Data source used in vector tiles, documented at
+          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+          'type': 'geojson',
+          'data':'working/subdistrict2.geojson'
+
+          });
+
           map.addSource('underconstruction', {
           // GeoJSON Data source used in vector tiles, documented at
           // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
@@ -2752,6 +2837,19 @@ r
           'type': 'geojson',
           'data':'gis/proposed2.geojson'
           });
+
+          map.addLayer({
+          'id': 'subdistricts',
+          'type': 'fill',
+          'source': 'subdistricts',
+          'paint': {
+          'fill-color': ['get', 'color'],
+          'fill-color-transition':{
+                    duration: 2000
+                },
+          'fill-opacity': 0.6
+        }
+        })
            
           for (var i = 0; i < bins; i++) {
           map.addLayer({
@@ -2845,191 +2943,59 @@ r
 
     }); 
         
-/*
-        // set functions for layer toggle buttons
-        map.on('load', function () {
-            var classatoggle = document.getElementById('classabutton');
-            classatoggle.addEventListener('click', function () {
-                if (classatoggle.className === 'on bordertop') {
-                    classatoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('office', 'visibility', 'none');
-                    map.setLayoutProperty('office', 'visibility', 'none');
-                    classatoggle.className = 'off bordertop';
-                }
-                else {
-                    classatoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('office', 'visibility', 'visible');
-                    map.setLayoutProperty('office', 'visibility', 'visible');
-                    classatoggle.className = 'on bordertop';
-                }
-            });
-        });
-        map.on('load', function () {
-            var othertoggle = document.getElementById('otherbutton');
-            othertoggle.addEventListener('click', function () {
-                if (othertoggle.className === 'on') {
-                    othertoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('resi', 'visibility', 'none');
-                    map.setLayoutProperty('resi', 'visibility', 'none');
-                    othertoggle.className = 'off';
-                }
-                else {
-                    othertoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('resi', 'visibility', 'visible');
-                    map.setLayoutProperty('resi', 'visibility', 'visible');
-                    othertoggle.className = 'on';
-                }
-            });
-        });
-        map.on('load', function () {
-            var condotoggle = document.getElementById('condobutton');
-            condotoggle.addEventListener('click', function () {
-                if (condotoggle.className === 'on') {
-                    condotoggle.setAttribute('class', 'off');
-                    map.setLayoutProperty('metrorail', 'visibility', 'none');
-                    map.setLayoutProperty('metrorail', 'visibility', 'none');
-                    condotoggle.className = 'off';
-                }
-                else {
-                    condotoggle.setAttribute('class', 'on bordertop');
-                    map.setLayoutProperty('metrorail', 'visibility', 'visible');
-                    map.setLayoutProperty('metrorail', 'visibility', 'visible');
-                    condotoggle.className = 'on';
-                }
-            });
-        });
-
-
-    
-        // callouts on click
-        map.on('load', function () {
-            map.on('click', 'office', function (e) {
-                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.name + '</div><!--<div style = "padding-top:5px;"> Type: <b>' + e.features[0].properties.type + '</b></div>-->').setMaxWidth("700px").addTo(map);
-            });
-            map.on('mouseenter', 'office', function () {
-                map.getCanvas().style.cursor = 'pointer';
-            });
-            map.on('mouseleave', 'office', function () {
-                map.getCanvas().style.cursor = '';
-            });
-        });
-        map.on('load', function () {
-            map.on('click', 'resi', function (e) {
-                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.name + '</div>').setMaxWidth("700px").addTo(map);
-            });
-            map.on('mouseenter', 'resi', function () {
-                map.getCanvas().style.cursor = 'pointer';
-            });
-            map.on('mouseleave', 'resi', function () {
-                map.getCanvas().style.cursor = '';
-            });
-        });
-        map.on('load', function () {
-            map.on('click', 'metro', function (e) {
-                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.Name + '</div><div style = "padding-top:5px;"> Stories: <b>' + e.features[0].properties.stories + '</b></div><div> Units: <b>' + e.features[0].properties.units + '</b></div><div> Property Mgmt Co: <b>' + e.features[0].properties.info + '</b></div>').setMaxWidth("700px").addTo(map);
-            });
-            map.on('mouseenter', 'metro', function () {
-                map.getCanvas().style.cursor = 'pointer';
-            });
-            map.on('mouseleave', 'metro', function () {
-                map.getCanvas().style.cursor = '';
-            });
-        });
-        map.on('load', function () {
-            map.on('click', 'rental', function (e) {
-                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.Name + '</div><div style = "padding-top:5px;"> Stories: <b>' + e.features[0].properties.stories + '</b></div><div> Units: <b>' + e.features[0].properties.units + '</b></div><div> <b><a href="' + e.features[0].properties.info + '" target="_blank">Website</a> </b></div>').setMaxWidth("700px").addTo(map);
-            });
-            map.on('mouseenter', 'rental', function () {
-                map.getCanvas().style.cursor = 'pointer';
-            });
-            map.on('mouseleave', 'rental', function () {
-                map.getCanvas().style.cursor = '';
-            });
-        });
-        map.on('load', function () {
-            map.on('click', 'hotels', function (e) {
-                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.Name + '</div><div style = "padding-top:5px;"> Hotel Meeting Space: <b>' + e.features[0].properties.Hotel_Meet + '</b></div><div> Hotel Rooms: <b>' + e.features[0].properties.Hotel_Room + '</b></div><div>' + e.features[0].properties.website + '</div>').setMaxWidth("700px").addTo(map);
-            });
-            map.on('mouseenter', 'hotels', function () {
-                map.getCanvas().style.cursor = 'pointer';
-            });
-            map.on('mouseleave', 'hotels', function () {
-                map.getCanvas().style.cursor = '';
-            });
-        });
-        map.on('load', function () {
-            map.on('click', 'shopping', function (e) {
-                new mapboxgl.Popup().setLngLat(e.lngLat).setHTML('<div class="marker-title">' + e.features[0].properties.Name + '</div><div style = "padding-top:5px;">' + e.features[0].properties.website + '</div>').setMaxWidth("700px").addTo(map);
-            });
-            map.on('mouseenter', 'shopping', function () {
-                map.getCanvas().style.cursor = 'pointer';
-            });
-            map.on('mouseleave', 'shopping', function () {
-                map.getCanvas().style.cursor = '';
-            });
-        });
-        // station names on hover
-        var popup = new mapboxgl.Popup({
-            closeButton: false
-            , closeOnClick: false
-        });
-        map.on('mouseenter', 'metromover-stops', function (e) {
-            // Change the cursor style as a UI indicator.
-            map.getCanvas().style.cursor = 'pointer';
-            var coordinates = e.features[0].geometry.coordinates.slice();
-            var description = e.features[0].properties.NAME;
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
-            popup.setLngLat(coordinates).setHTML('<i>' + description + '</i>').addTo(map);
-        });
-        map.on('mouseleave', 'metromover-stops', function () {
-            map.getCanvas().style.cursor = '';
-            popup.remove();
-        });
-
-        let hovered = [];
-    window.addEventListener('mousemove', function(e) {
-        e.point = new mapboxgl.Point(e.clientX, e.clientY);
-        
-        const features = map.queryRenderedFeatures(e.point, {layers: ['office']});
-       
-
-        for (const feature of hovered) {
-            map.setFeatureState(feature, {
-                'hover-r': r,
-                'hover-g': r,
-                'hover-b': r
-            });
-        }
-        const seen = {};
-        hovered = features;
-        let i = 0;
-        for (const feature of hovered) {
-            if (seen[feature.id]) continue;
-
-            seen[feature.id] = true;
-            map.setFeatureState(feature, {
-                'hover-r': i === 0 ? 255 : w,
-                'hover-g': i === 1 ? 255 : w,
-                'hover-b': i >= 2 ? 255 : w
-            });
-            i++;
-        }
-         });
-  */
-
 function drawmap1(){
+
+if (window.step ===1){
+
+map.flyTo({
+center: [-80.188965, 25.776679],
+zoom: 13,
+pitch: 0,
+bearing: 0,
+speed: 0.5
+})
+
+  for (var i = 0; i < bins; i++) {
+
+map.setPaintProperty(
+'office-extrude' + i,
+'fill-extrusion-height',
+0
+);
+map.setPaintProperty(
+'office-extrude' + i,
+'fill-extrusion-opacity', 0);
+}
+
+
+}
+
 
 }  
 
 function drawmap2(){
+
+   if (window.step === 2){
+
+    map.setPaintProperty(
+  'under-construction',
+  'fill-extrusion-height',
+  0
+  ); 
+
+
+  map.setPaintProperty('under-construction','fill-extrusion-height-transition',{
+                    duration: 2000,
+                    delay: 0
+                })
+   }
 
 
 map.flyTo({
 center: [-80.190701, 25.758105],
 zoom: 16.54,
 pitch: 73.54,
+bearing: 0,
 speed: 0.5
 })
 
@@ -3044,6 +3010,8 @@ map.setPaintProperty(
 'office-extrude' + i,
 'fill-extrusion-opacity', 0.9);
 }
+
+window.step = 1
 
 }
 
@@ -3069,9 +3037,32 @@ speed: 0.5
 'fill-extrusion-color', "#CF60B6"
 ); 
 
+window.step = 2
+
 } 
 
 function drawmap4(){
+
+  if (window.step === 4){
+
+    for (var i = 0; i < bins; i++) {
+
+map.setPaintProperty(
+'proposed-developments' + i,
+'fill-extrusion-height',
+0
+);
+map.setPaintProperty(
+'proposed-developments' + i,
+'fill-extrusion-opacity', 1);
+
+ map.setPaintProperty(
+'proposed-developments' + i,
+'fill-extrusion-color', "#00674C"
+); 
+}
+
+}
 
 for (var i = 0; i < bins; i++) {
 map.setPaintProperty(
@@ -3100,9 +3091,27 @@ speed: 0.5
 
 }
 
+window.step = 3
+
 } 
 
 function drawmap5(){
+
+window.n = 0
+
+  if (window.step === 5){
+    map.flyTo({
+    center: [-80.183022, 25.769622],
+    zoom: 14.25,
+    bearing: 87.20,
+    pitch: 80.00,
+    speed: 0.5
+    })
+
+    map.setPaintProperty('trace','line-opacity',0)
+
+    window.n = 1
+  }
 
 
 for (var i = 0; i < bins; i++) {
@@ -3122,11 +3131,16 @@ map.setPaintProperty(
 ); 
 }
 
+window.step = 4
 
 }
 
 function drawmap6(){
-  
+
+if (window.n = 1){
+  map.setPaintProperty('trace','line-opacity',1)
+}
+
 map.flyTo({
 center: [-80.188965, 25.776679],
 zoom: 13,
@@ -3185,19 +3199,360 @@ d3.json(
             }
         );
   
+window.step = 5
+
+
+
+          //////WHO'S HERE TILE SCROLLER
+
+          empwidth = document.getElementById("emp").clientWidth
+
+          if(empwidth <= 600){
+            cols = 2
+          } else if(empwidth <= 960){
+            cols = 3
+          }else{
+            cols = 4
+          }
+
+           var padding = 6, radius = ((empwidth/cols)/2) - padding*(1 + (1/(cols+1))), parameter = 'size', indfilter = 'All Industries';
+
+
+          images = {'Consumer Goods': 'consumergoods.svg','Coworking': 'coworking.svg','Education': 'education.svg','Finance': 'finance.svg','FinTech': 'fintech.svg','Healthcare': 'healthcare.svg','Insurance': 'insurance.svg','Law': 'law.svg','Manufacturing': 'manufacturing.svg','Marketing': 'marketing.svg','Media + Entertainment': 'media.svg','Professional Services': 'professionalservices.svg','Real Estate': 'realestate.svg','Services': 'services.svg','Technology': 'technology.svg','Tourism': 'tourism.svg','Venture Capital': 'venturecapital.svg'}      
+           
+
+          /// HELPER FUNCTIONS
+          function translateSVG(x, y) {
+            return 'translate('+x+','+y+')';
+          }
+
+
+
+          function selectThis(d) {
+            d3.select(this).classed('selected', function() {return !d3.select(this).classed('selected');})
+          }
+
+          //// D3
+          function updateChart(k) {
+
+
+            if(k === 'All Industries'){
+              var nodes = d3.select('#chart')
+              .selectAll('div.node')
+              .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
+              .transition()
+              .duration(1000)
+              .style('left', function(d, i) {
+                var col = i % cols;
+                var x = 2 * col * (radius + padding);
+                return x + 'px';
+              })
+              .style('opacity',1)
+              .style('top', function(d, i) {
+                var row = Math.floor(i / cols);
+                var y = row * (radius + padding);
+                return y + 'px';
+              });
+            } else {
+              
+            d3.select('#chart')
+              .selectAll('div.node')
+              .filter(f => f['industry'] === k)
+              .sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['employer'], b['employer']) : d3.ascending(a['employer'], b['employer']);})
+              .transition()
+              .duration(1000)
+              .style('left', function(d, i) {
+                var col = i % cols;
+                var x = 2 * col * (radius + padding);
+                return x + 'px';
+              })
+              .style('opacity',1)
+              .style('top', function(d, i) {
+                var row = Math.floor(i / cols);
+                var y = row * (radius + padding);
+                return y + 'px';
+              });
+
+            d3.select('#chart')
+              .selectAll('div.node')
+              .filter(f => f['industry'] != k)
+              .transition()
+              .duration(1000)
+              .style('opacity', 0)
+
+            }
+
+            d3.select('#chart')
+              .selectAll('div.node .value')
+              .transition()
+              .duration(0)
+              .tween("text", function(d)
+                {
+                  var x = d[parameter];
+                  if (!(parameter == 'open' || parameter == 'high')) x;
+                  var i = d3.interpolate(this.textContent, (x));
+                  return function(t) {
+                    this.textContent = (i(t));
+                };
+              });
+
+              if(k === 'All Industries'){
+              var nodes = d3.select('#chart2')
+              .selectAll('div.node')
+              .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
+              .transition()
+              .duration(1000)
+              .style('left', function(d, i) {
+                var col = i % cols;
+                var x = 2 * col * (radius + padding);
+                return x + 'px';
+              })
+              .style('opacity',1)
+              .style('top', function(d, i) {
+                var row = Math.floor(i / cols);
+                var y = row * (radius + padding);
+                return y + 'px';
+              });
+            } else {
+              
+            d3.select('#chart2')
+              .selectAll('div.node')
+              .filter(f => f['industry'] === k)
+              .sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['industry'], b['industry']) : d3.ascending(a['industry'], b['industry']);})
+              .transition()
+              .duration(1000)
+              .style('left', function(d, i) {
+                var col = i % cols;
+                var x = 2 * col * (radius + padding);
+                return x + 'px';
+              })
+              .style('opacity',1)
+              .style('top', function(d, i) {
+                var row = Math.floor(i / cols);
+                var y = row * (radius + padding);
+                return y + 'px';
+              });
+
+            d3.select('#chart2')
+              .selectAll('div.node')
+              .filter(f => f['industry'] != k)
+              .transition()
+              .duration(1000)
+              .style('opacity', 0)
+
+            }
+
+            d3.select('#chart2')
+              .selectAll('div.node .value')
+              .transition()
+              .duration(0)
+              .tween("text", function(d)
+                {
+                  var x = d[parameter];
+                  if (!(parameter == 'open' || parameter == 'high')) x;
+                  var i = d3.interpolate(this.textContent, (x));
+                  return function(t) {
+                    this.textContent = (i(t));
+                };
+              });
+          }
+
+          function updateChart2() {
+
+            var nodes = d3.select('#chart2')
+              .selectAll('div.node')
+              .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
+              .transition()
+              .duration(1000)
+              .style('left', function(d, i) {
+                var col = i % cols;
+                var x = 2 * col * (radius + padding);
+                return x + 'px';
+              })
+              .style('top', function(d, i) {
+                var row = Math.floor(i / cols);
+                var y = row * (radius + padding);
+                return y + 'px';
+              });
+
+            d3.select('#chart2')
+              .selectAll('div.node .value')
+              .transition()
+              .duration(0)
+              .tween("text", function(d)
+                {
+                  var x = d[parameter];
+                  if (!(parameter == 'open' || parameter == 'high')) x;
+                  var i = d3.interpolate(this.textContent, (x));
+                  return function(t) {
+                    this.textContent = (i(t));
+                };
+              });
+          }
+
+           // Menu
+
+
+              fontScale = d3.scaleLinear().domain([.75,60]).range([20*cols/4,15*cols/4])
+              centerScale = d3.scaleLinear().domain([.75,60]).range([.2,.05])
+              marginScale = d3.scaleLinear().domain([0,6]).range([0,2])
+
+              d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=196727768", function(error, data1) {
+                if (error) throw error;
+
+                 // Create 2nd dropdown
+
+              var indsnest = d3.nest()
+                  .key(function(d){
+                      return d.industry;
+                  })
+                  .rollup(function(leaves){
+                      var inds = d3.nest().key(function(d){
+                          return d.industry
+                      })
+                      .entries(leaves);
+                      return {inds:inds};
+                      })
+                .entries(data1)
+
+              
+
+              indsnest.sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['key'], b['key']) : d3.ascending(a['key'], b['key']);})
+
+              indsnest.unshift({key:'All Industries'})
+            
+
+              if (window.dropdown === 0){
+              var indsMenu = d3.select("#industries")
+
+              indsMenu
+                  .append("select")
+                  .attr("id","standard-select")
+                  .selectAll("option")
+                  .data(indsnest)
+                  .enter()
+                  .append("option")
+                  .attr("value", function(d){
+                      return d.key;
+                  })
+                  .text(function(d){
+                      return d.key;
+                  })
+                  }
+
+              indsMenu.on('change', function(){
+
+                  // Find which fruit was selected from the dropdown
+                  var indfilter = d3.select(this)
+                      .select("select")
+                      .property("value")
+                  // Run update function with the selected fruit
+                  updateChart(indfilter);
+
+
+              });
+                  
+              
+              window.dropdown = 1
+              
+              var nodes = d3.select('#chart')
+                                .selectAll('div')
+                                .data(data1)
+                                .enter()
+                                .append('div')
+                                .attr('id', function(d) {return 'entity-'+d.size;})
+                                .style('background-color', "#FFFFFF")
+                                .classed('node', true)
+                                .style('width', 2 * radius + 'px')
+                                .style('height', radius + 'px')
+
+                                .on('click', selectThis);
+
+                  nodes
+                    .append('div')
+                    .classed('name', true)
+                    .html(function(d) {return d.employer})
+                    .style('color', '#00B5CC')
+                    .style('width', 2 * radius + 'px')
+                    .style('height', 0.5 * radius + 'px')
+                    .style('padding', 0.1 * radius + 'px')
+                    .style('line-height', '150%')
+                    .style('padding-top',function(d){return centerScale(d.employer.length) * radius + 'px'})
+                    .style('font-size', function(d){return fontScale(d.employer.length*((d.employer.split(" ").length - 1)+1)*.25) +'px'})
+                    .style('font-weight', 700);
+
+                      
+                  nodes
+                    .append('div')
+                    .classed('value', true)
+                     .html(function(d) {return '<center><img width ="' + .3 * radius + 'px" src="images/tiles/' + images[d.industry] + '" style="margin-top:'+marginScale((d.employer.split(" ").length - 1)) + '%"></center>'})
+                    .style('color', '#00B5CC')
+                    .style('width', 2 * radius + 'px')
+                    .style('height', 0.5 * radius + 'px')
+                    .style('font-size', 15+'px')
+                    .style('font-weight', 700)
+                    .style('padding-top', 0);
+
+                  updateChart(indfilter);
+            });
+
+              d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1181381306", function(error, data1) {
+                if (error) throw error;
+              
+
+              var nodes = d3.select('#chart2')
+                                .selectAll('div')
+                                .data(data1)
+                                .enter()
+                                .append('div')
+                                .attr('id', function(d) {return 'entity-'+d.size;})
+                                .style('background-color', "#FFFFFF")
+                                .classed('node', true)
+                                .style('width', 2 * radius + 'px')
+                                .style('height', radius + 'px')
+
+                                .on('click', selectThis);
+
+                  nodes
+                    .append('div')
+                    .classed('name', true)
+                    .html(function(d) {return d.employer})
+                    .style('color', '#00B5CC')
+                    .style('width', 2 * radius + 'px')
+                    .style('height', 0.5 * radius + 'px')
+                    .style('line-height', '150%')
+                          .style('padding', 0.1 * radius + 'px')
+                    .style('padding-top',function(d){return centerScale(d.employer.length) * radius + 'px'})
+                    .style('font-size', function(d){return fontScale(d.employer.length*((d.employer.split(" ").length - 1)+1)*.25) +'px'})
+                    .style('font-weight', 700);
+
+                      
+                  nodes
+                    .append('div')
+                    .classed('value', true)
+                     .html(function(d) {return '<center><img width ="' + .3 * radius + 'px" src="images/tiles/' + images[d.industry] + '" style="margin-top:'+marginScale((d.employer.split(" ").length - 1)) + '%"></center>'})
+                    .style('color', '#00B5CC')
+                    .style('width', 2 * radius + 'px')
+                    .style('height', 0.5 * radius + 'px')
+                    .style('font-size', 15+'px')
+                    .style('font-weight', 700)
+                    .style('padding-top', 0);
+
+
+                  updateChart2();
+            });
+           
+        
+
+
 
 } 
 
 function drawmap7(){
-
-
-  
 } 
 
 function drawmap8(){
 
-
-  
 } 
       let functions2 = [
         drawmap1,
@@ -3227,15 +3582,22 @@ function drawmap8(){
 
 function drawusps1(){
 
+  if(size != 'regular'){
+    document.getElementById('uspsiframe').setAttribute('style','transform:scale(0.35); -webkit-transform-origin-x: left; width:305%; position: absolute !important')
+  }
 
 }  
 
 function drawusps2(){
   document.getElementById('uspsiframe').contentWindow.document.getElementById('button').click()
+
+  window.step=11
 }
 
 function drawusps3(){
 document.getElementById('uspsiframe').contentWindow.document.getElementById('button2').click()
+
+window.step=12
 
 //arcsLayer.setProps({getSourceColor: '#FFFFFF'})
 } 
@@ -3302,625 +3664,7 @@ d3.select(window).on('resize', render)
 </script>
 
 <script>
-  ////PROFILES MAP
-//Profile Maps
-/*
-var map2 = new mapboxgl.Map({
-            container: 'map2'
-            , style: 'mapbox://styles/kpclyne/cjy9ts3mh0y9j1do9uss5fz8o'
-            , center: [-80.19393, 25.77054]
-            , zoom: 6
-            , minZoom: 2
-            , maxZoom: 16
-            ,interactive: false
-        });
-        map2.scrollZoom.disable();
 
-
- 
-
-map2.on('load', function () {
-   
-      map2.resize();
-      map2.addSource('greaterdda', {
-      'type': 'geojson',
-      'data':
-      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/greaterdda.geojsonl.json'
-      });
-      map2.addLayer(
-      {
-      'id': 'greaterdda-fill',
-      'type': 'fill',
-      'source': 'greaterdda',
-      'layout': {
-        'visibility': 'none'
-      },
-      'paint': {
-      'fill-color': '#f08',
-      'fill-opacity': 0.4
-      }
-    })
-
-      map2.addSource('brickell', {
-      'type': 'geojson',
-      'data':
-      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/brickell.geojsonl.json'
-      });
-      map2.addLayer(
-      {
-      'id': 'brickell-fill',
-      'type': 'fill',
-      'source': 'brickell',
-      'layout': {
-        'visibility': 'none'
-      },
-      'paint': {
-      'fill-color': '#f08',
-      'fill-opacity': 0.4
-      }
-    })
-
-    map2.addSource('ae', {
-      'type': 'geojson',
-      'data':
-      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/ae.geojsonl.json'
-      });
-      map2.addLayer(
-      {
-      'id': 'ae-fill',
-      'type': 'fill',
-      'source': 'ae',
-      'layout': {
-        'visibility': 'none'
-      },
-      'paint': {
-      'fill-color': '#f08',
-      'fill-opacity': 0.4
-      }
-    })
-
-    map2.addSource('cbd', {
-      'type': 'geojson',
-      'data':
-      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/cbd.geojsonl.json'
-      });
-      map2.addLayer(
-      {
-      'id': 'cbd-fill',
-      'type': 'fill',
-      'source': 'cbd',
-      'layout': {
-        'visibility': 'none'
-      },
-      'paint': {
-      'fill-color': '#f08',
-      'fill-opacity': 0.4
-      }
-    })
-
-      map2.addSource('dda', {
-      'type': 'geojson',
-      'data':
-      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/miamidda.geojsonl.json'
-      });
-      map2.addLayer(
-      {
-      'id': 'dda-fill',
-      'type': 'fill',
-      'source': 'dda',
-      'layout': {
-        'visibility': 'none'
-      },
-      'paint': {
-      'fill-color': '#f08',
-      'fill-opacity': 0.4
-      }
-    })
-
-    map2.addSource('miamidade', {
-      'type': 'geojson',
-      'data':
-      'https://raw.githubusercontent.com/HRAAdvisors/HRAAdvisors.github.io/master/miami/gis/miamidade.geojsonl.json'
-      });
-      map2.addLayer(
-      {
-      'id': 'miamidade-fill',
-      'type': 'fill',
-      'source': 'miamidade',
-      'layout': {},
-      'paint': {
-      'fill-color': '#f08',
-      'fill-opacity': 0.4
-      }
-    })
-
-    var toggleableLayerIds = [ 'miamidade-fill', 'greaterdda-fill','dda-fill','cbd-fill','ae-fill','brickell-fill' ]
-
-    
-    function moveMap(layer,bounds){
-      for(var index in toggleableLayerIds) {
-                var clickedLayer = toggleableLayerIds[index];
-                map2.setLayoutProperty(clickedLayer, 'visibility', 'none');
-              }
-
-      map2.setLayoutProperty(layer, 'visibility', 'visible');
-
-      map2.fitBounds(bounds);
-    }
-
-    var GDtoggle = document.getElementById('GDButton');
-            GDtoggle.addEventListener('click', function (e) {
-              moveMap('greaterdda-fill',[
-      [-80.214268,
-      25.7456244],
-      [-80.1710619,
-      25.8199841]
-    ])   
-            });
-    var MiamiDadetoggle = document.getElementById('MiamiButton');
-        MiamiDadetoggle.addEventListener('click', function (e) {
-          moveMap('miamidade-fill',[
-      [-80.8735842,
-      25.1374249],
-      [-80.118074,
-      25.9794389]
-    ])   
-        });
-    var DDAtoggle = document.getElementById('DDAButton');
-        DDAtoggle.addEventListener('click', function (e) {
-          moveMap('dda-fill',[
-      [-80.2012045,
-      25.7573506],
-      [-80.1755337,
-      25.8002]])   
-        });
-    var CBDtoggle = document.getElementById('CBDButton');
-            CBDtoggle.addEventListener('click', function (e) {
-              moveMap('cbd-fill',[
-      [-80.2010044,
-      25.7688479],
-      [-80.1833007,
-      25.782989]
-    ])   
-            });
-    var AEtoggle = document.getElementById('AEButton');
-            AEtoggle.addEventListener('click', function (e) {
-              moveMap('ae-fill',[
-      [-80.1961861,
-      25.7827633],
-      [-80.1755337,
-      25.8002303]
-    ])   
-            });
-    var Brickelltoggle = document.getElementById('BrickellButton');
-            Brickelltoggle.addEventListener('click', function (e) {
-              moveMap('brickell-fill',[
-    [-80.1961369,
-    25.7573506],
-    [-80.1827413,
-    25.7700894]
-  ])   
-            });
-
-});
-
-*/
-/*
-////Retention Map
-var map3 = new mapboxgl.Map({
-            container: 'map3'
-            , style: 'mapbox://styles/kpclyne/cklun3glz1uuy17mnm8butfl0'
-            , center: [-80.971193, 34.032196]
-            , zoom: 3
-            , minZoom: 2
-            , maxZoom: 16
-            ,interactive: false
-        });
-        map3.scrollZoom.disable();
-
-var popup = new mapboxgl.Popup({
-closeButton: false,
-closeOnClick: false
-});
- 
-map3.on('mouseenter', 'merged', function (e) {
-// Change the cursor style as a UI indicator.
-map3.getCanvas().style.cursor = 'pointer';
- 
-var coordinates = e.features[0].geometry.coordinates.slice();
-var description = e.features[0].properties.fullname;
-var miamiret = e.features[0].properties.miami;
-var fulldesc = '<strong>' + description + '</strong><p>' + String(d3.format(".0%")(miamiret*.01)) + '</p>'
-// Ensure that if the map is zoomed out such that multiple
-// copies of the feature are visible, the popup appears
-// over the copy being pointed to.
-while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-}
- 
-// Populate the popup and set its coordinates
-// based on the feature found.
-popup.setLngLat(coordinates).setHTML(fulldesc).addTo(map3);
-});
- 
-map3.on('mouseleave', 'merged', function () {
-map3.getCanvas().style.cursor = '';
-popup.remove();
-});
-*/
-
-//document.getElementById('info').innerHTML = "Share of schools’ alumni who move to Miami"
-
-    ///TOP INDUSTRY TABLES
-
-
-
-//////WHO'S HERE TILE SCROLLER
-
-/*
-var scoll = 0
- function autoScrollUp(){
-          $(".inner1").css({top:0}) // jump back
-                     .animate({top:-$(".outer1").outerHeight()},80000,"linear", autoScrollUp);
-          $(".inner2").css({top:0}) // jump back
-                     .animate({top:-$(".outer2").outerHeight()},80000,"linear", autoScrollUp); // and animate
-      }
-      // fix hight of outer:
-      //$('.outer').css({maxHeight: $('.inner').height()});
-      // duplicate content of inner:
-      $('.inner1').html($('.inner1').html() + $('.inner1').html());
-      $('.inner2').html($('.inner2').html() + $('.inner2').html());
-
-
- autoScrollUp();
-
- $( ".outer" ).scroll(function() {
-  $( ".inner" ).stop()
-  $( ".inner" ).css({top:0})
-});
-
-$( ".inner" ).scroll(function() {
-  $( ".inner" ).stop()
-  $( ".inner" ).css({top:0})
-});
-*/
-
-empwidth = document.getElementById("emp").clientWidth
-
-if(empwidth <= 600){
-  cols = 2
-} else if(empwidth <= 960){
-  cols = 3
-}else{
-  cols = 4
-}
-
- var padding = 6, radius = ((empwidth/cols)/2) - padding*(1 + (1/(cols+1))), parameter = 'size', indfilter = 'All Industries';
-
-
-images = {'Consumer Goods': 'consumergoods.svg','Coworking': 'coworking.svg','Education': 'education.svg','Finance': 'finance.svg','FinTech': 'fintech.svg','Healthcare': 'healthcare.svg','Insurance': 'insurance.svg','Law': 'law.svg','Manufacturing': 'manufacturing.svg','Marketing': 'marketing.svg','Media + Entertainment': 'media.svg','Professional Services': 'professionalservices.svg','Real Estate': 'realestate.svg','Services': 'services.svg','Technology': 'technology.svg','Tourism': 'tourism.svg','Venture Capital': 'venturecapital.svg'}      
- 
-
-/// HELPER FUNCTIONS
-function translateSVG(x, y) {
-  return 'translate('+x+','+y+')';
-}
-
-
-
-function selectThis(d) {
-  d3.select(this).classed('selected', function() {return !d3.select(this).classed('selected');})
-}
-
-//// D3
-function updateChart(k) {
-
-
-  if(k === 'All Industries'){
-    var nodes = d3.select('#chart')
-    .selectAll('div.node')
-    .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
-    .transition()
-    .duration(1000)
-    .style('left', function(d, i) {
-      var col = i % cols;
-      var x = 2 * col * (radius + padding);
-      return x + 'px';
-    })
-    .style('opacity',1)
-    .style('top', function(d, i) {
-      var row = Math.floor(i / cols);
-      var y = row * (radius + padding);
-      return y + 'px';
-    });
-  } else {
-    
-  d3.select('#chart')
-    .selectAll('div.node')
-    .filter(f => f['industry'] === k)
-    .sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['employer'], b['employer']) : d3.ascending(a['employer'], b['employer']);})
-    .transition()
-    .duration(1000)
-    .style('left', function(d, i) {
-      var col = i % cols;
-      var x = 2 * col * (radius + padding);
-      return x + 'px';
-    })
-    .style('opacity',1)
-    .style('top', function(d, i) {
-      var row = Math.floor(i / cols);
-      var y = row * (radius + padding);
-      return y + 'px';
-    });
-
-  d3.select('#chart')
-    .selectAll('div.node')
-    .filter(f => f['industry'] != k)
-    .transition()
-    .duration(1000)
-    .style('opacity', 0)
-
-  }
-
-  d3.select('#chart')
-    .selectAll('div.node .value')
-    .transition()
-    .duration(0)
-    .tween("text", function(d)
-      {
-        var x = d[parameter];
-        if (!(parameter == 'open' || parameter == 'high')) x;
-        var i = d3.interpolate(this.textContent, (x));
-        return function(t) {
-          this.textContent = (i(t));
-      };
-    });
-
-    if(k === 'All Industries'){
-    var nodes = d3.select('#chart2')
-    .selectAll('div.node')
-    .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
-    .transition()
-    .duration(1000)
-    .style('left', function(d, i) {
-      var col = i % cols;
-      var x = 2 * col * (radius + padding);
-      return x + 'px';
-    })
-    .style('opacity',1)
-    .style('top', function(d, i) {
-      var row = Math.floor(i / cols);
-      var y = row * (radius + padding);
-      return y + 'px';
-    });
-  } else {
-    
-  d3.select('#chart2')
-    .selectAll('div.node')
-    .filter(f => f['industry'] === k)
-    .sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['industry'], b['industry']) : d3.ascending(a['industry'], b['industry']);})
-    .transition()
-    .duration(1000)
-    .style('left', function(d, i) {
-      var col = i % cols;
-      var x = 2 * col * (radius + padding);
-      return x + 'px';
-    })
-    .style('opacity',1)
-    .style('top', function(d, i) {
-      var row = Math.floor(i / cols);
-      var y = row * (radius + padding);
-      return y + 'px';
-    });
-
-  d3.select('#chart2')
-    .selectAll('div.node')
-    .filter(f => f['industry'] != k)
-    .transition()
-    .duration(1000)
-    .style('opacity', 0)
-
-  }
-
-  d3.select('#chart2')
-    .selectAll('div.node .value')
-    .transition()
-    .duration(0)
-    .tween("text", function(d)
-      {
-        var x = d[parameter];
-        if (!(parameter == 'open' || parameter == 'high')) x;
-        var i = d3.interpolate(this.textContent, (x));
-        return function(t) {
-          this.textContent = (i(t));
-      };
-    });
-}
-
-function updateChart2() {
-
-  var nodes = d3.select('#chart2')
-    .selectAll('div.node')
-    .sort(function(a, b) {return parameter === 'ranking' ? d3.ascending(a[parameter], b[parameter]) : d3.descending(a[parameter], b[parameter]);})
-    .transition()
-    .duration(1000)
-    .style('left', function(d, i) {
-      var col = i % cols;
-      var x = 2 * col * (radius + padding);
-      return x + 'px';
-    })
-    .style('top', function(d, i) {
-      var row = Math.floor(i / cols);
-      var y = row * (radius + padding);
-      return y + 'px';
-    });
-
-  d3.select('#chart2')
-    .selectAll('div.node .value')
-    .transition()
-    .duration(0)
-    .tween("text", function(d)
-      {
-        var x = d[parameter];
-        if (!(parameter == 'open' || parameter == 'high')) x;
-        var i = d3.interpolate(this.textContent, (x));
-        return function(t) {
-          this.textContent = (i(t));
-      };
-    });
-}
-
- // Menu
-
-
-    fontScale = d3.scaleLinear().domain([.75,60]).range([20*cols/4,15*cols/4])
-    centerScale = d3.scaleLinear().domain([.75,60]).range([.2,.05])
-    marginScale = d3.scaleLinear().domain([0,6]).range([0,2])
-
-    d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=196727768", function(error, data1) {
-      if (error) throw error;
-
-       // Create 2nd dropdown
-    var indsMenu = d3.select("#industries")
-
-    var indsnest = d3.nest()
-        .key(function(d){
-            return d.industry;
-        })
-        .rollup(function(leaves){
-            var inds = d3.nest().key(function(d){
-                return d.industry
-            })
-            .entries(leaves);
-            return {inds:inds};
-            })
-      .entries(data1)
-
-    
-
-    indsnest.sort(function(a, b) {return parameter === 'ranking' ? d3.descending(a['key'], b['key']) : d3.ascending(a['key'], b['key']);})
-
-    indsnest.unshift({key:'All Industries'})
-
-    console.log(data1)
-    console.log(indsnest)
-
-    indsMenu
-        .append("select")
-        .attr("id","standard-select")
-        .selectAll("option")
-        .data(indsnest)
-        .enter()
-        .append("option")
-        .attr("value", function(d){
-            return d.key;
-        })
-        .text(function(d){
-            return d.key;
-        })
-
-
-    indsMenu.on('change', function(){
-
-        // Find which fruit was selected from the dropdown
-        var indfilter = d3.select(this)
-            .select("select")
-            .property("value")
-        // Run update function with the selected fruit
-        updateChart(indfilter);
-
-
-    });
-        
-    
-    
-    var nodes = d3.select('#chart')
-                      .selectAll('div')
-                      .data(data1)
-                      .enter()
-                      .append('div')
-                      .attr('id', function(d) {return 'entity-'+d.size;})
-                      .style('background-color', "#FFFFFF")
-                      .classed('node', true)
-                      .style('width', 2 * radius + 'px')
-                      .style('height', radius + 'px')
-
-                      .on('click', selectThis);
-
-        nodes
-          .append('div')
-          .classed('name', true)
-          .html(function(d) {return d.employer})
-          .style('color', '#00B5CC')
-          .style('width', 2 * radius + 'px')
-          .style('height', 0.5 * radius + 'px')
-          .style('padding', 0.1 * radius + 'px')
-          .style('line-height', '150%')
-          .style('padding-top',function(d){return centerScale(d.employer.length) * radius + 'px'})
-          .style('font-size', function(d){return fontScale(d.employer.length*((d.employer.split(" ").length - 1)+1)*.25) +'px'})
-          .style('font-weight', 700);
-
-            
-        nodes
-          .append('div')
-          .classed('value', true)
-           .html(function(d) {return '<center><img width ="' + .3 * radius + 'px" src="images/tiles/' + images[d.industry] + '" style="margin-top:'+marginScale((d.employer.split(" ").length - 1)) + '%"></center>'})
-          .style('color', '#00B5CC')
-          .style('width', 2 * radius + 'px')
-          .style('height', 0.5 * radius + 'px')
-          .style('font-size', 15+'px')
-          .style('font-weight', 700)
-          .style('padding-top', 0);
-
-        updateChart(indfilter);
-  });
-
-    d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1181381306", function(error, data1) {
-      if (error) throw error;
-    
-
-    var nodes = d3.select('#chart2')
-                      .selectAll('div')
-                      .data(data1)
-                      .enter()
-                      .append('div')
-                      .attr('id', function(d) {return 'entity-'+d.size;})
-                      .style('background-color', "#FFFFFF")
-                      .classed('node', true)
-                      .style('width', 2 * radius + 'px')
-                      .style('height', radius + 'px')
-
-                      .on('click', selectThis);
-
-        nodes
-          .append('div')
-          .classed('name', true)
-          .html(function(d) {return d.employer})
-          .style('color', '#00B5CC')
-          .style('width', 2 * radius + 'px')
-          .style('height', 0.5 * radius + 'px')
-          .style('line-height', '150%')
-                .style('padding', 0.1 * radius + 'px')
-          .style('padding-top',function(d){return centerScale(d.employer.length) * radius + 'px'})
-          .style('font-size', function(d){return fontScale(d.employer.length*((d.employer.split(" ").length - 1)+1)*.25) +'px'})
-          .style('font-weight', 700);
-
-            
-        nodes
-          .append('div')
-          .classed('value', true)
-           .html(function(d) {return '<center><img width ="' + .3 * radius + 'px" src="images/tiles/' + images[d.industry] + '" style="margin-top:'+marginScale((d.employer.split(" ").length - 1)) + '%"></center>'})
-          .style('color', '#00B5CC')
-          .style('width', 2 * radius + 'px')
-          .style('height', 0.5 * radius + 'px')
-          .style('font-size', 15+'px')
-          .style('font-weight', 700)
-          .style('padding-top', 0);
-
-
-        updateChart2();
-  });
- 
 
 
 
@@ -3934,8 +3678,14 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
   var states = [...new Set(csv.map(d => d.Bucket))]
 
 
-  var svg = d3.select("#educhart"),
-    margin = {top: 35, left: 35, bottom: 0, right: 15},
+  var svg = d3.select("#educhart")
+
+  if(size != 'regular'){
+     margin = {top: 35, left: 35, bottom: 0, right: 5}
+   }else{
+     margin = {top: 35, left: 35, bottom: 0, right: 15}
+   }
+
     
     element = svg.node();
     width = element.getBoundingClientRect().width - margin.left - margin.right,
@@ -3950,8 +3700,8 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
    
     svg
     .append("text")
-                .attr("y", 20)
-                .attr("x", width/2)
+                .attr("y", 10)
+                .attr("x", (width/2) + (margin.left - margin.right))
                 .attr("dy", "1em")
                 .style("text-anchor", "middle")
                 .text("Miami Educational Attainment")
@@ -4018,9 +3768,18 @@ var edulegend = d3.select("#edulegend")
 
     x.domain([0, maxedu]).nice();
 
+if(size != 'regular'){
     svg.selectAll(".x-axis").transition().duration(speed)
       .call(d3.axisBottom(x).ticks(null, "s"))
-
+            .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", ".15em")
+      .attr("transform", "rotate(-65)" );
+}else{
+      svg.selectAll(".x-axis").transition().duration(speed)
+      .call(d3.axisBottom(x).ticks(null, "s"))
+}
 
     y.domain(data.map(d => d.Bucket));
 
@@ -4109,7 +3868,12 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
   
   var svg = d3.select("#collegetowns")
   
-  var margin = {top: 20, right: 20, bottom: 30, left: 60},
+  if (size != 'regular'){
+var margin = {top: 20, right: 5, bottom: 65, left: 55}
+  }else{
+var margin = {top: 20, right: 20, bottom: 30, left: 60}
+  }
+  
   element = svg.node();
   width = element.getBoundingClientRect().width - margin.left - margin.right,
   height = element.getBoundingClientRect().height - margin.top - margin.bottom;
@@ -4150,9 +3914,21 @@ var ey = d3.scaleLinear()
       });
 
   // add the x Axis
+if (size != 'regular'){
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x))
+      .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", ".15em")
+      .attr("transform", "rotate(-65)" );
+}else{
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+
+}
 
   // add the y Axis
   svg.append("g")
@@ -4283,6 +4059,17 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
   };
 }, function(error, rows) {
       if (error) throw error;
+      
+      if(size === 'mobile'){
+        data1 = data1.filter(f => f.device == 'mobile')
+        data1.forEach(function(v){ delete v.device });
+      }else{
+        data1 = data1.filter(f => f.device == 'desktop')
+        data1.forEach(function(v){ delete v.device });
+      }
+      
+      data1 = data1.filter(f => f.device == 'mobile')
+      data1.forEach(function(v){ delete v.device });
    
       data = JSON.parse(JSON.stringify(data1)).filter(f => f.geo == 'miami')
       data.forEach(function(v){ delete v.geo });
@@ -4308,44 +4095,18 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
       var brickell = d3
         .select("#BrickellButton") 
 
-      var businesses = d3.select("#businesses")
-      .append("svg")
-      .append("text")
-        .text(d3.format("(,.2r")(rows[0].businesses))
-        .attr("x", (window.innerWidth*0.15625)/2)
-        .attr("y", (window.innerHeight*0.12388503468780972)/2)
-        .attr("text-anchor","middle")
-        .attr("alignment-baseline","middle")
-        .attr("class", "label")
-        .style("font-weight", 700)
-        .style('font-size',40)
-        .style('fill','#FFFFFF')
 
-    var population = d3.select("#population")
-      .append("svg")
-      .append("text")
-        .text(d3.format("(,.2r")(rows[0].population))
-        .attr("x", (window.innerWidth*0.15625)/2)
-        .attr("y", (window.innerHeight*0.12388503468780972)/2)
-        .attr("text-anchor","middle")
-        .attr("alignment-baseline","middle")
-        .attr("class", "label")
-        .style("font-weight", 700)
-        .style('font-size',40)
-        .style('fill','#FFFFFF')
+     
 
-    var employees = d3.select("#employees")
-      .append("svg")
-      .append("text")
-        .text(d3.format("(,.2r")(rows[0].employees) )
-        .attr("x", (window.innerWidth*0.15625)/2)
-        .attr("y", (window.innerHeight*0.12388503468780972)/2)
-        .attr("text-anchor","middle")
-        .attr("alignment-baseline","middle")
-        .attr("class", "label")
-        .style("font-weight", 700)
-        .style('font-size',40)
-        .style('fill','#FFFFFF') 
+      var businesses = document.getElementById("businesses")
+      businesses.innerText = d3.format("(,.2r")(rows[0].businesses)
+       
+
+    var population = document.getElementById("population")
+population.innerText = d3.format("(,.2r")(rows[0].population)
+
+    var employees = document.getElementById("employees")
+employees.innerText = d3.format("(,.2r")(rows[0].employees)
           
       
       
@@ -4394,12 +4155,9 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .style("background-color", "#FFFFFF")
         .style("color","#242358")
         
-        businesses
-          .text(d3.format("(,.2r")(rows[0].businesses))
-        population
-          .text(d3.format("(,.2r")(rows[0].population))
-        employees
-          .text(d3.format("(,.2r")(rows[0].employees))
+        businesses.innerText = d3.format("(,.2r")(rows[0].businesses)
+        population.innerText = d3.format("(,.2r")(rows[0].population)
+        employees.innerText = d3.format("(,.2r")(rows[0].employees)
 
 
 
@@ -4432,12 +4190,9 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .style("background-color", "#FFFFFF")
         .style("color","#242358")
         
-        businesses
-          .text(d3.format("(,.2r")(rows[1].businesses))
-        population
-          .text(d3.format("(,.2r")(rows[1].population))
-        employees
-          .text(d3.format("(,.2r")(rows[1].employees))
+        businesses.innerText = d3.format("(,.2r")(rows[1].businesses)
+        population.innerText = d3.format("(,.2r")(rows[1].population)
+        employees.innerText = d3.format("(,.2r")(rows[1].employees)
 
 
         tbody.selectAll("tr")
@@ -4469,12 +4224,9 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .style("background-color", "#FFFFFF")
         .style("color","#242358")
         
-        businesses
-          .text(d3.format("(,.2r")(rows[2].businesses))
-        population
-          .text(d3.format("(,.2r")(rows[2].population))
-        employees
-          .text(d3.format("(,.2r")(rows[2].employees))
+        businesses.innerText = d3.format("(,.2r")(rows[2].businesses)
+        population.innerText = d3.format("(,.2r")(rows[2].population)
+        employees.innerText = d3.format("(,.2r")(rows[2].employees)
 
 
         tbody.selectAll("tr")
@@ -4506,12 +4258,9 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .style("background-color", "#FFFFFF")
         .style("color","#242358")
 
-        businesses
-          .text(d3.format("(,.2r")(rows[3].businesses))
-        population
-          .text(d3.format("(,.2r")(rows[3].population))
-        employees
-          .text(d3.format("(,.2r")(rows[3].employees))
+        businesses.innerText = d3.format("(,.2r")(rows[3].businesses)
+        population.innerText = d3.format("(,.2r")(rows[3].population)
+        employees.innerText = d3.format("(,.2r")(rows[3].employees)
 
 
         tbody.selectAll("tr")
@@ -4543,12 +4292,9 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .style("background-color", "#FFFFFF")
         .style("color","#242358")
         
-        businesses
-          .text(d3.format("(,.2r")(rows[4].businesses))
-        population
-          .text(d3.format("(,.2r")(rows[4].population))
-        employees
-          .text(d3.format("(,.2r")(rows[4].employees))
+        businesses.innerText = d3.format("(,.2r")(rows[4].businesses)
+        population.innerText = d3.format("(,.2r")(rows[4].population)
+        employees.innerText = d3.format("(,.2r")(rows[4].employees)
 
 
         tbody.selectAll("tr")
@@ -4580,12 +4326,9 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
         .style("background-color", "#FFFFFF")
         .style("font-color","#242358")
         
-        businesses
-          .text(d3.format("(,.2r")(rows[5].businesses))
-        population
-          .text(d3.format("(,.2r")(rows[5].population))
-        employees
-          .text(d3.format("(,.2r")(rows[5].employees))
+        businesses.innerText = d3.format("(,.2r")(rows[5].businesses)
+        population.innerText = d3.format("(,.2r")(rows[5].population)
+        employees.innerText = d3.format("(,.2r")(rows[5].employees)
 
 
         tbody.selectAll("tr")
@@ -4613,7 +4356,6 @@ bubble = document.querySelector(".bubble");
 max = parseInt(range.max)
 min = parseInt(range.min)
 
-window.step = 0
 
 $('.div-block-6').waypoint(function(direction){
 

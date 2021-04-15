@@ -27,8 +27,8 @@
 
 
 .flight {
+  stroke: #000000;
   fill: none;
-  stroke: #252525;
   stroke-opacity: 0.1;
 }
 
@@ -78,6 +78,10 @@ g#voronoi {
 </svg>
 
 <script>
+
+
+
+
   const urls = {
   // source: https://observablehq.com/@mbostock/u-s-airports-voronoi
   // source: https://github.com/topojson/us-atlas
@@ -94,6 +98,21 @@ g#voronoi {
 
 const svg  = d3.select("svg");
 
+svg.append('defs')
+    .append("svg:marker")
+    .attr("id", "arrowGray")
+    .attr("viewBox", "0 0 10 10")
+    .attr("refX", "10")
+    .attr("refY", "5")
+    .attr("markerUnits","strokeWidth")
+    .attr("markerWidth", "4")
+    .attr("markerHeight", "2")
+    .attr("orient", "auto")
+    .append("svg:path")
+    .attr("d", "M 0 0 L 10 5 L 0 10 z")
+    .attr("fill", "#000");
+
+
 const button = d3.select("#button")
 const button2 = d3.select("#button2")
 
@@ -101,7 +120,8 @@ button.on('click', toggle);
 button2.on('click', toggle2);
 
 function toggle(){
-  g.airports.selectAll("circle.airport")
+  
+  /*g.airports.selectAll("circle.airport")
   .transition()
   .duration(2000)
   .attr("r",  d => scales.airports(d.outgoing2))
@@ -111,7 +131,20 @@ function toggle(){
     }
     else{
       return "red";
-    }})
+    }})*/
+
+    g.airports.selectAll("circle.airport")
+  .transition()
+  .duration(500)
+  .style("opacity",".3")
+  .style("stroke-width", 1)
+  .style("stroke", "#252525")
+
+  d3.selectAll("#focus")
+ .transition()
+  .duration(500)
+ .style("stroke-opacity", ".1")
+ 
 }
 
 function toggle2(){
@@ -166,6 +199,10 @@ const scales = {
   .domain(['35620'])
   .range(['.7'])
   .unknown(".3"),
+
+  arrows: d3.scaleOrdinal()
+  .domain([0, 5700])
+  .range(["url(#arrowGray1)","url(#arrowGray2)","url(#arrowGray3)","url(#arrowGray4)","url(#arrowGray5)"]),
   
   focus: d3.scaleOrdinal()
   .domain(['35620'])
@@ -420,6 +457,8 @@ function drawFlights(airports, flights) {
     .curve(d3.curveBundle)
     .x(airport => airport.x)
     .y(airport => airport.y);
+
+
 
   let links = g.flights.selectAll("path.flight")
     .data(bundle.paths)
