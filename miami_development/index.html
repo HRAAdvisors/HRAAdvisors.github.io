@@ -94,6 +94,9 @@ select {
   outline: none;
 }
 
+#linelegend{
+  height:25vh;
+}
 .select {
   display: grid;
   grid-template-areas: "select";
@@ -338,12 +341,19 @@ p{
 
 @media screen and (max-width: 925px)  {
 
+#linelegend{
+  height:14vh;
+}
+
+#metric{
+  width:40vw;
+}
 .grid-3 {
 
     grid-template-columns: 1fr;
 }
   .div-block-43{
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .div-block-43 td{
@@ -681,7 +691,6 @@ p{
                     <h2 class="heading-7">6th Largest College Town</h2>
                     <p class="paragraph-14">Miami’s large and growing talent pool can be contributed to the strength of its educational institutions. Miami currently has a student population of 300K, making Miami the nation’s 6th largest college town. In terms of students per capita, Miami is on par with New York, Chicago, and Philadelphia. Schools such as the <a style="display:contents !important" href="https://welcome.miami.edu/">University of Miami</a>, <a href="https://www.fiu.edu/" style="display:contents !important">Florida International University</a>, and <a href="https://www.fau.edu/" style="display:contents !important">Florida Atlantic</a> produce a big pipeline of diverse talent for the Miami workforce.</p>
                     <br>
-                    <h4>Students per Capita</h4>
                   </div>
                   <div class="div-block-7">
                     <svg id="collegetowns" width="100%" height="100%"></div>
@@ -700,6 +709,7 @@ p{
                       </div>
                     </div>
                     <div class="column-5 w-col w-col-6 w-col-stack">
+                      <svg id='edulegendmobile' height='20vh'></svg>
                       <p class="paragraph-13">BETWEEN 2010-2019:</p>
                       <div class="w-layout-grid grid-5">
                         <p class="paragraph-9-copy">40K new</p>
@@ -829,7 +839,7 @@ p{
                           <div id="metric" class="select">
                           </div>
                         </div>
-                        <svg id="linelegend" height='25vh'></svg>
+                        <svg id="linelegend"></svg>
                         <div class="dropdown w-dropdown">
                           <!--<div style="color:#FFF">Geography: </div>
                           <div id="geography" class="select">
@@ -1828,8 +1838,13 @@ function floatingTooltip(tooltipId, bwidth) {
 
 var vis = d3.select("#rentvis")
 
+if (size != 'regular'){var cmargin = {top: window.innerHeight*.04, right: window.innerWidth*.02, bottom: window.innerHeight*.08, left: window.innerWidth*.09};
 
-var cmargin = {top: window.innerHeight*.04, right: window.innerWidth*.02, bottom: window.innerHeight*.07, left: window.innerWidth*.05};
+}else{
+
+  var cmargin = {top: window.innerHeight*.04, right: window.innerWidth*.02, bottom: window.innerHeight*.07, left: window.innerWidth*.05};
+}
+
 
 cwidth = (window.innerWidth*.8) - cmargin.left - cmargin.right,
 cheight = (window.innerHeight*.4) - cmargin.top - cmargin.bottom;
@@ -1938,12 +1953,30 @@ var valueLine = d3.line()
   //x.domain(d3.extent(data, function(d) { return d.Quarter; }));
   y.domain([d3.min(data, function(d) { return d.Value; }), d3.max(data, function(d) { return d.Value; })]);
   // Set up the x axis
-  var xaxis = vis.append("g")
+  
+  if(size != 'regular'){
+ var xaxis = vis.append("g")
        .attr("transform", "translate(0," + cheight + ")")
        .attr("class", "x axis")
        .call(d3.axisBottom(x)
           .tickValues(x.domain().filter(function(d,i){ return !(i%4)}))
-          );
+          )
+       .selectAll("text")
+       .style("text-anchor", "end")
+       .attr("dx", "-.8em")
+       .attr("dy", ".15em")
+       .attr("transform", "rotate(-65)" );;
+  }else{
+ var xaxis = vis.append("g")
+       .attr("transform", "translate(0," + cheight + ")")
+       .attr("class", "x axis")
+       .call(d3.axisBottom(x)
+          .tickValues(x.domain().filter(function(d,i){ return !(i%4)}))
+          )
+
+  }
+
+
 
 
 
@@ -3728,7 +3761,12 @@ d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd
     .range(["#7F7F7F", "#9DC3E6", "#2E75B6","#002060"])
     .domain(keys);
 
-var edulegend = d3.select("#edulegend")
+if(size != 'regular'){
+  var edulegend = d3.select("#edulegendmobile")
+}else{
+  var edulegend = d3.select("#edulegend")
+}
+
     edulegend.append("g")
       .attr("class", "legendOrdinal")
       .attr("transform", `translate(10,5)`);
