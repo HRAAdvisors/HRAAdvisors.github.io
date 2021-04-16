@@ -83,7 +83,7 @@ strong {
 
 
 #map {
-    width: 100vw;
+    width: 95vw;
     flex-direction: row;
     align-items: top;
     justify-content: space-around;

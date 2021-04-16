@@ -341,6 +341,14 @@ p{
 
 @media screen and (max-width: 925px)  {
 
+.w-col-4{
+  padding-left: 0% !important;
+}
+
+#edulegendmobile{
+  height:'20vh';
+  display:block;
+}
 #linelegend{
   height:14vh;
 }
@@ -616,7 +624,7 @@ p{
                   </div> 
                 </div> 
               </div> 
-              <div class="container-15 w-container"> 
+              <div class="container-15 w-container" style="padding-top:4%"> 
                 <h1 class="heading-9">Who&#x27;s Coming</h1> 
                 <div class="w-row"> 
                   <div class="w-col w-col-8" id="wrapper">
@@ -691,6 +699,7 @@ p{
                     <h2 class="heading-7">6th Largest College Town</h2>
                     <p class="paragraph-14">Miami’s large and growing talent pool can be contributed to the strength of its educational institutions. Miami currently has a student population of 300K, making Miami the nation’s 6th largest college town. In terms of students per capita, Miami is on par with New York, Chicago, and Philadelphia. Schools such as the <a style="display:contents !important" href="https://welcome.miami.edu/">University of Miami</a>, <a href="https://www.fiu.edu/" style="display:contents !important">Florida International University</a>, and <a href="https://www.fau.edu/" style="display:contents !important">Florida Atlantic</a> produce a big pipeline of diverse talent for the Miami workforce.</p>
                     <br>
+                    <h4>Student Population</h4>
                   </div>
                   <div class="div-block-7">
                     <svg id="collegetowns" width="100%" height="100%"></div>
@@ -709,7 +718,7 @@ p{
                       </div>
                     </div>
                     <div class="column-5 w-col w-col-6 w-col-stack">
-                      <svg id='edulegendmobile' height='20vh'></svg>
+                      <svg id='edulegendmobile' style="display:none"></svg>
                       <p class="paragraph-13">BETWEEN 2010-2019:</p>
                       <div class="w-layout-grid grid-5">
                         <p class="paragraph-9-copy">40K new</p>
@@ -900,6 +909,7 @@ window.step = 0
 
 window.dropdown = 0
 
+window.bubblerun = 0
 var oldWidth = 0
 function render(){
 
@@ -953,7 +963,7 @@ let xAxis = d3.axisBottom(histXScale).tickFormat(function(d) { return d3.format(
 
 bubblesvg.append('g')
         .attr('class', 'histaxis')
-        .attr('transform', `translate(${-bwidth/1.95}, ${histYScale(0)})`)
+        .attr('transform', `translate(${-bwidth/1.95}, ${histYScale(.5)})`)
         .call(xAxis)
         .style('opacity',0)
 
@@ -1063,14 +1073,15 @@ window.step = 7
 
 function draw3(){
 
+  ///Remove Occupations & Bring Back Industries
   if(window.step === 9){
 
     d3.selectAll('#occs')
       .transition()
       .duration(1000)
       .style('opacity',0)
-      .on('mouseover',null)
-      .on('mouseout',null)
+      .style('display',"none")
+
 
       d3
       .selectAll("#inds")
@@ -1110,6 +1121,7 @@ function draw3(){
     simulation.restart()
 
     groupBubbles()
+    
 
     }
 
@@ -1130,48 +1142,71 @@ function draw3(){
     simulation2.stop()
 
     window.step = 8
-
-
+    console.log(window.step)
+    window.bubblerun = 1
 }
 
 function draw4(){
 
 
+
+  if(window.bubblerun == 1){
+    function transitionGoo(duration) {
+            d3.selectAll(".blurValues")
+              .transition().duration(duration)
+              .attrTween("values", function() {
+                return d3.interpolateString("1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6", 
+                                "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6"); 
+              }); 
+          }
+  }
+
   if(window.step === 10){
 
-  transitionGoo(0)
- d3.select('.histlabel')
- .transition()
- .duration(2000)
- .style('opacity',0)
+        function transitionGoo(duration) {
+            d3.selectAll(".blurValues")
+              .transition().duration(duration)
+              .attrTween("values", function() {
+                return d3.interpolateString("1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6", 
+                                "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 -6"); 
+              }); 
+          }
 
- d3.select('.histaxis')
- .transition()
- .duration(2000)
- .style('opacity',0)
+        transitionGoo(0)
+       d3.select('.histlabel')
+       .transition()
+       .duration(500)
+       .style('opacity',0)
 
- d3.selectAll('#inds')
-  .transition()
-  .duration(1000)
-  .style('opacity',1)
+       d3.select('.histaxis')
+       .transition()
+       .duration(500)
+       .style('opacity',0)
 
-  simulation2.restart()
+       d3.selectAll('#inds')
+        .transition()
+        .duration(1000)
+        .style('opacity',1)
+        .style('display','block')
 
-  d3
-  .selectAll("#occs")
-  .attr('fill', function (d) { return fillColor(d.group); })
-  .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
-  .attr('stroke-width', 2)
-  .style("opacity",1)
-  .attr('r',function(d){ return d.radius2})
+        //simulation2.restart()
 
-  simulation2
-        .force('collide', d3.forceCollide(d => d.radius2 + 2).strength(1))
+        d3
+        .selectAll("#occs")
+        .attr('fill', function (d) { return fillColor(d.group); })
+        .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
+        .attr('stroke-width', 2)
+        .style("opacity",1)
+        .attr('r',function(d){ return d.radius2})
 
-  
 
-  groupBubbles()
+        simulation2
+        .velocityDecay(0.2)
+         .force('x', d3.forceX().strength(forceStrength).x(center.x))
+        .force('y', d3.forceY().strength(forceStrength).y(center.y))
 
+        simulation2.alpha(2).restart();
+       
   }
 
 
@@ -1191,9 +1226,6 @@ bubbles = bubbles.data(nodes, function(d){return d.id;})
 bubbles.exit().remove()
 simulation.nodes(nodes)
 simulation.tick()
-
-
-
 
 
   function transitionGoo(duration) {
@@ -1220,11 +1252,21 @@ simulation.tick()
   .attr("fill-opacity","0")
   .attr('stroke-width', 1)
 
-  d3.selectAll('#occs')
+
+  if (window.bubblerun == 0){
+d3.selectAll('#occs')
   .transition()
   .duration(1000)
   .delay(1000)
   .style('opacity',1)
+  .style('display',"block")
+  }else{
+    d3.selectAll('#occs')
+  .transition()
+  .duration(1000)
+  .style('opacity',1)
+  .style('display',"block")
+  }
 
 
   d3.selectAll('#occs')
@@ -1246,7 +1288,11 @@ simulation.tick()
 
 function draw5(){
 
+  console.log(window.bubblerun)
 
+if(window.bubblerun == 1){
+  simulation2.stop()
+}
 
 if (size != 'regular'){
 d3.selectAll('#occs')
@@ -1319,6 +1365,7 @@ d3.selectAll('#occs')
   .transition()
   .duration(1000)
   .style('opacity',0)
+  .style('display','none')
 
 
 
@@ -2077,29 +2124,6 @@ var valueLine = d3.line()
                 .style("opacity", 0); 
         });
 
-        /*
-        vis.append("text")
-          .text(longname[item.key])
-          .attr("class",item.key+"_label")
-          .attr("x",x(d3.max(x.domain())) + 10)
-          .attr("y",y(item.values[item.values.length-1 ].Value))
-          .attr("opacity",1)
-          .attr("font-family", "Nunito")
-          .style("fill", colors[item.key])
-          .attr("font-weight",700)
-          .attr("font-size", "20")
-          
-      vis.append("text")
-          .text(formats["Rent"](item.values[item.values.length-1 ].Value))
-          .attr("class",item.key+"_label2")
-          .attr("x",x(d3.max(x.domain())) + 10)
-          .attr("y",y(item.values[item.values.length-1 ].Value)+20)
-          .attr("opacity",1)
-          .attr("font-family", "Nunito")
-          .style("fill", colors[item.key])
-          .attr("font-weight",700)
-          .attr("font-size", "17")      */
-
 
         }
 
@@ -2175,17 +2199,7 @@ var valueLine = d3.line()
             .attr("cx", function(dd){return x(dd.Quarter)})
             .attr("cy", function(dd){return y(dd.Value)})
             
-            /*
-            d3.select("."+item.key+"_label")
-            .transition()
-            .duration(1500)
-            .attr("y",y(item.values[item.values.length-1 ].Value))
 
-          d3.select("."+item.key+"_label2")
-            .transition()
-            .duration(1500)
-            .text(formats[fruit](item.values[item.values.length-1 ].Value))
-            .attr("y",y(item.values[item.values.length-1 ].Value)+20) */
 
             })
         // Update the Y-axis
@@ -2225,583 +2239,9 @@ var valueLine = d3.line()
     });
 
 
-    // Change color of selected line when year dropdown changes
-    /*
-    yearMenu.on('change', function(){
-
-        // Find which year was selected
-        var selectedYear = d3.select(this)
-            .select("select")
-            .property("value")
-
-        // Change the class of the matching line to "selected"
-        var selLine = vis.selectAll(".line")
-              // de-select all the lines
-              .classed("selected", false)
-              .filter(function(d) {
-                  return d.key === selectedYear
-              })
-              // Set class to selected for matching line
-              .classed("selected", true)
-              .raise()
-    })*/
 
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Read Data, convert numerical categories into floats
-//Create the initial visualisation
-
-/*
-d3.csv("https://docs.google.com/spreadsheets/d/1LMADV7lzfx1rC6AzkrUp8uwe5XuXR8sd3KDeashPmB8/gviz/tq?tqx=out:csv&gid=1356831804", function(d){
-  return{
-    location: d.location,
-    class: d.class,
-    year: +d.year,
-    period: d.period,
-    rent: +d.rent,
-    vacancy: +d.vacancy,
-    absorption: d.absorption,
-  };
-}, function(error, rows){
-if (error) throw error;
-
-  //  setTimeout(drawInitial(), 100)
-//})
-
-
-rows =  rows.filter(f => f.year >= 2015)
-
-const colors = {'Miami':['#00b5cc'],'NY':['#eb529d'],'SF':['#eb529d'],'Chicago':['#eb529d']}
-
-nested = d3.nest().key(function(d){return d.location}).entries(rows)
-nestkeys = nested.map(function(d){return d.key;})
-
-
-
-var vis = d3.select("#rentvis")
-var cmargin = {top: 200, right: 50, bottom: 200, left: 60};
-element = vis.node();
-cwidth = element.getBoundingClientRect().width - cmargin.left - cmargin.right,
-cheight = element.getBoundingClientRect().height - cmargin.top - cmargin.bottom;
-
-rentsvg = d3
-  .select("#rentvis")
-    .attr("width", cwidth + cmargin.left + cmargin.right - 20)
-    .attr("height", cheight + cmargin.top + cmargin.bottom)
-
-    const rentchart = rentsvg
-    .append("g")
-    .attr("transform", `translate(${cmargin.left},${cmargin.top})`);
-
-const rentgrp = rentchart
-  .append("g")
-  .attr("transform", `translate(-${cmargin.left},0)`);
-
-
-rentgrp.append("text")
-    .text("Gross Rent PSF")
-    .attr("class","charttitle")
-    .attr("x",-30)
-    .attr("y",-30)
-    .attr("transform", `translate(${cmargin.left},0)`)
-    .attr("opacity",1)
-    .attr("font-family", "Nunito")
-    .attr("font-weight",700)
-    .attr("font-size", "25")
-
-// Create scales
-const RentyScale = d3
-  .scaleLinear()
-  .range([height, 0])
-  .domain([0, d3.max(rows, d => d.rent + 5)]);
-const RentxScale = d3
-  .scalePoint()
-  .range([3, width-40])
-  .domain(rows.map(function(d){ return d.period; }));
-
-const Rentline = d3
-  .line()
-  .x(d => RentxScale(d.period))
-  .y(d => RentyScale(d.rent))
-  .curve(d3.curveBasis);
-
-
-nestkeys.forEach(function(d){
-
-    data =  rows.filter(f => f.location == d)
-    
-
-
-    path = rentgrp
-      .append("path")
-      .attr("class",d + "_rentpath")
-      .attr("d", Rentline(data))
-      .attr("transform", `translate(${cmargin.left},0)`)
-      .attr("fill", "none")
-      .attr("stroke", colors[d][0])
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-      .attr("stroke-width", 5)
-
-    pathLength = path.node().getTotalLength();
-
-    path
-  .attr("stroke-dashoffset", pathLength)
-  .attr("stroke-dasharray", pathLength)
-
-
-rentgrp.append("text")
-    .text(d)
-    .attr("class",d+"_rentlabel")
-    .attr("x",RentxScale(d3.max(RentxScale.domain())) + 10)
-    .attr("y",RentyScale(data[data.length-1 ].rent))
-    .attr("transform", `translate(${cmargin.left},0)`)
-    .attr("opacity",0)
-    .attr("font-family", "Nunito")
-    .style("fill", colors[d][0])
-    .attr("font-weight",700)
-    .attr("font-size", "20")
-
-rentgrp.append("text")
-    .text(d3.format("($.0f")(data[data.length-1 ].rent))
-    .attr("class",d+"_rentlabelrent")
-    .attr("x",RentxScale(d3.max(RentxScale.domain())) + 10)
-    .attr("y",RentyScale(data[data.length-1 ].rent)+20)
-    .attr("transform", `translate(${cmargin.left},0)`)
-    .attr("opacity",0)
-    .attr("font-family", "Nunito")
-    .style("fill", colors[d][0])
-    .attr("font-weight",700)
-    .attr("font-size", "17")
-
-
-})
-
-
-// Add the X Axis
-rentchart
-  .append("g")
-  .attr("class", "axis")
-  .attr("transform", `translate(0,${cheight})`)
-  .call(d3.axisBottom(RentxScale).tickSizeOuter(0)
-.tickValues(RentxScale.domain().filter(function(d,i){ return !(i%4)})))
-  .style('fill-opacity', d => d === 0 ? 0.0 : 1.0);
-// Add the Y Axis
-rentchart
-  .append("g")
-  .attr("class", "axis")
-  .attr("transform", `translate(0, 0)`)
-  .call(d3.axisLeft(RentyScale).tickSizeOuter(0)
-    .tickFormat(d3.format("($.0f")));
-
-
-
-/////VACANCY
-vacancysvg = d3
-  .select("#vacancyvis")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-
-    const vacancychart = vacancysvg
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
-
-const vacancygrp = vacancychart
-  .append("g")
-  .attr("transform", `translate(-${margin.left},0)`);
-
-vacancygrp.append("text")
-    .text("Vacancy Rate")
-    .attr("class","charttitle")
-    .attr("x",-30)
-    .attr("y",-30)
-    .attr("transform", `translate(${margin.left},0)`)
-    .attr("opacity",1)
-    .attr("font-family", "Nunito")
-    .attr("font-weight",700)
-    .attr("font-size", "25")
-
-// Create scales
-const vacancyyScale = d3
-  .scaleLinear()
-  .range([height, 0])
-  .domain([0, d3.max(rows, d => d.vacancy + .02)]);
-const vacancyxScale = d3
-  .scalePoint()
-  .range([3, width-40])
-  .domain(rows.map(function(d){ return d.period; }));
-
-const vacancyline = d3
-  .line()
-  .x(d => vacancyxScale(d.period))
-  .y(d => vacancyyScale(d.vacancy))
-  .curve(d3.curveBasis);
-
-nestkeys.forEach(function(d){
-
-    data =  rows.filter(f => f.location == d)
-    
-    path = vacancygrp
-      .append("path")
-      .attr("class",d + "_vacancypath")
-      .attr("d", vacancyline(data))
-      .attr("transform", `translate(${margin.left},0)`)
-      .attr("fill", "none")
-      .attr("stroke", colors[d][0])
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-      .attr("stroke-width", 5)
-
-    pathLength = path.node().getTotalLength();
-
-    path
-  .attr("stroke-dashoffset", pathLength)
-  .attr("stroke-dasharray", pathLength)
-
-  vacancygrp.append("text")
-    .text(d)
-    .attr("class",d+"_vacancylabel")
-    .attr("x",vacancyxScale(d3.max(vacancyxScale.domain())) + 5)
-    .attr("y",vacancyyScale(data[data.length-1 ].vacancy))
-    .attr("transform", `translate(${margin.left},0)`)
-    .attr("font-family", "Nunito")
-    .style("fill", colors[d][0])
-    .attr("font-weight",700)
-    .attr("font-size", "20")
-    .attr("opacity",0)
-
-    vacancygrp.append("text")
-    .text(d3.format(".0%")(data[data.length-1 ].vacancy))
-    .attr("class",d+"_vacancylabelvacancy")
-    .attr("x",vacancyxScale(d3.max(vacancyxScale.domain())) + 10)
-    .attr("y",vacancyyScale(data[data.length-1 ].vacancy)+20)
-    .attr("transform", `translate(${margin.left},0)`)
-    .attr("opacity",0)
-    .attr("font-family", "Nunito")
-    .style("fill", colors[d][0])
-    .attr("font-weight",700)
-    .attr("font-size", "17")
-    .attr("opacity",0)
-
-
-})
-
-// Add the X Axis
-vacancychart
-  .append("g")
-    .attr("class", "axis")
-  .attr("transform", `translate(0,${height})`)
-  .call(d3.axisBottom(vacancyxScale)
-.tickValues(vacancyxScale.domain().filter(function(d,i){ return !(i%4)})));
-// Add the Y Axis
-vacancychart
-  .append("g")
-    .attr("class", "axis")
-  .attr("transform", `translate(0, 0)`)
-  .call(d3.axisLeft(vacancyyScale)
-    .tickFormat(d3.format(".0%")));
-
-
-
-//////Absorption
-absvg = d3
-  .select("#absorbvis")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-
-    const abchart = absvg
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
-
-const abgrp = abchart
-  .append("g")
-  .attr("transform", `translate(-${margin.left},0)`);
-
-abgrp.append("text")
-    .text("Net Absorption")
-    .attr("class","charttitle")
-    .attr("x",-30)
-    .attr("y",-30)
-    .attr("transform", `translate(${margin.left},0)`)
-    .attr("opacity",1)
-    .attr("font-family", "Nunito")
-    .attr("font-weight",700)
-    .attr("font-size", "25")
-
-// Create scales
-const abyScale = d3
-  .scaleLinear()
-  .range([height, 0])
-  .domain([d3.min(rows, d => +d.absorption + .02), d3.max(rows, d => +d.absorption + .02)]);
-const abxScale = d3
-  .scalePoint()
-  .range([3, width-40])
-  .domain(rows.map(function(d){ return d.period; }));
-
-const abline = d3
-  .line()
-  .x(d => abxScale(d.period))
-  .y(d => abyScale(+d.absorption))
-  .curve(d3.curveBasis);
-
-nestkeys.forEach(function(d){
-
-    data =  rows.filter(f => f.location == d)
-    
-  
-    path = abgrp
-      .append("path")
-      .attr("class",d + "_abpath")
-      .attr("d", abline(data))
-      .attr("transform", `translate(${margin.left},0)`)
-      .attr("fill", "none")
-      .attr("stroke", colors[d][0])
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-      .attr("stroke-width", 5)
-
-    pathLength = path.node().getTotalLength();
-
-    path
-  .attr("stroke-dashoffset", pathLength)
-  .attr("stroke-dasharray", pathLength)
-
-  abgrp.append("text")
-    .text(d)
-    .attr("class",d+"_ablabel")
-    .attr("x",abxScale(d3.max(abxScale.domain())) + 5)
-    .attr("y",abyScale(+data[data.length-1 ].absorption))
-    .attr("transform", `translate(${margin.left},0)`)
-    .attr("opacity",0)
-    .attr("font-family", "Nunito")
-    .style("fill", colors[d][0])
-    .attr("font-weight",700)
-    .attr("font-size", "20")
-
-  abgrp.append("text")
-    .text(d3.format("(.0f")(data[data.length-1 ].absorption))
-    .attr("class",d+"_ablabelab")
-    .attr("x",abxScale(d3.max(abxScale.domain())) + 10)
-    .attr("y",abyScale(data[data.length-1 ].absorption)+20)
-    .attr("transform", `translate(${margin.left},0)`)
-    .attr("opacity",0)
-    .attr("font-family", "Nunito")
-    .style("fill", colors[d][0])
-    .attr("font-weight",700)
-    .attr("font-size", "17")
-
-
-})
-
-// Add the X Axis
-abchart
-  .append("g")
-    .attr("class", "axis")
-  .attr("transform", `translate(0,${height})`)
-  .call(d3.axisBottom(abxScale)
-.tickValues(abxScale.domain().filter(function(d,i){ return !(i%4)})));
-// Add the Y Axis
-abchart
-  .append("g")
-    .attr("class", "axis")
-  .attr("transform", `translate(0, 0)`)
-  .call(d3.axisLeft(abyScale));
-
-
-d3.selectAll(".tick")
-    .filter(function (d) { return d === 0;  })
-    .remove();
-
-
-
-////Annotations
-const annotations = [
-        {
-          note: { 
-            title: "COVID-19", 
-            lineType: "none", 
-            align: "middle",
-            wrap: 150 //custom text wrapping
-          },
-          subject: {
-            height: height,
-            width: RentxScale(RentxScale.domain()[43]) - RentxScale(RentxScale.domain()[41])
-          },
-          type: d3.annotationCalloutRect,
-          y: 1,
-          disable: ["connector"], // doesn't draw the connector
-          //can pass "subject" "note" and "connector" as valid options
-          dx: (RentxScale(RentxScale.domain()[43]) - RentxScale(RentxScale.domain()[41]))/2,
-          data: { x: RentxScale.domain()[41]}
-        }]
-
-
-const type = d3.annotationCustomType(
-        d3.annotationBadge, 
-        {"subject":{"radius": 10 }}
-      )
-
-const makeAnnotations = d3.annotation()
-        .type(type)
-        .accessors({ 
-          x: function(d){ return RentxScale(d.x)},
-          y: function(d){ return RentyScale(d.y) }
-        })
-        .annotations(annotations)
-
-      rentchart
-        .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
-
-
-
-const vacannotations = [
-        {
-          note: { 
-            title: "COVID-19", 
-            lineType: "none", 
-            align: "middle",
-            wrap: 150 //custom text wrapping
-          },
-          subject: {
-            height: height,
-            width: vacancyxScale(vacancyxScale.domain()[43]) - vacancyxScale(vacancyxScale.domain()[41])
-          },
-          type: d3.annotationCalloutRect,
-          y: 1,
-          disable: ["connector"], // doesn't draw the connector
-          //can pass "subject" "note" and "connector" as valid options
-          dx: (vacancyxScale(vacancyxScale.domain()[43]) - vacancyxScale(vacancyxScale.domain()[41]))/2,
-          data: { x: vacancyxScale.domain()[41]}
-        }]
-
-
-const makevacAnnotations = d3.annotation()
-        .type(type)
-        .accessors({ 
-          x: function(d){ return vacancyxScale(d.x)},
-          y: function(d){ return vacancyScale(d.y) }
-        })
-        .annotations(vacannotations)
-
-      vacancychart
-        .append("g")
-        .attr("class", "annotation-group")
-        .call(makevacAnnotations)
-
-const abannotations = [
-        {
-          note: { 
-            title: "COVID-19", 
-            lineType: "none", 
-            align: "middle",
-            wrap: 150 //custom text wrapping
-          },
-          subject: {
-            height: height,
-            width: abxScale(abxScale.domain()[43]) - abxScale(abxScale.domain()[41])
-          },
-          type: d3.annotationCalloutRect,
-          y: 1,
-          disable: ["connector"], // doesn't draw the connector
-          //can pass "subject" "note" and "connector" as valid options
-          dx: (abxScale(abxScale.domain()[43]) - abxScale(abxScale.domain()[41]))/2,
-          data: { x: abxScale.domain()[41]}
-        }]
-
-
-const makeabAnnotations = d3.annotation()
-        .type(type)
-        .accessors({ 
-          x: function(d){ return abxScale(d.x)},
-          y: function(d){ return abScale(d.y) }
-        })
-        .annotations(abannotations)
-
-      abchart
-        .append("g")
-        .attr("class", "annotation-group")
-        .call(makeabAnnotations)
-*/
-// Tooltip
-
-/*
-var bisect = d3.bisector(function(d) { return d.period; }).left;
-
-var tooltip = d3.select(".tab04_content.w-tab-content").append("div")
-    .attr("class", "tooltip")
-    .style("display", "none");
-
-var focus = rentgrp.append("g")
-            .attr("class", "focus")
-            .style("display", "none");
-
-focus.append("circle")
-    .attr("r", 5);
-
-var tooltipDate = tooltip.append("div")
-    .attr("class", "tooltip-date");
-
-var tooltipLikes = tooltip.append("div");
-tooltipLikes.append("span")
-    .attr("class", "tooltip-title")
-    .text("Gross Rent PSF: ");
-
-var tooltipLikesValue = tooltipLikes.append("span")
-    .attr("class", "tooltip-likes");
-
-rentchart.append("rect")
-    .attr("class", "ttoverlay")
-    .attr("width", width)
-    .attr("height", height)
-    .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
-    .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
-    .on("mousemove", mousemove);
-
-function mousemove() {
-    var xPos = d3.mouse(this)[0];
-    var domain = RentxScale.domain();
-    var range = RentxScale.range();
-    var rangePoints = d3.range(range[0], range[1], RentxScale.step());
-
-    var x0 = domain[d3.bisect(rangePoints, xPos) ];
-        i = bisect(rows, x0, 0),
-        d0 = rows[i - 1],
-        d1 = rows[i],
-        d = x0 - d0.period > d1.period - x0 ? d1 : d0;
-    focus.attr("transform", "translate(" + (RentxScale(d.period) + margin.left) + "," + RentyScale(d.rent) + ")");
-    tooltip.attr("style", "left:" + (RentxScale(d.period) + 64) + "px;top:" + RentyScale(d.rent) + "px;");
-    tooltip.select(".tooltip-date").text(d.period);
-    tooltip.select(".tooltip-likes").text(d3.format("($.2f")(d.rent));
-
-}
-
-
-});
-*/
-
-
 
 
 

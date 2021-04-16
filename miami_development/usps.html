@@ -62,6 +62,7 @@ g#voronoi {
   <script src="https://unpkg.com/topojson@3"></script>
   <script src="https://unpkg.com/d3-delaunay@4"></script>
   <script src="https://unpkg.com/d3-geo-voronoi@1"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -79,7 +80,7 @@ g#voronoi {
 
 <script>
 
-
+  mapleSvg = d3.xml('https://s3.amazonaws.com/files.zevross.org/blog/d3_external_svgs/load_svg/leaves/maple_illustration.svg')
 
 
   const urls = {
@@ -112,6 +113,77 @@ svg.append('defs')
     .attr("d", "M 0 0 L 10 5 L 0 10 z")
     .attr("fill", "#000");
 
+
+
+
+
+
+svg.insert("image", "text")
+  .attr("xlink:href", function(d) {
+      return 'images/arrow.svg';
+  })
+  .attr("width", "10%").attr("x", "89%")
+  .attr("y", "39%");
+
+  svg.append("text")
+  .text("Permanent")
+  .attr("x","92%")
+  .attr("y","65%")
+  .attr("dy", "0em")
+  .attr("font-family", "Nunito")
+  .style("fill", "#000")
+  .attr("font-weight",700)
+  .attr("font-size", "13")
+  svg
+  .append("text")
+  .attr("x","92%")
+  .attr("y","65%")
+  .attr("font-family", "Nunito")
+  .style("fill", "#000")
+  .attr("font-weight",700)
+  .attr("font-size", "13")
+  .text("Moves to")
+  .attr("dy", "1em")
+  svg
+  .append("text")
+  .attr("x","92%")
+  .attr("y","65%")
+  .attr("font-family", "Nunito")
+  .style("fill", "#000")
+  .attr("font-weight",700)
+  .attr("font-size", "13")
+  .text("Miami")
+  .attr("dy", "2em")
+
+
+  svg.insert("image", "text")
+  .attr("xlink:href", function(d) {
+      return 'images/scale.svg';
+  })
+  .attr("width", "10%").attr("x", "12%")
+  .attr("y", "90%");
+
+  svg
+  .append("text")
+  .attr("x","3%")
+  .attr("y","92%")
+  .attr("font-family", "Nunito")
+  .style("fill", "#000")
+  .attr("font-weight",700)
+  .attr("font-size", "13")
+  .text("Fewer Moves")
+  .attr("dy", "0em")
+
+  svg
+  .append("text")
+  .attr("x","22.5%")
+  .attr("y","92%")
+  .attr("font-family", "Nunito")
+  .style("fill", "#000")
+  .attr("font-weight",700)
+  .attr("font-size", "13")
+  .text("More Moves")
+  .attr("dy", "0em")
 
 const button = d3.select("#button")
 const button2 = d3.select("#button2")
