@@ -349,6 +349,9 @@ p{
 
 @media screen and (max-width: 925px)  {
 
+.print{
+    display: none !important;
+}
 .w-col-4{
   padding-left: 0% !important;
 }
@@ -1305,7 +1308,7 @@ if(window.bubblerun == 1){
 
 if (size != 'regular'){
 d3.selectAll('#occs')
- .filter(function (d) { return d.group === 'Market Research Analysts and Marketing Specialists' || d.group === 'Computer and Information Systems Managers' || d.group === 'Computer User Support Specialists' || d.group === 'Software Developers and Software Quality Assurance Analysts and Testers' || d.group === 'Marketing Managers' })
+ .filter(function (d) { return  d.group === 'Computer and Information Systems Managers' || d.group === 'Computer User Support Specialists' || d.group === 'Software Developers and Software Quality Assurance Analysts and Testers' })
   .transition()
   .duration(2000)
   .attr('cx', d => histXScale(d.col))
@@ -1317,7 +1320,7 @@ d3.selectAll('#occs')
 
     d3
   .selectAll("#occs")
-  .filter(function (d) { return d.group != 'Market Research Analysts and Marketing Specialists' && d.group != 'Computer and Information Systems Managers' && d.group != 'Computer User Support Specialists' && d.group != 'Software Developers and Software Quality Assurance Analysts and Testers' && d.group != 'Marketing Managers' })
+  .filter(function (d) { return d.group != 'Computer and Information Systems Managers' && d.group != 'Computer User Support Specialists' && d.group != 'Software Developers and Software Quality Assurance Analysts and Testers'  })
   .each(function (d, i){
         var $this = d3.select(this)
         $this
@@ -1331,7 +1334,7 @@ d3.selectAll('#occs')
       })
 }else{
 d3.selectAll('#occs')
- .filter(function (d) { return d.group === 'Market Research Analysts and Marketing Specialists' || d.group === 'Computer and Information Systems Managers' || d.group === 'Computer User Support Specialists' || d.group === 'Software Developers and Software Quality Assurance Analysts and Testers' || d.group === 'Marketing Managers' })
+ .filter(function (d) { return d.group === 'Computer and Information Systems Managers' || d.group === 'Computer User Support Specialists' || d.group === 'Software Developers and Software Quality Assurance Analysts and Testers' })
   .transition()
   .duration(2000)
   .attr('cx', d => histXScale(d.col))
@@ -1343,7 +1346,7 @@ d3.selectAll('#occs')
 
   d3
   .selectAll("#occs")
-  .filter(function (d) { return d.group != 'Market Research Analysts and Marketing Specialists' && d.group != 'Computer and Information Systems Managers' && d.group != 'Computer User Support Specialists' && d.group != 'Software Developers and Software Quality Assurance Analysts and Testers' && d.group != 'Marketing Managers' })
+  .filter(function (d) { return d.group != 'Computer and Information Systems Managers' && d.group != 'Computer User Support Specialists' && d.group != 'Software Developers and Software Quality Assurance Analysts and Testers' })
   .each(function (d, i){
         var $this = d3.select(this)
         $this
