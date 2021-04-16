@@ -906,7 +906,7 @@ if (docwidth <= 600){
 
 
 window.step = 0
-
+window.rent = 0
 window.dropdown = 0
 
 window.bubblerun = 0
@@ -1880,6 +1880,182 @@ function floatingTooltip(tooltipId, bwidth) {
 
 
 
+
+//MAP
+window.step = 0
+mapboxgl.accessToken = 'pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb3NqY3JmIn0._sGjIhmL5Xt08WIMWRsSsg';
+        var bounds = [
+[-80.24975, 25.73521]
+, [-80.13341, 25.83169]
+];
+r
+        const w = 255 * 0.65;
+
+        const defaultMaxPitch = 89.9;
+
+        var map = new mapboxgl.Map({
+            container: 'map'
+            , style: 'mapbox://styles/kpclyne/ckm2x7n0u1cr018nzpjesupiy'
+            , center: [-80.188965, 25.776679]
+            , zoom: 13
+            , pitch: 0
+            , bearing: 0
+            , maxPitch: 85,
+        }); 
+
+     
+
+        map.scrollZoom.disable();
+
+        /*map.addControl(new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken
+            , mapboxgl: mapboxgl
+        }));*/
+
+        var bins = 20;
+        var maxHeight = 290;
+        var binWidth = maxHeight / bins;
+
+        map.on('load', function () {
+            map.addSource('office', {
+          // GeoJSON Data source used in vector tiles, documented at
+          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+          'type': 'geojson',
+          'data':'gis/office3.geojson'
+
+          });
+
+          map.addSource('subdistricts', {
+          // GeoJSON Data source used in vector tiles, documented at
+          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+          'type': 'geojson',
+          'data':'working/subdistrict2.geojson'
+
+          });
+
+          map.addSource('underconstruction', {
+          // GeoJSON Data source used in vector tiles, documented at
+          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+          'type': 'geojson',
+          'data':'gis/830Brickell.geojson'
+          });
+
+          map.addSource('proposed', {
+          // GeoJSON Data source used in vector tiles, documented at
+          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+          'type': 'geojson',
+          'data':'gis/proposed2.geojson'
+          });
+
+          map.addLayer({
+          'id': 'subdistricts',
+          'type': 'fill',
+          'source': 'subdistricts',
+          'paint': {
+          'fill-color': ['get', 'color'],
+          'fill-color-transition':{
+                    duration: 2000
+                },
+          'fill-opacity': 0.6
+        }
+        })
+           
+          for (var i = 0; i < bins; i++) {
+          map.addLayer({
+          'id': 'office-extrude' + i,
+          'type': 'fill-extrusion',
+          'source': 'office',
+          'filter': 
+          ['all',
+          ['>', 'height', i*binWidth],
+          ['<=', 'height', (i + 1) * binWidth]],
+          'paint': {
+          // See the Mapbox Style Specification for details on data expressions.
+          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions
+           
+          // Get the fill-extrusion-color from the source 'color' property.
+          'fill-extrusion-color': "#314CCD",
+           
+          // Get fill-extrusion-height from the source 'height' property.
+          'fill-extrusion-height': 0,
+           
+          // Get fill-extrusion-base from the source 'base_height' property.
+          'fill-extrusion-base': ['get', 'minHeight'],
+          //Set the 
+          'fill-extrusion-height-transition':{
+                    duration: 2000,
+                    delay: 3000
+                },
+          // Make extrusions slightly opaque for see through indoor walls.
+          'fill-extrusion-opacity': 0
+          }
+          });}
+
+                  for (var i = 0; i < bins; i++) {
+          map.addLayer({
+          'id': 'proposed-developments' + i,
+          'type': 'fill-extrusion',
+          'source': 'proposed',
+          'filter': 
+          ['all',
+          ['>', 'Proposed_parcels_Height', i*binWidth],
+          ['<=', 'Proposed_parcels_Height', (i + 1) * binWidth]],
+          'paint': {
+          'fill-extrusion-color': "#314CCD",
+          'fill-extrusion-height': 0,
+          'fill-extrusion-base': ['get', 'minHeight'],
+          'fill-extrusion-height-transition':{
+                    duration: 2000,
+                    delay: 200
+                },
+          'fill-extrusion-opacity': 0
+          }
+          });}
+        
+        map.addLayer({
+          'id': 'under-construction',
+          'type': 'fill-extrusion',
+          'source': 'underconstruction',
+          'paint': {
+          'fill-extrusion-color': "#314CCD",
+          'fill-extrusion-height': 0,
+          'fill-extrusion-base': ['get', 'minheight'],
+          'fill-extrusion-height-transition':{
+                    duration: 2000,
+                    delay: 2000
+                },
+          'fill-extrusion-color-transition':{
+                    duration: 2000
+                },
+          'fill-extrusion-opacity': .9
+          }
+        });
+
+        map.addLayer({
+          'id': 'proposed-developments',
+          'type': 'fill-extrusion',
+          'source': 'proposed',
+          'paint': {
+          'fill-extrusion-color': "#314CCD",
+          'fill-extrusion-height': 0,
+          'fill-extrusion-base': 0,
+          'fill-extrusion-height-transition':{
+                    duration: 2000,
+                    delay: 2000
+                },
+          'fill-extrusion-color-transition':{
+                    duration: 2000
+                },
+          'fill-extrusion-opacity': .9
+          }
+        })
+
+    }); 
+        
+function drawmap1(){
+
+  if(window.rent == 0){
+
 ////DASHBOARD CHARTS
 // Parse the month variable
 
@@ -2244,181 +2420,14 @@ var valueLine = d3.line()
 })
 
 
+  }
 
-//MAP
-window.step = 0
-mapboxgl.accessToken = 'pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb3NqY3JmIn0._sGjIhmL5Xt08WIMWRsSsg';
-        var bounds = [
-[-80.24975, 25.73521]
-, [-80.13341, 25.83169]
-];
-r
-        const w = 255 * 0.65;
+window.rent = 1
 
-        const defaultMaxPitch = 89.9;
-
-        var map = new mapboxgl.Map({
-            container: 'map'
-            , style: 'mapbox://styles/kpclyne/ckm2x7n0u1cr018nzpjesupiy'
-            , center: [-80.188965, 25.776679]
-            , zoom: 13
-            , pitch: 0
-            , bearing: 0
-            , maxPitch: 85,
-        }); 
-
-     
-
-        map.scrollZoom.disable();
-
-        /*map.addControl(new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken
-            , mapboxgl: mapboxgl
-        }));*/
-
-        var bins = 20;
-        var maxHeight = 290;
-        var binWidth = maxHeight / bins;
-
-        map.on('load', function () {
-            map.addSource('office', {
-          // GeoJSON Data source used in vector tiles, documented at
-          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
-          'type': 'geojson',
-          'data':'gis/office3.geojson'
-
-          });
-
-          map.addSource('subdistricts', {
-          // GeoJSON Data source used in vector tiles, documented at
-          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
-          'type': 'geojson',
-          'data':'working/subdistrict2.geojson'
-
-          });
-
-          map.addSource('underconstruction', {
-          // GeoJSON Data source used in vector tiles, documented at
-          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
-          'type': 'geojson',
-          'data':'gis/830Brickell.geojson'
-          });
-
-          map.addSource('proposed', {
-          // GeoJSON Data source used in vector tiles, documented at
-          // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
-          'type': 'geojson',
-          'data':'gis/proposed2.geojson'
-          });
-
-          map.addLayer({
-          'id': 'subdistricts',
-          'type': 'fill',
-          'source': 'subdistricts',
-          'paint': {
-          'fill-color': ['get', 'color'],
-          'fill-color-transition':{
-                    duration: 2000
-                },
-          'fill-opacity': 0.6
-        }
-        })
-           
-          for (var i = 0; i < bins; i++) {
-          map.addLayer({
-          'id': 'office-extrude' + i,
-          'type': 'fill-extrusion',
-          'source': 'office',
-          'filter': 
-          ['all',
-          ['>', 'height', i*binWidth],
-          ['<=', 'height', (i + 1) * binWidth]],
-          'paint': {
-          // See the Mapbox Style Specification for details on data expressions.
-          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions
-           
-          // Get the fill-extrusion-color from the source 'color' property.
-          'fill-extrusion-color': "#314CCD",
-           
-          // Get fill-extrusion-height from the source 'height' property.
-          'fill-extrusion-height': 0,
-           
-          // Get fill-extrusion-base from the source 'base_height' property.
-          'fill-extrusion-base': ['get', 'minHeight'],
-          //Set the 
-          'fill-extrusion-height-transition':{
-                    duration: 2000,
-                    delay: 3000
-                },
-          // Make extrusions slightly opaque for see through indoor walls.
-          'fill-extrusion-opacity': 0
-          }
-          });}
-
-                  for (var i = 0; i < bins; i++) {
-          map.addLayer({
-          'id': 'proposed-developments' + i,
-          'type': 'fill-extrusion',
-          'source': 'proposed',
-          'filter': 
-          ['all',
-          ['>', 'Proposed_parcels_Height', i*binWidth],
-          ['<=', 'Proposed_parcels_Height', (i + 1) * binWidth]],
-          'paint': {
-          'fill-extrusion-color': "#314CCD",
-          'fill-extrusion-height': 0,
-          'fill-extrusion-base': ['get', 'minHeight'],
-          'fill-extrusion-height-transition':{
-                    duration: 2000,
-                    delay: 200
-                },
-          'fill-extrusion-opacity': 0
-          }
-          });}
-        
-        map.addLayer({
-          'id': 'under-construction',
-          'type': 'fill-extrusion',
-          'source': 'underconstruction',
-          'paint': {
-          'fill-extrusion-color': "#314CCD",
-          'fill-extrusion-height': 0,
-          'fill-extrusion-base': ['get', 'minheight'],
-          'fill-extrusion-height-transition':{
-                    duration: 2000,
-                    delay: 2000
-                },
-          'fill-extrusion-color-transition':{
-                    duration: 2000
-                },
-          'fill-extrusion-opacity': .9
-          }
-        });
-
-        map.addLayer({
-          'id': 'proposed-developments',
-          'type': 'fill-extrusion',
-          'source': 'proposed',
-          'paint': {
-          'fill-extrusion-color': "#314CCD",
-          'fill-extrusion-height': 0,
-          'fill-extrusion-base': 0,
-          'fill-extrusion-height-transition':{
-                    duration: 2000,
-                    delay: 2000
-                },
-          'fill-extrusion-color-transition':{
-                    duration: 2000
-                },
-          'fill-extrusion-opacity': .9
-          }
-        })
-
-    }); 
-        
-function drawmap1(){
 
 if (window.step ===1){
+
+
 
 map.flyTo({
 center: [-80.188965, 25.776679],
