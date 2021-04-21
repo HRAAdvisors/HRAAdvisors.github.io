@@ -1,0 +1,49 @@
+price,address,addressStreet,addressCity,addressState,addressZipcode,beds,baths,area,PSF
+5400,"202-38 3rd St #202, Los Altos, CA 94022",202-38 3rd St #202,Los Altos,CA,94022,2,2,1692,3.191489362
+3500,"1723 Marshall Ct #B, Los Altos, CA 94024",1723 Marshall Ct #B,Los Altos,CA,94024,2,2,1200,2.916666667
+3395,"950 N San Antonio Rd APT 12A, Los Altos, CA 94022",950 N San Antonio Rd APT 12A,Los Altos,CA,94022,1,1,1200,2.829166667
+5500,"5100 El Camino Real APT 303, Los Altos, CA 94022",5100 El Camino Real APT 303,Los Altos,CA,94022,3,2,1302,4.224270353
+1475,"533 Mimosa Ct #COTTAGE, Los Altos, CA 94024",533 Mimosa Ct #COTTAGE,Los Altos,CA,94024,0,1,200,7.375
+4995,"100 1st St UNIT 104, Los Altos, CA 94022",100 1st St UNIT 104,Los Altos,CA,94022,1,1.5,1205,4.145228216
+3300,"38 3rd St APT 100, Los Altos, CA 94022",38 3rd St APT 100,Los Altos,CA,94022,1,1,809,4.079110012
+3350,"80 2nd St APT 4, Los Altos, CA 94022",80 2nd St APT 4,Los Altos,CA,94022,2,2,1164,2.878006873
+2750,"2 Cuesta Dr #6, Los Altos, CA 94022",2 Cuesta Dr #6,Los Altos,CA,94022,2,1,950,2.894736842
+1795,"1011 Parma Way #A, Los Altos, CA 94024",1011 Parma Way #A,Los Altos,CA,94024,1,1,414,4.335748792
+3200,"73 3rd St APT 17, Los Altos, CA 94022",73 3rd St APT 17,Los Altos,CA,94022,2,1.5,1072,2.985074627
+3900,"487 Tyndall St APT 1, Los Altos, CA 94022",487 Tyndall St APT 1,Los Altos,CA,94022,2,1,900,4.333333333
+2950,"(undisclosed Address), Los Altos, CA 94024",(undisclosed Address),Los Altos,CA,94024,2,1,1000,2.95
+4000,"4388 El Camino Real UNIT 167, Los Altos, CA 94022",4388 El Camino Real UNIT 167,Los Altos,CA,94022,2,2,1200,3.333333333
+4100,"4388 El Camino Real, Los Altos, CA 94022",4388 El Camino Real,Los Altos,CA,94022,2,2,1200,3.416666667
+2895,"438 Gabilan St, Los Altos, CA 94022",438 Gabilan St,Los Altos,CA,94022,2,2,6485,0.446414803
+2995,"(undisclosed Address), Los Altos, CA 94024",(undisclosed Address),Los Altos,CA,94024,1,1,700,4.278571429
+11500,"312 Marich Way, Los Altos, CA 94022",312 Marich Way,Los Altos,CA,94022,5,2.5,2538,4.531126872
+10000,"125 Lockhart Ln, Los Altos, CA 94022",125 Lockhart Ln,Los Altos,CA,94022,4,3.5,2200,4.545454545
+12000,"919 Lundy Ln, Los Altos, CA 94024",919 Lundy Ln,Los Altos,CA,94024,6,3.5,3316,3.618817853
+8500,"552 Paco Dr, Los Altos, CA 94024",552 Paco Dr,Los Altos,CA,94024,4,2.5,2447,3.473641193
+3950,"825 Terrace Dr, Los Altos, CA 94024",825 Terrace Dr,Los Altos,CA,94024,2,1,866,4.561200924
+7650,"1700 Holt Ave, Los Altos, CA 94024",1700 Holt Ave,Los Altos,CA,94024,3,2,2420,3.161157025
+3700,"441 Mundell Way, Los Altos, CA 94022",441 Mundell Way,Los Altos,CA,94022,2,1,1050,3.523809524
+7000,"1059 W Rose Cir, Los Altos, CA 94024",1059 W Rose Cir,Los Altos,CA,94024,4,2,1900,3.684210526
+6295,"1742 Austin Ave, Los Altos, CA 94024",1742 Austin Ave,Los Altos,CA,94024,4,2,2059,3.057309373
+4125,"991 Dolores Ave, Los Altos, CA 94024",991 Dolores Ave,Los Altos,CA,94024,3,1,1157,3.56525497
+9988,"1743 Westbrook Ave, Los Altos, CA 94024",1743 Westbrook Ave,Los Altos,CA,94024,6,4.5,2969,3.364095655
+10350,"368 University Ave, Los Altos, CA 94022",368 University Ave,Los Altos,CA,94022,3,2,2586,4.002320186
+2550,"(undisclosed Address), Los Altos, CA 94022",(undisclosed Address),Los Altos,CA,94022,0,1,450,5.666666667
+8200,"501 Benvenue Ave, Los Altos, CA 94024",501 Benvenue Ave,Los Altos,CA,94024,3,2,2046,4.007820137
+6900,"1216 Via Huerta, Los Altos, CA 94024",1216 Via Huerta,Los Altos,CA,94024,4,3,2379,2.90037831
+10000,"243 Merritt Rd, Los Altos, CA 94022",243 Merritt Rd,Los Altos,CA,94022,4,3.5,3750,2.666666667
+5850,"1674 Alexander Ct, Los Altos, CA 94024",1674 Alexander Ct,Los Altos,CA,94024,4,2,2013,2.906110283
+9450,"1400 Oak Ave, Los Altos, CA 94024",1400 Oak Ave,Los Altos,CA,94024,5,3,3750,2.52
+8500,"195 W Portola Ave, Los Altos, CA 94022",195 W Portola Ave,Los Altos,CA,94022,3,2.5,1937,4.38822922
+8750,"(undisclosed Address), Los Altos, CA 94022",(undisclosed Address),Los Altos,CA,94022,5,4.5,3300,2.651515152
+7850,"(undisclosed Address), Los Altos, CA 94024",(undisclosed Address),Los Altos,CA,94024,4,2.5,3000,2.616666667
+6598,"752 Edge Ln, Los Altos, CA 94024",752 Edge Ln,Los Altos,CA,94024,4,2,2500,2.6392
+6650,"1075 Highlands Cir, Los Altos, CA 94024",1075 Highlands Cir,Los Altos,CA,94024,4,2,1987,3.3467539
+5500,"1327 Morton Ave, Los Altos, CA 94024",1327 Morton Ave,Los Altos,CA,94024,3,2,1861,2.955400322
+7500,"48 N Gordon Way, Los Altos, CA 94022",48 N Gordon Way,Los Altos,CA,94022,3,2,2240,3.348214286
+7800,"745 College Ct, Los Altos, CA 94022",745 College Ct,Los Altos,CA,94022,4,2.5,2528,3.085443038
+2850,"(undisclosed Address), Los Altos, CA 94022",(undisclosed Address),Los Altos,CA,94022,1,1,750,3.8
+5000,"200 Alicia Way, Los Altos, CA 94022",200 Alicia Way,Los Altos,CA,94022,4,2.5,1885,2.652519894
+6500,"466 Tyndall St, Los Altos, CA 94022",466 Tyndall St,Los Altos,CA,94022,3,3,2198,2.957233849
+4395,"950 N San Antonio Rd APT 15C, Los Altos, CA 94022",950 N San Antonio Rd APT 15C,Los Altos,CA,94022,2,2,1250,3.516
+4200,"457 Tyndall St APT 3, Los Altos, CA 94022",457 Tyndall St APT 3,Los Altos,CA,94022,3,2.5,1744,2.408256881
