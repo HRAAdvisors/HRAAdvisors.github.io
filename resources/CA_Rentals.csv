@@ -1,0 +1,235 @@
+price,address,addressStreet,addressCity,addressState,addressZipcode,beds,baths,area,PSF
+5400,"202-38 3rd St #202, Los Altos, CA 94022",202-38 3rd St #202,Los Altos,CA,94022,2,2,1692,3.191489362
+3500,"1723 Marshall Ct #B, Los Altos, CA 94024",1723 Marshall Ct #B,Los Altos,CA,94024,2,2,1200,2.916666667
+3395,"950 N San Antonio Rd APT 12A, Los Altos, CA 94022",950 N San Antonio Rd APT 12A,Los Altos,CA,94022,1,1,1200,2.829166667
+5500,"5100 El Camino Real APT 303, Los Altos, CA 94022",5100 El Camino Real APT 303,Los Altos,CA,94022,3,2,1302,4.224270353
+1475,"533 Mimosa Ct #COTTAGE, Los Altos, CA 94024",533 Mimosa Ct #COTTAGE,Los Altos,CA,94024,0,1,200,7.375
+4995,"100 1st St UNIT 104, Los Altos, CA 94022",100 1st St UNIT 104,Los Altos,CA,94022,1,1.5,1205,4.145228216
+3300,"38 3rd St APT 100, Los Altos, CA 94022",38 3rd St APT 100,Los Altos,CA,94022,1,1,809,4.079110012
+3350,"80 2nd St APT 4, Los Altos, CA 94022",80 2nd St APT 4,Los Altos,CA,94022,2,2,1164,2.878006873
+2750,"2 Cuesta Dr #6, Los Altos, CA 94022",2 Cuesta Dr #6,Los Altos,CA,94022,2,1,950,2.894736842
+1795,"1011 Parma Way #A, Los Altos, CA 94024",1011 Parma Way #A,Los Altos,CA,94024,1,1,414,4.335748792
+3200,"73 3rd St APT 17, Los Altos, CA 94022",73 3rd St APT 17,Los Altos,CA,94022,2,1.5,1072,2.985074627
+3900,"487 Tyndall St APT 1, Los Altos, CA 94022",487 Tyndall St APT 1,Los Altos,CA,94022,2,1,900,4.333333333
+2950,"(undisclosed Address), Los Altos, CA 94024",(undisclosed Address),Los Altos,CA,94024,2,1,1000,2.95
+4000,"4388 El Camino Real UNIT 167, Los Altos, CA 94022",4388 El Camino Real UNIT 167,Los Altos,CA,94022,2,2,1200,3.333333333
+4100,"4388 El Camino Real, Los Altos, CA 94022",4388 El Camino Real,Los Altos,CA,94022,2,2,1200,3.416666667
+2895,"438 Gabilan St, Los Altos, CA 94022",438 Gabilan St,Los Altos,CA,94022,2,2,6485,0.446414803
+2995,"(undisclosed Address), Los Altos, CA 94024",(undisclosed Address),Los Altos,CA,94024,1,1,700,4.278571429
+11500,"312 Marich Way, Los Altos, CA 94022",312 Marich Way,Los Altos,CA,94022,5,2.5,2538,4.531126872
+10000,"125 Lockhart Ln, Los Altos, CA 94022",125 Lockhart Ln,Los Altos,CA,94022,4,3.5,2200,4.545454545
+12000,"919 Lundy Ln, Los Altos, CA 94024",919 Lundy Ln,Los Altos,CA,94024,6,3.5,3316,3.618817853
+8500,"552 Paco Dr, Los Altos, CA 94024",552 Paco Dr,Los Altos,CA,94024,4,2.5,2447,3.473641193
+3950,"825 Terrace Dr, Los Altos, CA 94024",825 Terrace Dr,Los Altos,CA,94024,2,1,866,4.561200924
+7650,"1700 Holt Ave, Los Altos, CA 94024",1700 Holt Ave,Los Altos,CA,94024,3,2,2420,3.161157025
+3700,"441 Mundell Way, Los Altos, CA 94022",441 Mundell Way,Los Altos,CA,94022,2,1,1050,3.523809524
+7000,"1059 W Rose Cir, Los Altos, CA 94024",1059 W Rose Cir,Los Altos,CA,94024,4,2,1900,3.684210526
+6295,"1742 Austin Ave, Los Altos, CA 94024",1742 Austin Ave,Los Altos,CA,94024,4,2,2059,3.057309373
+4125,"991 Dolores Ave, Los Altos, CA 94024",991 Dolores Ave,Los Altos,CA,94024,3,1,1157,3.56525497
+9988,"1743 Westbrook Ave, Los Altos, CA 94024",1743 Westbrook Ave,Los Altos,CA,94024,6,4.5,2969,3.364095655
+10350,"368 University Ave, Los Altos, CA 94022",368 University Ave,Los Altos,CA,94022,3,2,2586,4.002320186
+2550,"(undisclosed Address), Los Altos, CA 94022",(undisclosed Address),Los Altos,CA,94022,0,1,450,5.666666667
+8200,"501 Benvenue Ave, Los Altos, CA 94024",501 Benvenue Ave,Los Altos,CA,94024,3,2,2046,4.007820137
+6900,"1216 Via Huerta, Los Altos, CA 94024",1216 Via Huerta,Los Altos,CA,94024,4,3,2379,2.90037831
+10000,"243 Merritt Rd, Los Altos, CA 94022",243 Merritt Rd,Los Altos,CA,94022,4,3.5,3750,2.666666667
+5850,"1674 Alexander Ct, Los Altos, CA 94024",1674 Alexander Ct,Los Altos,CA,94024,4,2,2013,2.906110283
+9450,"1400 Oak Ave, Los Altos, CA 94024",1400 Oak Ave,Los Altos,CA,94024,5,3,3750,2.52
+8500,"195 W Portola Ave, Los Altos, CA 94022",195 W Portola Ave,Los Altos,CA,94022,3,2.5,1937,4.38822922
+8750,"(undisclosed Address), Los Altos, CA 94022",(undisclosed Address),Los Altos,CA,94022,5,4.5,3300,2.651515152
+7850,"(undisclosed Address), Los Altos, CA 94024",(undisclosed Address),Los Altos,CA,94024,4,2.5,3000,2.616666667
+6598,"752 Edge Ln, Los Altos, CA 94024",752 Edge Ln,Los Altos,CA,94024,4,2,2500,2.6392
+6650,"1075 Highlands Cir, Los Altos, CA 94024",1075 Highlands Cir,Los Altos,CA,94024,4,2,1987,3.3467539
+5500,"1327 Morton Ave, Los Altos, CA 94024",1327 Morton Ave,Los Altos,CA,94024,3,2,1861,2.955400322
+7500,"48 N Gordon Way, Los Altos, CA 94022",48 N Gordon Way,Los Altos,CA,94022,3,2,2240,3.348214286
+7800,"745 College Ct, Los Altos, CA 94022",745 College Ct,Los Altos,CA,94022,4,2.5,2528,3.085443038
+2850,"(undisclosed Address), Los Altos, CA 94022",(undisclosed Address),Los Altos,CA,94022,1,1,750,3.8
+5000,"200 Alicia Way, Los Altos, CA 94022",200 Alicia Way,Los Altos,CA,94022,4,2.5,1885,2.652519894
+6500,"466 Tyndall St, Los Altos, CA 94022",466 Tyndall St,Los Altos,CA,94022,3,3,2198,2.957233849
+4395,"950 N San Antonio Rd APT 15C, Los Altos, CA 94022",950 N San Antonio Rd APT 15C,Los Altos,CA,94022,2,2,1250,3.516
+4200,"457 Tyndall St APT 3, Los Altos, CA 94022",457 Tyndall St APT 3,Los Altos,CA,94022,3,2.5,1744,2.408256881
+2950,"2109 Mark Twain Dr, Antioch, CA 94531",2109 Mark Twain Dr,Antioch,CA,94531,4,3,2258,1.306465899
+1710,"69 E 13th St, Antioch, CA 94509",69 E 13th St,Antioch,CA,94509,2,1,822,2.080291971
+2195,"104 E 6th St, Antioch, CA 94509",104 E 6th St,Antioch,CA,94509,2,1,768,2.858072917
+1850,"1126 Macaulay St, Antioch, CA 94509",1126 Macaulay St,Antioch,CA,94509,2,1,857,2.158693116
+3590,"5316 Knights Valley Ln, Antioch, CA 94509",5316 Knights Valley Ln,Antioch,CA,94509,5,3,2452,1.46411093
+2700,"1205 Simmons St, Antioch, CA 94509",1205 Simmons St,Antioch,CA,94509,3,2,1169,2.309666382
+3800,"2000 Tioga Pass Way, Antioch, CA 94531",2000 Tioga Pass Way,Antioch,CA,94531,5,3,3083,1.232565683
+3800,"1606 Monterey Dr, Antioch, CA 94509",1606 Monterey Dr,Antioch,CA,94509,4,2,1630,2.331288344
+3000,"4633 Glasgow Ct, Antioch, CA 94531",4633 Glasgow Ct,Antioch,CA,94531,4,2.5,2359,1.271725307
+3200,"4106 Rogers Canyon Rd, Antioch, CA 94531",4106 Rogers Canyon Rd,Antioch,CA,94531,4,2.5,1997,1.602403605
+2945,"917 Gatter Dr, Antioch, CA 94509",917 Gatter Dr,Antioch,CA,94509,4,2.5,2084,1.413147793
+3500,"5552 Mcfarlan Ranch Dr, Antioch, CA 94531",5552 Mcfarlan Ranch Dr,Antioch,CA,94531,5,3,2818,1.242015614
+3249,"4901 Willowbrook Way, Antioch, CA 94531",4901 Willowbrook Way,Antioch,CA,94531,4,2,1652,1.966707022
+2173,"1000 Claudia Ct, Antioch, CA 94509",1000 Claudia Ct,Antioch,CA,94509,2,1,644,3.374223602
+2449,"1139 Medanos St, Antioch, CA 94509",1139 Medanos St,Antioch,CA,94509,2,1,874,2.802059497
+2395,"544 W Madill St, Antioch, CA 94509",544 W Madill St,Antioch,CA,94509,3,2,1540,1.555194805
+2200,"2316 L St, Antioch, CA 94509",2316 L St,Antioch,CA,94509,2,1,825,2.666666667
+2899,"2113 Wildflower Dr, Antioch, CA 94509",2113 Wildflower Dr,Antioch,CA,94509,3,3,2030,1.428078818
+1695,"2300 Lemontree Way UNIT 4, Antioch, CA 94509",2300 Lemontree Way UNIT 4,Antioch,CA,94509,2,1,925,1.832432432
+4160,"20720 4th St APT 7, Saratoga, CA 95070",20720 4th St APT 7,Saratoga,CA,95070,3,2,1339,3.106796117
+6000,"19700 Junipero Way, Saratoga, CA 95070",19700 Junipero Way,Saratoga,CA,95070,4,2.5,2400,2.5
+7000,"20771 Reid Ln, Saratoga, CA 95070",20771 Reid Ln,Saratoga,CA,95070,4,3,2485,2.816901408
+3400,"(undisclosed Address), Saratoga, CA 95070",(undisclosed Address),Saratoga,CA,95070,2,2,1207,2.816901408
+3995,"18612 Bucknall Rd, Saratoga, CA 95070",18612 Bucknall Rd,Saratoga,CA,95070,3,1.5,2500,1.598
+9000,"20887 Kittridge Rd, Saratoga, CA 95070",20887 Kittridge Rd,Saratoga,CA,95070,5,5.5,4157,2.165022853
+6750,"19770 Lanark Ln, Saratoga, CA 95070",19770 Lanark Ln,Saratoga,CA,95070,4,2.5,2144,3.148320896
+5445,"13505 Myren Dr, Saratoga, CA 95070",13505 Myren Dr,Saratoga,CA,95070,4,3,2500,2.178
+5250,"12596 Northampton Ct, Saratoga, CA 95070",12596 Northampton Ct,Saratoga,CA,95070,4,3,2520,2.083333333
+7000,"19741 Elisa Ave, Saratoga, CA 95070",19741 Elisa Ave,Saratoga,CA,95070,6,3.5,3200,2.1875
+4800,"(undisclosed Address), Los Gatos, CA 95030",(undisclosed Address),Los Gatos,CA,95030,1,1,800,6
+3500,"14652 Big Basin Way APT D, Saratoga, CA 95070",14652 Big Basin Way APT D,Saratoga,CA,95070,3,2,1408,2.485795455
+4750,"18325 Mccoy Ave, Saratoga, CA 95070",18325 Mccoy Ave,Saratoga,CA,95070,3,2,1560,3.044871795
+4900,"14900 Sobey Rd #B, Saratoga, CA 95070",14900 Sobey Rd #B,Saratoga,CA,95070,2,2,1100,4.454545455
+4350,"14710 6th St, Saratoga, CA 95070",14710 6th St,Saratoga,CA,95070,3,2,1059,4.107648725
+2445,"(undisclosed Address), Saratoga, CA 95070",(undisclosed Address),Saratoga,CA,95070,1,1,650,3.761538462
+7200,"20297 Sea Gull Way, Saratoga, CA 95070",20297 Sea Gull Way,Saratoga,CA,95070,5,3.5,3513,2.049530316
+6500,"20490 Glasgow Dr, Saratoga, CA 95070",20490 Glasgow Dr,Saratoga,CA,95070,4,2.5,2476,2.625201939
+3800,"502 Lapin Pl, Hayward, CA 94541",502 Lapin Pl,Hayward,CA,94541,4,4,1716,2.214452214
+3200,"(undisclosed Address), Hayward, CA 94541",(undisclosed Address),Hayward,CA,94541,4,2,1350,2.37037037
+1550,"22195 Prospect St, Hayward, CA 94541",22195 Prospect St,Hayward,CA,94541,5,6,3400,0.455882353
+4300,"27183 Fielding Dr, Hayward, CA 94542",27183 Fielding Dr,Hayward,CA,94542,4,3,2171,1.980654076
+3565,"2252 Morrow St, Hayward, CA 94541",2252 Morrow St,Hayward,CA,94541,3,3.5,1850,1.927027027
+1850,"25705 Westview Way, Hayward, CA 94542",25705 Westview Way,Hayward,CA,94542,1,1,750,2.466666667
+2795,"441 Puerto Pl, Hayward, CA 94541",441 Puerto Pl,Hayward,CA,94541,2,2.5,1442,1.938280166
+1250,"1385 Sangamore St, Hayward, CA 94545",1385 Sangamore St,Hayward,CA,94545,0,1,362,3.453038674
+3900,"525 Ravenna Way, Hayward, CA 94545",525 Ravenna Way,Hayward,CA,94545,5,3,2101,1.856258924
+3595,"2113 Sleepy Hollow Ave, Hayward, CA 94545",2113 Sleepy Hollow Ave,Hayward,CA,94545,3,2,1450,2.479310345
+2995,"28064 Ziele Creek Dr, Hayward, CA 94542",28064 Ziele Creek Dr,Hayward,CA,94542,3,2.5,1900,1.576315789
+2100,"26231 Gamboa St APT 1, Hayward, CA 94544",26231 Gamboa St APT 1,Hayward,CA,94544,2,1,875,2.4
+4200,"(undisclosed Address), Hayward, CA 94541",(undisclosed Address),Hayward,CA,94541,4,4,1999,2.101050525
+1795,"800 Pinedale Ct, Hayward, CA 94544",800 Pinedale Ct,Hayward,CA,94544,1,1,572,3.138111888
+3030,"442 W Sunset Blvd, Hayward, CA 94541",442 W Sunset Blvd,Hayward,CA,94541,3,2,3521,0.86055098
+2395,"22063 Hathaway Ave, Hayward, CA 94541",22063 Hathaway Ave,Hayward,CA,94541,2,1.5,1000,2.395
+1250,"24172 Amaranth Loop, Hayward, CA 94541",24172 Amaranth Loop,Hayward,CA,94541,1,1,,
+4500,"30287 Cedarbrook Rd, Hayward, CA 94544",30287 Cedarbrook Rd,Hayward,CA,94544,4,3,2419,1.86027284
+3190,"52 Fernridge Ct, Hayward, CA 94544",52 Fernridge Ct,Hayward,CA,94544,3,2.5,1585,2.012618297
+3595,"22823 Grand St, Hayward, CA 94541",22823 Grand St,Hayward,CA,94541,2,1,1411,2.547838412
+3195,"2646 Leeward St, Hayward, CA 94545",2646 Leeward St,Hayward,CA,94545,3,2,1128,2.832446809
+2990,"407 Rhythm Ln, Hayward, CA 94544",407 Rhythm Ln,Hayward,CA,94544,2,2,1500,1.993333333
+3600,"1526 Sumatra St, Hayward, CA 94544",1526 Sumatra St,Hayward,CA,94544,4,2,1264,2.848101266
+3200,"25396 Del Mar Ave, Hayward, CA 94542",25396 Del Mar Ave,Hayward,CA,94542,3,1,1073,2.982292637
+2200,"426 Cherry Way, Hayward, CA 94541",426 Cherry Way,Hayward,CA,94541,1,1,750,2.933333333
+2350,"389 Laurel Ave, Hayward, CA 94541",389 Laurel Ave,Hayward,CA,94541,2,1,850,2.764705882
+3250,"3489 Bridle Dr, Hayward, CA 94541",3489 Bridle Dr,Hayward,CA,94541,3,2,1576,2.062182741
+3300,"592 Staley Ave, Hayward, CA 94541",592 Staley Ave,Hayward,CA,94541,3,3,1516,2.176781003
+3190,"22734 Zaballos Ct, Hayward, CA 94541",22734 Zaballos Ct,Hayward,CA,94541,3,2,1800,1.772222222
+1800,"(undisclosed Address), Hayward, CA 94541",(undisclosed Address),Hayward,CA,94541,1,1,900,2
+1875,"(undisclosed Address), Hayward, CA 94541",(undisclosed Address),Hayward,CA,94541,1,1,500,3.75
+2350,"27900 Thornton Ct, Hayward, CA 94544",27900 Thornton Ct,Hayward,CA,94544,2,1,900,2.611111111
+3900,"28106 Thorup Ln, Hayward, CA 94542",28106 Thorup Ln,Hayward,CA,94542,4,3,1819,2.144035184
+2995,"2564 Sleepy Hollow Ave, Hayward, CA 94545",2564 Sleepy Hollow Ave,Hayward,CA,94545,2,2,1244,2.40755627
+3390,"24560 Diamond Ridge Dr, Hayward, CA 94544",24560 Diamond Ridge Dr,Hayward,CA,94544,3,2,1585,2.138801262
+3350,"3242 Guillermo Pl, Hayward, CA 94542",3242 Guillermo Pl,Hayward,CA,94542,2,2,1679,1.995235259
+3000,"316 Lafayette Ave, Hayward, CA 94544",316 Lafayette Ave,Hayward,CA,94544,3,1,927,3.236245955
+7999,"1556 E St, Hayward, CA 94541",1556 E St,Hayward,CA,94541,6,3,4000,1.99975
+1800,"548 Minerva St, Hayward, CA 94544",548 Minerva St,Hayward,CA,94544,1,1,500,3.6
+3000,"465 W Sunset Blvd, Hayward, CA 94541",465 W Sunset Blvd,Hayward,CA,94541,3,1,941,3.188097768
+2175,"30253 Vanderbilt St, Hayward, CA 94544",30253 Vanderbilt St,Hayward,CA,94544,2,1.5,,
+3800,"241 Jacaranda Dr, Hayward, CA 94544",241 Jacaranda Dr,Hayward,CA,94544,4,3,1592,2.386934673
+2400,"457 W Sunset Blvd, Hayward, CA 94541",457 W Sunset Blvd,Hayward,CA,94541,2,1,,
+3200,"22872 Charing St, Hayward, CA 94541",22872 Charing St,Hayward,CA,94541,3,3,1333,2.40060015
+2800,"10613 Eastertown Ln, Dublin, CA 94568",10613 Eastertown Ln,Dublin,CA,94568,2,2,1103,2.538531278
+3950,"(undisclosed Address), Dublin, CA 94568",(undisclosed Address),Dublin,CA,94568,4,3.5,2050,1.926829268
+3700,"4135 Wallis Ranch Dr, Dublin, CA 94568",4135 Wallis Ranch Dr,Dublin,CA,94568,3,2,1853,1.996762008
+2395,"8840 Sovereign Ct, Dublin, CA 94568",8840 Sovereign Ct,Dublin,CA,94568,2,1.5,1000,2.395
+3150,"7447 Brigadoon Way, Dublin, CA 94568",7447 Brigadoon Way,Dublin,CA,94568,3,2.5,1387,2.271088681
+3650,"(undisclosed Address), Dublin, CA 94568",(undisclosed Address),Dublin,CA,94568,4,2.5,1780,2.050561798
+2495,"7319 Starward Dr APT 41, Dublin, CA 94568",7319 Starward Dr APT 41,Dublin,CA,94568,2,1.5,927,2.691477886
+3950,"4228 Loyalton Rd, Dublin, CA 94568",4228 Loyalton Rd,Dublin,CA,94568,3,2.5,2094,1.886341929
+5495,"5591 Newfields Ln, Dublin, CA 94568",5591 Newfields Ln,Dublin,CA,94568,5,4,3777,1.454858353
+3600,"4739 Mangrove Dr, Dublin, CA 94568",4739 Mangrove Dr,Dublin,CA,94568,3,2.5,1610,2.236024845
+4600,"2526 Bassetts Way, Dublin, CA 94568",2526 Bassetts Way,Dublin,CA,94568,5,4,2668,1.724137931
+4900,"4352 Central Pkwy, Dublin, CA 94568",4352 Central Pkwy,Dublin,CA,94568,4,2.5,2928,1.673497268
+3700,"7013 N Mariposa Ln, Dublin, CA 94568",7013 N Mariposa Ln,Dublin,CA,94568,4,3.5,2150,1.720930233
+3850,"5791 Southbridge Way, Dublin, CA 94568",5791 Southbridge Way,Dublin,CA,94568,4,2.5,2013,1.912568306
+4500,"3398 Palermo Way, Dublin, CA 94568",3398 Palermo Way,Dublin,CA,94568,5,3.5,2107,2.135738016
+4500,"5659 Bellevue Cir, Dublin, CA 94568",5659 Bellevue Cir,Dublin,CA,94568,5,3,2660,1.691729323
+4300,"4190 Meadow Vista Rd, Dublin, CA 94568",4190 Meadow Vista Rd,Dublin,CA,94568,4,4,2428,1.771004942
+3200,"6592 Conestoga Ln, Dublin, CA 94568",6592 Conestoga Ln,Dublin,CA,94568,2,2.5,1225,2.612244898
+2800,"(undisclosed Address), Dublin, CA 94568",(undisclosed Address),Dublin,CA,94568,2,2,1420,1.971830986
+3395,"8832 Oliver Pl, Dublin, CA 94568",8832 Oliver Pl,Dublin,CA,94568,3,2.5,1599,2.123202001
+4200,"5419 Melissa Ln, Dublin, CA 94568",5419 Melissa Ln,Dublin,CA,94568,3,3,1503,2.794411178
+4200,"5525 Stout St, Dublin, CA 94568",5525 Stout St,Dublin,CA,94568,3,3,1563,2.687140115
+4195,"5728 Old Westbury Way, Dublin, CA 94568",5728 Old Westbury Way,Dublin,CA,94568,3,2.5,1886,2.224284199
+4695,"1999 Haggerty Dr, Dublin, CA 94568",1999 Haggerty Dr,Dublin,CA,94568,4,3,2510,1.870517928
+3780,"3952 Windsor Way, Dublin, CA 94568",3952 Windsor Way,Dublin,CA,94568,3,3.5,1962,1.926605505
+2250,"8846 Sovereign Ct #8846, Dublin, CA 94568",8846 Sovereign Ct #8846,Dublin,CA,94568,2,1.5,960,2.34375
+2600,"4425 Brannigan St, Dublin, CA 94568",4425 Brannigan St,Dublin,CA,94568,1,1.5,1243,2.091713596
+1600,"(undisclosed Address), Dublin, CA 94568",(undisclosed Address),Dublin,CA,94568,1,1,480,3.333333333
+4000,"6580 S Mariposa Ct, Dublin, CA 94568",6580 S Mariposa Ct,Dublin,CA,94568,4,4,2002,1.998001998
+4000,"(undisclosed Address), Pleasanton, CA 94566",(undisclosed Address),Pleasanton,CA,94566,3,2.5,1383,2.892263196
+5500,"1019 Deer Creek Ct, Pleasanton, CA 94566",1019 Deer Creek Ct,Pleasanton,CA,94566,4,4,3500,1.571428571
+3800,"1999 Barcenilla Ln, Pleasanton, CA 94588",1999 Barcenilla Ln,Pleasanton,CA,94588,4,3.5,1954,1.944728762
+2695,"749 Palomino Dr APT D, Pleasanton, CA 94566",749 Palomino Dr APT D,Pleasanton,CA,94566,2,1.5,1130,2.384955752
+2375,"921 Rose Ave, Pleasanton, CA 94566",921 Rose Ave,Pleasanton,CA,94566,2,1,900,2.638888889
+2600,"3399 Norton Way, Pleasanton, CA 94566",3399 Norton Way,Pleasanton,CA,94566,2,1.5,1250,2.08
+2150,"2158 Arroyo Ct APT 1, Pleasanton, CA 94588",2158 Arroyo Ct APT 1,Pleasanton,CA,94588,2,1,850,2.529411765
+3350,"5742 Belleza Dr, Pleasanton, CA 94588",5742 Belleza Dr,Pleasanton,CA,94588,3,2.5,1761,1.902328223
+2150,"1487 Whispering Oaks Way, Pleasanton, CA 94566",1487 Whispering Oaks Way,Pleasanton,CA,94566,1,1,772,2.784974093
+3790,"4005 Payne Rd, Pleasanton, CA 94588",4005 Payne Rd,Pleasanton,CA,94588,3,2,1372,2.762390671
+4400,"4058 Suffolk Way, Pleasanton, CA 94588",4058 Suffolk Way,Pleasanton,CA,94588,4,3,1941,2.266872746
+3900,"5570 Baldwin Way, Pleasanton, CA 94588",5570 Baldwin Way,Pleasanton,CA,94588,3,2.5,1614,2.416356877
+2600,"4433 Fairlands Dr, Pleasanton, CA 94588",4433 Fairlands Dr,Pleasanton,CA,94588,2,1,950,2.736842105
+3650,"2677 Lotus St, Pleasanton, CA 94588",2677 Lotus St,Pleasanton,CA,94588,3,2.5,1820,2.005494505
+3975,"2615 Chocolate St, Pleasanton, CA 94588",2615 Chocolate St,Pleasanton,CA,94588,4,2.5,1974,2.013677812
+4100,"2765 Chocolate St, Pleasanton, CA 94588",2765 Chocolate St,Pleasanton,CA,94588,4,2.5,2014,2.035749752
+3295,"4812 Harrison St, Pleasanton, CA 94566",4812 Harrison St,Pleasanton,CA,94566,2,1,1000,3.295
+2195,"(undisclosed Address), Pleasanton, CA 94566",(undisclosed Address),Pleasanton,CA,94566,1,1,500,4.39
+2000,"1378 W Lagoon Rd, Pleasanton, CA 94566",1378 W Lagoon Rd,Pleasanton,CA,94566,1,1,650,3.076923077
+3095,"4451 Seminole Way, Pleasanton, CA 94588",4451 Seminole Way,Pleasanton,CA,94588,4,2.5,1474,2.09972863
+5400,"862 E Angela St, Pleasanton, CA 94566",862 E Angela St,Pleasanton,CA,94566,5,4,3057,1.766437684
+4500,"7777 Capewood Pl, Pleasanton, CA 94588",7777 Capewood Pl,Pleasanton,CA,94588,4,2.5,2300,1.956521739
+3500,"2046 Eilene Dr, Pleasanton, CA 94588",2046 Eilene Dr,Pleasanton,CA,94588,2,3,1314,2.663622527
+2550,"3143 Washoe Way, Pleasanton, CA 94588",3143 Washoe Way,Pleasanton,CA,94588,3,1.5,1130,2.256637168
+3700,"2272 Delucchi Dr, Pleasanton, CA 94588",2272 Delucchi Dr,Pleasanton,CA,94588,3,2.5,1825,2.02739726
+6400,"205 Heritage Ln, Pleasanton, CA 94566",205 Heritage Ln,Pleasanton,CA,94566,5,2.5,3764,1.70031881
+2390,"1022 Division St, Pleasanton, CA 94566",1022 Division St,Pleasanton,CA,94566,1,1,565,4.230088496
+2400,"560 Division St, Pleasanton, CA 94566",560 Division St,Pleasanton,CA,94566,1,1,800,3
+3650,"5377 Sonoma Dr, Pleasanton, CA 94566",5377 Sonoma Dr,Pleasanton,CA,94566,3,2,1469,2.484683458
+3950,"6857 Siesta Ct, Pleasanton, CA 94588",6857 Siesta Ct,Pleasanton,CA,94588,3,2,1372,2.879008746
+,"2554 Glen Isle Ave, Pleasanton, CA 94588",2554 Glen Isle Ave,Pleasanton,CA,94588,4,3,2295,0
+3400,"1672 Lee Way, Milpitas, CA 95035",1672 Lee Way,Milpitas,CA,95035,3,2,1456,2.335164835
+3750,"610 Santos Ct, Milpitas, CA 95035",610 Santos Ct,Milpitas,CA,95035,3,2,1380,2.717391304
+3000,"439 Sandhurst Dr, Milpitas, CA 95035",439 Sandhurst Dr,Milpitas,CA,95035,2,2.5,1412,2.124645892
+3300,"399 Levin St, Milpitas, CA 95035",399 Levin St,Milpitas,CA,95035,3,2,1120,2.946428571
+3700,"899 Contemplation Pl, Milpitas, CA 95035",899 Contemplation Pl,Milpitas,CA,95035,4,3.5,1764,2.097505669
+2975,"(undisclosed Address), Milpitas, CA 95035",(undisclosed Address),Milpitas,CA,95035,2,2.5,1412,2.10694051
+3600,"1896 Lee Way, Milpitas, CA 95035",1896 Lee Way,Milpitas,CA,95035,3,3.5,1941,1.854714065
+3200,"1505 Cherry Cir, Milpitas, CA 95035",1505 Cherry Cir,Milpitas,CA,95035,2,2.5,1103,2.901178604
+2900,"76 Parc Place Dr, Milpitas, CA 95035",76 Parc Place Dr,Milpitas,CA,95035,2,2.5,1192,2.432885906
+3295,"150 Millwater Ct, Milpitas, CA 95035",150 Millwater Ct,Milpitas,CA,95035,3,2.5,1427,2.309039944
+3100,"1028 Matterhorn Ct, Milpitas, CA 95035",1028 Matterhorn Ct,Milpitas,CA,95035,2,2,1430,2.167832168
+2850,"1045 Big Bear Ct, Milpitas, CA 95035",1045 Big Bear Ct,Milpitas,CA,95035,2,2,1500,1.9
+3300,"951 Erie Cir, Milpitas, CA 95035",951 Erie Cir,Milpitas,CA,95035,2,2.5,1350,2.444444444
+4200,"867 Pepper Pl, Milpitas, CA 95035",867 Pepper Pl,Milpitas,CA,95035,3,4,1675,2.507462687
+4195,"1731 Ironwood Ln, Milpitas, CA 95035",1731 Ironwood Ln,Milpitas,CA,95035,3,3.5,2219,1.890491212
+3600,"1119 Luz Del Sol Loop, Milpitas, CA 95035",1119 Luz Del Sol Loop,Milpitas,CA,95035,3,2.5,1738,2.071346375
+3295,"(undisclosed Address), Milpitas, CA 95035",(undisclosed Address),Milpitas,CA,95035,2,2,1300,2.534615385
+3095,"65 Ede Ln, Milpitas, CA 95035",65 Ede Ln,Milpitas,CA,95035,3,2,1359,2.27740986
+3600,"2137 Cuesta Dr, Milpitas, CA 95035",2137 Cuesta Dr,Milpitas,CA,95035,3,2.5,1528,2.356020942
+3000,"80 Washington Square Dr #80, Milpitas, CA 95035",80 Washington Square Dr #80,Milpitas,CA,95035,2,2.5,1235,2.429149798
+3200,"1856 Snell Pl BUILDING 13, Milpitas, CA 95035",1856 Snell Pl BUILDING 13,Milpitas,CA,95035,2,2,1359,2.354672553
+3600,"2101 Lee Way, Milpitas, CA 95035",2101 Lee Way,Milpitas,CA,95035,3,3,1622,2.219482121
+2450,"1526 Clear Lake Ave, Milpitas, CA 95035",1526 Clear Lake Ave,Milpitas,CA,95035,2,1.5,1008,2.430555556
+3500,"1521 Larkwood Ct, Milpitas, CA 95035",1521 Larkwood Ct,Milpitas,CA,95035,3,2.5,1547,2.262443439
+2900,"1101 S Main St APT 324, Milpitas, CA 95035",1101 S Main St APT 324,Milpitas,CA,95035,2,2,1188,2.441077441
+3000,"1110 Mente Linda Loop #1, Milpitas, CA 95035",1110 Mente Linda Loop #1,Milpitas,CA,95035,2,2,1371,2.188183807
+3400,"1301 Chewpon Ave, Milpitas, CA 95035",1301 Chewpon Ave,Milpitas,CA,95035,2,2.5,1503,2.262142382
+4500,"93 Castillo Ln, Milpitas, CA 95035",93 Castillo Ln,Milpitas,CA,95035,4,4,2284,1.970227671
+3600,"1868 Trento Loop, Milpitas, CA 95035",1868 Trento Loop,Milpitas,CA,95035,3,3,1800,2
+3600,"1300 Cirolero St, Milpitas, CA 95035",1300 Cirolero St,Milpitas,CA,95035,3,2,1054,3.415559772
+3400,"162 Millwater Ct, Milpitas, CA 95035",162 Millwater Ct,Milpitas,CA,95035,3,2.5,1427,2.382620883
+3850,"172 Images Cir, Milpitas, CA 95035",172 Images Cir,Milpitas,CA,95035,3,2.5,1615,2.383900929
+1350,"1297 Moonbeam Way, Milpitas, CA 95035",1297 Moonbeam Way,Milpitas,CA,95035,0,1,374,3.609625668
+3500,"283 N Abbott Ave, Milpitas, CA 95035",283 N Abbott Ave,Milpitas,CA,95035,3,2,1116,3.136200717
+2300,"1027 N Abbott Ave, Milpitas, CA 95035",1027 N Abbott Ave,Milpitas,CA,95035,2,1,863,2.665121669
+3350,"813 N Abel St, Milpitas, CA 95035",813 N Abel St,Milpitas,CA,95035,3,1,1035,3.236714976
+3750,"1381 N Hillview Dr, Milpitas, CA 95035",1381 N Hillview Dr,Milpitas,CA,95035,3,2,1501,2.498334444
+2795,"355 N Temple Dr, Milpitas, CA 95035",355 N Temple Dr,Milpitas,CA,95035,3,1.5,1176,2.37670068
+2250,"472 Dempsey Rd UNIT 275, Milpitas, CA 95035",472 Dempsey Rd UNIT 275,Milpitas,CA,95035,2,1,842,2.672209026
+2995,"1392 Highland Ct, Milpitas, CA 95035",1392 Highland Ct,Milpitas,CA,95035,3,1.5,1165,2.570815451
+2175,"412 Dempsey Rd UNIT 215, Milpitas, CA 95035",412 Dempsey Rd UNIT 215,Milpitas,CA,95035,2,1,842,2.583135392
+3700,"1047 Claridad Loop, Milpitas, CA 95035",1047 Claridad Loop,Milpitas,CA,95035,3,2.5,1772,2.088036117
+3400,"1613 Lee Way, Milpitas, CA 95035",1613 Lee Way,Milpitas,CA,95035,3,3,1512,2.248677249
+3100,"777 Mente Linda Loop, Milpitas, CA 95035",777 Mente Linda Loop,Milpitas,CA,95035,2,2,1371,2.261123268
+4100,"1996 Lee Way, Milpitas, CA 95035",1996 Lee Way,Milpitas,CA,95035,4,3.5,2135,1.920374707
