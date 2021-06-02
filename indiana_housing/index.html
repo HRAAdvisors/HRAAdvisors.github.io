@@ -118,9 +118,9 @@
         <div class="tab03_menu w-tab-menu">
           <div class="container w-container">
           <div class="text-block-42">What is the state of <select class="js-example-basic-single" name="state" id="metric">
-          <option value="the population">the population</option>
+          <option value="population">the population</option>
           <option value="housing">housing</option>
-          <option value="housing affordability">housing affordability</option>
+          <option value="housingafford">housing affordability</option>
           <option value="jobs">jobs</option>
         </select> in <select class="js-example-basic-single" id="geography"><option value="Indiana">Indiana</option></select> ?</div>
                 </div>
@@ -138,12 +138,12 @@
             <div class="tab03_tab_content">
               <div class="tab03_block_left">
                 <div class="w-layout-grid grid">
-                  <div id='chart1'><span>Population</span></div>
-                   <div id='chart2'><span>Median Income</span></div>
-                   <div id='chart3'><span>Household Income Distribution</span></div>
-                   <div id='chart4'><span>Family Poverty Rate</span></div>
-                   <div id='chart5'><span>Tenure</span></div>
-                   <div id='chart6'><span>Race</span></div>
+                  <div id='chart1'><b><span id='label1'>Population</span></b></div>
+                   <div id='chart2'><b><span id='label2'>Median Income</span></b></div>
+                   <div id='chart3'><b><span id='label3'>Household Income Distribution</span></b></div>
+                   <div id='chart4'><b><span id='label4'>Family Poverty Rate</span></b></div>
+                   <div id='chart5'><b><span id='label5'>Tenure</span></b></div>
+                   <div id='chart6'><b><span id='label6'>Race</span></b></div>
                 </div>
               </div>
               <div class="tab03_block_right">
@@ -180,6 +180,22 @@
 </body>
 <script>
 
+//Define Labels
+span = ['#label1','#label2','#label3','#label4','#label5','#label6']
+
+population = ['Population','Median Income','Household Income Distribution','Family Poverty Rate','Tenure','Race']
+housing = ['Housing Units by Typology','Housing Units by Decade Built','Median Listing Price','Median Rent','Housing Starts','Affordable Housing Starts']
+housingafford = ['Cost Burdened Households','Cost Burden by Tenure','Cost Burden by Income','Rental Housing Gap','Home Value Affordable to Median Household','']
+jobs = ['Unemployment Rate','Net New Jobs','Top 5 Industries by Jobs','Median Salary','Inflow/Outflow','']
+
+
+reLabel = function(spans,labels){
+spans.forEach(function(d,i){
+  document.querySelector(d).innerHTML = labels[i]
+} )
+} 
+
+
 //Make Tooltip
 var tip = d3.select("body").append("div") 
     .attr("class", "tooltip2")
@@ -214,6 +230,8 @@ metric.addEventListener('change', (event) => {
       tempOption = document.createElement('option');
 
   tempOption.textContent = event.target.options[event.target.selectedIndex].text;
+  label = eval(event.target.options[event.target.selectedIndex].value)
+  reLabel(span,label)
   tempSelect.style.cssText += `
       visibility: hidden;
       position: fixed;
