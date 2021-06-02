@@ -25488,7 +25488,7 @@ blockquote {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
+  display: contents;
   width: 50%;
   height: 100%;
   padding: 30px;
@@ -25515,6 +25515,7 @@ blockquote {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  padding-top: 5%;
   margin-bottom: 30px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
@@ -27143,6 +27144,8 @@ blockquote {
 
 .container {
   position: absolute;
+
+  width: 65%;
   left: 0px;
   height: 100%;
   top:  38%;
