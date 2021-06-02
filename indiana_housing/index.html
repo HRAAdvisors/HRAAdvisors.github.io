@@ -230,7 +230,7 @@ metric.addEventListener('change', (event) => {
 var geography = d3.select("#geography")
 window.addEventListener("load", function(){
 d3.json("gis/counties.geojson", function(data) {
-    console.log(data);
+    //console.log(data);
 
 var nest = d3.nest()
         .key(function(d){
@@ -278,9 +278,6 @@ geographies.addEventListener('change', (event) => {
 
 
 });
-
-
-  console.log(nest)
 
 
 
@@ -356,20 +353,23 @@ geographies.addEventListener('change', (event) => {
 years = [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019]
 
 
-function getMinY(data,value) {
-  return data.reduce((min, p) => p[value] < min ? p[value] : min, data[0][value]);
+function getYs(data,value){
+  return data.map(d => d[value]);
 }
-function getMaxY(data,value) {
-  return data.reduce((max, p) => p[value] > max ? p[value] : max, data[0][value]);
+function getMinY(data,value){
+  return Math.min(...getYs(data,value));
+}
+function getMaxY(data,value){
+  return Math.max(...getYs(data,value));
 }
 
 
 function assignData(data,variables,charts){
 
-console.log(data)
+//console.log(data)
 
-var dataset = data.map(function(x){ return {"value":parseInt(x[1][1])}})
-var dataset = data.map(function(x){ console.log(x)})
+//var dataset = data.map(function(x){ return {"value":parseInt(x[1][1])}})
+//var dataset = data.map(function(x){ console.log(x)})
 
 
 var dataset = data.map(function(x){
@@ -380,6 +380,7 @@ dict[d] = x[1][i]
 return dict
 })
 
+console.log(dataset)
 charts.forEach(function(d,i){
 makeChart(dataset,d,variables[i])
 
