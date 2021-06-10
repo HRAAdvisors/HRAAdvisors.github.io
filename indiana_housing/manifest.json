@@ -1,0 +1,608 @@
+{
+  "divs": [
+    "#chart1",
+    "#chart2",
+    "#chart3",
+    "#chart4",
+    "#chart5",
+    "#chart6"
+  ],
+  "chartfunctions": [
+    {
+      "type": "line",
+      "function": "makeLineChart"
+    },
+    {
+      "type": "stackedbar",
+      "function": "makeStackedBarChart"
+    },
+    {
+      "type": "donut",
+      "function": "makeDonutChart"
+    },
+    {
+      "type": "indicator",
+      "function": "makeIndicator"
+    },
+    {
+      "type": "column",
+      "function": "makeColumnChart"
+    },
+    {
+      "type": "bar",
+      "function": "makeBarChart"
+    },
+    {
+      "type": "venn",
+      "function": "makeVennChart"
+    },
+    {
+      "type": "table",
+      "function": "makeTable"
+    }
+  ],
+  "topic": {"population": [
+        {
+          "title": "Total Population",
+          "variables": [
+            {
+              "name": "Total Population",
+              "code": "B01001_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Household Income Distribution",
+          "variables": [
+            {
+              "name": "Less than $10,000",
+              "code": "B19001_002E"
+            },
+            {
+              "name": "$10,000 to $14,999",
+              "code": "B19001_003E"
+            },
+            {
+              "name": "$15,000 to $19,999",
+              "code": "B19001_004E"
+            },
+            {
+              "name": "$20,000 to $24,999",
+              "code": "B19001_005E"
+            },
+            {
+              "name": "$25,000 to $29,999",
+              "code": "B19001_006E"
+            },
+            {
+              "name": "$30,000 to $34,999",
+              "code": "B19001_007E"
+            },
+            {
+              "name": "$35,000 to $39,999",
+              "code": "B19001_008E"
+            },
+            {
+              "name": "$40,000 to $44,999",
+              "code": "B19001_009E"
+            },
+            {
+              "name": "$45,000 to $49,999",
+              "code": "B19001_010E"
+            },
+            {
+              "name": "$50,000 to $59,999",
+              "code": "B19001_011E"
+            },
+            {
+              "name": "$60,000 to $74,999",
+              "code": "B19001_012E"
+            },
+            {
+              "name": "$75,000 to $99,999",
+              "code": "B19001_013E"
+            },
+            {
+              "name": "$100,000 to $124,999",
+              "code": "B19001_014E"
+            },
+            {
+              "name": "$125,000 to $149,999",
+              "code": "B19001_015E"
+            },
+            {
+              "name": "$150,000 to $199,999",
+              "code": "B19001_016E"
+            },
+            {
+              "name": "$200,000 or more",
+              "code": "B19001_017E"
+            }
+          ],
+          "type": "stackedbar",
+          "dataset": "ACS",
+          "year": "terminal"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        }
+      ],
+        "housing": [
+        {
+          "title": "Total Population",
+          "variables": [
+            {
+              "name": "Total Population",
+              "code": "B01001_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Household Income Distribution",
+          "variables": [
+            {
+              "name": "Less than $10,000",
+              "code": "B19001_002E"
+            },
+            {
+              "name": "$10,000 to $14,999",
+              "code": "B19001_003E"
+            },
+            {
+              "name": "$15,000 to $19,999",
+              "code": "B19001_004E"
+            },
+            {
+              "name": "$20,000 to $24,999",
+              "code": "B19001_005E"
+            },
+            {
+              "name": "$25,000 to $29,999",
+              "code": "B19001_006E"
+            },
+            {
+              "name": "$30,000 to $34,999",
+              "code": "B19001_007E"
+            },
+            {
+              "name": "$35,000 to $39,999",
+              "code": "B19001_008E"
+            },
+            {
+              "name": "$40,000 to $44,999",
+              "code": "B19001_009E"
+            },
+            {
+              "name": "$45,000 to $49,999",
+              "code": "B19001_010E"
+            },
+            {
+              "name": "$50,000 to $59,999",
+              "code": "B19001_011E"
+            },
+            {
+              "name": "$60,000 to $74,999",
+              "code": "B19001_012E"
+            },
+            {
+              "name": "$75,000 to $99,999",
+              "code": "B19001_013E"
+            },
+            {
+              "name": "$100,000 to $124,999",
+              "code": "B19001_014E"
+            },
+            {
+              "name": "$125,000 to $149,999",
+              "code": "B19001_015E"
+            },
+            {
+              "name": "$150,000 to $199,999",
+              "code": "B19001_016E"
+            },
+            {
+              "name": "$200,000 or more",
+              "code": "B19001_017E"
+            }
+          ],
+          "type": "stackedbar",
+          "dataset": "ACS",
+          "year": "terminal"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        }
+      ],
+        "housingafford": [
+        {
+          "title": "Total Population",
+          "variables": [
+            {
+              "name": "Total Population",
+              "code": "B01001_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Household Income Distribution",
+          "variables": [
+            {
+              "name": "Less than $10,000",
+              "code": "B19001_002E"
+            },
+            {
+              "name": "$10,000 to $14,999",
+              "code": "B19001_003E"
+            },
+            {
+              "name": "$15,000 to $19,999",
+              "code": "B19001_004E"
+            },
+            {
+              "name": "$20,000 to $24,999",
+              "code": "B19001_005E"
+            },
+            {
+              "name": "$25,000 to $29,999",
+              "code": "B19001_006E"
+            },
+            {
+              "name": "$30,000 to $34,999",
+              "code": "B19001_007E"
+            },
+            {
+              "name": "$35,000 to $39,999",
+              "code": "B19001_008E"
+            },
+            {
+              "name": "$40,000 to $44,999",
+              "code": "B19001_009E"
+            },
+            {
+              "name": "$45,000 to $49,999",
+              "code": "B19001_010E"
+            },
+            {
+              "name": "$50,000 to $59,999",
+              "code": "B19001_011E"
+            },
+            {
+              "name": "$60,000 to $74,999",
+              "code": "B19001_012E"
+            },
+            {
+              "name": "$75,000 to $99,999",
+              "code": "B19001_013E"
+            },
+            {
+              "name": "$100,000 to $124,999",
+              "code": "B19001_014E"
+            },
+            {
+              "name": "$125,000 to $149,999",
+              "code": "B19001_015E"
+            },
+            {
+              "name": "$150,000 to $199,999",
+              "code": "B19001_016E"
+            },
+            {
+              "name": "$200,000 or more",
+              "code": "B19001_017E"
+            }
+          ],
+          "type": "stackedbar",
+          "dataset": "ACS",
+          "year": "terminal"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        }
+      ],
+        "jobs": [
+        {
+          "title": "Total Population",
+          "variables": [
+            {
+              "name": "Total Population",
+              "code": "B01001_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Household Income Distribution",
+          "variables": [
+            {
+              "name": "Less than $10,000",
+              "code": "B19001_002E"
+            },
+            {
+              "name": "$10,000 to $14,999",
+              "code": "B19001_003E"
+            },
+            {
+              "name": "$15,000 to $19,999",
+              "code": "B19001_004E"
+            },
+            {
+              "name": "$20,000 to $24,999",
+              "code": "B19001_005E"
+            },
+            {
+              "name": "$25,000 to $29,999",
+              "code": "B19001_006E"
+            },
+            {
+              "name": "$30,000 to $34,999",
+              "code": "B19001_007E"
+            },
+            {
+              "name": "$35,000 to $39,999",
+              "code": "B19001_008E"
+            },
+            {
+              "name": "$40,000 to $44,999",
+              "code": "B19001_009E"
+            },
+            {
+              "name": "$45,000 to $49,999",
+              "code": "B19001_010E"
+            },
+            {
+              "name": "$50,000 to $59,999",
+              "code": "B19001_011E"
+            },
+            {
+              "name": "$60,000 to $74,999",
+              "code": "B19001_012E"
+            },
+            {
+              "name": "$75,000 to $99,999",
+              "code": "B19001_013E"
+            },
+            {
+              "name": "$100,000 to $124,999",
+              "code": "B19001_014E"
+            },
+            {
+              "name": "$125,000 to $149,999",
+              "code": "B19001_015E"
+            },
+            {
+              "name": "$150,000 to $199,999",
+              "code": "B19001_016E"
+            },
+            {
+              "name": "$200,000 or more",
+              "code": "B19001_017E"
+            }
+          ],
+          "type": "stackedbar",
+          "dataset": "ACS",
+          "year": "terminal"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        },
+        {
+          "title": "Median Household Income",
+          "variables": [
+            {
+              "name": "Median Household Income",
+              "code": "B19013_001E"
+            }
+          ],
+          "type": "line",
+          "dataset": "ACS",
+          "year": "all"
+        }
+      ]},
+  "geographies": [
+    "state",
+    "county"
+  ],
+"sources": [
+    {
+      "name": "ACS",
+      "endpoints": [
+        {
+          "url": "https://api.census.gov/data/{}/acs/acs5?get=NAME,{}&for=state:{}&key=dd33b0475c26275920fe5c32a030d1a3310e899f",
+          "sub": [
+            "year",
+            "variables",
+            "state"
+          ]
+        },
+        {
+          "url": "https://api.census.gov/data/{}/acs/acs5?get=NAME,{}&for=county:{}&in=state:{}&key=dd33b0475c26275920fe5c32a030d1a3310e899f",
+          "sub": [
+            "year",
+            "variables",
+            "county",
+            "state"
+          ]
+        }
+      ]
+    }
+  ]
+}

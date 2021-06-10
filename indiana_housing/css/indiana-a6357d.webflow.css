@@ -25366,9 +25366,9 @@ blockquote {
 .tab03_container {
   overflow: visible;
   height: 71vh;
-  max-width: 1000px;
-  margin-right: auto;
-  margin-left: auto;
+  /*max-width: 1000px;*/
+  margin-right: 5%;
+  margin-left: 5%;
   -o-object-fit: fill;
   object-fit: fill;
 }
@@ -25547,7 +25547,7 @@ blockquote {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
+  height: 113%;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -25641,9 +25641,9 @@ blockquote {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 50%;
+  width: 100%;
   height: 100%;
-  padding: 30px;
+  /*padding: 30px;*/
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -27158,6 +27158,7 @@ blockquote {
 .grid {
   width: 100%;
   height: 100%;
+  margin-bottom:35px;
   grid-template-areas: "Area"
     "Area-2";
   -ms-grid-columns: 1fr 1fr;
