@@ -37,6 +37,40 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <script src="https://kit.fontawesome.com/7a4305c6cb.js" crossorigin="anonymous"></script>
   <style type="text/css">
+
+    td{
+      padding: 6px;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      color: #fff;
+      text-align: right;
+    }
+
+    th{
+          padding: 6px;
+    /* border: 1px solid #ccc; */
+    text-align: right;
+    color: #fff;
+    border-bottom: 3px solid #fff;
+    }
+
+    select{
+      color: #000;
+    }
+
+    #table {
+          display: block;
+    margin-top: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 20px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    border-radius: 8px;
+    background-color: #003768;
+    }
       .mapboxgl-ctrl-icon{
         position: static !important;
       }
@@ -62,7 +96,7 @@
       .line {
         fill: none;
         stroke: #ffab00;
-        stroke-width: 6;
+        stroke-width: 2;
         }
       .tick line{
         visibility:hidden;
@@ -219,6 +253,11 @@
             <div class="tab03_icon_wrap"><img src="images/compare_icon.svg" alt="" class="tab03_icon"></div>
             <div class="tab03_title">Compare</div>
           </a>
+          </a>
+          <a href="http://www.google.com" class="tab03_tab_link w-inline-block w-tab-link" target="_blank">
+            <div class="tab03_icon_wrap"><img src="images/download.svg" alt="" class="tab03_icon"></div>
+            <div class="tab03_title">Export</div>
+          </a>
         </div>
         <div class="tab03_content w-tab-content">
           <div data-w-tab="Tab 4" class="tab03_pane w-tab-pane w--tab-active">
@@ -249,8 +288,7 @@
           <div data-w-tab="Tab 5" class="tab03_pane w-tab-pane">
             <div class="tab03_tab_content">
               <div class="columns w-row">
-                <div class="column-2 w-col w-col-1">
-                </div>
+
                 <div class="column-3 w-col w-col-11" id='table'></div>
               </div>
             </div>
@@ -318,7 +356,7 @@ height = element.getBoundingClientRect().height - margin.top - margin.bottom;
 
 
 //Select the Topic Select Box
-//const topic = document.querySelector('#topic')
+const topic = document.querySelector('#topic')
 
 //Define a method to dynamically resize the select box based on selected text length; Initialize based on starting text.
 //The second argument is True (1) if the resize is performed on initial page load or False (0) upon new selection
@@ -331,8 +369,10 @@ function selectResize(id,initial){
 
   if (initial == 1){
     tempOption.textContent = select.getElementsByTagName("option")[0].text;
+    value = select.value;
     }else{
     tempOption.textContent = event.target.options[event.target.selectedIndex].text;
+    value = event.target.options[event.target.selectedIndex].value;
     }
 
   tempSelect.style.cssText += `
@@ -352,22 +392,11 @@ function selectResize(id,initial){
     }
   tempSelect.remove()
 
-  return tempOption.textContent
+  return value
   }
 
 //Perform initial resize
 selectResize('#topic',1)
-
-
-topic.addEventListener('change', (event) => {
-  
-  //Relabel Spans
-  label = eval(event.target.options[event.target.selectedIndex].value)
-  reLabel(span,label)
-
-  selectResize('#topic',0)
-
-  });
 
 
 var geography = d3.select("#geography")
@@ -390,7 +419,7 @@ window.addEventListener("load", function(){
     return Math.max(...getYs(data,value));
     }
 
-  function makeLineChart(dataset,divs,value){
+  function makeLineChart(dataset,divs,value,format){
 
     code = []
     value.forEach(d => code.push(d.code))
@@ -465,7 +494,7 @@ window.addEventListener("load", function(){
                     .transition()   
                     .duration(200)
                     .style("opacity", 1);    
-                tip .html("<b>"+ years[i] +'</b>: '+ d[code])  
+                tip .html("<b>"+ years[i] +'</b>: '+ d3.format(format)(d[code]))  
                     .style("left", (d3.event.pageX) + "px")   
                     .style("top", (d3.event.pageY - 28) + "px");  
                 })          
@@ -475,16 +504,13 @@ window.addEventListener("load", function(){
                     .style("opacity", 0); 
             });
     }
-  function makeStackedBarChart(dataset,divs,value,setting){
+  function makeStackedBarChart(dataset,divs,value,format){
 
+    console.log(value)
     code = []
     value.forEach(d => code.push(d.code))
 
-    if (setting == 1){
-      console.log("Update")
-    }else{
-      console.log("First dibs")
-    }
+    
     var keys = Object.keys(dataset[0]).slice(3,19)
 
     dataset.forEach((d,i) => d['Year'] = years[i])
@@ -522,12 +548,12 @@ window.addEventListener("load", function(){
 
 
     var z = d3.scaleOrdinal()
-      .range(["steelblue", "darkorange", "lightblue"])
+      .range(["#15534C","#1A5D51","#216755","#297159","#337B5C","#3D855E","#498F60","#569861","#64A261","#73AC61","#83B561","#94BE61","#A6C760","#B9D060","#CDD861","#E2E062"])
       .domain(keys);
 
-    update(dataset,18, 0)
+    update(dataset,18, 0,value)
 
-    function update(dataset,input, speed) {
+    function update(dataset,input, speed, value) {
 
       var data = dataset.filter(f => f.state == input)
 
@@ -560,7 +586,7 @@ window.addEventListener("load", function(){
                     .transition()   
                     .duration(200)
                     .style("opacity", 1);    
-                tip .html("<b>"+ d.key + '</b>: ' + (d[1][1]-d[1][0]) )  
+                tip .html("<b>"+ value.filter(r => r.code == d.key)[0].name + '</b>: ' + d3.format(format)(d[1][1]-d[1][0]) )  
                     .style("left", (d3.event.pageX) + "px")   
                     .style("top", (d3.event.pageY - 28) + "px");  
                 })          
@@ -595,7 +621,7 @@ window.addEventListener("load", function(){
   charttypes = [makeLineChart,makeLineChart,makeStackedBarChart,makeLineChart,makeLineChart,makeLineChart]
   function assignData(data,manifest,fetchIndex){
     
-      console.log(data)
+      
       charts = manifest.divs
 
 
@@ -632,26 +658,27 @@ window.addEventListener("load", function(){
 
       dataset = geos['001']
 
-      console.log('geos',geos)
+  
 
-      topic = manifest.topic.population
+      option = manifest.topic.population
 
       charts.forEach(function(d,i){
 
-        eval(manifest.chartfunctions.filter(d => d.type == topic[i].type)[0].function)(dataset,d,topic[i].variables)
+        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(dataset,d,option[i].variables,option[i].format)
 
         //makeLineChart(dataset,d,variables[i])
       })
 
-    function updateGraph(fips,vars,div){
+    function updateGraph(fips,vars,div,topicselect){
     //Remove existing charts
         d3.selectAll(".vis").remove()
         data = geos[fips]
 
+        option = eval('manifest.topic.' + topicselect)
 
         charts.forEach(function(d,i){
 
-        eval(manifest.chartfunctions.filter(d => d.type == topic[i].type)[0].function)(data,d,topic[i].variables,1)
+        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(data,d,option[i].variables,1)
 
       })
         }
@@ -663,6 +690,126 @@ window.addEventListener("load", function(){
 function mapData(json){
 
 
+      columns = Object.keys(geos)
+      columns = columns.map(d => geos[d][9]['NAME'])
+      columns - columns.sort()
+      values = ['B01001_001E','B19013_001E','B19001_002E']
+
+      var table = d3.select('#table').append("table");
+          var thead = table.append("thead");
+          var tbody = table.append("tbody");
+
+      lab = ['Indicator']
+      
+      first = thead.append("tr")
+      first
+        .selectAll("th")
+        .data(lab)
+        .enter()
+        .append("th")
+        .text(x => x);
+
+      selects = []
+      for(i=0;i<3;i++){
+
+        select = first.append("th")
+              .append("select")
+              .attr('id','select-' + String(i))
+
+        selects.push('select-' + String(i))
+
+        select
+        .selectAll("option")
+        .data(columns)
+        .enter()
+        .append("option")
+        .attr("value", function(d){
+          return d;
+        })
+        .text(function(d){
+          return d;
+        })
+
+      }
+
+      latest = []
+      for(i=0;i<Object.keys(geos).length;i++){
+        latest.push(geos[Object.keys(geos)[i]][9])
+      }
+
+      selects.forEach(function(select){
+        item = document.getElementById(select)
+
+        item.addEventListener('change', function(){
+          updateTable(0)
+        })
+
+      })
+
+
+      function updateTable(initial){
+
+     
+      selection = []
+      selects.forEach(function(select){
+        selection.push(document.getElementById(select).value)
+      })
+     
+      key = []
+      values.forEach(function(value){
+        temp = new Object();
+        selection.forEach(function(column){
+        temp[column] = latest.filter(d => d.NAME == column)[0][value]
+      })
+      temp['label'] = value
+      key.push(temp)
+      })
+
+
+      columns = ['label'].concat(selection)
+
+      
+      if (initial == 1){
+      tbody.selectAll("tr")
+        .data(key)
+        .enter()
+        .append("tr")
+        .selectAll("td")
+        .data(function(row) {
+          return columns.map(function(column) {
+            return {
+              column: column,
+              value: row[column]
+            };
+          });
+        })
+        .enter()
+        .append("td")
+        .text(function(d) { return d.value; })
+        
+      }else{
+        tbody.selectAll("tr")
+        .data(key)
+        .selectAll("td")
+        .data(function(row) {
+          return columns.map(function(column) {
+            return {
+              column: column,
+              value: row[column]
+            };
+          });
+        })
+        .text(function(d) { return d.value; })
+      }
+           
+      }
+      updateTable(1)
+
+
+
+
+
+
       foo = json[0]
       //Create a new object reorienting the shapefile using the geography name as the key
       var nest = d3.nest()
@@ -671,6 +818,30 @@ function mapData(json){
       })
       .entries(foo.features)
 
+      nest = nest.sort((a, b) => (a.key > b.key) ? 1 : -1)
+
+      topic.addEventListener('change', (event) => {
+        
+        //Relabel Spans
+        label = eval(event.target.options[event.target.selectedIndex].value)
+        reLabel(span,label)
+
+        topic_option = selectResize('#topic',0)
+
+
+    
+        option = selectResize('#geography',1)
+        index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
+        value = foo.features[index]
+        countyfip = value.properties.COUNTYFP
+
+        charts = ['#chart1','#chart2','#chart3','#chart4','#chart5','#chart6']
+        variables = ["B01001_001E","B17010_003E",["B19001_002E","B19001_003E","B19001_004E","B19001_005E","B19001_006E","B19001_007E","B19001_008E","B19001_009E","B19001_010E","B19001_011E","B19001_012E","B19001_013E","B19001_014E","B19001_015E","B19001_016E","B19001_017E"],"B01001_001E","B01003_001E","B17010_003E"]
+
+        updateGraph(countyfip,variables,charts,topic_option)
+
+        });
+
       //Build Geography Selector Change Logic
       const geographies = document.querySelector('#geography')
 
@@ -678,7 +849,8 @@ function mapData(json){
 
         //Resize box
         option = selectResize('#geography',0)
-        
+        topic_option = selectResize('#topic',1)
+  
         //Zoom in on map
         index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
         bounds = turf.bbox(foo.features[index])
@@ -696,7 +868,7 @@ function mapData(json){
         variables = ["B01001_001E","B17010_003E",["B19001_002E","B19001_003E","B19001_004E","B19001_005E","B19001_006E","B19001_007E","B19001_008E","B19001_009E","B19001_010E","B19001_011E","B19001_012E","B19001_013E","B19001_014E","B19001_015E","B19001_016E","B19001_017E"],"B01001_001E","B01003_001E","B17010_003E"]
         
         //Update Charts
-        updateGraph(countyfip,variables,charts)
+        updateGraph(countyfip,variables,charts,topic_option)
 
 
         });
@@ -813,7 +985,7 @@ function mapData(json){
           'source': 'indiana',
           'paint': {
             'line-color': 'rgba(0, 55, 104, 1)',
-            'line-width': 4
+            'line-width': 1
           }
         })
 
@@ -843,120 +1015,7 @@ function mapData(json){
           console.log(error);
         });
 
-      columns = Object.keys(geos)
-      columns = columns.map(d => geos[d][9]['NAME'])
-      values = ['B01001_001E','B19013_001E','B19001_002E']
-
-      var table = d3.select('#table').append("table");
-          var thead = table.append("thead");
-          var tbody = table.append("tbody");
-
-      lab = ['Indicator']
       
-      first = thead.append("tr")
-      first
-        .selectAll("th")
-        .data(lab)
-        .enter()
-        .append("th")
-        .text(x => x);
-
-      selects = []
-      for(i=0;i<3;i++){
-
-        select = first.append("th")
-              .append("select")
-              .attr('id','select-' + String(i))
-
-        selects.push('select-' + String(i))
-
-        select
-        .selectAll("option")
-        .data(columns)
-        .enter()
-        .append("option")
-        .attr("value", function(d){
-          return d;
-        })
-        .text(function(d){
-          return d;
-        })
-
-      }
-
-      latest = []
-      for(i=0;i<Object.keys(geos).length;i++){
-        latest.push(geos[Object.keys(geos)[i]][9])
-      }
-
-      selects.forEach(function(select){
-        item = document.getElementById(select)
-
-        item.addEventListener('change', function(){
-          updateTable(0)
-        })
-
-      })
-
-
-      function updateTable(initial){
-
-      console.log("updating")
-      selection = []
-      selects.forEach(function(select){
-        selection.push(document.getElementById(select).value)
-      })
-      console.log(selection)
-      key = []
-      values.forEach(function(value){
-        temp = new Object();
-        selection.forEach(function(column){
-        temp[column] = latest.filter(d => d.NAME == column)[0][value]
-      })
-      temp['label'] = value
-      key.push(temp)
-      })
-      console.log(key)
-
-      columns = ['label'].concat(selection)
-
-      
-      if (initial == 1){
-      tbody.selectAll("tr")
-        .data(key)
-        .enter()
-        .append("tr")
-        .selectAll("td")
-        .data(function(row) {
-          return columns.map(function(column) {
-            return {
-              column: column,
-              value: row[column]
-            };
-          });
-        })
-        .enter()
-        .append("td")
-        .text(function(d) { return d.value; })
-        .style("color","#000");
-      }else{
-        tbody.selectAll("tr")
-        .data(key)
-        .selectAll("td")
-        .data(function(row) {
-          return columns.map(function(column) {
-            return {
-              column: column,
-              value: row[column]
-            };
-          });
-        })
-        .text(function(d) { return d.value; })
-      }
-           
-      }
-      updateTable(1)
-
       
       
 
