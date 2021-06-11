@@ -254,7 +254,7 @@
             <div class="tab03_title">Compare</div>
           </a>
           </a>
-          <a href="http://www.google.com" class="tab03_tab_link w-inline-block w-tab-link" target="_blank">
+          <a class="tab03_tab_link w-inline-block w-tab-link" onclick="NewTab()">
             <div class="tab03_icon_wrap"><img src="images/download.svg" alt="" class="tab03_icon"></div>
             <div class="tab03_title">Export</div>
           </a>
@@ -305,6 +305,12 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 <script>
+function NewTab() {
+    window.open(
+      "DRAFT Indiana Housing Dashboard Report 2021.06.10.pdf", "_blank");
+}
+
+
 function toggleMenu() {
   var menuBox = document.getElementById('menu-box');
   var menu = document.getElementById('menu');    
