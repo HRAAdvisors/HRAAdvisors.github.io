@@ -25597,7 +25597,7 @@ blockquote {
 
 .tab03_pane {
   min-height: 500px;
-  background-color: #fafbfc;
+  /*background-color: #fafbfc;*/
 }
 
 .tab03_tab_arrow_05 {

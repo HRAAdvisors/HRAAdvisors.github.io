@@ -142,7 +142,7 @@
           "format": ",.0f"
         },
         {
-          "title": "Median Household Income",
+          "title": "Family Poverty Rate",
           "variables": [
             {
               "name": "Median Household Income",
@@ -151,52 +151,11 @@
           ],
           "type": "line",
           "dataset": "ACS",
-          "year": "all",
+          "year": "terminal",
           "format": "$,.0f"
         },
         {
-          "title": "Median Household Income",
-          "variables": [
-            {
-              "name": "Median Household Income",
-              "code": "B19013_001E"
-            }
-          ],
-          "type": "line",
-          "dataset": "ACS",
-          "year": "all",
-          "format": "$,.0f"
-        },
-        {
-          "title": "Median Household Income",
-          "variables": [
-            {
-              "name": "Median Household Income",
-              "code": "B19013_001E"
-            }
-          ],
-          "type": "line",
-          "dataset": "ACS",
-          "year": "all",
-          "format": "$,.0f"
-        }
-      ],
-        "housing": [
-        {
-          "title": "Median Household Income",
-          "variables": [
-            {
-              "name": "Median Household Income",
-              "code": "B19013_001E"
-            }
-          ],
-          "type": "line",
-          "dataset": "ACS",
-          "year": "all",
-          "format": ",.2r"
-        },
-        {
-          "title": "Household Income Distribution",
+          "title": "Tenure",
           "variables": [
             {
               "name": "Less than $10,000",
@@ -265,11 +224,232 @@
           ],
           "type": "stackedbar",
           "dataset": "ACS",
-          "year": "terminal",
+          "year": "all",
+          "format": "$,.0f"
+        },
+        {
+          "title": "Race",
+          "variables": [
+            {
+              "name": "Less than $10,000",
+              "code": "B19001_002E"
+            },
+            {
+              "name": "$10,000 to $14,999",
+              "code": "B19001_003E"
+            },
+            {
+              "name": "$15,000 to $19,999",
+              "code": "B19001_004E"
+            },
+            {
+              "name": "$20,000 to $24,999",
+              "code": "B19001_005E"
+            },
+            {
+              "name": "$25,000 to $29,999",
+              "code": "B19001_006E"
+            },
+            {
+              "name": "$30,000 to $34,999",
+              "code": "B19001_007E"
+            },
+            {
+              "name": "$35,000 to $39,999",
+              "code": "B19001_008E"
+            },
+            {
+              "name": "$40,000 to $44,999",
+              "code": "B19001_009E"
+            },
+            {
+              "name": "$45,000 to $49,999",
+              "code": "B19001_010E"
+            },
+            {
+              "name": "$50,000 to $59,999",
+              "code": "B19001_011E"
+            },
+            {
+              "name": "$60,000 to $74,999",
+              "code": "B19001_012E"
+            },
+            {
+              "name": "$75,000 to $99,999",
+              "code": "B19001_013E"
+            },
+            {
+              "name": "$100,000 to $124,999",
+              "code": "B19001_014E"
+            },
+            {
+              "name": "$125,000 to $149,999",
+              "code": "B19001_015E"
+            },
+            {
+              "name": "$150,000 to $199,999",
+              "code": "B19001_016E"
+            },
+            {
+              "name": "$200,000 or more",
+              "code": "B19001_017E"
+            }
+          ],
+          "type": "stackedbar",
+          "dataset": "ACS",
+          "year": "all",
+          "format": "$,.0f"
+        }
+      ],
+        "housing": [
+        {
+          "title": "Housing Units by Typology",
+          "variables": [
+            {
+              "name": "Less than $10,000",
+              "code": "B19001_002E"
+            },
+            {
+              "name": "$10,000 to $14,999",
+              "code": "B19001_003E"
+            },
+            {
+              "name": "$15,000 to $19,999",
+              "code": "B19001_004E"
+            },
+            {
+              "name": "$20,000 to $24,999",
+              "code": "B19001_005E"
+            },
+            {
+              "name": "$25,000 to $29,999",
+              "code": "B19001_006E"
+            },
+            {
+              "name": "$30,000 to $34,999",
+              "code": "B19001_007E"
+            },
+            {
+              "name": "$35,000 to $39,999",
+              "code": "B19001_008E"
+            },
+            {
+              "name": "$40,000 to $44,999",
+              "code": "B19001_009E"
+            },
+            {
+              "name": "$45,000 to $49,999",
+              "code": "B19001_010E"
+            },
+            {
+              "name": "$50,000 to $59,999",
+              "code": "B19001_011E"
+            },
+            {
+              "name": "$60,000 to $74,999",
+              "code": "B19001_012E"
+            },
+            {
+              "name": "$75,000 to $99,999",
+              "code": "B19001_013E"
+            },
+            {
+              "name": "$100,000 to $124,999",
+              "code": "B19001_014E"
+            },
+            {
+              "name": "$125,000 to $149,999",
+              "code": "B19001_015E"
+            },
+            {
+              "name": "$150,000 to $199,999",
+              "code": "B19001_016E"
+            },
+            {
+              "name": "$200,000 or more",
+              "code": "B19001_017E"
+            }
+          ],
+          "type": "donut",
+          "dataset": "ACS",
+          "year": "all",
           "format": ",.2r"
         },
         {
-          "title": "Total Population",
+          "title": "Housing Units by Decade Built",
+          "variables": [
+            {
+              "name": "Less than $10,000",
+              "code": "B19001_002E"
+            },
+            {
+              "name": "$10,000 to $14,999",
+              "code": "B19001_003E"
+            },
+            {
+              "name": "$15,000 to $19,999",
+              "code": "B19001_004E"
+            },
+            {
+              "name": "$20,000 to $24,999",
+              "code": "B19001_005E"
+            },
+            {
+              "name": "$25,000 to $29,999",
+              "code": "B19001_006E"
+            },
+            {
+              "name": "$30,000 to $34,999",
+              "code": "B19001_007E"
+            },
+            {
+              "name": "$35,000 to $39,999",
+              "code": "B19001_008E"
+            },
+            {
+              "name": "$40,000 to $44,999",
+              "code": "B19001_009E"
+            },
+            {
+              "name": "$45,000 to $49,999",
+              "code": "B19001_010E"
+            },
+            {
+              "name": "$50,000 to $59,999",
+              "code": "B19001_011E"
+            },
+            {
+              "name": "$60,000 to $74,999",
+              "code": "B19001_012E"
+            },
+            {
+              "name": "$75,000 to $99,999",
+              "code": "B19001_013E"
+            },
+            {
+              "name": "$100,000 to $124,999",
+              "code": "B19001_014E"
+            },
+            {
+              "name": "$125,000 to $149,999",
+              "code": "B19001_015E"
+            },
+            {
+              "name": "$150,000 to $199,999",
+              "code": "B19001_016E"
+            },
+            {
+              "name": "$200,000 or more",
+              "code": "B19001_017E"
+            }
+          ],
+          "type": "stackedbar",
+          "dataset": "ACS",
+          "year": "latest",
+          "format": ",.2r"
+        },
+        {
+          "title": "Median Listing Price",
           "variables": [
             {
               "name": "Total Population",
@@ -282,80 +462,20 @@
           "format": ",.2r"
         },
         {
-          "title": "Household Income Distribution",
+          "title": "Median Rent",
           "variables": [
             {
-              "name": "Less than $10,000",
-              "code": "B19001_002E"
-            },
-            {
-              "name": "$10,000 to $14,999",
-              "code": "B19001_003E"
-            },
-            {
-              "name": "$15,000 to $19,999",
-              "code": "B19001_004E"
-            },
-            {
-              "name": "$20,000 to $24,999",
-              "code": "B19001_005E"
-            },
-            {
-              "name": "$25,000 to $29,999",
-              "code": "B19001_006E"
-            },
-            {
-              "name": "$30,000 to $34,999",
-              "code": "B19001_007E"
-            },
-            {
-              "name": "$35,000 to $39,999",
-              "code": "B19001_008E"
-            },
-            {
-              "name": "$40,000 to $44,999",
-              "code": "B19001_009E"
-            },
-            {
-              "name": "$45,000 to $49,999",
-              "code": "B19001_010E"
-            },
-            {
-              "name": "$50,000 to $59,999",
-              "code": "B19001_011E"
-            },
-            {
-              "name": "$60,000 to $74,999",
-              "code": "B19001_012E"
-            },
-            {
-              "name": "$75,000 to $99,999",
-              "code": "B19001_013E"
-            },
-            {
-              "name": "$100,000 to $124,999",
-              "code": "B19001_014E"
-            },
-            {
-              "name": "$125,000 to $149,999",
-              "code": "B19001_015E"
-            },
-            {
-              "name": "$150,000 to $199,999",
-              "code": "B19001_016E"
-            },
-            {
-              "name": "$200,000 or more",
-              "code": "B19001_017E"
+              "name": "Total Population",
+              "code": "B01001_001E"
             }
           ],
-          "type": "stackedbar",
+          "type": "line",
           "dataset": "ACS",
           "year": "terminal",
           "format": ",.0f"
         },
         {
-          "title": "Median Household Income",
+          "title": "Housing Starts",
           "variables": [
             {
               "name": "Median Household Income",
@@ -368,74 +488,14 @@
           "format": ",.0f"
         },
         {
-          "title": "Household Income Distribution",
+          "title": "Affordable Housing Starts",
           "variables": [
             {
-              "name": "Less than $10,000",
-              "code": "B19001_002E"
-            },
-            {
-              "name": "$10,000 to $14,999",
-              "code": "B19001_003E"
-            },
-            {
-              "name": "$15,000 to $19,999",
-              "code": "B19001_004E"
-            },
-            {
-              "name": "$20,000 to $24,999",
-              "code": "B19001_005E"
-            },
-            {
-              "name": "$25,000 to $29,999",
-              "code": "B19001_006E"
-            },
-            {
-              "name": "$30,000 to $34,999",
-              "code": "B19001_007E"
-            },
-            {
-              "name": "$35,000 to $39,999",
-              "code": "B19001_008E"
-            },
-            {
-              "name": "$40,000 to $44,999",
-              "code": "B19001_009E"
-            },
-            {
-              "name": "$45,000 to $49,999",
-              "code": "B19001_010E"
-            },
-            {
-              "name": "$50,000 to $59,999",
-              "code": "B19001_011E"
-            },
-            {
-              "name": "$60,000 to $74,999",
-              "code": "B19001_012E"
-            },
-            {
-              "name": "$75,000 to $99,999",
-              "code": "B19001_013E"
-            },
-            {
-              "name": "$100,000 to $124,999",
-              "code": "B19001_014E"
-            },
-            {
-              "name": "$125,000 to $149,999",
-              "code": "B19001_015E"
-            },
-            {
-              "name": "$150,000 to $199,999",
-              "code": "B19001_016E"
-            },
-            {
-              "name": "$200,000 or more",
-              "code": "B19001_017E"
+              "name": "Median Household Income",
+              "code": "B19013_001E"
             }
           ],
-          "type": "stackedbar",
+          "type": "line",
           "dataset": "ACS",
           "year": "terminal",
           "format": ",.0f"
@@ -456,7 +516,7 @@
           "format": "$,.0f"
         },
         {
-          "title": "Total Population",
+          "title": "Cost Burden by Tenure",
           "variables": [
             {
               "name": "Total Population",
@@ -703,7 +763,7 @@
       ],
         "jobs": [
         {
-          "title": "Total Population",
+          "title": "Unemployment Rate",
           "variables": [
             {
               "name": "Total Population",
@@ -715,7 +775,7 @@
           "year": "all"
         },
         {
-          "title": "Median Household Income",
+          "title": "Net New Jobs",
           "variables": [
             {
               "name": "Median Household Income",
@@ -727,7 +787,7 @@
           "year": "all"
         },
         {
-          "title": "Household Income Distribution",
+          "title": "Top 5 Industries by Jobs",
           "variables": [
             {
               "name": "Less than $10,000",
@@ -794,46 +854,33 @@
               "code": "B19001_017E"
             }
           ],
-          "type": "stackedbar",
+          "type": "table",
           "dataset": "ACS",
           "year": "terminal",
           "format": ",.0f"
         },
         {
-          "title": "Median Household Income",
+          "title": "Median Salary",
           "variables": [
             {
               "name": "Median Household Income",
               "code": "B19013_001E"
             }
           ],
-          "type": "line",
+          "type": "indicator",
           "dataset": "ACS",
           "year": "all",
           "format": ",.0f"
         },
         {
-          "title": "Median Household Income",
+          "title": "Inflow/Outflow",
           "variables": [
             {
               "name": "Median Household Income",
               "code": "B19013_001E"
             }
           ],
-          "type": "line",
-          "dataset": "ACS",
-          "year": "all",
-          "format": ",.0f"
-        },
-        {
-          "title": "Median Household Income",
-          "variables": [
-            {
-              "name": "Median Household Income",
-              "code": "B19013_001E"
-            }
-          ],
-          "type": "line",
+          "type": "venn",
           "dataset": "ACS",
           "year": "all",
           "format": ",.0f"
