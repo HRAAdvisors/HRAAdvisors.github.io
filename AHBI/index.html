@@ -133,27 +133,27 @@
                       <button class="accordion">Building Size</button>
                         <div class="panel">
                           <fieldset>       
-                          <input type="checkbox" name="favorite_pet" value="Small"> Small (1-4 Units)<br>      
-                          <input type="checkbox" name="favorite_pet" value="Medium"> Medium (5-39 Units)<br>      
-                          <input type="checkbox" name="favorite_pet" value="Large"> Large (30+ Units<br>         
+                          <input type="checkbox" name="favorite_pet" value="Medium High" class="d.properties.BBTakeRate_Cat" checked = "true"> Small (1-4 Units)<br>      
+                          <input type="checkbox" name="favorite_pet" value="Medium Low" class="d.properties.BBTakeRate_Cat" checked = "true"> Medium (5-39 Units)<br>      
+                          <input type="checkbox" name="favorite_pet" value="Low" class="d.properties.BBTakeRate_Cat" checked = "true"> Large (30+ Units<br>         
                       </fieldset> 
                         </div>
 
                         <button class="accordion">Broadband Take Rate</button>
                         <div class="panel">
                           <fieldset>       
-                          <input type="checkbox" name="favorite_pet" value="Small"> Small (1-4 Units)<br>      
-                          <input type="checkbox" name="favorite_pet" value="Medium"> Medium (5-39 Units)<br>      
-                          <input type="checkbox" name="favorite_pet" value="Large"> Large (30+ Units<br>         
+                          <input type="checkbox" name="favorite_pet" value="Small" checked = "true" > Small (1-4 Units)<br>      
+                          <input type="checkbox" name="favorite_pet" value="Medium" checked = "true"> Medium (5-39 Units)<br>      
+                          <input type="checkbox" name="favorite_pet" value="Large" checked = "true"> Large (30+ Units<br>         
                       </fieldset> 
                         </div>
 
                         <button class="accordion">Broadband Connection</button>
                         <div class="panel">
                           <fieldset>       
-                          <input type="checkbox" name="favorite_pet" value="Small"> Small (1-4 Units)<br>      
-                          <input type="checkbox" name="favorite_pet" value="Medium"> Medium (5-39 Units)<br>      
-                          <input type="checkbox" name="favorite_pet" value="Large"> Large (30+ Units<br>         
+                          <input type="checkbox" name="favorite_pet" value="Small" checked = "true" Small (1-4 Units)<br>      
+                          <input type="checkbox" name="favorite_pet" value="Medium" checked = "true"> Medium (5-39 Units)<br>      
+                          <input type="checkbox" name="favorite_pet" value="Large" checked = "true"> Large (30+ Units<br>         
                       </fieldset> 
                         </div>
                     </div>
@@ -226,6 +226,11 @@
     function mapData(json){
 
     buildings = json[0]
+    features = json[1]
+    var filtered = [];
+
+    console.log(buildings)
+    console.log(features)
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb3NqY3JmIn0._sGjIhmL5Xt08WIMWRsSsg';
       var map = new mapboxgl.Map({
@@ -291,10 +296,36 @@
         map.getCanvas().style.cursor = '';
         });
 
+
+      var input = document.getElementsByTagName('input')
+
+      for (i = 0; i < input.length; i++){
+        input[i].addEventListener('change', function(e) {
+          data = JSON.parse(JSON.stringify(buildings))
+          for (x = 0; x < input.length; x++){
+            filter = input[x]
+            if (filter.checked == 0){
+              attr = filter.getAttribute('class')
+              value = filter.value
+              string = attr + " != '" + value +"'"
+              data.features = data.features.filter(d => eval(string))
+            }
+
+          }
+          map.getSource('buildings').setData({
+                  type: 'FeatureCollection',
+                  features: data.features
+                });
+          
+        })
+      }
+
+       
+
     })
   }
 
-      var files = ["buildings.geojson"];
+      var files = ["buildings.geojson","data.json"];
       var promises = [];
 
       files.forEach(function(url) {
