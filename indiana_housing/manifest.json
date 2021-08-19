@@ -139,166 +139,86 @@
           "type": "stackedbar",
           "dataset": "ACS",
           "year": "terminal",
-          "format": ",.0f"
+          "format": ",.1%"
         },
         {
           "title": "Family Poverty Rate",
           "variables": [
             {
-              "name": "Median Household Income",
-              "code": "B19013_001E"
+              "name": "Total Households",
+              "code": "B17013_001E"
+            },
+            {
+              "name": " Income in the past 12 months below poverty level",
+              "code": "B17013_002E"
             }
           ],
           "type": "line",
           "dataset": "ACS",
-          "year": "terminal",
-          "format": "$,.0f"
+          "year": "all",
+          "format": ",.1%",
+          "transform": {
+            "calc": "d[code[1]]/d[code[0]]",
+            "labels": "Family Poverty Rate"
+          }
         },
         {
           "title": "Tenure",
           "variables": [
             {
-              "name": "Less than $10,000",
-              "code": "B19001_002E"
+              "name": "Renter occupied",
+              "code": "B25003_003E"
             },
             {
-              "name": "$10,000 to $14,999",
-              "code": "B19001_003E"
-            },
-            {
-              "name": "$15,000 to $19,999",
-              "code": "B19001_004E"
-            },
-            {
-              "name": "$20,000 to $24,999",
-              "code": "B19001_005E"
-            },
-            {
-              "name": "$25,000 to $29,999",
-              "code": "B19001_006E"
-            },
-            {
-              "name": "$30,000 to $34,999",
-              "code": "B19001_007E"
-            },
-            {
-              "name": "$35,000 to $39,999",
-              "code": "B19001_008E"
-            },
-            {
-              "name": "$40,000 to $44,999",
-              "code": "B19001_009E"
-            },
-            {
-              "name": "$45,000 to $49,999",
-              "code": "B19001_010E"
-            },
-            {
-              "name": "$50,000 to $59,999",
-              "code": "B19001_011E"
-            },
-            {
-              "name": "$60,000 to $74,999",
-              "code": "B19001_012E"
-            },
-            {
-              "name": "$75,000 to $99,999",
-              "code": "B19001_013E"
-            },
-            {
-              "name": "$100,000 to $124,999",
-              "code": "B19001_014E"
-            },
-            {
-              "name": "$125,000 to $149,999",
-              "code": "B19001_015E"
-            },
-            {
-              "name": "$150,000 to $199,999",
-              "code": "B19001_016E"
-            },
-            {
-              "name": "$200,000 or more",
-              "code": "B19001_017E"
+              "name": "Owner Occupied",
+              "code": "B25003_002E"
             }
           ],
           "type": "stackedbar",
           "dataset": "ACS",
-          "year": "all",
-          "format": "$,.0f"
+          "year": "terminal",
+          "format": ",.1%"
         },
         {
-          "title": "Race",
+          "title": "Racial Composition",
           "variables": [
             {
-              "name": "Less than $10,000",
-              "code": "B19001_002E"
+              "name": "White alone, not Hispanic or Latino",
+              "code": "B25003H_001E"
             },
             {
-              "name": "$10,000 to $14,999",
-              "code": "B19001_003E"
+              "name": "Hispanic or Latino",
+              "code": "B25003I_001E"
             },
             {
-              "name": "$15,000 to $19,999",
-              "code": "B19001_004E"
+              "name": "Asian Alone",
+              "code": "B25003D_001E"
             },
             {
-              "name": "$20,000 to $24,999",
-              "code": "B19001_005E"
+              "name": "Native Hawaiian and Other Pacific Islander Alone",
+              "code": "B25003E_001E"
             },
             {
-              "name": "$25,000 to $29,999",
-              "code": "B19001_006E"
+              "name": "Black or African American Alone",
+              "code": "B25003B_001E"
             },
             {
-              "name": "$30,000 to $34,999",
-              "code": "B19001_007E"
+              "name": "American Indian and Alaska Native Alone",
+              "code": "B25003C_001E"
             },
             {
-              "name": "$35,000 to $39,999",
-              "code": "B19001_008E"
+              "name": "Some Other Race Alone",
+              "code": "B25003F_001E"
             },
             {
-              "name": "$40,000 to $44,999",
-              "code": "B19001_009E"
-            },
-            {
-              "name": "$45,000 to $49,999",
-              "code": "B19001_010E"
-            },
-            {
-              "name": "$50,000 to $59,999",
-              "code": "B19001_011E"
-            },
-            {
-              "name": "$60,000 to $74,999",
-              "code": "B19001_012E"
-            },
-            {
-              "name": "$75,000 to $99,999",
-              "code": "B19001_013E"
-            },
-            {
-              "name": "$100,000 to $124,999",
-              "code": "B19001_014E"
-            },
-            {
-              "name": "$125,000 to $149,999",
-              "code": "B19001_015E"
-            },
-            {
-              "name": "$150,000 to $199,999",
-              "code": "B19001_016E"
-            },
-            {
-              "name": "$200,000 or more",
-              "code": "B19001_017E"
+              "name": "Two or More Races",
+              "code": "B25003G_001E"
             }
           ],
           "type": "stackedbar",
           "dataset": "ACS",
-          "year": "all",
-          "format": "$,.0f"
+          "year": "terminal",
+          "format": ",.1%"
         }
       ],
         "housing": [
@@ -306,147 +226,99 @@
           "title": "Housing Units by Typology",
           "variables": [
             {
-              "name": "Less than $10,000",
-              "code": "B19001_002E"
+              "name": "Detached Single Family Home",
+              "code": "B25024_002E"
             },
             {
-              "name": "$10,000 to $14,999",
-              "code": "B19001_003E"
+              "name": "2 Attached Homes",
+              "code": "B25024_003E"
             },
             {
-              "name": "$15,000 to $19,999",
-              "code": "B19001_004E"
+              "name": "2 Apartments",
+              "code": "B25024_004E"
             },
             {
-              "name": "$20,000 to $24,999",
-              "code": "B19001_005E"
+              "name": "3 to 4 Apartments",
+              "code": "B25024_005E"
             },
             {
-              "name": "$25,000 to $29,999",
-              "code": "B19001_006E"
+              "name": "5 to 9 Apartments",
+              "code": "B25024_006E"
             },
             {
-              "name": "$30,000 to $34,999",
-              "code": "B19001_007E"
+              "name": "10 to 19 Apartments",
+              "code": "B25024_007E"
             },
             {
-              "name": "$35,000 to $39,999",
-              "code": "B19001_008E"
+              "name": "20 to 49 Apartments",
+              "code": "B25024_008E"
             },
             {
-              "name": "$40,000 to $44,999",
-              "code": "B19001_009E"
+              "name": "50 or More Apartments",
+              "code": "B25024_009E"
             },
             {
-              "name": "$45,000 to $49,999",
-              "code": "B19001_010E"
+              "name": "Mobile Home",
+              "code": "B25024_010E"
             },
             {
-              "name": "$50,000 to $59,999",
-              "code": "B19001_011E"
-            },
-            {
-              "name": "$60,000 to $74,999",
-              "code": "B19001_012E"
-            },
-            {
-              "name": "$75,000 to $99,999",
-              "code": "B19001_013E"
-            },
-            {
-              "name": "$100,000 to $124,999",
-              "code": "B19001_014E"
-            },
-            {
-              "name": "$125,000 to $149,999",
-              "code": "B19001_015E"
-            },
-            {
-              "name": "$150,000 to $199,999",
-              "code": "B19001_016E"
-            },
-            {
-              "name": "$200,000 or more",
-              "code": "B19001_017E"
+              "name": "Boat, RV, Van, Etc",
+              "code": "B25024_011E"
             }
           ],
           "type": "donut",
           "dataset": "ACS",
-          "year": "all",
-          "format": ",.2r"
+          "year": "latest",
+          "format": ",.1%"
         },
         {
           "title": "Housing Units by Decade Built",
           "variables": [
             {
-              "name": "Less than $10,000",
-              "code": "B19001_002E"
+              "name": "Detached Single Family Home",
+              "code": "B25024_002E"
             },
             {
-              "name": "$10,000 to $14,999",
-              "code": "B19001_003E"
+              "name": "2 Attached Homes",
+              "code": "B25024_003E"
             },
             {
-              "name": "$15,000 to $19,999",
-              "code": "B19001_004E"
+              "name": "2 Apartments",
+              "code": "B25024_004E"
             },
             {
-              "name": "$20,000 to $24,999",
-              "code": "B19001_005E"
+              "name": "3 to 4 Apartments",
+              "code": "B25024_005E"
             },
             {
-              "name": "$25,000 to $29,999",
-              "code": "B19001_006E"
+              "name": "5 to 9 Apartments",
+              "code": "B25024_006E"
             },
             {
-              "name": "$30,000 to $34,999",
-              "code": "B19001_007E"
+              "name": "10 to 19 Apartments",
+              "code": "B25024_007E"
             },
             {
-              "name": "$35,000 to $39,999",
-              "code": "B19001_008E"
+              "name": "20 to 49 Apartments",
+              "code": "B25024_008E"
             },
             {
-              "name": "$40,000 to $44,999",
-              "code": "B19001_009E"
+              "name": "50 or More Apartments",
+              "code": "B25024_009E"
             },
             {
-              "name": "$45,000 to $49,999",
-              "code": "B19001_010E"
+              "name": "Mobile Home",
+              "code": "B25024_010E"
             },
             {
-              "name": "$50,000 to $59,999",
-              "code": "B19001_011E"
-            },
-            {
-              "name": "$60,000 to $74,999",
-              "code": "B19001_012E"
-            },
-            {
-              "name": "$75,000 to $99,999",
-              "code": "B19001_013E"
-            },
-            {
-              "name": "$100,000 to $124,999",
-              "code": "B19001_014E"
-            },
-            {
-              "name": "$125,000 to $149,999",
-              "code": "B19001_015E"
-            },
-            {
-              "name": "$150,000 to $199,999",
-              "code": "B19001_016E"
-            },
-            {
-              "name": "$200,000 or more",
-              "code": "B19001_017E"
+              "name": "Boat, RV, Van, Etc",
+              "code": "B25024_011E"
             }
           ],
           "type": "stackedbar",
           "dataset": "ACS",
           "year": "latest",
-          "format": ",.2r"
+          "format": ",.1%"
         },
         {
           "title": "Median Listing Price",
@@ -889,6 +761,11 @@
   "geographies": [
     "state",
     "county"
+  ],
+  "years": [
+    "all",
+    "terminal",
+    "latest"
   ],
 "sources": [
     {

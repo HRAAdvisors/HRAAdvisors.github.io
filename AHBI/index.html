@@ -151,7 +151,7 @@
                         <button class="accordion">Broadband Connection</button>
                         <div class="panel">
                           <fieldset>       
-                          <input type="checkbox" name="favorite_pet" value="Small" checked = "true" Small (1-4 Units)<br>      
+                          <input type="checkbox" name="favorite_pet" value="Small" checked = "true" >Small (1-4 Units)<br>      
                           <input type="checkbox" name="favorite_pet" value="Medium" checked = "true"> Medium (5-39 Units)<br>      
                           <input type="checkbox" name="favorite_pet" value="Large" checked = "true"> Large (30+ Units<br>         
                       </fieldset> 
@@ -298,10 +298,10 @@
 
 
       var input = document.getElementsByTagName('input')
-
+      data = JSON.parse(JSON.stringify(buildings))
       for (i = 0; i < input.length; i++){
         input[i].addEventListener('change', function(e) {
-          data = JSON.parse(JSON.stringify(buildings))
+          
           for (x = 0; x < input.length; x++){
             filter = input[x]
             if (filter.checked == 0){

@@ -384,6 +384,23 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 <script>
+
+  function sum(input){
+             
+ if (toString.call(input) !== "[object Array]")
+    return false;
+      
+            var total =  0;
+            for(var i=0;i<input.length;i++)
+              {                  
+                if(isNaN(input[i])){
+                continue;
+                 }
+                  total += Number(input[i]);
+               }
+             return total;
+            }
+
 function NewTab() {
     window.open(
       "DRAFT Indiana Housing Dashboard Report 2021.06.10.pdf", "_blank");
@@ -523,10 +540,49 @@ window.addEventListener("load", function(){
     return Math.max(...getYs(data,value));
     }
 
-  function makeLineChart(dataset,divs,value,format){
+  function findDomain(year){
+    if (year === "terminal"){
+      domain = [2010,2019]
+    }else if (year === 'latest'){
+      domain = [2019]
+    }else if (year === 'all'){
+      domain = []
+      for (var i = 2010; i <= 2019; i++) {
+         domain.push(i);
+      } 
+    }
+  return domain
+  }
 
+  function makeLineChart(dataset,divs,value,format,transform,year){
+
+    domain = findDomain(year)
+
+    console.log(divs)
     code = []
     value.forEach(d => code.push(d.code))
+    
+    codename = divs.replace('#','') + "_code"
+
+    if (transform != undefined){
+
+
+      dataset.map(function(d){
+        d['newkey'] = eval(transform.calc)
+        d['codename'] = codename
+        return d
+      });
+
+      code = ["newkey"]
+
+    }else{
+      dataset.map(function(d){
+        d['codename'] = codename
+        return d
+      });
+    }
+
+    window[codename] = code
 
     var div = d3.select(divs)
 
@@ -586,6 +642,7 @@ window.addEventListener("load", function(){
         .attr("d", line); // 11. Calls the line generator 
 
     // 12. Appends a circle for each datapoint 
+
     svg.selectAll(".dot")
         .data(dataset)
         .enter().append("circle") // Uses the enter().append() method
@@ -593,12 +650,12 @@ window.addEventListener("load", function(){
         .attr("cx", function(d, i) { return xScale(years[i]) })
         .attr("cy", function(d) { return yScale(d[code]) })
         .attr("r", 5)
-        .on("mouseover", function(d,i) {    
+        .on("mouseover", function(d,i) {
                 tip      
                     .transition()   
                     .duration(200)
                     .style("opacity", 1);    
-                tip .html("<b>"+ years[i] +'</b>: '+ d3.format(format)(d[code]))  
+                tip .html("<b>"+ years[i] +'</b>: '+ d3.format(format)(d[eval(d['codename'])[0]]))  
                     .style("left", (d3.event.pageX) + "px")   
                     .style("top", (d3.event.pageY - 28) + "px");  
                 })          
@@ -609,19 +666,45 @@ window.addEventListener("load", function(){
             });
     }
 
-   function makeDonutChart(dataset,divs,value,format){
+   function makeDonutChart(dataset,divs,value,format,transform,year){
 
-    console.log(value)
+    domain = findDomain(year)
+
+    console.log(dataset)
+
     code = []
     value.forEach(d => code.push(d.code))
 
-    
-    var keys = Object.keys(dataset[0]).slice(3,19)
+     dataset.map(function(d){
 
-    dataset.forEach((d,i) => d['Year'] = years[i])
-    dataset = dataset.filter(d => d.Year == '2019')[0]
+      keys = Object.keys(d)
+
+      filtered = keys
+        .filter(key => code.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = d[key];
+          return obj;
+        }, {});
+
+      values = Object.values(filtered)
+      sums = sum(values)
+
+      code.forEach(function(t,i){
+        d[t] = values[i]/sums
+      })
+
+    return d
+
+    })
 
     console.log(dataset)
+
+    
+    var keys = code
+
+    dataset.forEach((d,i) => d['Year'] = years[i])
+    dataset = dataset.filter(d => domain.includes(d.Year))[0]
+
 
     margint = 10
 
@@ -636,13 +719,21 @@ window.addEventListener("load", function(){
         .append("g")
         .attr("transform", "translate(" + width / 2 + "," + (height + margin.top + margin.bottom)/ 2 + ")");
 
-    var color = d3.scaleOrdinal()
+    var color = d3.scaleLinear()
       .range(["#15534C","#1A5D51","#216755","#297159","#337B5C","#3D855E","#498F60","#569861","#64A261","#73AC61","#83B561","#94BE61","#A6C760","#B9D060","#CDD861","#E2E062"])
-      .domain(keys);
+      .domain(d3.ticks(0, keys.length, 16));
 
     var pie = d3.pie()
       .value(function(d) {return d.value; })
-    var data_ready = pie(d3.entries(dataset))
+
+    var filtered = Object.keys(dataset)
+        .filter(key => code.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = dataset[key];
+          return obj;
+        }, {});
+
+    var data_ready = pie(d3.entries(filtered))
 
     // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
     svg
@@ -655,11 +746,12 @@ window.addEventListener("load", function(){
         .outerRadius(radius)
       )
        .on("mouseover", function(d,i) {
+                console.log(d)
                 tip      
                     .transition()   
                     .duration(200)
                     .style("opacity", 1);    
-                tip .html(d3.format(format)(d.data.value) )  
+                tip .html("<b>"+ value.filter(r => r.code == d.data.key)[0].name + '</b>: ' + d3.format(format)(d.data.value) )  
                     .style("left", (d3.event.pageX) + "px")   
                     .style("top", (d3.event.pageY - 28) + "px");  
                 })          
@@ -668,15 +760,15 @@ window.addEventListener("load", function(){
                     .duration(500)   
                     .style("opacity", 0); 
             })
-      .attr('fill', function(d){ return(color(d.data.key)) })
+      .attr('fill', function(d){ return(color(keys.indexOf(d.data.key))) })
       .attr("stroke", "black")
-      .style("stroke-width", "2px")
+      .style("stroke-width", ".5px")
       .style("opacity", 0.7)
 
 
   }
 
-  function makeVennChart(dataset,divs,value,format){
+  function makeVennChart(dataset,divs,value,format,transform){
 
 
     var sets = [ {sets: ['Employed'], size: 12}, 
@@ -712,7 +804,7 @@ div.selectAll("g")
             })
   }
 
-  function makeIndicator(dataset,divs,value,format){
+  function makeIndicator(dataset,divs,value,format,transform,year){
 
     q = 3000
 
@@ -721,7 +813,7 @@ div.selectAll("g")
 
   }
 
-  function makeTable(dataset,divs,value,format){
+  function makeTable(dataset,divs,value,format,transform,year){
 
 
     let div = document.querySelector(divs);
@@ -729,17 +821,39 @@ div.selectAll("g")
     
   }
 
-  function makeStackedBarChart(dataset,divs,value,format){
+  function makeStackedBarChart(dataset,divs,value,format,transform,year){
 
-    console.log(value)
+    domain = findDomain(year)
+
     code = []
     value.forEach(d => code.push(d.code))
 
-    
-    var keys = Object.keys(dataset[0]).slice(3,19)
+    dataset.map(function(d){
+
+      keys = Object.keys(d)
+
+      filtered = keys
+        .filter(key => code.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = d[key];
+          return obj;
+        }, {});
+
+      values = Object.values(filtered)
+      sums = sum(values)
+
+      code.forEach(function(t,i){
+        d[t] = values[i]/sums
+      })
+
+    return d
+
+    })
+
+    var keys = code
 
     dataset.forEach((d,i) => d['Year'] = years[i])
-    dataset = dataset.filter(d => d.Year == '2010' | d.Year == '2019')
+    dataset = dataset.filter(d => domain.includes(d.Year))
 
     var year   = [...new Set(dataset.map(d => d.state))]
     var states = [...new Set(dataset.map(d => d.Year))]
@@ -772,9 +886,9 @@ div.selectAll("g")
       .attr("class", "x-axis")
 
 
-    var z = d3.scaleOrdinal()
+    var z = d3.scaleLinear()
       .range(["#15534C","#1A5D51","#216755","#297159","#337B5C","#3D855E","#498F60","#569861","#64A261","#73AC61","#83B561","#94BE61","#A6C760","#B9D060","#CDD861","#E2E062"])
-      .domain(keys);
+      .domain(d3.ticks(0, keys.length, 16));
 
     update(dataset,18, 0,value)
 
@@ -821,7 +935,7 @@ div.selectAll("g")
                     .style("opacity", 0); 
             })
         .classed("layer", true)
-        .attr("fill", d => z(d.key));
+        .attr("fill", d => z(keys.indexOf(d.key)));
 
       var bars = svg.selectAll("g.layer").selectAll("rect")
         .data(d => d, e => e.data.Year);
@@ -843,12 +957,14 @@ div.selectAll("g")
         
     }
     }
-  charttypes = [makeLineChart,makeLineChart,makeStackedBarChart,makeLineChart,makeLineChart,makeLineChart]
+  //charttypes = [makeLineChart,makeLineChart,makeStackedBarChart,makeLineChart,makeLineChart,makeLineChart]
   function assignData(data,manifest,fetchIndex){
     
-      
+      console.log(data)
+      console.log(fetchIndex)
       charts = manifest.divs
 
+      //("county" in temp1)
 
       data.forEach(function(d,i){
         d.slice(1,d.length).forEach(function(h,o){
@@ -865,6 +981,7 @@ div.selectAll("g")
         newdata[i] = Object.assign({},d,data[i])
       })
 
+      console.log('newdata',newdata)
 
       full = newdata.filter(r => r["geo"] == "county")
 
@@ -889,7 +1006,7 @@ div.selectAll("g")
 
       charts.forEach(function(d,i){
 
-        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(dataset,d,option[i].variables,option[i].format)
+        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(dataset,d,option[i].variables,option[i].format,option[i].transform,option[i].year)
 
         //makeLineChart(dataset,d,variables[i])
       })
@@ -903,7 +1020,7 @@ div.selectAll("g")
 
         charts.forEach(function(d,i){
 
-        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(data,d,option[i].variables,1)
+        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(data,d,option[i].variables,option[i].format,option[i].transform,option[i].year)
 
       })
         }
@@ -1207,7 +1324,6 @@ function mapData(json){
           );
 
         map.on('click', 'indiana', function (e) {
-            console.log(e.features[0].properties)
 
             $('#geography option:contains(' + e.features[0].properties.NAMELSAD + ')').prop({selected: true});
 
@@ -1226,9 +1342,6 @@ function mapData(json){
               var features = map.queryRenderedFeatures(bbox, {
               layers: ['indiana']
               });
-
-              console.log("CLICK")
-              console.log(features)
                
               // Run through the selected features and set a filter
               // to match features with unique FIPS codes to activate
@@ -1324,7 +1437,7 @@ function mapData(json){
 
     //variable,div
     fetches = Array()
-
+    fetchIndex = []
     vars = []
     for (let [key, value] of Object.entries(manifest.topic)){
       d = value.filter(d => d.dataset == 'ACS')
@@ -1348,7 +1461,7 @@ function mapData(json){
       let uniqueVars = [...new Set(vars)]
       variables = uniqueVars.join()
       
-      x.endpoints.forEach(function(endpoint){
+      x.endpoints.forEach(function(endpoint,i){
       
       years.forEach(function(year){
         newurl = endpoint.url
@@ -1356,21 +1469,60 @@ function mapData(json){
         for (t=0; t<m; t++){
         newurl = newurl.replace("{}",eval(endpoint.sub[t]))
         }
+        console.log(newurl)
       fetches.push(fetch(newurl))
+      fetchIndex.push({"geo":manifest.geographies[i],"year":year, 'source': x.name, 'use':'charts'})
       })
+
+
+
       })      
   
   
     })
 
-    fetches.push(fetch("https://api.census.gov/data/2019/acs/acs5?get=NAME,B01001_001E&for=tract:*&in=state:18&key=dd33b0475c26275920fe5c32a030d1a3310e899f"))
+    /*
 
-    fetchIndex = []
-    manifest.geographies.forEach(function(geo){
-      years.forEach(function(year){
-        fetchIndex.push({"geo":geo,"year":year})
-      })
+        fetches = Array()
+    allyears = []
+    for (i=2010; i <= 2019; i++){
+      allyears.push(i)
+    }
+
+    allyears.forEach(function(year){
+      manifest.sources.forEach(function(x){
+        vars = []
+        state = '18'
+        county = '*'
+
+        for (let [key, value] of Object.entries(manifest.topic)){
+          d = value.filter(d => d.dataset == x.name && findDomain(d.year).includes(year))
+          for (let [key, value] of Object.entries(d)){
+            value.variables.forEach(d => vars.push(d.code))
+          }}
+
+        let uniqueVars = [...new Set(vars)]
+        variables = uniqueVars.join()
+
+        x.endpoints.forEach(function(endpoint){
+           newurl = endpoint.url
+            m = newurl.split("{}").length - 1;
+            for (t=0; t<m; t++){
+            newurl = newurl.replace("{}",eval(endpoint.sub[t]))
+            }
+          //fetches.push(fetch(newurl))
+          console.log(newurl)
+          })
+
+        })
+
     })
+
+    */
+
+    fetches.push(fetch("https://api.census.gov/data/2019/acs/acs5?get=NAME,B01001_001E&for=tract:*&in=state:18&key=dd33b0475c26275920fe5c32a030d1a3310e899f"))
+    fetchIndex.push({"geo":'tracts',"year":2019, 'source': 'ACS', 'use':'maps'})
+
 
 
 
@@ -1405,6 +1557,7 @@ function mapData(json){
       // if there's an error, log it
       console.log(error);
     });
+
   }
 
 
@@ -1413,7 +1566,6 @@ function mapData(json){
   fetch('manifest.json')
     .then(response => response.json())
     .then(function(json){
-      console.log(json)
       charts = ['#chart1','#chart2','#chart3','#chart4','#chart5','#chart6']
 
 
