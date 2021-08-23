@@ -1704,9 +1704,7 @@ function mapData(json){
         newurl = newurl.replace("{}",eval(endpoint.sub[t]))
         }
        
-      fetches.push(fetch(newurl),{
-        mode: 'no-cors'
-    })
+      fetches.push(fetch(newurl))
       fetchIndex.push({"geo":manifest.geographies[i],"year":year, 'source': x.name, 'use':'charts'})
       })
 
@@ -1782,7 +1780,6 @@ function mapData(json){
     .then(function (responses) {
       // Get a JSON object from each of the responses and merge into one object
       return Promise.all(responses.map(function (response) {
-        
         return response.json();
       }));
     })
