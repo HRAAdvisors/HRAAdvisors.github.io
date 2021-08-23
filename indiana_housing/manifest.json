@@ -794,7 +794,7 @@
       "name": "G1",
       "endpoints": [
         {
-          "url": "https://sheet2api.com/v1/s9oDPOslRC6h/demo-data"
+          "url": "https://docs.google.com/spreadsheets/d/1og1kolH37nCSTdfN1bqsl9oVdk8di9IqzbJWYTqZvZo/gviz/tq?tqx=out:csv&gid=0"
         }
       ]
     }

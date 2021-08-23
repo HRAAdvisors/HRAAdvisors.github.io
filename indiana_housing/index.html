@@ -416,35 +416,6 @@ function NewTab() {
       "DRAFT Indiana Housing Dashboard Report 2021.06.10.pdf", "_blank");
 }
 
-function csvJSON(csv){
-
-  var lines=csv.split("\n");
-
-  var result = [];
-
-  // NOTE: If your columns contain commas in their values, you'll need
-  // to deal with those before doing the next step 
-  // (you might convert them to &&& or something, then covert them back later)
-  // jsfiddle showing the issue https://jsfiddle.net/
-  var headers=lines[0].split(",");
-
-  for(var i=1;i<lines.length;i++){
-
-      var obj = {};
-      var currentline=lines[i].split(",");
-
-      for(var j=0;j<headers.length;j++){
-          obj[headers[j]] = currentline[j];
-      }
-
-      result.push(obj);
-
-  }
-
-  //return result; //JavaScript object
-  return JSON.stringify(result); //JSON
-}
-
 
 function toggleMenu() {
   var menuBox = document.getElementById('menu-box');
@@ -597,7 +568,7 @@ window.addEventListener("load", function(){
 
     domain = findDomain(year)
 
-
+    margin.left = 50
     code = []
     value.forEach(d => code.push(d.code))
     
@@ -653,7 +624,7 @@ window.addEventListener("load", function(){
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + margin.left  + "," + margin.top + ")");
 
     // 3. Call the x axis in a group tag
     svg.append("g")
@@ -663,6 +634,14 @@ window.addEventListener("load", function(){
              .tickFormat(d3.format("d"))
              .tickValues([2010,2019]))
         .call(g => g.select(".domain").remove())
+
+    svg
+    .append("g")
+    .attr("transform", "translate(-10,0)")      // This controls the vertical position of the Axis
+    .call(d3.axisLeft(yScale)
+      .tickFormat(d3.format(format))
+      .tickValues([getMinY(dataset,code),getMaxY(dataset,code)]))
+    .call(g => g.select(".domain").remove())
         
       
     // Create an axis component with d3.axisBottom
@@ -1021,6 +1000,8 @@ div.selectAll("g")
 
       acs = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "ACS")))
 
+      g1 = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "G1")))
+
       console.log(acs)
 
       chart_data = acs.filter(r => r["use"] == "charts")
@@ -1103,8 +1084,6 @@ div.selectAll("g")
       
 function mapData(json){
 
-      console.log(geos)
-      console.log(manifest)
 
       columns = Object.keys(geos)
       columns = columns.map(d => geos[d][9]['NAME'])
@@ -1165,7 +1144,7 @@ function mapData(json){
         d['tenure'] = (d.B25003_002E / d.tenure_households)
       })
 
-      console.log(latest)
+ 
 
       selects.forEach(function(select){
         item = document.getElementById(select)
@@ -1367,7 +1346,8 @@ function mapData(json){
       //Heat Map - B19013_001E
       tractsgeo = json[1]
       nhpd = json[2] 
-      tractspop = data[20]
+      console.log(data)
+      tractspop = data[30]
       tractsgeo.features.forEach(function(feature){
         pop = {"population": parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B01001_001E), 
         "mhi": parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B19013_001E),
@@ -1715,6 +1695,8 @@ function mapData(json){
   
     })
 
+
+
     /*
 
         fetches = Array()
@@ -1745,6 +1727,7 @@ function mapData(json){
             newurl = newurl.replace("{}",eval(endpoint.sub[t]))
             }
           //fetches.push(fetch(newurl))
+          fetchIndex.push({"geo":manifest.geographies[i],"year":year, 'source': x.name, 'use':'charts'})
           console.log(newurl)
           })
 
@@ -1780,10 +1763,16 @@ function mapData(json){
     .then(function (responses) {
       // Get a JSON object from each of the responses and merge into one object
       return Promise.all(responses.map(function (response) {
-        return response.json();
+        return response.text()
       }));
     })
     .then(function (data) {
+      data.forEach(function(d,i){if(d.charAt(0) === "["){
+        data[i] = JSON.parse(d)
+      }else{
+        data[i] = Papa.parse(d).data
+      }})
+
       // Assign data
       assignData(data,manifest,fetchIndex)
     })
