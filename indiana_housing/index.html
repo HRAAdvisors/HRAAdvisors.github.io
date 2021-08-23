@@ -959,9 +959,8 @@ div.selectAll("g")
     }
   //charttypes = [makeLineChart,makeLineChart,makeStackedBarChart,makeLineChart,makeLineChart,makeLineChart]
   function assignData(data,manifest,fetchIndex){
-    
-      console.log(data)
-      console.log(fetchIndex)
+
+       
       charts = manifest.divs
 
       //("county" in temp1)
@@ -981,12 +980,40 @@ div.selectAll("g")
         newdata[i] = Object.assign({},d,data[i])
       })
 
-      console.log('newdata',newdata)
 
-      full = newdata.filter(r => r["geo"] == "county")
+      chart_data = newdata.filter(r => r["use"] == "charts")
+
+      county_charts = chart_data.filter(r => r["geo"] == "county")
+      state_charts = chart_data.filter(r => r["geo"] == "state")
+
+
+
+      counties = []
+      county_charts.forEach(function(d){
+        delete d.geo
+        delete d.use
+        delete d.year
+        delete d.source
+        values = Object.values(d)
+        counties.push(values)
+      })
+
+      states = []
+      state_charts.forEach(function(d){
+        delete d.geo
+        delete d.use
+        delete d.year
+        delete d.source
+        values = Object.values(d)
+        values = values.slice(1,values.length)
+        values = values[0]
+        values['county'] = "999"
+        states.push(values)
+      })
+
 
       var geos = new Object();
-      data[10].slice(1,data[10].length).map(function(x){
+      counties[0].slice(1,counties[0].length).map(function(x){
         geos[x['county']] = []
       })
 
@@ -997,8 +1024,11 @@ div.selectAll("g")
       }
 
 
+      
 
-      dataset = geos['001']
+      geos['999'] = states
+
+      dataset = geos['999']
 
   
 
@@ -1035,7 +1065,7 @@ function mapData(json){
       columns = Object.keys(geos)
       columns = columns.map(d => geos[d][9]['NAME'])
       columns - columns.sort()
-      values = ['B01001_001E','B19013_001E','B19001_002E']
+      indicators = ['B01001_001E','B19013_001E','B19001_002E']
 
       var table = d3.select('#table').append("table");
           var thead = table.append("thead");
@@ -1086,6 +1116,8 @@ function mapData(json){
           updateTable(0)
         })
 
+        console.log(manifest)
+
       })
 
 
@@ -1098,7 +1130,7 @@ function mapData(json){
       })
      
       key = []
-      values.forEach(function(value){
+      indicators.forEach(function(value){
         temp = new Object();
         selection.forEach(function(column){
         temp[column] = latest.filter(d => d.NAME == column)[0][value]
@@ -1174,13 +1206,21 @@ function mapData(json){
 
         topic_option = selectResize('#topic',0)
 
-    
         option = selectResize('#geography',1)
-        index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
-        value = foo.features[index]
+        if(option === 'Indiana'){
+          countyfip = "999"
+        }else{
+
+          index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
+          value = foo.features[index]
+          
+          ////NEED TO ADD IN INDIANA LOGIC
+          countyfip = value.properties.COUNTYFP
+
+        }
         
-        ////NEED TO ADD IN INDIANA LOGIC
-        countyfip = value.properties.COUNTYFP
+
+        
 
         charts = ['#chart1','#chart2','#chart3','#chart4','#chart5','#chart6']
         variables = ["B01001_001E","B17010_003E",["B19001_002E","B19001_003E","B19001_004E","B19001_005E","B19001_006E","B19001_007E","B19001_008E","B19001_009E","B19001_010E","B19001_011E","B19001_012E","B19001_013E","B19001_014E","B19001_015E","B19001_016E","B19001_017E"],"B01001_001E","B01003_001E","B17010_003E"]
@@ -1197,8 +1237,16 @@ function mapData(json){
         //Resize box
         option = selectResize('#geography',0)
         topic_option = selectResize('#topic',1)
-  
-        //Zoom in on map
+
+        if(option === 'Indiana'){
+          countyfip = "999"
+
+          map.flyTo({
+            center: [-86.158017, 39.897451],
+            zoom: 5.75
+            });
+        }else{
+          //Zoom in on map
         index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
         bounds = turf.bbox(foo.features[index])
 
@@ -1210,6 +1258,10 @@ function mapData(json){
         ]);
 
         countyfip = value.properties.COUNTYFP
+
+        }
+  
+        
 
 
          
