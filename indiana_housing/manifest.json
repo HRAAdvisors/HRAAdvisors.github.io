@@ -316,7 +316,7 @@
             }
           ],
           "type": "stackedbar",
-          "dataset": "ACS",
+          "dataset": "G1",
           "year": "latest",
           "format": ",.1%"
         },
@@ -789,6 +789,16 @@
           ]
         }
       ]
+    },
+    {
+      "name": "G1",
+      "endpoints": [
+        {
+          "url": "https://sheet2api.com/v1/s9oDPOslRC6h/demo-data"
+        }
+      ]
     }
   ]
 }
+
+

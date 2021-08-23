@@ -23,6 +23,7 @@
   <script src="https://d3js.org/d3-geo.v1.min.js"></script>
   <link href="css/indiana-a6357d.webflow.css" rel="stylesheet" type="text/css">
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"></script>
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
@@ -356,7 +357,16 @@
                     <p onclick="toggleMenu()"><span style="font-size: 2em; color: black;"><i class="fas fa-layer-group"></i></span></p></p>
                     <div id="menu-box" style="display: none">
                       <div class="on"><input type="checkbox" id="population"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  Population Growth</div>
-                      <div class="on"><input type="checkbox" id="race"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  Racial Composition</div>
+                      <div class="on"><input type="checkbox" id="race"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  <font color="lightgrey">Racial Composition</font></div>
+                      <div class="on"><input type="checkbox" id="income"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  Median Household Income</div>
+                      <div class="on"><input type="checkbox" id="tenure"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  Tenure (% Owner Occupied)</div>
+                      <div class="on"><input type="checkbox" id="affordability"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  Affordable Housing Units</div>
+                      <div class="on"><input type="checkbox" id="multifamily"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  Multifamily Housing Units</div>
+                      <div class="on"><input type="checkbox" id="transit"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  <font color="lightgrey">Public Transit</font></div>
+                      <div class="on"><input type="checkbox" id="broadband"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  <font color="lightgrey">Broadband</font></div>
+                      <div class="on"><input type="checkbox" id="schools"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  <font color="lightgrey">Schools</font></div>
+                      <div class="on"><input type="checkbox" id="parks"><!--<img src="style/office.svg" height="20px" width="20px" style="vertical-align:middle">-->  <font color="lightgrey">Parks</font></div>
+
                     </div>
                   </div>
                 </div>
@@ -404,6 +414,35 @@
 function NewTab() {
     window.open(
       "DRAFT Indiana Housing Dashboard Report 2021.06.10.pdf", "_blank");
+}
+
+function csvJSON(csv){
+
+  var lines=csv.split("\n");
+
+  var result = [];
+
+  // NOTE: If your columns contain commas in their values, you'll need
+  // to deal with those before doing the next step 
+  // (you might convert them to &&& or something, then covert them back later)
+  // jsfiddle showing the issue https://jsfiddle.net/
+  var headers=lines[0].split(",");
+
+  for(var i=1;i<lines.length;i++){
+
+      var obj = {};
+      var currentline=lines[i].split(",");
+
+      for(var j=0;j<headers.length;j++){
+          obj[headers[j]] = currentline[j];
+      }
+
+      result.push(obj);
+
+  }
+
+  //return result; //JavaScript object
+  return JSON.stringify(result); //JSON
 }
 
 
@@ -558,7 +597,7 @@ window.addEventListener("load", function(){
 
     domain = findDomain(year)
 
-    console.log(divs)
+
     code = []
     value.forEach(d => code.push(d.code))
     
@@ -670,7 +709,6 @@ window.addEventListener("load", function(){
 
     domain = findDomain(year)
 
-    console.log(dataset)
 
     code = []
     value.forEach(d => code.push(d.code))
@@ -697,7 +735,6 @@ window.addEventListener("load", function(){
 
     })
 
-    console.log(dataset)
 
     
     var keys = code
@@ -746,7 +783,7 @@ window.addEventListener("load", function(){
         .outerRadius(radius)
       )
        .on("mouseover", function(d,i) {
-                console.log(d)
+                
                 tip      
                     .transition()   
                     .duration(200)
@@ -980,8 +1017,13 @@ div.selectAll("g")
         newdata[i] = Object.assign({},d,data[i])
       })
 
+      
 
-      chart_data = newdata.filter(r => r["use"] == "charts")
+      acs = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "ACS")))
+
+      console.log(acs)
+
+      chart_data = acs.filter(r => r["use"] == "charts")
 
       county_charts = chart_data.filter(r => r["geo"] == "county")
       state_charts = chart_data.filter(r => r["geo"] == "state")
@@ -1061,11 +1103,17 @@ div.selectAll("g")
       
 function mapData(json){
 
+      console.log(geos)
+      console.log(manifest)
 
       columns = Object.keys(geos)
       columns = columns.map(d => geos[d][9]['NAME'])
       columns - columns.sort()
       indicators = ['B01001_001E','B19013_001E','B19001_002E']
+
+      indicators = [{'label':'Population','variable':'B01001_001E','format':",.0f"},{'label':'Median Household Income','variable':'B19013_001E','format':"$,.0f"},{'label':'Family Poverty Rate','variable':'family_poverty','format':",.1%"},{'label':'Tenure (% Owner Occupied)','variable':'tenure','format':",.1%"}]
+
+
 
       var table = d3.select('#table').append("table");
           var thead = table.append("thead");
@@ -1109,6 +1157,16 @@ function mapData(json){
         latest.push(geos[Object.keys(geos)[i]][9])
       }
 
+      latest.forEach(function(d){
+        d['family_poverty'] = d.B17013_002E / d.B17013_001E;
+
+        d['tenure_households'] = parseFloat(d.B25003_002E) + parseFloat(d.B25003_003E);
+
+        d['tenure'] = (d.B25003_002E / d.tenure_households)
+      })
+
+      console.log(latest)
+
       selects.forEach(function(select){
         item = document.getElementById(select)
 
@@ -1133,9 +1191,9 @@ function mapData(json){
       indicators.forEach(function(value){
         temp = new Object();
         selection.forEach(function(column){
-        temp[column] = latest.filter(d => d.NAME == column)[0][value]
+        temp[column] = d3.format(value.format)(latest.filter(d => d.NAME == column)[0][value.variable])
       })
-      temp['label'] = value
+      temp['label'] = value.label
       key.push(temp)
       })
 
@@ -1306,14 +1364,22 @@ function mapData(json){
       map.addControl(new mapboxgl.NavigationControl());
       map.dragRotate.disable();
 
-      //Heat Map
+      //Heat Map - B19013_001E
       tractsgeo = json[1]
+      nhpd = json[2] 
       tractspop = data[20]
       tractsgeo.features.forEach(function(feature){
-        pop = {"population": parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B01001_001E)}
+        pop = {"population": parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B01001_001E), 
+        "mhi": parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B19013_001E),
+        "owner": parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25003_002E)/(parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25003_002E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25003_003E)),
+        "multifamily": (parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_006E)+parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_007E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_008E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_009E))/(parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_006E)+parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_007E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_008E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_009E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_002E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_003E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_004E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_005E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_010E) + parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B25024_011E))
+         }
         feature.properties = Object.assign({},feature.properties,pop)
+
       })
       //
+
+  
 
       map.on('load', function () {
 
@@ -1337,7 +1403,8 @@ function mapData(json){
             });
           }
         //Add functions to toggles
-        menuitems =[{'div':'population','layer':'indiana-tracts'},{'div':'race','layer':'null'}]
+        // population, race, income, tenure, affordability, multifamily, transit, broadband, schools, parks
+        menuitems =[{'div':'population','layer':'population'},{'div':'race','layer':'null'},{'div':'income','layer':'income'},{'div':'tenure','layer':'owner'},{'div':'affordability','layer':'nhpd'},{'div':'multifamily','layer':'multifamily'}]
         menuitems.forEach(d => menuToggle(d.div,d.layer))
         //Add geojson file as data source
         map.addSource('indiana', {
@@ -1349,6 +1416,11 @@ function mapData(json){
           'type': 'geojson',
           'data': tractsgeo
           });
+
+        map.addSource('nhpd', {
+          'type': 'geojson',
+          'data': nhpd
+          });
         //Add fill layer to map 
         
         map.addLayer({
@@ -1358,7 +1430,7 @@ function mapData(json){
           'paint': {
             'fill-color': 'rgba(0,55,104,.2)',
           }
-        },'settlement-label')
+        }, 'road-primary')
 
         map.addLayer(
           {
@@ -1368,11 +1440,11 @@ function mapData(json){
           'paint': {
           'fill-outline-color': '#484896',
           'fill-color': '#6e599f',
-          'fill-opacity': 0.75
+          'fill-opacity': 0.3
           },
           'filter': ['in', 'COUNTYFP', '']
           },
-          'settlement-label'
+          'road-primary',
           );
 
         map.on('click', 'indiana', function (e) {
@@ -1420,10 +1492,50 @@ function mapData(json){
           map.getCanvas().style.cursor = '';
           });
 
-                min = getMinY(tractsgeo.features,'properties.population')
-        max = getMaxY(tractsgeo.features,'properties.population')
         map.addLayer({
-          'id': 'indiana-tracts',
+          'id': 'nhpd',
+          'type': 'circle',
+          'source': 'nhpd',
+          'layout': {
+            'visibility': 'none'
+            },
+          'paint': {
+            'circle-radius': 2,
+            'circle-color': '#F84C4C' // red color
+            }
+        },'indiana')
+
+        map.on('click', 'nhpd', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.PropertyAddress;
+         
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+         
+        new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+        });
+         
+        // Change the cursor to a pointer when the mouse is over the places layer.
+        map.on('mouseenter', 'buildings', function () {
+        map.getCanvas().style.cursor = 'pointer';
+        });
+         
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'buildings', function () {
+        map.getCanvas().style.cursor = '';
+        });
+
+        minpop = getMinY(tractsgeo.features,'properties.population')
+        maxpop = getMaxY(tractsgeo.features,'properties.population')
+        map.addLayer({
+          'id': 'population',
           'source': 'tracts',
           'type': 'fill',
           'layout': {
@@ -1434,8 +1546,75 @@ function mapData(json){
                   'interpolate',
                   ['linear'],
                   ['get', 'population'],
-                  min,'white',
-                  max,'red'
+                  minpop,'white',
+                  maxpop,'red'
+                  ],
+              'fill-opacity': 0.75
+          }
+        })
+
+     
+        minincome = 0
+        maxincome = getMaxY(tractsgeo.features,'properties.mhi')
+
+        map.addLayer({
+          'id': 'income',
+          'source': 'tracts',
+          'type': 'fill',
+          'layout': {
+            'visibility': 'none'
+            },
+          'paint': {
+              'fill-color': [
+                  'interpolate',
+                  ['linear'],
+                  ['get', 'mhi'],
+                  minincome,'white',
+                  maxincome,'red'
+                  ],
+              'fill-opacity': 0.75
+          }
+        })
+
+        minowner = 0
+        maxowner = 1
+
+        map.addLayer({
+          'id': 'owner',
+          'source': 'tracts',
+          'type': 'fill',
+          'layout': {
+            'visibility': 'none'
+            },
+          'paint': {
+              'fill-color': [
+                  'interpolate',
+                  ['linear'],
+                  ['get', 'owner'],
+                  minowner,'white',
+                  maxowner,'red'
+                  ],
+              'fill-opacity': 0.75
+          }
+        })
+
+        minmultifamily = 0
+        maxmultifamily = 1
+
+        map.addLayer({
+          'id': 'multifamily',
+          'source': 'tracts',
+          'type': 'fill',
+          'layout': {
+            'visibility': 'none'
+            },
+          'paint': {
+              'fill-color': [
+                  'interpolate',
+                  ['linear'],
+                  ['get', 'multifamily'],
+                  minmultifamily,'white',
+                  maxmultifamily,'red'
                   ],
               'fill-opacity': 0.75
           }
@@ -1450,12 +1629,14 @@ function mapData(json){
             'line-color': 'rgba(0, 55, 104, 1)',
             'line-width': 1
           }
-        })
+        }
+        , 'road-primary'
+        )
 
       })
     }
     
-    var files = ["gis/counties.geojson", "gis/tracts2.geojson"];
+    var files = ["gis/counties.geojson", "gis/tracts2.geojson", "gis/nhpd.geojson"];
       var promises = [];
 
       files.forEach(function(url) {
@@ -1466,6 +1647,7 @@ function mapData(json){
         .then(function (responses) {
           // Get a JSON object from each of the responses and merge into one object
           return Promise.all(responses.map(function (response) {
+            console.log(response)
             return response.json();
           }));
         })
@@ -1521,8 +1703,10 @@ function mapData(json){
         for (t=0; t<m; t++){
         newurl = newurl.replace("{}",eval(endpoint.sub[t]))
         }
-        console.log(newurl)
-      fetches.push(fetch(newurl))
+       
+      fetches.push(fetch(newurl),{
+        mode: 'no-cors'
+    })
       fetchIndex.push({"geo":manifest.geographies[i],"year":year, 'source': x.name, 'use':'charts'})
       })
 
@@ -1572,7 +1756,7 @@ function mapData(json){
 
     */
 
-    fetches.push(fetch("https://api.census.gov/data/2019/acs/acs5?get=NAME,B01001_001E&for=tract:*&in=state:18&key=dd33b0475c26275920fe5c32a030d1a3310e899f"))
+    fetches.push(fetch("https://api.census.gov/data/2019/acs/acs5?get=NAME,B01001_001E,B19013_001E,B25003_002E,B25003_003E,B25024_002E,B25024_003E,B25024_004E,B25024_005E,B25024_006E,B25024_007E,B25024_008E,B25024_009E,B25024_010E,B25024_011E&for=tract:*&in=state:18&key=dd33b0475c26275920fe5c32a030d1a3310e899f"))
     fetchIndex.push({"geo":'tracts',"year":2019, 'source': 'ACS', 'use':'maps'})
 
 
@@ -1598,6 +1782,7 @@ function mapData(json){
     .then(function (responses) {
       // Get a JSON object from each of the responses and merge into one object
       return Promise.all(responses.map(function (response) {
+        
         return response.json();
       }));
     })
