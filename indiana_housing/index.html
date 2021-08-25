@@ -285,22 +285,72 @@
             opacity:.75;
         }
 
-.settings .info {
+
+
+.settings .source {
   background: rgba(0, 62, 122, 1);
   height: 30px;
   font-size: 1.2rem;
   top: 8px;
   left: 20px;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 3px !important;
+  border-top-left-radius: 3px !important;
   padding: 5px 10px;
   cursor: pointer;
   margin: 5px;
 }
+
+* {
+  transition: all .2s ease;
+}
+
+.extra-source {
+  display: none;
+  line-height: 19px;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 25px;
+  
+  z-index: 100;
+}
+
+.source:hover .extra-source {
+  display: block;
+}
+
+.source {
+  font-size: 13px;
+  padding-left: 5px;
+  width: auto;
+  border-radius: 15px !important;
+  position: absolute;
+  bottom: 0px;
+  border-collapse: separate;
+  overflow: hidden;
+}
+
+.source:hover {
+  background-color: lightgrey;
+  padding: 0 0 0 5px;
+  width: 315px;
+  text-align: left !important;
+}
+
+.chartarea {
+  position: relative;
+}
+
+
   </style>
+
 </head>
 <body class="lnd_body">
-  <div id=isolate> </div><div id=infowindow><div id=header> <b>      User Guide </b></div><div id=closewindow> <i class="far fa-times-circle"></i> </div><div id=assumptions><p style="margin:0in;font-size:15px;">Welcome to the IHCDA Housing Dashboard...<br><br><strong>To Use:</strong></p></div></div>
+  <div id=isolate> </div><div id=infowindow><div id=header> <b>      User Guide </b></div><div id=closewindow> <i class="far fa-times-circle"></i> </div><div id=assumptions><p style="margin:0in;font-size:15px;">Welcome to the Indiana State Housing Dashboard, a platform for you to track demographic and housing trends across the state at a county-by-county level. This dashboard was sponsored by the Indiana Housing and Community Development Agency (IHCDA) and guided by a Housing Working Group comprised of a broad range of housing stakeholders from across the state.  <br><br><strong>To Use:</strong></p><br><p style="margin:0in;font-size:15px;">This dashboard allows you to see a data snapshot for each county in the state, to compare data points across different counties, and to export a Housing Needs Assessment with detailed housing and demographic analysis for each county. Select the topic and geography from the two drop-down menus at the top of the homepage to change the information that you see.  
+
+To see how housing and demographic trends vary geospatially, select the layers button in the top left-hand corner of the map.  
+
+To compare data points for up to three counties, select the “compare” button in the top right of the home page. To export a full housing needs assessment report for your selected county, select the “export” button. </p></div></div>
     <div class="tab03">
     <div class="tab03_container">
       <div data-duration-in="300" data-duration-out="100" class="tab03_tabs w-tabs">
@@ -343,12 +393,48 @@
             <div class="tab03_tab_content">
               <div class="tab03_block_left">
                 <div class="w-layout-grid grid">
-                  <div id='chart1'><b><span id='label1'>Population</span></b></div>
-                  <div id='chart2'><b><span id='label2'>Median Income</span></b></div>
-                  <div id='chart3'><b><span id='label3'>Household Income Distribution</span></b></div>
-                  <div id='chart4'><b><span id='label4'>Family Poverty Rate</span></b></div>
-                  <div id='chart5'><b><span id='label5'>Tenure</span></b></div>
-                  <div id='chart6'><b><span id='label6'>Racial Composition</span></b></div>
+                  <div id='chart1' class="chartarea"><b><span id='label1'>Population</span></b><div class="source">
+      <i class="icon-info-sign"></i>
+
+      <span class="extra-source" id='chart1source'>
+        American Community Survey; 5-Year Estimates
+      </span>
+    </div></div>
+                  <div id='chart2' class="chartarea"><b><span id='label2'>Median Income</span></b><div class="source">
+      <i class="icon-info-sign"></i>
+
+      <span class="extra-source" id='chart2source'>
+        
+      </span>
+    </div></div>
+                  <div id='chart3' class="chartarea"><b><span id='label3'>Household Income Distribution</span></b><div class="source">
+      <i class="icon-info-sign"></i>
+
+      <span class="extra-source" id='chart3source'>
+        
+      </span>
+    </div></div>
+                  <div id='chart4' class="chartarea"><b><span id='label4'>Family Poverty Rate</span></b><div class="source">
+      <i class="icon-info-sign"></i>
+
+      <span class="extra-source" id='chart4source'>
+        
+      </span>
+    </div></div>
+                  <div id='chart5' class="chartarea"><b><span id='label5'>Tenure</span></b><div class="source">
+      <i class="icon-info-sign"></i>
+
+      <span class="extra-source" id='chart5source'>
+        
+      </span>
+    </div></div>
+                  <div id='chart6' class="chartarea"><b><span id='label6'>Racial Composition</span></b><div class="source">
+      <i class="icon-info-sign"></i>
+
+      <span class="extra-source" id='chart6source'>
+        
+      </span>
+    </div></div>
                 </div>
               </div>
               <div class="tab03_block_right">
@@ -391,6 +477,8 @@
   <script src="js/webflow.js" type="text/javascript"></script>
   <script src="js/turf.min.js"></script>
   <script src="js/venn.js"></script>
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 <script>
@@ -416,6 +504,11 @@ function NewTab() {
       "DRAFT Indiana Housing Dashboard Report 2021.06.10.pdf", "_blank");
 }
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
 function toggleMenu() {
   var menuBox = document.getElementById('menu-box');
@@ -460,9 +553,9 @@ function toggleMenu() {
 //Define Labels
 span = ['#label1','#label2','#label3','#label4','#label5','#label6']
 population = ['Population','Median Income','Household Income Distribution','Family Poverty Rate','Tenure','Racial Composition']
-housing = ['Housing Units by Typology','Housing Units by Decade Built','Median Listing Price','Median Rent','Housing Starts','Affordable Housing Starts']
+housing = ['Housing Units by Typology','Housing Units by Decade Built','Median Listing Price','Median Rent','Housing Starts','']
 housingafford = ['Cost Burdened Households','Cost Burden by Tenure','Cost Burden by Income','Rental Housing Gap','Home Value Affordable to Median Household','']
-jobs = ['Unemployment Rate','Net New Jobs','Top 5 Industries by Jobs','Median Salary','Inflow/Outflow','']
+jobs = ['Unemployment Rate','Top 5 Industries by Jobs','Median Salary','Inflow/Outflow','','']
 
 //Function to relabel spans when topic is changed
 reLabel = function(spans,labels){
@@ -479,7 +572,7 @@ var tip = d3.select("body").append("div")
     .style("opacity", 0);
 
 //Define diminisons of chart modules based on the initial div dimensions of the first chart
-var margin = {top: 30, right: 10, bottom: 30, left: 10}
+var margin = {top: 30, right: 30, bottom: 30, left: 30}
 var divs = d3.select('#chart1')
 element = divs.node();
 width = element.getBoundingClientRect().width  - margin.left - margin.right,
@@ -514,12 +607,12 @@ function selectResize(id,initial){
 
   if (initial == 1){
     select.after(tempSelect)
-    width = tempSelect.getBoundingClientRect().width
-    select.style.width = `${width}px`;
+    widthselect = tempSelect.getBoundingClientRect().width
+    select.style.width = `${widthselect}px`;
     }else{
     event.target.after(tempSelect)
-    width = tempSelect.getBoundingClientRect().width
-    event.target.style.width = `${width}px`;
+    widthselect = tempSelect.getBoundingClientRect().width
+    event.target.style.width = `${widthselect}px`;
     }
   tempSelect.remove()
 
@@ -568,7 +661,7 @@ window.addEventListener("load", function(){
 
     domain = findDomain(year)
 
-    margin.left = 70
+    margin.left = 65
     code = []
     value.forEach(d => code.push(d.code))
     
@@ -641,7 +734,7 @@ window.addEventListener("load", function(){
     .call(d3.axisLeft(yScale)
       .tickFormat(d3.format(format))
       .tickValues([getMinY(dataset,code),getMaxY(dataset,code)]))
-    .call(g => g.select(".domain").remove())
+    //.call(g => g.select(".domain").remove())
         
       
     // Create an axis component with d3.axisBottom
@@ -667,13 +760,16 @@ window.addEventListener("load", function(){
         .attr("class", "dot") // Assign a class for styling
         .attr("cx", function(d, i) { return xScale(years[i]) })
         .attr("cy", function(d) { return yScale(d[code]) })
+        .attr("id",code)
         .attr("r", 5)
         .on("mouseover", function(d,i) {
+          var self  = d3.select(this),
+                c   = self.attr('id')
                 tip      
                     .transition()   
                     .duration(200)
                     .style("opacity", 1);    
-                tip .html("<b>"+ years[i] +'</b>: '+ d3.format(format)(d[eval(d['codename'])[0]]))  
+                tip .html("<b>"+ years[i] +'</b>: '+ d3.format(format)(d[c]))  
                     .style("left", (d3.event.pageX) + "px")   
                     .style("top", (d3.event.pageY - 28) + "px");  
                 })          
@@ -704,10 +800,9 @@ window.addEventListener("load", function(){
         }, {});
 
       values = Object.values(filtered)
-      sums = sum(values)
 
       code.forEach(function(t,i){
-        d[t] = values[i]/sums
+        d[t] = values[i]
       })
 
     return d
@@ -718,8 +813,8 @@ window.addEventListener("load", function(){
     
     var keys = code
 
-    dataset.forEach((d,i) => d['Year'] = years[i])
-    dataset = dataset.filter(d => domain.includes(d.Year))[0]
+    dataset.forEach((d,i) => d['year'] = years[i])
+    dataset = dataset.filter(d => domain.includes(d.year))[0]
 
 
     margint = 10
@@ -786,16 +881,18 @@ window.addEventListener("load", function(){
 
   function makeVennChart(dataset,divs,value,format,transform){
 
+    newdata = dataset.filter(d => d.year == 2019)[0]
 
-    var sets = [ {sets: ['Employed'], size: 12}, 
-             {sets: ['Residents'], size: 12},
-             {sets: ['Employed','Residents'], size: 2}];
+
+    var sets = [ {sets: ['Employed'], size: newdata[value[2].code]}, 
+             {sets: ['Residents'], size: newdata[value[1].code]},
+             {sets: ['Employed','Residents'], size: newdata[value[0].code]}];
 
     var div = d3.select(divs)
 
     var chart = venn.VennDiagram()
      .width(width + margin.left + margin.right)
-    .height(height + margin.top + margin.bottom);
+    .height(height + margin.top + margin.bottom)
     div.datum(sets).call(chart);
 
 
@@ -809,7 +906,7 @@ div.selectAll("g")
                     .transition()   
                     .duration(200)
                     .style("opacity", 1);    
-                tip .html(d.size)  
+                tip .html(d3.format(format)(d.size))  
                     .style("left", (d3.event.pageX) + "px")   
                     .style("top", (d3.event.pageY - 28) + "px");  
                 })          
@@ -822,25 +919,272 @@ div.selectAll("g")
 
   function makeIndicator(dataset,divs,value,format,transform,year){
 
-    q = 3000
+    newdata = dataset.filter(d => d.year == 2019)[0]
+    q = newdata[value[0].code]
+
 
     let div = document.querySelector(divs);
-    div.innerHTML += '<p style ="color: #000; text-align: center; font-size: 40px;font-weight: 700; position: relative; top: 50%;">' + d3.format("(,.2r")(q) + '</p>'
+    div.innerHTML += '<p class="temp" style ="color: #000; text-align: center; font-size: 40px;font-weight: 700; position: relative; top: 50%;">' + d3.format(format)(q) + '</p>'
 
   }
 
   function makeTable(dataset,divs,value,format,transform,year){
 
+    newdata = dataset.filter(d => d.year == 2019)[0]
+    q = newdata[value[0].code].split("; ")
+    
+    newstring = new String()
+    q.forEach(function(d){
+      list = '<li>' + d + '</li>'
+      newstring = newstring + list
+    })
+
+
 
     let div = document.querySelector(divs);
-    div.innerHTML += '<p style ="color: #000; text-align: center; font-size: 40px;font-weight: 700; position: relative; top: 50%;">' + '<ul><li>Xxxxx</li><li>Xxxxx</li><li>Xxxx</li></ul>' + '</p>'
+    div.innerHTML += '<div class="temp"><p style ="color: #000; text-align: center; font-size: 40px;font-weight: 700; position: relative; top: 50%;">' + '<ul>' + newstring + '</ul>' + '</p></div>'
     
   }
 
-  function makeStackedBarChart(dataset,divs,value,format,transform,year){
+  function makeGrouped(dataset,divs,value,format,transform,year){
 
-    console.log(dataset)
-    console.log(value)
+    var div = d3.select(divs)
+
+    var data = {
+  labels: [
+    '< $35,000', '$35,000 - $75,000'
+  ],
+  series: [
+    {
+      label: '2012',
+      values: [4, 8]
+    },
+    {
+      label: '2013',
+      values: [12, 43]
+    }]
+};
+
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em")
+    while (word = words.pop()) {
+      line.push(word)
+      tspan.text(line.join(" "))
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop()
+        tspan.text(line.join(" "))
+        line = [word]
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
+      }
+    }
+    })
+}
+
+var chartWidth       = width,
+    barHeight        = width/20,
+    groupHeight      = barHeight * data.series.length,
+    gapBetweenGroups = width/30,
+    spaceForLabels   = width/10,
+    spaceForLegend   = width/2;
+
+// Zip the series data together (first values, second values, etc.)
+var zippedData = [];
+for (var i=0; i<data.labels.length; i++) {
+  for (var j=0; j<data.series.length; j++) {
+    zippedData.push(data.series[j].values[i]);
+  }
+}
+
+console.log([0, d3.max(zippedData)])
+
+// Color scale
+var color = d3.scaleOrdinal(d3.schemeCategory20);
+var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
+
+var x = d3.scaleLinear()
+    .domain([0, d3.max(zippedData)])
+    .range([spaceForLegend, chartWidth]);
+
+var y = d3.scaleLinear()
+    .range([chartHeight + gapBetweenGroups, 0]);
+
+var yAxis = d3.axisLeft()
+.scale(y)
+.tickFormat('')
+.tickSize(0)
+
+// Specify the chart area and dimensions
+ chart = div.append("svg")
+        .attr("class","vis")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left  + "," + margin.top + ")");
+
+// Create bars
+var bar = chart.selectAll("g")
+    .data(zippedData)
+    .enter().append("g")
+    .attr("transform", function(d, i) {
+      return "translate(" + spaceForLabels + "," + (i * barHeight + gapBetweenGroups * (0.5 + Math.floor(i/data.series.length))) + ")";
+    });
+
+// Create rectangles of the correct width
+bar.append("rect")
+    .attr("fill", function(d,i) { return color(i % data.series.length); })
+    .attr("class", "bar")
+    .attr("width", d => x(d) - x(0))
+    .attr("height", barHeight - 1);
+
+
+// Draw labels
+bar.append("text")
+    .attr("class", "label")
+    .attr("x", function(d) { return - spaceForLabels*2; })
+    .attr("y", groupHeight / 2)
+    .attr("dy", ".35em")
+    .text(function(d,i) {
+      if (i % data.series.length === 0)
+        return data.labels[Math.floor(i/data.series.length)];
+      else
+        return ""});
+
+chart.selectAll("text")
+.call(wrap,spaceForLabels)
+
+chart.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
+      .call(yAxis);
+
+
+
+  }
+
+  function makeHBarchart(dataset,divs,value,format,transform,year){
+
+
+
+    newdata = dataset.filter(d => d.year == 2019)[0]
+
+    newest = []
+    value.forEach(function(d,i){
+      reframe = {'name':d.name,'value':newdata[d.code]}
+      newest.push(reframe)
+
+    })
+
+
+
+    var div = d3.select(divs)
+
+    var y = d3.scaleBand()
+          .range([height, 0])
+          .padding(0.1);
+
+    var x = d3.scaleLinear()
+            .range([0, width]);
+
+    svg = div.append("svg")
+        .attr("class","vis")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left  + "," + margin.top + ")");
+
+
+    x.domain([0, getMaxY(newest,'value')])
+    y.domain(newest.map(function(d) { return d.name; }));
+    //y.domain([0, d3.max(data, function(d) { return d.sales; })]);
+
+    // append the rectangles for the bar chart
+    svg.selectAll(".bar")
+        .data(newest)
+      .enter().append("rect")
+        .attr("class", "bar")
+        //.attr("x", function(d) { return x(d.sales); })
+        .attr("width", function(d) {return x(d.value); } )
+        .attr("y", function(d) { return y(d.name); })
+        .attr("height", y.bandwidth())
+        .attr("fill", '#003768');
+
+    // add the x Axis
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+    // add the y Axis
+    svg.append("g")
+        .call(d3.axisLeft(y));
+
+  }
+
+
+  function makeVBarchart(dataset,divs,value,format,transform,year){
+
+     newdata = dataset.filter(d => d.year == 2019)[0]
+
+    newest = []
+    value.forEach(function(d,i){
+      reframe = {'name':d.name,'value':newdata[d.code]}
+      newest.push(reframe)
+
+    })
+
+    var div = d3.select(divs)
+
+    svg = div.append("svg")
+        .attr("class","vis")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left  + "," + margin.top + ")");
+
+    var x = d3.scaleBand()
+          .range([0, width])
+          .padding(0.1);
+var y = d3.scaleLinear()
+          .range([height, 0]);
+
+
+    y.domain([0, getMaxY(newest,'value')])
+    x.domain(newest.map(function(d) { return d.name; }));
+
+    svg.selectAll(".bar")
+      .data(newest)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.name); })
+      .attr("width", x.bandwidth())
+      .attr("y", function(d) { return y(d.value); })
+      .attr("height", function(d) { return height - y(d.value); })
+      .attr("fill", '#003768');
+
+  // add the x Axis
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  // add the y Axis
+  svg.append("g")
+      .call(d3.axisLeft(y).tickFormat(d3.format(format))
+      .tickValues([getMaxY(newest,'value')]));
+
+
+  }
+
+
+
+  function makeStackedBarChart(dataset,divs,value,format,transform,year){
 
     domain = findDomain(year)
 
@@ -869,26 +1213,101 @@ div.selectAll("g")
 
     })
 
-    var keys = code
+    if (transform != undefined){
+    code = []
+    transform.forEach(d => code.push(d.category))
+    code = [...new Set(code)]
 
+    names = []
+    transform.forEach(d => names.push(d.name))
+    names = [...new Set(names)]
+
+    //code = []
+    //value.forEach(d => code.push(d.code))
+
+    dataset = dataset.filter(d => domain.includes(d.Year))[0]
+
+    newdata = []
+    newvalue = []
+
+    code.forEach(function(d){
+      temp = {'name':d,'code':d}
+      newvalue.push(temp)
+    })
+
+    value = newvalue
+
+
+    names.forEach(function(d){
+
+      uniq = JSON.parse(JSON.stringify(dataset))
+      vals = transform.filter(b => b.name == d)
+      vals.forEach(function(y){
+        uniq[y.category] = uniq[y.code]
+      })
+      uniq["domain"] = d
+      newdata.push(uniq)
+    })
+
+    newdata.map(function(d){
+
+      keys = Object.keys(d)
+
+      filtered = keys
+        .filter(key => code.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = d[key];
+          return obj;
+        }, {});
+
+      values = Object.values(filtered)
+      sums = sum(values)
+
+      code.forEach(function(t,i){
+        d[t] = values[i]/sums
+      })
+
+    return d
+
+    })
+
+
+    var year   = [...new Set(newdata.map(d => d.state))]
+    var states = [...new Set(newdata.map(d => d.domain))]
+
+    dataset = newdata
+
+    use = 'domain'
+
+
+    }else{
     dataset.forEach((d,i) => d['Year'] = years[i])
     dataset = dataset.filter(d => domain.includes(d.Year))
 
     var year   = [...new Set(dataset.map(d => d.state))]
     var states = [...new Set(dataset.map(d => d.Year))]
+
+    use = 'Year'
+
+    }
+
+    var keys = code
+
+    
+
   
     var div = d3.select(divs)
 
     svg = div.append("svg")
         .attr("class","vis")
-        .attr("width", width*2)
-        .attr("height", height*2)
+        .attr("width", width)
+        .attr("height", height)
         .append("g")
         .attr("transform", "translate(0,0)");
 
 
     var y = d3.scaleBand()
-    .range([margin.top, height - margin.bottom])
+    .range([margin.top, height-10])
     .padding(0.1)
     .paddingOuter(0.2)
     .paddingInner(0.2)
@@ -913,7 +1332,7 @@ div.selectAll("g")
 
     function update(dataset,input, speed, value) {
 
-      var data = dataset.filter(f => f.state == input)
+      var data = dataset
 
       data.forEach(function(d) {
         d.total = d3.sum(keys, k => +d[k])
@@ -926,25 +1345,53 @@ div.selectAll("g")
         .call(d3.axisTop(x).ticks(null, "s").tickValues([]))
         .call(g => g.select(".domain").remove())
 
-      data.sort((a, b) => states.indexOf(a.Year) - states.indexOf(b.Year))
+      data.sort((a, b) => states.indexOf(a[use]) - states.indexOf(b[use]))
 
-      y.domain(data.map(d => d.Year));
+      y.domain(data.map(d => d[use]));
 
       svg.selectAll(".y-axis").transition().duration(speed)
         .call(d3.axisLeft(y).tickSizeOuter(0))
 
       var group = svg.selectAll("g.layer")
         .data(d3.stack().keys(keys)(data), d => d.key, (d,i) => i)
+        .attr('id', d => d.data[use])
 
       group.exit().remove()
 
       group.enter().insert("g", ".y-axis").append("g")
-      .on("mouseover", function(d,i) {
+      
+        .classed("layer", true)
+        .attr("fill", d => z(keys.indexOf(d.key)));
+
+      var bars = svg.selectAll("g.layer").selectAll("rect")
+        .data(d => d, e => e.data[use])
+        
+      console.log(bars)
+
+      bars.exit().remove()
+
+      function roundUsing(func, number, prec) {
+      var tempnumber = number * Math.pow(10, prec);
+      tempnumber = func(tempnumber);
+      return tempnumber / Math.pow(10, prec);
+  }
+
+      function getKeyByValue(object, value) {
+        return Object.keys(object).find(key => roundUsing(Math.ceil,parseFloat(object[key]),10) == roundUsing(Math.ceil,value,10));
+      }
+
+      bars.enter().append("rect")
+        .attr("height", y.bandwidth())
+        .attr('id', d => d.data[use])
+        .on("mouseover", function(d,i) {
+        console.log(d)
+          console.log(i)
+          console.log(value)
                 tip      
                     .transition()   
                     .duration(200)
                     .style("opacity", 1);    
-                tip .html("<b>"+ value.filter(r => r.code == d.key)[0].name + '</b>: ' + d3.format(format)(d[1][1]-d[1][0]) )  
+                tip .html("<b>"+ value.filter(p => p.code == getKeyByValue(d.data,d[1]-d[0]))[0].name + '</b>: ' + d3.format(format)(d[1]-d[0]) )  
                     .style("left", (d3.event.pageX) + "px")   
                     .style("top", (d3.event.pageY - 28) + "px");  
                 })          
@@ -953,24 +1400,10 @@ div.selectAll("g")
                     .duration(500)   
                     .style("opacity", 0); 
             })
-        .classed("layer", true)
-        .attr("fill", d => z(keys.indexOf(d.key)));
-
-      var bars = svg.selectAll("g.layer").selectAll("rect")
-        .data(d => d, e => e.data.Year);
-
-      bars.exit().remove()
-
-      function getKeyByValue(object, value) {
-        return Object.keys(object).find(key => object[key] === code);
-      }
-
-      bars.enter().append("rect")
-        .attr("height", y.bandwidth())
         .merge(bars)
         
       .transition().duration(speed)
-        .attr("y", d => y(d.data.Year))
+        .attr("y", d => y(d.data[use]))
         .attr("x", d => x(d[0]))
         .attr("width", d => x(d[1]) - x(d[0]))
         
@@ -979,10 +1412,10 @@ div.selectAll("g")
   //charttypes = [makeLineChart,makeLineChart,makeStackedBarChart,makeLineChart,makeLineChart,makeLineChart]
   function assignData(data,manifest,fetchIndex){
 
-  
-      console.log(data)
        
       charts = manifest.divs
+
+      console.log(data)
 
       //("county" in temp1)
 
@@ -1011,7 +1444,6 @@ div.selectAll("g")
       console.log(acs2)
       console.log(g1)
 
-
       chart_data = acs.filter(r => r["use"] == "charts")
 
       county_charts = chart_data.filter(r => r["geo"] == "county")
@@ -1029,7 +1461,7 @@ div.selectAll("g")
       })
 
       states = []
-      state_charts.forEach(function(d){
+      state_charts.forEach(function(d,i){
         delete d.geo
         delete d.use
         delete d.year
@@ -1038,8 +1470,12 @@ div.selectAll("g")
         values = values.slice(1,values.length)
         values = values[0]
         values['county'] = "999"
+        values['year'] = years[i]
         states.push(values)
       })
+
+      console.log(states)
+
 
 
      var geos = new Object();
@@ -1065,7 +1501,11 @@ div.selectAll("g")
 
       })
 
+      console.log(geos)
 
+      geos['999'] = states
+
+      console.log(geos)
 
       for (object in geos){
         geos[object].forEach(function(d,i){
@@ -1081,10 +1521,7 @@ div.selectAll("g")
         })
       }
 
-
       console.log(geos)
-
-      geos['999'] = states
 
       dataset = geos['999']
 
@@ -1101,7 +1538,15 @@ div.selectAll("g")
 
     function updateGraph(fips,vars,div,topicselect){
     //Remove existing charts
-        d3.selectAll(".vis").remove()
+
+        document.querySelectorAll('.temp').forEach(function(area){
+          area.remove()
+        })
+
+        document.querySelectorAll('.chartarea svg').forEach(function(area){
+          area.remove()
+        })
+    
         data = geos[fips]
 
         option = eval('manifest.topic.' + topicselect)
@@ -1115,18 +1560,19 @@ div.selectAll("g")
 
 
       
-
+ topic_areas = {'population':[{'label':'Population','variable':'B01001_001E','format':",.0f"},{'label':'Median Household Income','variable':'B19013_001E','format':"$,.0f"},{'label':'Family Poverty Rate','variable':'family_poverty','format':",.1%"},{'label':'Tenure (% Owner Occupied)','variable':'tenure','format':",.1%"}],'housing': [{'label':'Median Listing Price','variable':'mlp','format':",.0f"},{'label':'Median Rent','variable':'medianrent','format':"$,.0f"},{'label':'Housing Starts','variable':'housingstarts','format':",.0f"}],'housingafford':[],'jobs':[]}
       
 function mapData(json){
+
 
 
       columns = Object.keys(geos)
       columns = columns.map(d => geos[d][9]['NAME'])
       columns - columns.sort()
-      indicators = ['B01001_001E','B19013_001E','B19001_002E']
+      
+      indicators = topic_areas['population']
 
-      indicators = [{'label':'Population','variable':'B01001_001E','format':",.0f"},{'label':'Median Household Income','variable':'B19013_001E','format':"$,.0f"},{'label':'Family Poverty Rate','variable':'family_poverty','format':",.1%"},{'label':'Tenure (% Owner Occupied)','variable':'tenure','format':",.1%"}]
-
+     
 
 
       var table = d3.select('#table').append("table");
@@ -1185,7 +1631,8 @@ function mapData(json){
         item = document.getElementById(select)
 
         item.addEventListener('change', function(){
-          updateTable(0)
+          topic_option = document.querySelector('#topic').value
+          updateTable(0,topic_option)
         })
 
         console.log(manifest)
@@ -1193,7 +1640,10 @@ function mapData(json){
       })
 
 
-      function updateTable(initial){
+      function updateTable(initial, area){
+
+
+        indicators = topic_areas[area]
 
      
       selection = []
@@ -1216,6 +1666,7 @@ function mapData(json){
 
       
       if (initial == 1){
+    
       tbody.selectAll("tr")
         .data(key)
         .enter()
@@ -1234,8 +1685,12 @@ function mapData(json){
         .text(function(d) { return d.value; })
         
       }else{
+       tbody.selectAll("tr").remove();
+
         tbody.selectAll("tr")
         .data(key)
+        .enter()
+        .append("tr")
         .selectAll("td")
         .data(function(row) {
           return columns.map(function(column) {
@@ -1245,11 +1700,13 @@ function mapData(json){
             };
           });
         })
+        .enter()
+        .append("td")
         .text(function(d) { return d.value; })
       }
            
       }
-      updateTable(1)
+      updateTable(1,'population')
 
 
 
@@ -1277,6 +1734,8 @@ function mapData(json){
         reLabel(span,label)
 
         topic_option = selectResize('#topic',0)
+
+        updateTable(0,topic_option)
 
         option = selectResize('#geography',1)
         if(option === 'Indiana'){
@@ -1381,7 +1840,8 @@ function mapData(json){
       //Heat Map - B19013_001E
       tractsgeo = json[1]
       nhpd = json[2] 
-      tractspop = data[30]
+  
+      tractspop = data[21]
       tractsgeo.features.forEach(function(feature){
         pop = {"population": parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B01001_001E), 
         "mhi": parseInt(tractspop.filter(d => (d.tract == feature.properties.TRACTCE) && (d.county == feature.properties.COUNTYFP))[0].B19013_001E),
