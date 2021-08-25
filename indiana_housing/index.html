@@ -41,24 +41,24 @@
   <style type="text/css">
 
     td{
-      padding: 6px;
+      padding: 6px !important;
       border-top: 1px solid #fff;
       border-bottom: 1px solid #fff;
-      color: #fff;
-      text-align: right;
+      color: #fff !important;
+      text-align: right !important;
     }
 
     th{
-          padding: 6px;
+          padding: 6px !important;
     /* border: 1px solid #ccc; */
-    text-align: right;
-    color: #fff;
+    text-align: right !important;
+    color: #fff !important;
     border-bottom: 3px solid #fff;
     }
 
     select{
-      color: #000;
-      background: #d6ddff;
+      color: #000 !important;
+      background: #d6ddff !important;
     }
 
     #table {
@@ -304,6 +304,9 @@
   transition: all .2s ease;
 }
 
+rect{
+  transition:none !important;
+}
 .extra-source {
   display: none;
   line-height: 19px;
@@ -407,8 +410,14 @@ To compare data points for up to three counties, select the “compare” button
         
       </span>
     </div></div>
-                  <div id='chart3' class="chartarea"><b><span id='label3'>Household Income Distribution</span></b><div class="source">
-      <i class="icon-info-sign"></i>
+                  <div id='chart3' class="chartarea"><div id='tempcover' style=' display: none;
+    color: white;
+    text-align: center;
+    background: blue;
+    width: 100%;
+    height: 100%;
+    z-index: 100;'>Median Listing Price in Progress</div><b><span id='label3'>Household Income Distribution</span></b><div class="source">
+      <i class="icon-info-sign" id='info3'></i>
 
       <span class="extra-source" id='chart3source'>
         
@@ -544,7 +553,37 @@ function toggleMenu() {
     });
 
 
+    function hide(){
+  document.querySelector('#tempcover').style.display = 'block';
+      document.querySelector('#label3').style.display = 'none';
+      document.querySelector('#info3').style.display = 'none';
+       if (document.querySelector('#chart3 svg') != null){
+        document.querySelector('#chart3 svg').style.display = 'none'
+      }
+}
 
+function show(){
+      document.querySelector('#tempcover').style.display = 'none';
+      document.querySelector('#label3').style.display = 'block';
+      document.querySelector('#info3').style.display = 'block';
+
+      if (document.querySelector('#chart3 svg') != null){
+        document.querySelector('#chart3 svg').style.display = 'block'
+      }
+      
+}
+
+
+function hidecheck(divs,code){
+  if(divs == '#chart3'){
+  if(code.includes('mlp')){
+      hide()
+    }else{
+      show()
+    }}
+
+
+}
 
 
 </script>
@@ -659,11 +698,19 @@ window.addEventListener("load", function(){
 
   function makeLineChart(dataset,divs,value,format,transform,year){
 
+    
+
     domain = findDomain(year)
 
     margin.left = 65
     code = []
     value.forEach(d => code.push(d.code))
+
+    console.log(code)
+
+ 
+    hidecheck(divs,code)
+
     
     codename = divs.replace('#','') + "_code"
 
@@ -782,13 +829,16 @@ window.addEventListener("load", function(){
 
    function makeDonutChart(dataset,divs,value,format,transform,year){
 
+
     domain = findDomain(year)
 
 
     code = []
     value.forEach(d => code.push(d.code))
 
-     dataset.map(function(d){
+    hidecheck(divs,code)
+
+     /*dataset.map(function(d){
 
       keys = Object.keys(d)
 
@@ -807,7 +857,31 @@ window.addEventListener("load", function(){
 
     return d
 
+    })*/
+
+    dataset.map(function(d){
+
+      keys = Object.keys(d)
+
+      filtered = keys
+        .filter(key => code.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = d[key];
+          return obj;
+        }, {});
+
+      values = Object.values(filtered)
+      sums = sum(values)
+
+      code.forEach(function(t,i){
+        d[t] = values[i]/sums
+      })
+
+    return d
+
     })
+
+     console.log(dataset)
 
 
     
@@ -857,6 +931,7 @@ window.addEventListener("load", function(){
         .outerRadius(radius)
       )
        .on("mouseover", function(d,i) {
+        console.log(d)
                 
                 tip      
                     .transition()   
@@ -881,7 +956,11 @@ window.addEventListener("load", function(){
 
   function makeVennChart(dataset,divs,value,format,transform){
 
+   
+
     newdata = dataset.filter(d => d.year == 2019)[0]
+
+    hidecheck(divs,[])
 
 
     var sets = [ {sets: ['Employed'], size: newdata[value[2].code]}, 
@@ -919,6 +998,8 @@ div.selectAll("g")
 
   function makeIndicator(dataset,divs,value,format,transform,year){
 
+    hidecheck(divs,[])
+
     newdata = dataset.filter(d => d.year == 2019)[0]
     q = newdata[value[0].code]
 
@@ -929,6 +1010,8 @@ div.selectAll("g")
   }
 
   function makeTable(dataset,divs,value,format,transform,year){
+
+    hidecheck(divs,[])
 
     newdata = dataset.filter(d => d.year == 2019)[0]
     q = newdata[value[0].code].split("; ")
@@ -947,6 +1030,8 @@ div.selectAll("g")
   }
 
   function makeGrouped(dataset,divs,value,format,transform,year){
+
+    hidecheck(divs,[])
 
     var div = d3.select(divs)
 
@@ -1072,6 +1157,8 @@ chart.append("g")
 
   function makeHBarchart(dataset,divs,value,format,transform,year){
 
+    hidecheck(divs,[])
+
 
 
     newdata = dataset.filter(d => d.year == 2019)[0]
@@ -1131,6 +1218,8 @@ chart.append("g")
 
   function makeVBarchart(dataset,divs,value,format,transform,year){
 
+    hidecheck(divs,[])
+
      newdata = dataset.filter(d => d.year == 2019)[0]
 
     newest = []
@@ -1186,32 +1275,9 @@ var y = d3.scaleLinear()
 
   function makeStackedBarChart(dataset,divs,value,format,transform,year){
 
-    domain = findDomain(year)
+    hidecheck(divs,[])
 
-    code = []
-    value.forEach(d => code.push(d.code))
-
-    dataset.map(function(d){
-
-      keys = Object.keys(d)
-
-      filtered = keys
-        .filter(key => code.includes(key))
-        .reduce((obj, key) => {
-          obj[key] = d[key];
-          return obj;
-        }, {});
-
-      values = Object.values(filtered)
-      sums = sum(values)
-
-      code.forEach(function(t,i){
-        d[t] = values[i]/sums
-      })
-
-    return d
-
-    })
+    console.log(JSON.parse(JSON.stringify(dataset)))
 
     if (transform != undefined){
     code = []
@@ -1225,7 +1291,8 @@ var y = d3.scaleLinear()
     //code = []
     //value.forEach(d => code.push(d.code))
 
-    dataset = dataset.filter(d => domain.includes(d.Year))[0]
+    
+    dataset = dataset.filter(d => d.year == 2019 )[0]
 
     newdata = []
     newvalue = []
@@ -1237,10 +1304,12 @@ var y = d3.scaleLinear()
 
     value = newvalue
 
-
+    console.log(dataset)
     names.forEach(function(d){
 
-      uniq = JSON.parse(JSON.stringify(dataset))
+      
+      let uniq = Object.assign({},dataset)
+      console.log(uniq)
       vals = transform.filter(b => b.name == d)
       vals.forEach(function(y){
         uniq[y.category] = uniq[y.code]
@@ -1275,12 +1344,40 @@ var y = d3.scaleLinear()
     var year   = [...new Set(newdata.map(d => d.state))]
     var states = [...new Set(newdata.map(d => d.domain))]
 
-    dataset = newdata
+  
 
     use = 'domain'
 
 
     }else{
+
+    domain = findDomain(year)
+
+    code = []
+    value.forEach(d => code.push(d.code))
+
+    dataset.map(function(d){
+
+      keys = Object.keys(d)
+
+      filtered = keys
+        .filter(key => code.includes(key))
+        .reduce((obj, key) => {
+          obj[key] = d[key];
+          return obj;
+        }, {});
+
+      values = Object.values(filtered)
+      sums = sum(values)
+
+      code.forEach(function(t,i){
+        d[t] = values[i]/sums
+      })
+
+    return d
+
+    })
+
     dataset.forEach((d,i) => d['Year'] = years[i])
     dataset = dataset.filter(d => domain.includes(d.Year))
 
@@ -1328,11 +1425,16 @@ var y = d3.scaleLinear()
       .range(["#15534C","#1A5D51","#216755","#297159","#337B5C","#3D855E","#498F60","#569861","#64A261","#73AC61","#83B561","#94BE61","#A6C760","#B9D060","#CDD861","#E2E062"])
       .domain(d3.ticks(0, keys.length, 16));
 
-    update(dataset,18, 0,value)
+    if (transform != undefined){
+      update(newdata,18, 0,value)
+    }else{
+      update(dataset,18, 0,value)
+    }
+    
 
-    function update(dataset,input, speed, value) {
+    function update(ds,input, speed, value) {
 
-      var data = dataset
+      var data = ds
 
       data.forEach(function(d) {
         d.total = d3.sum(keys, k => +d[k])
@@ -1560,7 +1662,7 @@ var y = d3.scaleLinear()
 
 
       
- topic_areas = {'population':[{'label':'Population','variable':'B01001_001E','format':",.0f"},{'label':'Median Household Income','variable':'B19013_001E','format':"$,.0f"},{'label':'Family Poverty Rate','variable':'family_poverty','format':",.1%"},{'label':'Tenure (% Owner Occupied)','variable':'tenure','format':",.1%"}],'housing': [{'label':'Median Listing Price','variable':'mlp','format':",.0f"},{'label':'Median Rent','variable':'medianrent','format':"$,.0f"},{'label':'Housing Starts','variable':'housingstarts','format':",.0f"}],'housingafford':[],'jobs':[]}
+ topic_areas = {'population':[{'label':'Population','variable':'B01001_001E','format':",.0f"},{'label':'Median Household Income','variable':'B19013_001E','format':"$,.0f"},{'label':'Family Poverty Rate','variable':'family_poverty','format':",.1%"},{'label':'Tenure (% Owner Occupied)','variable':'tenure','format':",.1%"}],'housing': [{'label':'Median Listing Price','variable':'mlp','format':",.0f"},{'label':'Median Rent','variable':'medianrent','format':"$,.0f"},{'label':'Housing Starts','variable':'housingstarts','format':",.0f"}],'housingafford':[{'label':'Cost Burdened Homeowners','variable':'ownerburden_pct','format':",.1%"},{'label':'Cost Burdened Renters','variable':'renterburden_pct','format':",.1%"},{'label':'Home Value Affordable to Median Household','variable':'affordablehome','format':"$,.0f"}],'jobs':[{'label':'Unemployment Rate','variable':'unemployment','format':",.1%"},{'label':'Median Salary','variable':'mediansalary','format':"$,.0f"}]}
       
 function mapData(json){
 
@@ -1594,6 +1696,7 @@ function mapData(json){
 
         select = first.append("th")
               .append("select")
+              .style('background','white !important')
               .attr('id','select-' + String(i))
 
         selects.push('select-' + String(i))
@@ -1623,6 +1726,9 @@ function mapData(json){
         d['tenure_households'] = parseFloat(d.B25003_002E) + parseFloat(d.B25003_003E);
 
         d['tenure'] = (d.B25003_002E / d.tenure_households)
+
+        d['ownerburden_pct'] = (d.owners_costburdened / d.costburden_owner)
+        d['renterburden_pct'] = (d.renters_costburdened / d.costburden_renter)
       })
 
  
