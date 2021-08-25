@@ -709,7 +709,7 @@ window.addEventListener("load", function(){
     console.log(code)
 
  
-    hidecheck(divs,code)
+    
 
     
     codename = divs.replace('#','') + "_code"
@@ -766,6 +766,7 @@ window.addEventListener("load", function(){
         .append("g")
         .attr("transform", "translate(" + margin.left  + "," + margin.top + ")");
 
+    hidecheck(divs,code)
     // 3. Call the x axis in a group tag
     svg.append("g")
         .attr("class", "x axis")
@@ -1845,7 +1846,7 @@ function mapData(json){
 
         option = selectResize('#geography',1)
         if(option === 'Indiana'){
-          countyfip = "999"
+          countyfip = "101"
         }else{
 
           index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
@@ -1876,7 +1877,7 @@ function mapData(json){
         topic_option = selectResize('#topic',1)
 
         if(option === 'Indiana'){
-          countyfip = "999"
+          countyfip = "101"
 
           map.flyTo({
             center: [-86.158017, 39.897451],
