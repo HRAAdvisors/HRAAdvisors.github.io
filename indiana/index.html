@@ -1981,7 +1981,7 @@ function mapData(json){
 
         option = selectResize('#geography',1)
         if(option === 'Indiana'){
-          countyfip = "101"
+          countyfip = "999"
         }else{
 
           index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
@@ -2012,7 +2012,7 @@ function mapData(json){
         topic_option = selectResize('#topic',1)
 
         if(option === 'Indiana'){
-          countyfip = "101"
+          countyfip = "999"
 
           map.flyTo({
             center: [-86.158017, 39.897451],
