@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2" data-name="Rectangle 2" width="1920" height="1080" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_1" data-name="Rectangle 1" width="3689.229" height="1672.893" transform="translate(5958 -1019)" fill="#6165ff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="side-shape_2" data-name="side-shape 2" clip-path="url(#clip-path)">
+    <g id="_5c399e1d5c550c3d3c4a2b40_header-shape-1" data-name="5c399e1d5c550c3d3c4a2b40_header-shape-1" transform="translate(-1888.135 -7246.447) rotate(69)" clip-path="url(#clip-path-2)">
+      <path id="Path_2" data-name="Path 2" d="M-3955.24,625.363c278.531-105.47,614.393-39.241,832.035,164.072,121.645,113.624,207.086,264.169,339.883,364.522,177.339,134.018,418.487,159.581,636.628,116.865,120.552-23.609,240.062-68.024,332.208-149.255,96.76-85.307,160.042-207.838,270.2-274.955,110.329-67.208,247.057-66.763,376.025-74.121s269.544-30.651,354.742-127.767C-702.769,518.473-723.544,309.4-602,193.511c91.386-87.13,235.618-93.5,335.582-170.635,129.843-100.2,150.955-289,254.178-416.453-584.6-89.866-1180.132-47.592-1771.441-33.713-596.824,14.01-1193.9-1.157-1790.7-16.323a6050.165,6050.165,0,0,0-61.44,1021.143" transform="translate(9518.834 -667.09)" fill="#6165ff"/>
+    </g>
+  </g>
+</svg>
