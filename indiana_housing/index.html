@@ -344,6 +344,22 @@ rect{
   position: relative;
 }
 
+.chart .labeler {
+  fill: black;
+  /*font: 14px sans-serif;*/
+  text-anchor: end;
+}
+
+g{
+  font-size: 10;
+  font-family: sans-serif;
+}
+
+tspan{
+  font-size: 10;
+    font-family: sans-serif;
+}
+
 
   </style>
 
@@ -396,14 +412,14 @@ To compare data points for up to three counties, select the “compare” button
             <div class="tab03_tab_content">
               <div class="tab03_block_left">
                 <div class="w-layout-grid grid">
-                  <div id='chart1' class="chartarea"><b><span id='label1'>Population</span></b><div class="source">
-      <i class="icon-info-sign"></i>
+                  <div id='chart1' class="chartarea"><b><span id='label1'>Population</span></b><div class="source" id='source1'>
+      <i class="icon-info-sign" ></i>
 
       <span class="extra-source" id='chart1source'>
         American Community Survey; 5-Year Estimates
       </span>
     </div></div>
-                  <div id='chart2' class="chartarea"><b><span id='label2'>Median Income</span></b><div class="source">
+                  <div id='chart2' class="chartarea"><b><span id='label2'>Median Income</span></b><div class="source" id='source2'>
       <i class="icon-info-sign"></i>
 
       <span class="extra-source" id='chart2source'>
@@ -416,28 +432,28 @@ To compare data points for up to three counties, select the “compare” button
     background: blue;
     width: 100%;
     height: 100%;
-    z-index: 100;'>Median Listing Price in Progress</div><b><span id='label3'>Household Income Distribution</span></b><div class="source">
+    z-index: 100;'>Median Listing Price in Progress</div><b><span id='label3'>Household Income Distribution</span></b><div class="source" id='source3'>
       <i class="icon-info-sign" id='info3'></i>
 
       <span class="extra-source" id='chart3source'>
         
       </span>
     </div></div>
-                  <div id='chart4' class="chartarea"><b><span id='label4'>Family Poverty Rate</span></b><div class="source">
+                  <div id='chart4' class="chartarea"><b><span id='label4'>Family Poverty Rate</span></b><div class="source" id='source4'>
       <i class="icon-info-sign"></i>
 
       <span class="extra-source" id='chart4source'>
         
       </span>
     </div></div>
-                  <div id='chart5' class="chartarea"><b><span id='label5'>Tenure</span></b><div class="source">
+                  <div id='chart5' class="chartarea"><b><span id='label5'>Tenure</span></b><div class="source" id='source5'>
       <i class="icon-info-sign"></i>
 
       <span class="extra-source" id='chart5source'>
         
       </span>
     </div></div>
-                  <div id='chart6' class="chartarea"><b><span id='label6'>Racial Composition</span></b><div class="source">
+                  <div id='chart6' class="chartarea"><b><span id='label6'>Racial Composition</span></b><div class="source" id='source6'>
       <i class="icon-info-sign"></i>
 
       <span class="extra-source" id='chart6source'>
@@ -510,7 +526,7 @@ To compare data points for up to three counties, select the “compare” button
 
 function NewTab() {
     window.open(
-      "DRAFT Indiana Housing Dashboard Report 2021.06.10.pdf", "_blank");
+      window.exportloc, "_blank");
 }
 
 function removeAllChildNodes(parent) {
@@ -594,7 +610,7 @@ span = ['#label1','#label2','#label3','#label4','#label5','#label6']
 population = ['Population','Median Income','Household Income Distribution','Family Poverty Rate','Tenure','Racial Composition']
 housing = ['Housing Units by Typology','Housing Units by Decade Built','Median Listing Price','Median Rent','Housing Starts','']
 housingafford = ['Cost Burdened Households','Cost Burden by Tenure','Cost Burden by Income','Rental Housing Gap','Home Value Affordable to Median Household','']
-jobs = ['Unemployment Rate','Top 5 Industries by Jobs','Median Salary','Inflow/Outflow','','']
+jobs = ['Unemployment Rate','Top 5 Employers by Jobs','Median Salary','Inflow/Outflow','','']
 
 //Function to relabel spans when topic is changed
 reLabel = function(spans,labels){
@@ -705,12 +721,6 @@ window.addEventListener("load", function(){
     margin.left = 65
     code = []
     value.forEach(d => code.push(d.code))
-
-    console.log(code)
-
- 
-    
-
     
     codename = divs.replace('#','') + "_code"
 
@@ -882,10 +892,8 @@ window.addEventListener("load", function(){
 
     })
 
-     console.log(dataset)
 
 
-    
     var keys = code
 
     dataset.forEach((d,i) => d['year'] = years[i])
@@ -932,8 +940,6 @@ window.addEventListener("load", function(){
         .outerRadius(radius)
       )
        .on("mouseover", function(d,i) {
-        console.log(d)
-                
                 tip      
                     .transition()   
                     .duration(200)
@@ -964,9 +970,11 @@ window.addEventListener("load", function(){
     hidecheck(divs,[])
 
 
-    var sets = [ {sets: ['Employed'], size: newdata[value[2].code]}, 
-             {sets: ['Residents'], size: newdata[value[1].code]},
-             {sets: ['Employed','Residents'], size: newdata[value[0].code]}];
+    var sets = [ {sets: ['Employed'], size: newdata[value[2].code], labeler: 'Employed in County'}, 
+             {sets: ['Residents'], size: newdata[value[1].code], labeler: 'Working Residents in County'},
+             {sets: ['Employed','Residents'], size: newdata[value[0].code], labeler: 'Working Residents Employed in County'}];
+
+
 
     var div = d3.select(divs)
 
@@ -986,7 +994,7 @@ div.selectAll("g")
                     .transition()   
                     .duration(200)
                     .style("opacity", 1);    
-                tip .html(d3.format(format)(d.size))  
+                tip .html(d.labeler + ': ' + d3.format(format)(d.size))  
                     .style("left", (d3.event.pageX) + "px")   
                     .style("top", (d3.event.pageY - 28) + "px");  
                 })          
@@ -1036,9 +1044,35 @@ div.selectAll("g")
 
     var div = d3.select(divs)
 
-    var data = {
+
+    code = []
+    transform.forEach(d => code.push(d.category))
+    code = [...new Set(code)]
+
+    labels = []
+    transform.forEach(d => labels.push(d.name))
+    labels = [...new Set(labels)]
+
+    dataset = dataset.filter(d => d.year == 2019 )[0]
+
+
+    series = []
+    code.forEach(function(c){
+      array = []
+      labels.forEach(function(l){
+        code = transform.filter(d => d.name == l && d.category == c)[0].code
+        x = dataset[code]
+        array.push(x)
+      })
+      val = {'label':c, 'values':array}
+      series.push(val)
+    })
+
+    var data = {'labels':labels,'series':series}
+
+    /*var data = {
   labels: [
-    '< $35,000', '$35,000 - $75,000'
+    '$35,000', '$35,000'
   ],
   series: [
     {
@@ -1049,7 +1083,7 @@ div.selectAll("g")
       label: '2013',
       values: [12, 43]
     }]
-};
+};*/
 
 function wrap(text, width) {
   text.each(function() {
@@ -1058,10 +1092,10 @@ function wrap(text, width) {
         word,
         line = [],
         lineNumber = 0,
-        lineHeight = 1.1, // ems
+        lineHeight = .5, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em")
+        tspan = text.text(null).append("tspan").attr("x", - width*2).attr("y", y).attr("dy", dy + "em")
     while (word = words.pop()) {
       line.push(word)
       tspan.text(line.join(" "))
@@ -1069,18 +1103,16 @@ function wrap(text, width) {
         line.pop()
         tspan.text(line.join(" "))
         line = [word]
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
+        tspan = text.append("tspan").attr("x", - width*2).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
       }
     }
     })
 }
 
 var chartWidth       = width,
-    barHeight        = width/20,
-    groupHeight      = barHeight * data.series.length,
     gapBetweenGroups = width/30,
-    spaceForLabels   = width/10,
-    spaceForLegend   = width/2;
+    spaceForLabels   = width/10;
+    spaceForLegend   = width/15
 
 // Zip the series data together (first values, second values, etc.)
 var zippedData = [];
@@ -1090,18 +1122,27 @@ for (var i=0; i<data.labels.length; i++) {
   }
 }
 
-console.log([0, d3.max(zippedData)])
+
+function toIntArray(arr) {
+    for (var i = 0; i < arr.length; i++) { 
+        arr[i] = +arr[i]; 
+    } 
+    return arr;
+}
+
+
+    barHeight = (height - (gapBetweenGroups * data.labels.length))/ zippedData.length
+    groupHeight = barHeight * data.series.length;
 
 // Color scale
 var color = d3.scaleOrdinal(d3.schemeCategory20);
-var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
 
 var x = d3.scaleLinear()
-    .domain([0, d3.max(zippedData)])
-    .range([spaceForLegend, chartWidth]);
+    .domain([0, d3.max(toIntArray(zippedData))])
+    .range([0, chartWidth - margin.right - spaceForLegend]);
 
 var y = d3.scaleLinear()
-    .range([chartHeight + gapBetweenGroups, 0]);
+    .range([height, margin.top]);
 
 var yAxis = d3.axisLeft()
 .scale(y)
@@ -1131,13 +1172,25 @@ bar.append("rect")
     .attr("width", d => x(d) - x(0))
     .attr("height", barHeight - 1);
 
+      function roundUsing(func, number, prec) {
+      var tempnumber = number * Math.pow(10, prec);
+      tempnumber = func(tempnumber);
+      return tempnumber / Math.pow(10, prec);
+  }
+
+      function getKeyByValue(object, value) {
+        return Object.keys(object).find(key => roundUsing(Math.ceil,parseFloat(object[key]),10) == roundUsing(Math.ceil,value,10));
+      }
+
+
 
 // Draw labels
 bar.append("text")
-    .attr("class", "label")
-    .attr("x", function(d) { return - spaceForLabels*2; })
+    .attr("class", "labeler")
+    .attr("x", function(d) { return - (spaceForLabels*2); })
     .attr("y", groupHeight / 2)
     .attr("dy", ".35em")
+    .style("font-size", "10px")
     .text(function(d,i) {
       if (i % data.series.length === 0)
         return data.labels[Math.floor(i/data.series.length)];
@@ -1146,6 +1199,31 @@ bar.append("text")
 
 chart.selectAll("text")
 .call(wrap,spaceForLabels)
+
+
+
+bar.append("text")
+    .attr("x", function(d) { return x(d) + 10; })
+    .attr("y", barHeight / 2)
+    .style("font-size", "10px")
+    .attr("dy", ".35em")
+    .text(function(d) { 
+      return transform.filter(r => r.code == getKeyByValue(dataset,d))[0].category });
+
+bar.on("mouseover", function(d,i) {
+                tip      
+                    .transition()   
+                    .duration(200)
+                    .style("opacity", 1);    
+                tip .html(d3.format(format)(d))  
+                    .style("left", (d3.event.pageX) + "px")   
+                    .style("top", (d3.event.pageY - 28) + "px");  
+                })          
+        .on("mouseout", function(d) {   
+                tip.transition()    
+                    .duration(500)   
+                    .style("opacity", 0); 
+            })
 
 chart.append("g")
       .attr("class", "y axis")
@@ -1156,7 +1234,7 @@ chart.append("g")
 
   }
 
-  function makeHBarchart(dataset,divs,value,format,transform,year){
+  function makeHBarchart(dataset,divs,value,format,transform,year,label){
 
     hidecheck(divs,[])
 
@@ -1203,12 +1281,27 @@ chart.append("g")
         .attr("width", function(d) {return x(d.value); } )
         .attr("y", function(d) { return y(d.name); })
         .attr("height", y.bandwidth())
-        .attr("fill", '#003768');
+        .attr("fill", '#003768')
+        .on("mouseover", function(d,i) {
+          console.log(d)
+                tip      
+                    .transition()   
+                    .duration(200)
+                    .style("opacity", 1);    
+                tip .html(d3.format(format)(d.value) + " " + label)  
+                    .style("left", (d3.event.pageX) + "px")   
+                    .style("top", (d3.event.pageY - 28) + "px");  
+                })          
+        .on("mouseout", function(d) {   
+                tip.transition()    
+                    .duration(500)   
+                    .style("opacity", 0); 
+            })
 
     // add the x Axis
-    svg.append("g")
+    /*svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x));*/
 
     // add the y Axis
     svg.append("g")
@@ -1217,7 +1310,7 @@ chart.append("g")
   }
 
 
-  function makeVBarchart(dataset,divs,value,format,transform,year){
+  function makeVBarchart(dataset,divs,value,format,transform,year,label){
 
     hidecheck(divs,[])
 
@@ -1257,7 +1350,21 @@ var y = d3.scaleLinear()
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
-      .attr("fill", '#003768');
+      .attr("fill", '#003768')
+      .on("mouseover", function(d,i) {
+                tip      
+                    .transition()   
+                    .duration(200)
+                    .style("opacity", 1);    
+                tip .html(d3.format(format)(d.value) +" " + label)  
+                    .style("left", (d3.event.pageX) + "px")   
+                    .style("top", (d3.event.pageY - 28) + "px");  
+                })          
+        .on("mouseout", function(d) {   
+                tip.transition()    
+                    .duration(500)   
+                    .style("opacity", 0); 
+            })
 
   // add the x Axis
   svg.append("g")
@@ -1278,7 +1385,6 @@ var y = d3.scaleLinear()
 
     hidecheck(divs,[])
 
-    console.log(JSON.parse(JSON.stringify(dataset)))
 
     if (transform != undefined){
     code = []
@@ -1305,12 +1411,10 @@ var y = d3.scaleLinear()
 
     value = newvalue
 
-    console.log(dataset)
     names.forEach(function(d){
 
       
       let uniq = Object.assign({},dataset)
-      console.log(uniq)
       vals = transform.filter(b => b.name == d)
       vals.forEach(function(y){
         uniq[y.category] = uniq[y.code]
@@ -1468,8 +1572,6 @@ var y = d3.scaleLinear()
 
       var bars = svg.selectAll("g.layer").selectAll("rect")
         .data(d => d, e => e.data[use])
-        
-      console.log(bars)
 
       bars.exit().remove()
 
@@ -1487,9 +1589,6 @@ var y = d3.scaleLinear()
         .attr("height", y.bandwidth())
         .attr('id', d => d.data[use])
         .on("mouseover", function(d,i) {
-        console.log(d)
-          console.log(i)
-          console.log(value)
                 tip      
                     .transition()   
                     .duration(200)
@@ -1518,8 +1617,6 @@ var y = d3.scaleLinear()
        
       charts = manifest.divs
 
-      console.log(data)
-
       //("county" in temp1)
 
       data.forEach(function(d,i){
@@ -1544,8 +1641,6 @@ var y = d3.scaleLinear()
       acs2 = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "ACS")))
       g1 = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "G1")))
 
-      console.log(acs2)
-      console.log(g1)
 
       chart_data = acs.filter(r => r["use"] == "charts")
 
@@ -1577,8 +1672,6 @@ var y = d3.scaleLinear()
         states.push(values)
       })
 
-      console.log(states)
-
 
 
      var geos = new Object();
@@ -1604,11 +1697,10 @@ var y = d3.scaleLinear()
 
       })
 
-      console.log(geos)
+
 
       geos['999'] = states
 
-      console.log(geos)
 
       for (object in geos){
         geos[object].forEach(function(d,i){
@@ -1624,7 +1716,6 @@ var y = d3.scaleLinear()
         })
       }
 
-      console.log(geos)
 
       dataset = geos['999']
 
@@ -1634,10 +1725,27 @@ var y = d3.scaleLinear()
 
       charts.forEach(function(d,i){
 
-        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(dataset,d,option[i].variables,option[i].format,option[i].transform,option[i].year)
+        selector = d +"source"
+        document.querySelector(selector).innerHTML = option[i].source
+
+        text = "#source" + (i+1);
+        console.log(text)
+        document.querySelector(text).style.display = 'block'
+
+        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(dataset,d,option[i].variables,option[i].format,option[i].transform,option[i].year,option[i].label)
 
         //makeLineChart(dataset,d,variables[i])
       })
+
+
+
+      let i = charts.length;
+      while (i < 6) {
+        text = "#source" + (i+1);
+        document.querySelector(text).style.display = 'none'
+        i++;
+      }
+
 
     function updateGraph(fips,vars,div,topicselect){
     //Remove existing charts
@@ -1654,11 +1762,36 @@ var y = d3.scaleLinear()
 
         option = eval('manifest.topic.' + topicselect)
 
+        l = 0
+
         charts.forEach(function(d,i){
 
-        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(data,d,option[i].variables,option[i].format,option[i].transform,option[i].year)
+
+        if(option[i] != undefined){
+          selector = d +"source"
+          document.querySelector(selector).innerHTML = option[i].source
+
+          text = "#source" + (i+1);
+          document.querySelector(text).style.display = 'block'
+
+          eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(data,d,option[i].variables,option[i].format,option[i].transform,option[i].year,option[i].label)
+
+          l++
+        }
+
+
+       
+
+
 
       })
+
+         let i = l;
+      while (i < 6) {
+        text = "#source" + (i+1);
+        document.querySelector(text).style.display = 'none'
+        i++;
+      }
         }
 
 
@@ -1728,9 +1861,9 @@ function mapData(json){
 
         d['tenure'] = (d.B25003_002E / d.tenure_households)
 
-        d['ownerburden_pct'] = (d.owners_costburdened / d.costburden_owner)
-        d['renterburden_pct'] = (d.renters_costburdened / d.costburden_renter)
-      })
+        d['ownerburden_pct'] = (d.owners_costburdened / d.costburden_owner) + .0002
+        d['renterburden_pct'] = (d.renters_costburdened / d.costburden_renter) + .0002
+      }) 
 
  
 
@@ -1885,6 +2018,8 @@ function mapData(json){
             });
         }else{
           //Zoom in on map
+
+        window.exportloc = "/reports/" + option.replace(" County","_County") +"_Report.pdf"
         index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
         bounds = turf.bbox(foo.features[index])
 

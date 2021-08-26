@@ -65,7 +65,8 @@
           "type": "line",
           "dataset": "ACS",
           "year": "all",
-          "format": ",.0f"
+          "format": ",.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Median Household Income",
@@ -78,7 +79,8 @@
           "type": "line",
           "dataset": "ACS",
           "year": "all",
-          "format": "$,.0f"
+          "format": "$,.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Household Income Distribution",
@@ -151,7 +153,8 @@
           "type": "stackedbar",
           "dataset": "ACS",
           "year": "terminal",
-          "format": ",.1%"
+          "format": ",.1%",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Family Poverty Rate",
@@ -172,7 +175,8 @@
           "transform": {
             "calc": "d[code[1]]/d[code[0]]",
             "labels": "Family Poverty Rate"
-          }
+          },
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Tenure",
@@ -189,7 +193,8 @@
           "type": "stackedbar",
           "dataset": "ACS",
           "year": "terminal",
-          "format": ",.1%"
+          "format": ",.1%",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Racial Composition",
@@ -230,7 +235,8 @@
           "type": "stackedbar",
           "dataset": "ACS",
           "year": "terminal",
-          "format": ",.1%"
+          "format": ",.1%",
+          "source": "American Community Survey; 5-Year Estimates"
         }
       ],
         "housing": [
@@ -281,7 +287,8 @@
           "type": "donut",
           "dataset": "ACS",
           "year": "latest",
-          "format": ",.1%"
+          "format": ",.1%",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Housing Units by Decade Built",
@@ -330,7 +337,8 @@
           "type": "donut",
           "dataset": "G1",
           "year": "latest",
-          "format": ",.1%"
+          "format": ",.1%",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Median Listing Price",
@@ -343,7 +351,8 @@
           "type": "line",
           "dataset": "GS1",
           "year": "all",
-          "format": "$,.0f"
+          "format": "$,.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Median Rent",
@@ -356,7 +365,8 @@
           "type": "line",
           "dataset": "GS1",
           "year": "all",
-          "format": "$,.0f"
+          "format": "$,.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Housing Starts",
@@ -369,7 +379,8 @@
           "type": "line",
           "dataset": "GS1",
           "year": "all",
-          "format": ",.0f"
+          "format": ",.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         }
       ],
         "housingafford": [
@@ -388,7 +399,9 @@
           "type": "vbar",
           "dataset": "GS1",
           "year": "latest",
-          "format": ",.0f"
+          "format": ",.0f",
+          "label": "Households",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Cost Burden by Tenure",
@@ -417,13 +430,14 @@
             },
             {
               "name": "Renters",
-              "category": "Not Costburdened",
+              "category": "Not Cost Burdened",
               "code": "renters_noncostburdened"
             }
           ],
           "dataset": "ACS",
           "year": "all",
-          "format":",.1%"
+          "format":",.1%",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Cost Burden by Income",
@@ -448,80 +462,45 @@
           "type": "hbar",
           "dataset": "GS1",
           "year": "latest",
-          "format": "$,.0f"
+          "format": ",.0f",
+          "label": "Households",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Rental Housing Gap",
           "variables": [
             {
-              "name": "Less than $10,000",
-              "code": "B19001_002E"
+              "name": "Total Population",
+              "code": "B01001_001E"
+            }
+          ],
+           "transform":[
+            {
+              "name": "< $35k",
+              "category": "Households",
+              "code": "renters_35k"
             },
             {
-              "name": "$10,000 to $14,999",
-              "code": "B19001_003E"
+              "name": "< $35k",
+              "category": "Units",
+              "code": "units_35k"
             },
             {
-              "name": "$15,000 to $19,999",
-              "code": "B19001_004E"
+              "name": "$35-$75k",
+              "category": "Households",
+              "code": "renters_75k"
             },
             {
-              "name": "$20,000 to $24,999",
-              "code": "B19001_005E"
-            },
-            {
-              "name": "$25,000 to $29,999",
-              "code": "B19001_006E"
-            },
-            {
-              "name": "$30,000 to $34,999",
-              "code": "B19001_007E"
-            },
-            {
-              "name": "$35,000 to $39,999",
-              "code": "B19001_008E"
-            },
-            {
-              "name": "$40,000 to $44,999",
-              "code": "B19001_009E"
-            },
-            {
-              "name": "$45,000 to $49,999",
-              "code": "B19001_010E"
-            },
-            {
-              "name": "$50,000 to $59,999",
-              "code": "B19001_011E"
-            },
-            {
-              "name": "$60,000 to $74,999",
-              "code": "B19001_012E"
-            },
-            {
-              "name": "$75,000 to $99,999",
-              "code": "B19001_013E"
-            },
-            {
-              "name": "$100,000 to $124,999",
-              "code": "B19001_014E"
-            },
-            {
-              "name": "$125,000 to $149,999",
-              "code": "B19001_015E"
-            },
-            {
-              "name": "$150,000 to $199,999",
-              "code": "B19001_016E"
-            },
-            {
-              "name": "$200,000 or more",
-              "code": "B19001_017E"
+              "name": "$35-$75k",
+              "category": "Units",
+              "code": "units_75k"
             }
           ],
           "type": "groupbar",
-          "dataset": "ACS",
-          "year": "terminal",
-          "format": ",.0f"
+          "dataset": "GS1",
+          "year": "latest",
+          "format": ",.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Home Value Affordable to Median Household",
@@ -534,7 +513,8 @@
           "type": "indicator",
           "dataset": "GS1",
           "year": "latest",
-          "format": "$,.0f"
+          "format": "$,.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         }
       ],
         "jobs": [
@@ -549,7 +529,8 @@
           "type": "line",
           "dataset": "GS1",
           "year": "all",
-          "format": ",.1%"
+          "format": ",.1%",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Top 5 Employers by Jobs",
@@ -562,7 +543,8 @@
           "type": "table",
           "dataset": "GS1",
           "year": "all",
-          "format": ""
+          "format": "",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Median Salary",
@@ -575,7 +557,8 @@
           "type": "indicator",
           "dataset": "GS1",
           "year": "all",
-          "format": "$,.0f"
+          "format": "$,.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         },
         {
           "title": "Inflow/Outflow",
@@ -596,7 +579,8 @@
           "type": "venn",
           "dataset": "GS1",
           "year": "terminal",
-          "format": ",.0f"
+          "format": ",.0f",
+          "source": "American Community Survey; 5-Year Estimates"
         }
       ]},
   "geographies": [
