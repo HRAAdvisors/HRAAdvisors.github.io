@@ -25327,7 +25327,7 @@ blockquote {
 .tab02_mask {
   position: relative;
   display: block;
-  height: 70vh;
+  height: 75vh;
   clear: none;
 }
 
@@ -27333,7 +27333,7 @@ blockquote {
   }
 
   .tab02_mask {
-    height: 70vh;
+    height: 75vh;
   }
 
   .grid-2 {
