@@ -13,7 +13,6 @@
 body {
   font-family: Inter, sans-serif;
   color: #333;
-  font-size: 14px;
   line-height: 20px;
 }
 
@@ -82,7 +81,6 @@ p {
   margin-bottom: 10px;
   font-family: Inter, sans-serif;
   color: #4e5d78;
-  font-size: 16px;
   line-height: 1.55;
   font-weight: 400;
 }
@@ -103,9 +101,8 @@ ul {
 }
 
 li {
-  margin-bottom: 15px;
   color: #4e5d78;
-  font-size: 16px;
+  font-size: .75em;
 }
 
 img {

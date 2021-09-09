@@ -476,12 +476,12 @@
           ],
            "transform":[
             {
-              "name": "< $35k",
+              "name": "<$35k",
               "category": "Households",
               "code": "renters_35k"
             },
             {
-              "name": "< $35k",
+              "name": "<$35k",
               "category": "Units",
               "code": "units_35k"
             },
