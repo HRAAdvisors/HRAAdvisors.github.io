@@ -1285,7 +1285,6 @@ chart.append("g")
         .attr("height", y.bandwidth())
         .attr("fill", '#003768')
         .on("mouseover", function(d,i) {
-          console.log(d)
                 tip      
                     .transition()   
                     .duration(200)
@@ -1643,6 +1642,7 @@ var y = d3.scaleLinear()
       acs2 = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "ACS")))
       g1 = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "G1")))
 
+      console.log(g1)
 
       chart_data = acs.filter(r => r["use"] == "charts")
 
@@ -1673,6 +1673,8 @@ var y = d3.scaleLinear()
         values['year'] = years[i]
         states.push(values)
       })
+
+      console.log(states)
 
 
 
@@ -1731,7 +1733,7 @@ var y = d3.scaleLinear()
         document.querySelector(selector).innerHTML = option[i].source
 
         text = "#source" + (i+1);
-        console.log(text)
+
         document.querySelector(text).style.display = 'block'
 
         eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(dataset,d,option[i].variables,option[i].format,option[i].transform,option[i].year,option[i].label)
@@ -1877,7 +1879,6 @@ function mapData(json){
           updateTable(0,topic_option)
         })
 
-        console.log(manifest)
 
       })
 
