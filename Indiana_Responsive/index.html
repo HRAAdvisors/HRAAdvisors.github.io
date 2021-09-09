@@ -354,6 +354,10 @@ rect{
   text-anchor: end;
 }
 
+img{
+  height: 6vh !important;
+}
+
   </style>
 </head>
 <body position="relative" class="lnd_body">
@@ -491,7 +495,7 @@ To compare data points for up to three counties, select the COMPARE button in th
         <div class="lnd_footer_wrap">
           <div class="lnd_top_wrap">
             <div class="div-block-129">
-              <a href="#" class="w-nav-brand"><img src="images/logo.png" loading="lazy" width="302" alt=""></a>
+              <a href="#" class="w-nav-brand"><img src="images/logo.png" loading="lazy" alt=""></a>
             </div>
           </div>
         </div>
@@ -630,7 +634,7 @@ const topic = document.querySelector('#topic')
 
 //Define a method to dynamically resize the select box based on selected text length; Initialize based on starting text.
 //The second argument is True (1) if the resize is performed on initial page load or False (0) upon new selection
-function selectResize(id,initial){
+function selectResize(id,initial,eval){
   const select = document.querySelector(id) 
 
   //We need to make temporary selections with only one options to grab the DOM evaluated width of the container 
@@ -638,7 +642,11 @@ function selectResize(id,initial){
       tempOption = document.createElement('option');
 
   if (initial == 1){
-    tempOption.textContent = select.getElementsByTagName("option")[0].text;
+    if (eval == 1){
+      tempOption.textContent = select.options[select.selectedIndex].text;
+    }else{
+      tempOption.textContent = select.getElementsByTagName("option")[0].text + "t";
+    }
     value = select.value;
     }else{
     tempOption.textContent = event.target.options[event.target.selectedIndex].text;
@@ -1969,7 +1977,7 @@ function mapData(json){
 
         updateTable(0,topic_option)
 
-        option = selectResize('#geography',0)
+        option = selectResize('#geography',1,1)
         if(option === 'Indiana'){
           countyfip = "999"
         }else{
@@ -1999,7 +2007,7 @@ function mapData(json){
 
         //Resize box
         option = selectResize('#geography',0)
-        topic_option = selectResize('#topic',0)
+        topic_option = selectResize('#topic',1,1)
 
         if(option === 'Indiana'){
           countyfip = "999"
@@ -2043,7 +2051,6 @@ function mapData(json){
 
       //Initial Resize for Geographies
       selectResize('#geography',1)
-      selectResize('#topic',1)
 
       geography
       .selectAll("option")
