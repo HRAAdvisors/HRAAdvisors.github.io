@@ -39,6 +39,14 @@
   <script src="js/venn.js"></script>
   <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
+
+  <!-- HIGHCHARTS -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
   <style>
 
     td{
@@ -717,11 +725,15 @@ window.addEventListener("load", function(){
   return domain
   }
 
-  function makeLineChart(dataset,divs,value,format,transform,year){
+  function makeLineChart(dataset,divs,value,format,transform,year,title,description,source){
 
     
 
+    divs = divs.replace("#","")
+
     domain = findDomain(year)
+
+    console.log(title,description,source,domain)
 
     margin.left = 65
     code = []
@@ -747,8 +759,105 @@ window.addEventListener("load", function(){
       });
     }
 
-    window[codename] = code
+    data = []
+    dataset.forEach(d => data.push(parseFloat(d[code])))
+    console.log(data)
 
+    window[codename] = code
+    console.log(code)
+
+
+    /////////////////HIGHCHARTS/////////////
+      Highcharts.setOptions({
+          lang: {
+            thousandsSep: ','
+          }
+        })
+
+        new Highcharts.chart(divs, {
+
+          title: {
+            text: title,
+            align: 'left'
+          },
+          
+          subtitle: {
+            text: description,
+            align: 'left',
+            verticalAlign:'top'
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            title: {
+              text: undefined
+            }
+          },
+
+          xAxis: {
+            accessibility: {
+              rangeDescription: 'Range: 2010 to 2019'
+            }
+          },
+
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            enabled:false
+          },
+
+          plotOptions: {
+            
+            series: {
+              dataLabels: {
+                        enabled: true,
+                        format: '{point.y:,.0f}',
+                filter: {
+                            property: 'y',
+                            operator: '===',
+                            value: data[data.length-1]
+                        }
+                    },
+              label: {
+                enabled:false
+              },
+              pointStart: 2010
+            }
+          },
+          
+          credits:{
+            text: 'Source: ' + source
+          },
+
+          series: [{
+            name: 'Population',
+            data: data
+          }],
+
+          responsive: {
+            rules: [{
+              condition: {
+                maxWidth: 500
+              },
+              chartOptions: {
+                legend: {
+                  layout: 'horizontal',
+                  align: 'center',
+                  verticalAlign: 'bottom'
+                }
+              }
+            }]
+          }
+
+        });
+
+
+
+
+    ////////////////////////////////////////
+
+    /*
     var div = d3.select(divs)
 
 
@@ -840,7 +949,7 @@ window.addEventListener("load", function(){
                 tip.transition()    
                     .duration(500)   
                     .style("opacity", 0); 
-            });
+            });*/
     }
 
    function makeDonutChart(dataset,divs,value,format,transform,year){
@@ -852,7 +961,7 @@ window.addEventListener("load", function(){
     code = []
     value.forEach(d => code.push(d.code))
 
-    hidecheck(divs,code)
+    //hidecheck(divs,code)
 
      /*dataset.map(function(d){
 
@@ -973,7 +1082,7 @@ window.addEventListener("load", function(){
 
     newdata = dataset.filter(d => d.year == 2019)[0]
 
-    hidecheck(divs,[])
+    //hidecheck(divs,[])
 
 
     var sets = [ {sets: ['Employed'], size: newdata[value[2].code], labeler: 'Employed in County'}, 
@@ -1013,7 +1122,7 @@ div.selectAll("g")
 
   function makeIndicator(dataset,divs,value,format,transform,year){
 
-    hidecheck(divs,[])
+    //hidecheck(divs,[])
 
     newdata = dataset.filter(d => d.year == 2019)[0]
     q = newdata[value[0].code]
@@ -1026,7 +1135,7 @@ div.selectAll("g")
 
   function makeTable(dataset,divs,value,format,transform,year){
 
-    hidecheck(divs,[])
+    //hidecheck(divs,[])
 
     newdata = dataset.filter(d => d.year == 2019)[0]
     q = newdata[value[0].code].split("; ")
@@ -1046,7 +1155,7 @@ div.selectAll("g")
 
   function makeGrouped(dataset,divs,value,format,transform,year){
 
-    hidecheck(divs,[])
+    //hidecheck(divs,[])
 
     var div = d3.select(divs)
 
@@ -1242,7 +1351,7 @@ bar.on("mouseover", function(d,i) {
 
   function makeHBarchart(dataset,divs,value,format,transform,year,label){
 
-    hidecheck(divs,[])
+    //hidecheck(divs,[])
 
 
 
@@ -1317,7 +1426,7 @@ bar.on("mouseover", function(d,i) {
 
   function makeVBarchart(dataset,divs,value,format,transform,year,label){
 
-    hidecheck(divs,[])
+    //hidecheck(divs,[])
 
      newdata = dataset.filter(d => d.year == 2019)[0]
 
@@ -1390,7 +1499,7 @@ var y = d3.scaleLinear()
 
 
 
-    hidecheck(divs,[])
+    //hidecheck(divs,[])
 
 
     if (transform != undefined){
@@ -1742,9 +1851,9 @@ var y = d3.scaleLinear()
 
         document.querySelector(text).style.display = 'block'
 
-        console.log(height)
+        //dataset,divs,value,format,transform,year
 
-        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(dataset,d,option[i].variables,option[i].format,option[i].transform,option[i].year,option[i].label)
+        eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(dataset,d,option[i].variables,option[i].format,option[i].transform,option[i].year,option[i].title,option[i].description,option[i].source)
 
         //makeLineChart(dataset,d,variables[i])
       })
@@ -1760,35 +1869,49 @@ var y = d3.scaleLinear()
 
 
     function updateGraph(fips,vars,div,topicselect){
+
+      console.log(div)
+
+      div.forEach(function(d){
+      current = document.querySelector(d)
+      const newItem = document.createElement('div');
+      divs = d.replace('#','')
+      newItem.id= divs
+
+      current.parentElement.replaceChild(newItem,current)
+      })
+
     //Remove existing charts
 
-        document.querySelectorAll('.temp').forEach(function(area){
+        /*document.querySelectorAll('.temp').forEach(function(area){
           area.remove()
         })
 
         document.querySelectorAll('.chartarea svg').forEach(function(area){
           area.remove()
-        })
+        })*/
     
         data = geos[fips]
 
         option = eval('manifest.topic.' + topicselect)
 
-        l = 0
+       // l = 0
 
         charts.forEach(function(d,i){
 
 
         if(option[i] != undefined){
-          selector = d +"source"
+          
+          /*selector = d +"source"
           document.querySelector(selector).innerHTML = option[i].source
 
           text = "#source" + (i+1);
           document.querySelector(text).style.display = 'block'
+          */
 
           eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(data,d,option[i].variables,option[i].format,option[i].transform,option[i].year,option[i].label)
 
-          l++
+          //l++
         }
 
 
@@ -1798,12 +1921,14 @@ var y = d3.scaleLinear()
 
       })
 
-         let i = l;
+        /* let i = l;
       while (i < 6) {
         text = "#source" + (i+1);
         document.querySelector(text).style.display = 'none'
         i++;
-      }
+      }*/
+
+
         }
 
 
@@ -1982,7 +2107,7 @@ function mapData(json){
         
         //Relabel Spans
         label = eval(event.target.options[event.target.selectedIndex].value)
-        reLabel(span,label)
+        //reLabel(span,label)
 
         topic_option = selectResize('#topic',0)
 

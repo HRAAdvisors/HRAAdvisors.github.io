@@ -63,6 +63,7 @@
             }
           ],
           "type": "line",
+          "description": "Test description",
           "dataset": "ACS",
           "year": "all",
           "format": ",.0f",
