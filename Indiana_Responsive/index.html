@@ -171,6 +171,10 @@
         background: rgba(255, 255, 255, 0.6);
     }
 
+    #container, #container > .highcharts-container {
+  overflow: visible!important;
+}
+
     #menu {
         background: white;
         font-family: 'Nunito', sans-serif;
@@ -733,7 +737,6 @@ window.addEventListener("load", function(){
 
     domain = findDomain(year)
 
-    console.log(title,description,source,domain)
 
     margin.left = 65
     code = []
@@ -761,13 +764,36 @@ window.addEventListener("load", function(){
 
     data = []
     dataset.forEach(d => data.push(parseFloat(d[code])))
-    console.log(data)
+
 
     window[codename] = code
-    console.log(code)
+
+
+    if (format.suffix == "%"){
+      data = data.map(function(x) { return x * 100; })
+      decimal = 1
+    }else{
+      decimal = 0
+    }
 
 
     /////////////////HIGHCHARTS/////////////
+
+
+      Highcharts.wrap(Highcharts.Chart.prototype, 'contextMenu', function(proceed) {
+  proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+
+  // Correct for chart position
+  var pos = Highcharts.offset(this.container);
+  var defaultPadding = 5 * 2; // default from menuStyle option: https://api.highcharts.com/highcharts/navigation.menuStyle
+  this.exportContextMenu.style.top = (pos.top ) + 'px';
+  this.exportContextMenu.style.left = (pos.left + this.chartWidth - this.exportMenuWidth) + 'px';
+  this.exportContextMenu.style.width = this.exportMenuWidth + 'px';
+
+  // Move it to the body
+  Highcharts.doc.body.appendChild(this.exportContextMenu);
+});
+
       Highcharts.setOptions({
           lang: {
             thousandsSep: ','
@@ -791,13 +817,36 @@ window.addEventListener("load", function(){
             gridLineWidth: 0,
             title: {
               text: undefined
+            },
+            labels: {
+                formatter: function() {
+                    var ret,
+                        numericSymbols = ['k', 'M', 'G', 'T', 'P', 'E'],
+                        i = 6;
+                    if(this.value >=1000) {
+                        while (i-- && ret === undefined) {
+                            multi = Math.pow(1000, i + 1);
+                            if (this.value >= multi && numericSymbols[i] !== null) {
+                                ret = (this.value / multi) + numericSymbols[i];
+                            }
+                        }
+                    }
+                    return format.prefix + (ret ? ret : this.value) + format.suffix;
+                }
             }
+           
           },
 
           xAxis: {
             accessibility: {
               rangeDescription: 'Range: 2010 to 2019'
             }
+          },
+
+          tooltip: {
+            valueDecimals: decimal,
+            valuePrefix: format.prefix,
+            valueSuffix: format.suffix
           },
 
           legend: {
@@ -812,7 +861,7 @@ window.addEventListener("load", function(){
             series: {
               dataLabels: {
                         enabled: true,
-                        format: '{point.y:,.0f}',
+                        format: format.prefix + '{point.y:'+ format.formatter + '}' + format.suffix,
                 filter: {
                             property: 'y',
                             operator: '===',
@@ -850,7 +899,14 @@ window.addEventListener("load", function(){
             }]
           }
 
-        });
+        }, function(chart) {
+    var arr = chart.options.exporting.buttons.contextButton.menuItems;
+    var index = arr.indexOf("viewData");
+    if (index !== -1) arr.splice(index, 1);
+    var index = arr.indexOf("viewFullscreen");
+    if (index !== -1) arr.splice(index, 1);
+
+});
 
 
 
@@ -1017,8 +1073,7 @@ window.addEventListener("load", function(){
 
     var radius = (height+ margin.bottom) / 2.2
 
-    console.log(radius)
-    
+
     var div = d3.select(divs)
 
     svg = div.append("svg")
@@ -1495,11 +1550,13 @@ var y = d3.scaleLinear()
 
 
 
-  function makeStackedBarChart(dataset,divs,value,format,transform,year){
+  function makeStackedBarChart(dataset,divs,value,format,transform,year,title,description,source){
 
 
 
     //hidecheck(divs,[])
+
+    divs = divs.replace("#","")
 
 
     if (transform != undefined){
@@ -1611,10 +1668,8 @@ var y = d3.scaleLinear()
 
     var keys = code
 
-    
-
   
-    var div = d3.select(divs)
+    /*var div = d3.select(divs)
 
     svg = div.append("svg")
         .attr("class","vis")
@@ -1646,6 +1701,8 @@ var y = d3.scaleLinear()
       .range(["#15534C","#1A5D51","#216755","#297159","#337B5C","#3D855E","#498F60","#569861","#64A261","#73AC61","#83B561","#94BE61","#A6C760","#B9D060","#CDD861","#E2E062"])
       .domain(d3.ticks(0, keys.length, 16));
 
+    */
+
     if (transform != undefined){
       update(newdata,18, 0,value)
     }else{
@@ -1661,6 +1718,108 @@ var y = d3.scaleLinear()
         d.total = d3.sum(keys, k => +d[k])
         return d
       })
+      console.log(data)
+
+
+      ////////////////HIGHCHARTS////////////////
+
+      categories = []
+      data.forEach(d => categories.push(d.Year))
+
+
+
+      series = []
+
+      value.forEach(function(d){
+        vals = []
+        data.forEach(r => vals.push(r[d.code]))
+        s = {'name': d.name, 'data': vals}
+        series.push(s)
+      })
+
+      Highcharts.wrap(Highcharts.Chart.prototype, 'contextMenu', function(proceed) {
+        proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+
+        // Correct for chart position
+        var pos = Highcharts.offset(this.container);
+        var defaultPadding = 5 * 2; // default from menuStyle option: https://api.highcharts.com/highcharts/navigation.menuStyle
+        this.exportContextMenu.style.top = (pos.top ) + 'px';
+        this.exportContextMenu.style.left = (pos.left + this.chartWidth - this.exportMenuWidth) + 'px';
+        this.exportContextMenu.style.width = this.exportMenuWidth + 'px';
+
+        // Move it to the body
+        Highcharts.doc.body.appendChild(this.exportContextMenu);
+      });
+
+      
+
+      Highcharts.setOptions({
+        lang: {
+          thousandsSep: ','
+        }
+      })
+
+
+      Highcharts.chart(divs, {
+        
+        exporting:{
+          menuItemDefinitions:{"printChart": {}, "separator": {}, "downloadPNG": {}, "downloadJPEG": {}, "downloadPDF": {}, "downloadSVG": {}}
+        },
+
+        chart: {
+          type: 'bar'
+        },
+        title: {
+          text: title,
+          align: 'left',
+          verticalAlign:'top'
+        },
+        
+          subtitle: {
+          text: description,
+          align: 'left',
+          verticalAlign:'top'
+        },
+        
+        xAxis: {
+          categories: categories,
+          
+        },
+        
+        credits:{
+          text: source
+        },
+        
+        yAxis: {
+          gridLineWidth: 0,
+          min: 0,
+          labels: {
+            enabled: false
+          },
+          title: {
+            text: undefined
+          }
+        },
+        legend: {
+          reversed: true
+        },
+        plotOptions: {
+          series: {
+            stacking: 'normal'
+          }
+        },
+        series:series
+      }, function(chart) {
+          var arr = chart.options.exporting.buttons.contextButton.menuItems;
+          var index = arr.indexOf("viewData");
+          if (index !== -1) arr.splice(index, 1);
+          var index = arr.indexOf("viewFullscreen");
+          if (index !== -1) arr.splice(index, 1);
+      });
+
+      //////////
+
+      /*
 
       x.domain([0, d3.max(data, d => d.total)]).nice();
 
@@ -1724,7 +1883,8 @@ var y = d3.scaleLinear()
         .attr("y", d => y(d.data[use]))
         .attr("x", d => x(d[0]))
         .attr("width", d => x(d[1]) - x(d[0]))
-        
+    
+    */
     }
     }
   //charttypes = [makeLineChart,makeLineChart,makeStackedBarChart,makeLineChart,makeLineChart,makeLineChart]
@@ -1757,7 +1917,6 @@ var y = d3.scaleLinear()
       acs2 = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "ACS")))
       g1 = JSON.parse(JSON.stringify(newdata.filter(r => r["source"] == "G1")))
 
-      console.log(g1)
 
       chart_data = acs.filter(r => r["use"] == "charts")
 
@@ -1789,7 +1948,7 @@ var y = d3.scaleLinear()
         states.push(values)
       })
 
-      console.log(states)
+
 
 
 
@@ -1870,7 +2029,6 @@ var y = d3.scaleLinear()
 
     function updateGraph(fips,vars,div,topicselect){
 
-      console.log(div)
 
       div.forEach(function(d){
       current = document.querySelector(d)
@@ -1909,7 +2067,7 @@ var y = d3.scaleLinear()
           document.querySelector(text).style.display = 'block'
           */
 
-          eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(data,d,option[i].variables,option[i].format,option[i].transform,option[i].year,option[i].label)
+          eval(manifest.chartfunctions.filter(d => d.type == option[i].type)[0].function)(data,d,option[i].variables,option[i].format,option[i].transform,option[i].year,option[i].title,option[i].description,option[i].source)
 
           //l++
         }
@@ -2501,7 +2659,7 @@ function mapData(json){
         .then(function (responses) {
           // Get a JSON object from each of the responses and merge into one object
           return Promise.all(responses.map(function (response) {
-            console.log(response)
+
             return response.json();
           }));
         })

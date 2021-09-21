@@ -66,7 +66,11 @@
           "description": "Test description",
           "dataset": "ACS",
           "year": "all",
-          "format": ",.0f",
+          "format": {
+            "prefix":"",
+            "formatter":",.0f",
+            "suffix":""
+          },
           "source": "American Community Survey; 5-Year Estimates"
         },
         {
@@ -80,7 +84,11 @@
           "type": "line",
           "dataset": "ACS",
           "year": "all",
-          "format": "$,.0f",
+          "format": {
+            "prefix":"$",
+            "formatter":",.0f",
+            "suffix":""
+          },
           "source": "American Community Survey; 5-Year Estimates"
         },
         {
@@ -172,7 +180,11 @@
           "type": "line",
           "dataset": "ACS",
           "year": "all",
-          "format": ",.1%",
+          "format": {
+            "prefix":"",
+            "formatter":".1f",
+            "suffix":"%"
+          },
           "transform": {
             "calc": "d[code[1]]/d[code[0]]",
             "labels": "Family Poverty Rate"
