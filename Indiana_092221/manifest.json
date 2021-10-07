@@ -164,7 +164,15 @@
           "format": {
             "prefix":"",
             "formatter":".1f",
-            "suffix":"%"
+            "suffix":"%",
+            "combine":{"Less than $15k":["B19001_002E","B19001_003E"],
+              "$15k-$25k":["B19001_004E","B19001_005E"],
+              "$25k-$35k":["B19001_006E","B19001_007E"],
+              "$35k-$45k":["B19001_008E","B19001_009E"],
+              "$45k-60k":["B19001_010E","B19001_011E"],
+              "$60k-$100k":["B19001_012E","B19001_013E"],
+              "$100k-$150k":["B19001_014E","B19001_015E"],
+            "$150k+":["B19001_016E","B19001_017E"]}
           },
           "source": "American Community Survey; 5-Year Estimates"
         },
@@ -259,7 +267,12 @@
            "format": {
             "prefix":"",
             "formatter":".1f",
-            "suffix":"%"
+            "suffix":"%",
+            "combine":{"White":["B25003H_001E"],
+              "Black":["B25003B_001E"],
+              "Asian":["B25003D_001E"],
+              "Hispanic or Latino":["B25003I_001E"],
+              "Other":["B25003C_001E","B25003E_001E","B25003F_001E","B25003G_001E"]}
           },
           "source": "American Community Survey; 5-Year Estimates"
         }
@@ -526,8 +539,8 @@
           "year": "latest",
            "format": {
             "prefix":"",
-            "formatter":".,0f",
-            "suffix":"",
+            "formatter":".0f",
+            "suffix":"%",
             "label": "Cost Burdened Households by Income"
           },
           "label": "Households",
@@ -628,10 +641,14 @@
               "code": "mediansalary"
             }
           ],
-          "type": "indicator",
+          "type": "line",
           "dataset": "GS1",
           "year": "all",
-          "format": "$,.0f",
+          "format": {
+            "prefix":"$",
+            "formatter":",.0f",
+            "suffix":""
+          },
           "source": "American Community Survey; 5-Year Estimates"
         },
         {

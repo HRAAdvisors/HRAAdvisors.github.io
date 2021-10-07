@@ -1603,7 +1603,8 @@ window.addEventListener("load", function(){
                     enabled: true,
                     style: {
                         fontWeight: 'bold',
-                        color: 'white'
+                        color: '#000000',
+                        stroke: 0
                     },
                     filter: {
                     property: 'percentage',
@@ -2295,7 +2296,8 @@ bar.on("mouseover", function(d,i) {
     plotOptions: {
         bar: {
             dataLabels: {
-                enabled: true
+                enabled: true,
+                format: format.prefix + '{point.y:'+ format.formatter + '}' + format.suffix,
             }
         }
     },
@@ -2636,6 +2638,8 @@ var y = d3.scaleLinear()
     code = []
     value.forEach(d => code.push(d.code))
 
+    console.log(dataset)
+
     dataset.map(function(d){
 
       keys = Object.keys(d)
@@ -2657,6 +2661,26 @@ var y = d3.scaleLinear()
     return d
 
     })
+
+
+    if (format.combine != undefined){
+      value = []
+      combine = format.combine
+
+      Object.keys(combine).forEach(function(d){
+        value.push({'name':d,'code':d})
+        dataset.forEach(function(b){
+          val = 0
+          combine[d].forEach(f => val = val + b[f])
+          b[d] = val
+        })
+      })
+
+      code = Object.keys(combine)
+
+
+    }
+    
 
     dataset.forEach((d,i) => d['Year'] = years[i])
     dataset = dataset.filter(d => domain.includes(d.Year))
