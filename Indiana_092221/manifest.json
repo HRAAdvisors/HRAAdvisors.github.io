@@ -406,7 +406,7 @@
             "formatter":",.0f",
             "suffix":""
           },
-          "source": "American Community Survey; 5-Year Estimates"
+          "source": "Indiana Realtor's Association"
         },
         {
           "title": "Median Rent",
@@ -443,7 +443,7 @@
             "formatter":",.0f",
             "suffix":""
           },
-          "source": "American Community Survey; 5-Year Estimates"
+          "source": "Census Building Permits Survey"
         }
       ],
         "housingafford": [
@@ -616,7 +616,7 @@
             "formatter":".1f",
             "suffix":"%"
           },
-          "source": "American Community Survey; 5-Year Estimates"
+          "source": "U.S. Bureau of Labor Statistics"
         },
         {
           "title": "Top 5 Employers by Jobs",
@@ -631,7 +631,7 @@
           "dataset": "GS1",
           "year": "all",
           "format": "",
-          "source": "American Community Survey; 5-Year Estimates"
+          "source": "Data Axle USA"
         },
         {
           "title": "Median Salary",
@@ -649,11 +649,11 @@
             "formatter":",.0f",
             "suffix":""
           },
-          "source": "American Community Survey; 5-Year Estimates"
+          "source": "U.S. Bureau of Labor Statistics"
         },
         {
           "title": "Inflow/Outflow",
-          "description": "Employed in the Selection Area, Live Outside; Live in Selection Area, Employed Outside; Employed and Live in Selection Area..",
+          "description": "Indicates flow between home and employment location of workers.",
           "variables": [
             {
               "name": "Work and Live",

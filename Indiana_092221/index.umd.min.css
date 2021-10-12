@@ -1,0 +1,147 @@
+:root {
+  --map-legend-maxwidth: 50%;
+  --map-legend-maxheight: 90vh;
+  --map-legend-margin: 0.75rem;
+  --map-legend-font: 1rem / 1 'Arial Unicode MS Regular', sans-serif;
+  /* Pane */
+  --map-legend-minwidth: 150px;
+  --map-legend-background: #fff;
+  --map-legend-radius: 4px;
+  --map-legend-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  --map-legend-border: 1px solid #eee;
+  /* Title */
+  --map-legend-title-color: #444;
+  --map-legend-title-size: 0.7rem;
+  /* Components */
+  --map-legend-label-size: 0.65rem;
+  --map-legend-label-color: #aaa;
+  --map-legend-thumb-height: 0.7rem;
+  --map-legend-thumb-radius: 2px;
+  --map-legend-bubble-stroke: #ccc;
+  --map-legend-bubble-background: #f8f8f8;
+  /* Icons */
+  --map-legend-symbol-size: 16px;
+  --toggler-hidden-opacity: 0.5;
+  --toggler-hidden-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M4.52 5.934L1.393 2.808l1.415-1.415 19.799 19.8-1.415 1.414-3.31-3.31A10.949 10.949 0 0112 21c-5.392 0-9.878-3.88-10.819-9a10.982 10.982 0 013.34-6.066zm10.237 10.238l-1.464-1.464a3 3 0 01-4.001-4.001L7.828 9.243a5 5 0 006.929 6.929zM7.974 3.76C9.221 3.27 10.58 3 12 3c5.392 0 9.878 3.88 10.819 9a10.947 10.947 0 01-2.012 4.592l-3.86-3.86a5 5 0 00-5.68-5.68L7.974 3.761z"/></svg>');
+  --toggler-visible-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M1.181 12C2.121 6.88 6.608 3 12 3c5.392 0 9.878 3.88 10.819 9-.94 5.12-5.427 9-10.819 9-5.392 0-9.878-3.88-10.819-9zM12 17a5 5 0 100-10 5 5 0 000 10zm0-2a3 3 0 110-6 3 3 0 010 6z"/></svg>'); }
+
+.mapboxgl-ctrl-legend {
+  font: var(--map-legend-font);
+  min-width: var(--map-legend-minwidth);
+  background: var(--map-legend-background);
+  border-radius: var(--map-legend-radius);
+  box-shadow: var(--map-legend-shadow);
+  width: auto;
+  position: relative;
+  overflow: auto;
+  max-width: var(--map-legend-maxwidth);
+  max-height: var(--map-legend-maxheight); }
+  .mapboxgl-ctrl-legend * {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .mapboxgl-ctrl-legend:empty {
+    display: none; }
+  .mapboxgl-ctrl-legend details + details {
+    border-top: var(--map-legend-border); }
+  .mapboxgl-ctrl-legend summary {
+    color: var(--map-legend-title-color);
+    font-size: var(--map-legend-title-size);
+    margin: var(--map-legend-margin);
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center; }
+    .mapboxgl-ctrl-legend summary::-webkit-details-marker {
+      display: none; }
+    .mapboxgl-ctrl-legend summary .toggler {
+      color: inherit;
+      margin-left: auto;
+      width: var(--map-legend-title-size);
+      height: var(--map-legend-title-size);
+      background-color: currentColor;
+      -webkit-mask-image: var(--toggler-hidden-icon);
+              mask-image: var(--toggler-hidden-icon);
+      -webkit-mask-size: 100%;
+              mask-size: 100%;
+      opacity: var(--toggler-hidden-opacity);
+      cursor: pointer; }
+      .mapboxgl-ctrl-legend summary .toggler--visible {
+        -webkit-mask-image: var(--toggler-visible-icon);
+                mask-image: var(--toggler-visible-icon);
+        opacity: 1; }
+  .mapboxgl-ctrl-legend .list {
+    margin: var(--map-legend-margin); }
+    .mapboxgl-ctrl-legend .list li {
+      margin: calc(0.5 * var(--map-legend-margin)) 0;
+      display: flex;
+      align-items: center;
+      font-size: var(--map-legend-label-size);
+      color: var(--map-legend-label-color);
+      text-transform: uppercase; }
+    .mapboxgl-ctrl-legend .list--color li::before {
+      content: '';
+      display: block;
+      height: var(--map-legend-thumb-height);
+      width: var(--map-legend-thumb-height);
+      background: var(--color);
+      margin-right: calc(0.5 * var(--map-legend-margin));
+      border-radius: var(--map-legend-thumb-radius); }
+    .mapboxgl-ctrl-legend .list--icons .icon {
+      margin-right: calc(0.5 * var(--map-legend-margin));
+      height: var(--map-legend-symbol-size);
+      width: var(--map-legend-symbol-size); }
+  .mapboxgl-ctrl-legend .gradient {
+    margin: var(--map-legend-margin); }
+    .mapboxgl-ctrl-legend .gradient .labels {
+      position: relative;
+      height: calc(1.5 * var(--map-legend-label-size));
+      font-size: var(--map-legend-label-size); }
+      .mapboxgl-ctrl-legend .gradient .labels span {
+        position: absolute;
+        color: var(--map-legend-label-color);
+        transform: translateX(-50%); }
+        .mapboxgl-ctrl-legend .gradient .labels span:first-child {
+          transform: none; }
+        .mapboxgl-ctrl-legend .gradient .labels span:last-child {
+          transform: translateX(-100%); }
+    .mapboxgl-ctrl-legend .gradient .bar {
+      height: var(--map-legend-thumb-height);
+      background: #ccc;
+      border-radius: var(--map-legend-thumb-radius); }
+  .mapboxgl-ctrl-legend .bubbles {
+    position: relative;
+    font-size: var(--map-legend-label-size);
+    color: var(--map-legend-label-color);
+    margin: var(--map-legend-margin) calc(1.5 * var(--map-legend-margin)); }
+    .mapboxgl-ctrl-legend .bubbles li {
+      left: 50%;
+      text-align: center; }
+      .mapboxgl-ctrl-legend .bubbles li + li {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%; }
+      .mapboxgl-ctrl-legend .bubbles li span {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 50%;
+        margin-bottom: -1px;
+        border-bottom: 1px solid var(--map-legend-bubble-stroke);
+        padding-bottom: 2px;
+        text-align: left; }
+      .mapboxgl-ctrl-legend .bubbles li:nth-child(2n + 1) span {
+        left: 50%;
+        text-align: right; }
+      .mapboxgl-ctrl-legend .bubbles li::before {
+        display: inline-block;
+        content: '';
+        height: calc(2 * var(--radius));
+        width: calc(2 * var(--radius));
+        border: 1px solid var(--map-legend-bubble-stroke);
+        background: var(--map-legend-bubble-background);
+        border-radius: 50%; }
