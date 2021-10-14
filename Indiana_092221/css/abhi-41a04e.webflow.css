@@ -89,7 +89,6 @@ p {
 
 a {
   color: #7540ee;
-  font-size: 16px;
   text-decoration: underline;
 }
 
@@ -105,7 +104,7 @@ ul {
 li {
   margin-bottom: 15px;
   color: #4e5d78;
-  font-size: 16px;
+  
 }
 
 img {
@@ -117,7 +116,7 @@ label {
   display: block;
   margin-bottom: 5px;
   color: #4e5d78;
-  font-size: 16px;
+
   font-weight: 700;
 }
 
