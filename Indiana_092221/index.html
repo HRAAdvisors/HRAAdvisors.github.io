@@ -1552,6 +1552,7 @@ window.addEventListener("load", function(){
     });
 
      Highcharts.setOptions({
+              colors: ['#073863', '#A9AD00', '#A41D00', '#FF6D00', '#B45F04', '#1055CC', '#F5BD06', '#FFF263', '#6AF9C4','#EE9B00','#94D2BD'],
               lang: {
                 thousandsSep: ','
               }
@@ -3481,13 +3482,15 @@ function mapData(json){
         , zoom: 5.75
         , pitch: 0
         , bearing: 0
-        , maxPitch: 85,
+        , maxPitch: 85
+        , maxZoom: 11
+        , minZoom: 5
       });
 
       map.addControl(new LegendControl({
         collapsed: true,
         toggler: true,
-        layers:['population','income','owner','nhpd','multifamily','broadband']
+        layers:['population','income','owner','nhpd','multifamily','broadband','dot-fake']
       }), 'top-left');   
 
       map.scrollZoom.disable();
@@ -3496,7 +3499,8 @@ function mapData(json){
 
       //Heat Map - B19013_001E
       tractsgeo = json[1]
-      nhpd = json[2] 
+      nhpd = json[2]
+      fakedots = json[3] 
   
       tractspop = data[21]
       tractsgeo.features.forEach(function(feature){
@@ -3522,6 +3526,14 @@ function mapData(json){
           'data': foo
           });
 
+        map.addSource('dotmap', {
+          'type': 'raster',
+          'tiles': [
+          'https://dz829stppcdeh.cloudfront.net/Tiles/{z}/{x}/{y}.png'
+          ],
+          'tileSize': 256
+          });
+
         map.addSource('tracts', {
           'type': 'geojson',
           'data': tractsgeo
@@ -3532,7 +3544,55 @@ function mapData(json){
           'data': nhpd
           });
         //Add fill layer to map 
-        
+
+        map.addSource('ethnicity', {
+        'type': 'geojson',
+        'data': fakedots
+        });
+
+        map.addLayer({
+          'id': 'dot-fake',
+          'type': 'circle',
+          'source': 'ethnicity',
+          'layout': {
+            'visibility': 'none'
+            },
+          'metadata': {
+            name: 'Racial Composition',
+            labels: {
+              '#73B2FF': 'White',
+              '#55FF00': 'Black',
+              '#FF0000': 'Hispanic',
+              '#FFAA00': 'Asian',
+              '#895A44': 'Other',
+            }
+          },
+          'paint': {
+          // Make circles larger as the user zooms from z12 to z22.
+          'circle-radius': {
+          'base': 1.75,
+          'stops': [
+          [12, 2],
+          [22, 180]
+          ]
+          },
+          // Color circles by ethnicity, using a `match` expression.
+          'circle-color': [
+          'match',
+          ['get', 'Race'],
+          'white',
+          '#73B2FF',
+          'black',
+          '#55FF00',
+          'hispanic',
+          '#FF0000',
+          'asian',
+          '#FFAA00',
+          /* other */ '#895A44'
+          ]
+          }
+          });
+        //'#73B2FF','#55FF00','#FF0000','#FFAA00','#895A44'
         map.addLayer({
           'id': 'indiana',
           'type': 'fill',
@@ -3553,6 +3613,18 @@ function mapData(json){
           'fill-opacity': 0.3
           },
           'filter': ['in', 'COUNTYFP', '']
+          },
+          'road-primary',
+          );
+
+        map.addLayer(
+          {
+          'id': 'dotdensity-map',
+          'type': 'raster',
+          'layout': {
+            'visibility': 'none'
+            },
+          'source': 'dotmap'
           },
           'road-primary',
           );
@@ -3607,9 +3679,9 @@ function mapData(json){
           'type': 'circle',
           'source': 'nhpd',
           'metadata': {
-            name: 'Affordable Housing Units',
+            name: 'Subsidized Housing Units',
             labels: {
-              '#F84C4C': 'Affordable Buildings'
+              '#F84C4C': 'Subsidized Buildings'
             }
           },
           'layout': {
@@ -3787,17 +3859,39 @@ function mapData(json){
         , 'road-primary'
         )
 
+
+
       })
 
     map.once('idle', function(){
       legend_labels = document.querySelectorAll("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div.mapboxgl-ctrl.mapboxgl-ctrl-legend > details.mapboxgl-ctrl-legend-pane.mapboxgl-ctrl-legend-pane--income > div > p > span"); 
-      legend_labels.forEach(d => d.innerText = d3.format(",")(d.innerText))
+      legend_labels.forEach(d => d.innerText = d3.format(",")(d.innerText));
+
+              document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-left > div > details.mapboxgl-ctrl-legend-pane.mapboxgl-ctrl-legend-pane--dot-fake > summary > div").addEventListener('click', function(event) {
+          
+          const visibility = map.getLayoutProperty(
+          'dotdensity-map',
+          'visibility'
+          );
+           
+          // Toggle layer visibility by changing the layout object's visibility property.
+          if (visibility === 'visible') {
+          map.setLayoutProperty('dotdensity-map', 'visibility', 'none');
+          } else {
+          map.setLayoutProperty(
+          'dotdensity-map',
+          'visibility',
+          'visible'
+          );
+          }
+
+        })
     })
     }
 
 
     
-    var files = ["gis/counties.geojson", "gis/tracts3.geojson", "gis/nhpd.geojson"];
+    var files = ["gis/counties.geojson", "gis/tracts3.geojson", "gis/nhpd.geojson", "gis/dots.geojson"];
       var promises = [];
 
       files.forEach(function(url) {

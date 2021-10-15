@@ -398,15 +398,11 @@
               "code": "mlp"
             }
           ],
-          "type": "line",
+          "type": "indicator",
           "dataset": "GS1",
-          "year": "all",
-          "format": {
-            "prefix":"$",
-            "formatter":",.0f",
-            "suffix":""
-          },
-          "source": "Indiana Realtor's Association"
+          "year": "latest",
+          "format": "$,.0f",
+          "source": "Indiana Realtor's Association; 2019"
         },
         {
           "title": "Median Rent",
