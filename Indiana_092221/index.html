@@ -92,22 +92,8 @@ button{text-transform:none;}
 [type=button],button{-webkit-appearance:button;}
 ::-moz-focus-inner{padding:0;border-style:none;}
 [type=search]{outline-offset:-2px;-webkit-appearance:textfield;}
-.container{width:100%;padding-right:var(--bs-gutter-x,.75rem);padding-left:var(--bs-gutter-x,.70rem);font-size:1em !important;}
-@media (min-width:576px){
-.container{max-width:540px;}
-}
-@media (min-width:768px){
-.container{max-width:720px;}
-}
-@media (min-width:992px){
-.container{max-width:960px;}
-}
-@media (min-width:1200px){
-.container{max-width:1140px;}
-}
-@media (min-width:1400px){
-.container{max-width:95vw;}
-}
+.container{width:100%;padding-right:var(--bs-gutter-x,.75rem);padding-left:var(--bs-gutter-x,.70rem);font-size:.9vw !important;}
+
 .col-12{flex:0 0 auto;width:100%;}
 @media (min-width:992px){
 .col-lg-auto{flex:0 0 auto;width:auto;}
@@ -198,7 +184,7 @@ button{text-transform:none;}
     }
 
       .selector{
-      margin: .5rem 1rem;
+      margin: .5rem 0rem;
       color: white;
       /*background: #d6ddff !important;*/
     }
@@ -212,11 +198,11 @@ button{text-transform:none;}
     }
 
     .highcharts-title{
-      font-size: 1em !important
+      font-size: 1vw !important
     }
 
     .highcharts-subtitle{
-      font-size: .5em
+      font-size: .75vw
     }
 
 
@@ -392,10 +378,8 @@ button{text-transform:none;}
     }
  #infowindow {
            position: absolute;
-            bottom:50%;
-            width: 35%;
-            height: 45%;
-            margin-left: 35%;
+            width: 50%;
+            margin-left: 25%;
             background-color: rgba(255, 255, 255, 1);
             box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
             color:#666;
@@ -407,7 +391,7 @@ button{text-transform:none;}
             z-index:1002;
         }
         #header {
-        position: absolute;
+        display:block;
             top:10px;
             width:98%;
             font-size:15px;
@@ -421,7 +405,7 @@ button{text-transform:none;}
             border-bottom: 1px solid #e5e5e5;
         }
         #assumptions {
-            position: absolute;
+            display: block;
             top:39px;
             height: 90%;
             width: 98.5%;
@@ -440,10 +424,10 @@ button{text-transform:none;}
             cursor: pointer;
         }
         #isolate {
-        position: absolute;
+        position: fixed;
         top:0px;
             width:100%;
-            height:100%;
+            height:-webkit-fill-available;
             z-index:1001;
             background-color: #000;
             opacity:.75;
@@ -544,7 +528,8 @@ padding-bottom: 0px !important;
   overflow: visible;
   padding: 0;
   cursor: pointer;
-  width: 8rem;
+  width: 12em;
+  margin: 0rem .5rem;
   background-color: #fafafa;
   border: 1px solid #ccc;
   border-radius:5px;
@@ -789,7 +774,7 @@ input[type="number"] {
 
 To see how housing and demographic trends vary geospatially, select the layers button in the top left-hand corner of the map.  
 
-To compare data points for up to three counties, select the COMPARE button in the top right of the home page. To export a full housing needs assessment report for your selected county, select the EXPORT button. </p><br><font size=small>©2021 IHCDA</font></div></div>
+To compare data points for up to three counties, select the COMPARE button in the top right of the home page. To export a full housing needs assessment report for your selected county, select the EXPORT button.<br><br>If you are looking for affordable housing, please visit <a href="https://www.indianahousingnow.org/">Indiana Housing Now</a>, the State's free online resource for renters and property managers.</p><br><font size=small>©2021 IHCDA</font></div></div>
              <div class="tab02_title">MAP<div style="display:none;"><select class="js-example-basic-single" name="state" id="topic">
                 <option value="population">the population</option>
                 <option value="housing">housing</option>
@@ -914,7 +899,7 @@ To compare data points for up to three counties, select the COMPARE button in th
       <div class="lnd_footer">
         <div style = "font-size: xx-large;
     font-weight: 900;
-    float: left;
+    float: left;margin-top: .25em;
     padding-left: 1em;">Indiana Housing Dashboard</div>
         <div style="float: right;
     padding: 1rem 1rem;"><p>Developed in partnership with <a href="https://www.hraadvisors.com/" target="_blank"><img src="https://www.upforgrowth.org/themes/bricklett/img/HRA.png" alt="" class="hra"></a></p></div>
@@ -1205,6 +1190,7 @@ window.addEventListener("load", function(){
 });
 
       Highcharts.setOptions({
+        colors: ['#073863'],
           lang: {
             thousandsSep: ','
           }
@@ -1509,9 +1495,11 @@ window.addEventListener("load", function(){
      vals = Object.entries(filtered)
      vals.forEach(function(d,i){vals[i][0] = value.filter(r => r.code == d[0])[0]['name']})
 
-     vals = vals.sort(function(a, b) {
+     vals = vals.reverse()
+
+     /*vals = vals.sort(function(a, b) {
       return a[1] - b[1];
-      });
+      });*/
 
 
     /*var data_ready = pie(d3.entries(filtered))
@@ -1669,6 +1657,7 @@ window.addEventListener("load", function(){
     });
 
      Highcharts.setOptions({
+        colors: ['#073863', '#A9AD00', '#A41D00', '#FF6D00', '#B45F04', '#1055CC', '#F5BD06', '#FFF263', '#6AF9C4','#EE9B00','#94D2BD'],
               lang: {
                 thousandsSep: ','
               }
@@ -1752,6 +1741,8 @@ div.selectAll("g")
 
   function makeIndicator(dataset,divs,value,format,transform,year,title,description,source){
 
+    console.log(width)
+
     divs = divs.replace("#","")
     //hidecheck(divs,[])
 
@@ -1764,7 +1755,7 @@ div.selectAll("g")
 
   chart: {
     type: 'bar',
-    marginLeft: 200
+    marginLeft: width/2
   },
 
  title: {
@@ -1854,7 +1845,7 @@ div.selectAll("g")
 
   chart: {
     type: 'bar',
-    marginLeft: 200
+    marginLeft: width/10
   },
 
    labels:
@@ -1890,6 +1881,7 @@ div.selectAll("g")
       align: 'left',
       style: {
                 color: 'black',
+                width:width
             }
     },
     lineWidth: 0,
@@ -2004,6 +1996,11 @@ div.selectAll("g")
         categories: data.labels,
         title: {
             text: null
+        },
+        labels:{
+          style: {
+            fontSize: '9px'
+          }
         }
     },
     yAxis: {
@@ -2024,13 +2021,13 @@ div.selectAll("g")
     plotOptions: {
         bar: {
             dataLabels: {
-                enabled: true
+                enabled: false
             }
         }
     },
     legend: {
           reversed: true,
-          itemStyle: {"color": "#333333", "cursor": "pointer", "fontSize": "10px", "fontWeight": "normal", "textOverflow": "ellipsis"}
+          itemStyle: {"color": "#333333", "cursor": "pointer", "fontSize": "9px", "fontWeight": "normal", "textOverflow": "ellipsis"}
         },
     credits:{
     text: source
@@ -2249,6 +2246,7 @@ bar.on("mouseover", function(d,i) {
     });
 
      Highcharts.setOptions({
+      colors: ['#073863', '#A9AD00', '#A41D00', '#FF6D00', '#B45F04', '#1055CC', '#F5BD06', '#FFF263', '#6AF9C4','#EE9B00','#94D2BD'],
               lang: {
                 thousandsSep: ','
               }
@@ -2273,6 +2271,15 @@ bar.on("mouseover", function(d,i) {
         categories: cats,
         title: {
             text: null
+        },
+        labels:{
+          padding: 0,
+          width: 200,
+          overflow: 'justify',
+          style: {
+            fontSize: '9px'
+          }
+
         }
     },
     yAxis: {
@@ -2282,6 +2289,8 @@ bar.on("mouseover", function(d,i) {
             align: 'high'
         },
         labels: {
+            padding: 0,
+            width: 50,
             overflow: 'justify'
         }
     },
@@ -2293,14 +2302,19 @@ bar.on("mouseover", function(d,i) {
     plotOptions: {
         bar: {
             dataLabels: {
-                enabled: true,
+                enabled: false,
                 format: format.prefix + '{point.y:'+ format.formatter + '}' + format.suffix,
             }
+        },
+        series: {
+            pointPadding: 0,
+            groupPadding: 0
         }
     },
     legend: {
           reversed: true,
-          itemStyle: {"color": "#333333", "cursor": "pointer", "fontSize": "10px", "fontWeight": "normal", "textOverflow": "ellipsis"}
+          enabled: false,
+          itemStyle: {"color": "#333333", "cursor": "pointer", "fontSize": "9px", "fontWeight": "normal", "textOverflow": "ellipsis"}
         },
     credits:{
     text: source
@@ -2413,6 +2427,7 @@ bar.on("mouseover", function(d,i) {
 
     // Create the chart
 Highcharts.setOptions({
+  colors: ['#073863', '#A9AD00', '#A41D00', '#FF6D00', '#B45F04', '#1055CC', '#F5BD06', '#FFF263', '#6AF9C4','#EE9B00','#94D2BD'],
   lang: {
     thousandsSep: ','
   }
@@ -2781,9 +2796,19 @@ var y = d3.scaleLinear()
         Highcharts.doc.body.appendChild(this.exportContextMenu);
       });
 
+      if (title == 'Racial Composition'){
+        palette = ['#73B2FF','#55FF00','#FF0000','#FFAA00','#895A44']
+      }else{
+        if (title == 'Household Income Distribution'){
+          palette = ['#deebf7','#c6dbef','#9ecae1','#6baed6','#4292c6','#2171b5','#08519c','#08306b']
+        }else{
+        palette = ['#073863', '#A9AD00', '#A41D00', '#FF6D00', '#B45F04', '#1055CC', '#F5BD06', '#FFF263', '#6AF9C4','#EE9B00','#94D2BD']
+      }
+      }
       
 
       Highcharts.setOptions({
+        colors: palette,
         lang: {
           thousandsSep: ','
         }

@@ -548,7 +548,7 @@
         },
         {
           "title": "Rental Housing Gap",
-          "description": "Number of households in each income group and number of existing housing units that are affordable to those households.",
+          "description": "Number of households in each income group and existing housing units that are affordable to those households.",
           "variables": [
             {
               "name": "Total Population",
@@ -585,7 +585,7 @@
         },
         {
           "title": "Home Value Affordable to Median Household",
-          "description": "Home purchase price affordable to a household earning the median annual income. HR&A calculation based on ACS median income.",
+          "description": "Home purchase price affordable to a household earning the median annual income.",
           "variables": [
             {
               "name": "Less than $10,000",
