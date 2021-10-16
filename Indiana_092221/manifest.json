@@ -402,7 +402,7 @@
           "dataset": "GS1",
           "year": "latest",
           "format": "$,.0f",
-          "source": "Indiana Realtor's Association; 2019"
+          "source": "Indiana Realtor's Association; 2021"
         },
         {
           "title": "Median Rent",

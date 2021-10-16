@@ -935,6 +935,7 @@ function sum(input){
                }
              return total;
             }
+window.exportloc = "reports/Indiana_State_Report.pdf"
 
 function NewTab() {
     window.open(
@@ -3417,6 +3418,8 @@ function mapData(json){
         topic_option = document.querySelector('.selected').getAttribute('value')
 
         if(option === 'Indiana'){
+
+          window.exportloc = "reports/Indiana_State_Report.pdf"
           countyfip = "999"
 
           map.flyTo({
@@ -3869,10 +3872,12 @@ function mapData(json){
 
               document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-left > div > details.mapboxgl-ctrl-legend-pane.mapboxgl-ctrl-legend-pane--dot-fake > summary > div").addEventListener('click', function(event) {
           
-          const visibility = map.getLayoutProperty(
+          let visibility = map.getLayoutProperty(
           'dotdensity-map',
           'visibility'
           );
+
+          console.log(visibility)
            
           // Toggle layer visibility by changing the layout object's visibility property.
           if (visibility === 'visible') {
