@@ -3514,6 +3514,13 @@ function mapData(json){
 
       map.on('load', function () {
 
+        map.getStyle().layers.forEach(layer => {
+          if (layer.type === 'symbol' && layer.layout && layer.layout['text-field'] !== undefined) {
+            map
+              .setPaintProperty(layer.id, 'text-color', '#000000')
+          }
+        })
+
 
         //Add geojson file as data source
         map.addSource('indiana', {
@@ -3604,7 +3611,7 @@ function mapData(json){
           //'fill-opacity': 0
           },
           'filter': ['in', 'COUNTYFP', '']
-          });
+          },'admin-1-boundary-bg');
 
         map.addLayer({
           'id': 'indiana-stroke',
@@ -3970,6 +3977,8 @@ function mapData(json){
     map.once('idle', function(){
       legend_labels = document.querySelectorAll("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div.mapboxgl-ctrl.mapboxgl-ctrl-legend > details.mapboxgl-ctrl-legend-pane.mapboxgl-ctrl-legend-pane--income > div > p > span"); 
       legend_labels.forEach(d => d.innerText = d3.format(",")(d.innerText));
+
+      console.log(map.getStyle().layers)
 
     })
     }
