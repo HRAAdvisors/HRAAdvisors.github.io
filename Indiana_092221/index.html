@@ -21,9 +21,9 @@
   <script src="https://d3js.org/d3-array.v1.min.js"></script>
   <script src="https://d3js.org/d3-format.v2.min.js"></script>
   <script src="https://d3js.org/d3-geo.v1.min.js"></script>
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet" />
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/microplugin/0.0.3/microplugin.min.js" integrity="sha512-7amIsiQ/hxbdPNawBZwmWBWPiwQRNEJlxTj6eVO+xmWd71fs79Iydr4rYARHwDf0rKHpysFxWbj64fjPRHbqfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
@@ -920,6 +920,8 @@ $('.toggler').on('click', function(){
         
         })
 
+
+
 function sum(input){
              
  if (toString.call(input) !== "[object Array]")
@@ -935,7 +937,7 @@ function sum(input){
                }
              return total;
             }
-window.exportloc = "reports/Indiana_State_Report.pdf"
+window.exportloc = "https://hraadvisors.github.io/Indiana_092221/reports/Indiana_State_Report.pdf"
 
 function NewTab() {
     window.open(
@@ -1490,8 +1492,6 @@ window.addEventListener("load", function(){
       data.push([label,d])
      })*/
 
-     console.log(filtered)
-     console.log(value)
 
      vals = Object.entries(filtered)
      vals.forEach(function(d,i){vals[i][0] = value.filter(r => r.code == d[0])[0]['name']})
@@ -1640,7 +1640,6 @@ window.addEventListener("load", function(){
              {sets: ['Residents'], value: Number(newdata[value[1].code]), name: 'Working Residents in County'},
              {sets: ['Employed','Residents'], value: Number(newdata[value[0].code]), name: 'Working Residents Employed in County'}];
 
-    console.log(sets)
 
   /////HIGHCHARTS
 
@@ -1742,8 +1741,6 @@ div.selectAll("g")
   }
 
   function makeIndicator(dataset,divs,value,format,transform,year,title,description,source){
-
-    console.log(width)
 
     divs = divs.replace("#","")
     //hidecheck(divs,[])
@@ -1952,9 +1949,6 @@ div.selectAll("g")
     })
 
     var data = {'labels':labels,'series':series}
-
-    console.log(data)
-
 
 
     ///HIGHCHARTS
@@ -2227,9 +2221,6 @@ bar.on("mouseover", function(d,i) {
       newest.push(reframe)
 
     })
-
-    console.log(newest)
-
 
     /////HIGHCHARTS
 
@@ -2652,8 +2643,6 @@ var y = d3.scaleLinear()
     code = []
     value.forEach(d => code.push(d.code))
 
-    console.log(dataset)
-
     dataset.map(function(d){
 
       keys = Object.keys(d)
@@ -2868,6 +2857,9 @@ var y = d3.scaleLinear()
           itemStyle: {"color": "#333333", "cursor": "pointer", "fontSize": "10px", "fontWeight": "normal", "textOverflow": "ellipsis"}
         },
         plotOptions: {
+          bar:{
+            borderWidth: 0
+          },
           series: {
             stacking: 'normal'
           }
@@ -3419,7 +3411,7 @@ function mapData(json){
 
         if(option === 'Indiana'){
 
-          window.exportloc = "reports/Indiana_State_Report.pdf"
+          window.exportloc = "https://hraadvisors.github.io/Indiana_092221/reports/Indiana_State_Report.pdf"
           countyfip = "999"
 
           map.flyTo({
@@ -3429,7 +3421,7 @@ function mapData(json){
         }else{
           //Zoom in on map
 
-        window.exportloc = "reports/" + option.replace(" County","_County") +"_Report.pdf"
+        window.exportloc = "https://hraadvisors.github.io/Indiana_092221/reports/" + option.replace(" County","_County") +"_Report.pdf"
         index = foo.features.findIndex(data => data.properties.NAMELSAD === option)
         bounds = turf.bbox(foo.features[index])
 
@@ -3596,29 +3588,47 @@ function mapData(json){
           }
           });
         //'#73B2FF','#55FF00','#FF0000','#FFAA00','#895A44'
+
+
+
+        map.addLayer(
+          {
+          'id': 'indiana-highlighted',
+          'type': 'line',
+          'source': 'indiana',
+          'paint': {
+          'line-width': 4,
+          'line-color': '#B8C11C'
+          //'fill-outline-color': '#B8C11C',
+          //'fill-color': 'rgba(0,55,104,0)',
+          //'fill-opacity': 0
+          },
+          'filter': ['in', 'COUNTYFP', '']
+          });
+
+        map.addLayer({
+          'id': 'indiana-stroke',
+          'type': 'line',
+          'source': 'indiana',
+          'paint': {
+            'line-color': 'rgba(0, 55, 104, 1)',
+            'line-width': 1
+          }
+        }
+        , 'indiana-highlighted'
+        )
+
+
         map.addLayer({
           'id': 'indiana',
           'type': 'fill',
           'source': 'indiana',
           'paint': {
-            'fill-color': 'rgba(0,55,104,.2)',
+            'fill-color': 'rgba(0,55,104,0)',
           }
         }, 'road-primary')
 
-        map.addLayer(
-          {
-          'id': 'indiana-highlighted',
-          'type': 'fill',
-          'source': 'indiana',
-          'paint': {
-          'fill-outline-color': '#484896',
-          'fill-color': '#6e599f',
-          'fill-opacity': 0.3
-          },
-          'filter': ['in', 'COUNTYFP', '']
-          },
-          'road-primary',
-          );
+        
 
         map.addLayer(
           {
@@ -3694,7 +3704,7 @@ function mapData(json){
             'circle-radius': 2,
             'circle-color': '#F84C4C' // red color
             }
-        },'indiana')
+        }, 'road-primary')
 
         map.on('click', 'nhpd', function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice();
@@ -3723,6 +3733,106 @@ function mapData(json){
         map.getCanvas().style.cursor = '';
         });
 
+        ///Population Change Pop-up
+        /*map.on('mousemove', 'population', (e) => {
+                  var description = String(d3.format(",.0f")(e.features[0].properties.population))
+                  const popup = document.getElementsByClassName('mapboxgl-popup');
+                  if ( popup.length ) {
+                      popup[0].remove();
+                  }
+                  new mapboxgl.Popup()
+                  .setLngLat(e.lngLat)
+                  .setHTML(description)
+                  .addTo(map);
+
+              });
+       
+
+          // When the mouse leaves the state-fill layer, update the feature state of the
+          // previously hovered feature.
+          map.on('mouseleave', 'population', () => {
+               const popup = document.getElementsByClassName('mapboxgl-popup');
+                if ( popup.length ) {
+                    popup[0].remove();
+                }
+          });
+
+        //['population','income','owner','multifamily','broadband']
+
+        ///Broadband Pop-up
+          map.on('mouseenter', 'broadband', function (e) {
+          map.getCanvas().style.cursor = 'pointer';
+          var coordinates = e.features[0].geometry.coordinates.slice();
+
+          var description = String(d3.format(".0%")(e.features[0].properties.broadband))
+
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+           
+          new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML("Population: " + description)
+          .addTo(map);
+          });
+
+
+        ///Income Pop-up
+          map.on('mouseenter', 'income', function (e) {
+          map.getCanvas().style.cursor = 'pointer';
+          var coordinates = e.features[0].geometry.coordinates.slice();
+
+          var description = String(d3.format("$,.0f")(e.features[0].properties.mhi))
+
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+           
+          new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML("Median Household Income: " + description)
+          .addTo(map);
+          });
+
+
+        ///Tenure Pop-up
+          map.on('mouseenter', 'owner', function (e) {
+          map.getCanvas().style.cursor = 'pointer';
+          var coordinates = e.features[0].geometry.coordinates.slice();
+
+          var description = String(d3.format(".0%")(e.features[0].properties.owner))
+
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+           
+          new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML("% Owner Occupied: " + description)
+          .addTo(map);
+          });
+
+          ///Broadband Pop-up
+          map.on('mouseenter', 'multifamily', function (e) {
+          map.getCanvas().style.cursor = 'pointer';
+          var coordinates = e.features[0].geometry.coordinates.slice();
+
+          var description = String(d3.format(".0%")(e.features[0].properties.multifamily))
+
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+           
+          new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML("% Multifamily: " + description)
+          .addTo(map);
+          });*/
+
+
+
+
+
         minpop = getMinY(tractsgeo.features,'properties.population')
         maxpop = getMaxY(tractsgeo.features,'properties.population')
         map.addLayer({
@@ -3745,7 +3855,7 @@ function mapData(json){
                   ],
               'fill-opacity': 0.75
           }
-        })
+        },'road-primary')
 
      
         minincome = 0
@@ -3768,7 +3878,7 @@ function mapData(json){
                   ],
               'fill-opacity': 0.75
           }
-        })
+        }, 'road-primary')
 
         minowner = 0
         maxowner = 100
@@ -3794,7 +3904,7 @@ function mapData(json){
                   ],
               'fill-opacity': 0.75
           }
-        })
+        },'road-primary')
 
         minowner = 0
         maxowner = 100
@@ -3820,7 +3930,7 @@ function mapData(json){
                   ],
               'fill-opacity': 0.75
           }
-        })
+        },'road-primary')
 
 
         minmultifamily = 0
@@ -3847,52 +3957,24 @@ function mapData(json){
                   ],
               'fill-opacity': 0.75
           }
-        })
+        },'road-primary')
 
         //Add seperate stroke layer
-        map.addLayer({
-          'id': 'indiana-stroke',
-          'type': 'line',
-          'source': 'indiana',
-          'paint': {
-            'line-color': 'rgba(0, 55, 104, 1)',
-            'line-width': 1
-          }
-        }
-        , 'road-primary'
-        )
 
 
 
       })
 
+  
+
     map.once('idle', function(){
       legend_labels = document.querySelectorAll("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-left > div.mapboxgl-ctrl.mapboxgl-ctrl-legend > details.mapboxgl-ctrl-legend-pane.mapboxgl-ctrl-legend-pane--income > div > p > span"); 
       legend_labels.forEach(d => d.innerText = d3.format(",")(d.innerText));
 
-              document.querySelector("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-left > div > details.mapboxgl-ctrl-legend-pane.mapboxgl-ctrl-legend-pane--dot-fake > summary > div").addEventListener('click', function(event) {
-          
-          let visibility = map.getLayoutProperty(
-          'dotdensity-map',
-          'visibility'
-          );
-
-          console.log(visibility)
-           
-          // Toggle layer visibility by changing the layout object's visibility property.
-          if (visibility === 'visible') {
-          map.setLayoutProperty('dotdensity-map', 'visibility', 'none');
-          } else {
-          map.setLayoutProperty(
-          'dotdensity-map',
-          'visibility',
-          'visible'
-          );
-          }
-
-        })
     })
     }
+
+
 
 
     
