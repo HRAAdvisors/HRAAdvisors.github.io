@@ -1,0 +1,2436 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<meta property="og:title" content="Saving Our Retail Corridors Requires Good Data">
+<meta property="og:image" content="https://www.hraadvisors.com/interactive/retail_recovery/img/graph.PNG">
+<meta property="og:description" content="To shape an equitable and effective retail corridor recovery, public policies should be tailored to local conditions to support near-term reactivation and longer-term business survival.">
+<meta property="og:url" content="https://www.hraadvisors.com/interactive/retail_recovery">
+
+<script async="" src="//www.google-analytics.com/analytics.js"></script>
+<link rel="icon" type="image/x-icon" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/img/favicon.ico">
+<link rel="icon" type="image/png" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/img/favicon-16x16.png" sizes="16x16">
+<script src="https://www.hraadvisors.com/wp-includes/js/wp-emoji-release.min.js?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/javascript" defer=""></script>
+<link rel="stylesheet" id="dashicons-css" href="https://www.hraadvisors.com/wp-includes/css/dashicons.min.css?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="https://www.hraadvisors.com/wp-includes/css/dist/block-library/style.min.css?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="https://www.hraadvisors.com/wp-content/themes/madeo/_include/css/bootstrap.min.css?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-21654071-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+<link rel="stylesheet" id="main-styles-css" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/style.css?ver=1.10.10" type="text/css" media="all">
+    <link rel="stylesheet" id="custom-css" href="https://www.hraadvisors.com/wp-content/themes/madeo/_include/css/custom.css.php?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+    <link rel="stylesheet" id="dynamic-colors-css" href="https://www.hraadvisors.com/wp-content/themes/madeo/_include/css/color.css.php?ver=a831c2bd8bc4349bb3674b1f5f4d29d3" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/css/font-awesome.css" type="text/css" media="all">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel='stylesheet' />
+
+<style>
+
+@font-face {
+  font-family: GothamLight;
+  src: url(/Users/ClyneKP/Documents/GitHub/graph-scroll-gh-pages/Gotham-Light.otf);
+} 
+
+  @font-face {
+  font-family: GothamBook;
+  src: url(Gotham-Book.otf);}
+
+  @font-face {
+  font-family: GothamMedium;
+  src: url(/Users/ClyneKP/Documents/GitHub/graph-scroll-gh-pages/Gotham-Medium.otf);
+}
+
+.mapboxgl-ctrl-logo {
+    display: none !important;
+}
+
+  #tooltip {
+    position: absolute;
+    display: none;
+    background: white;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #d8d8d8;
+    box-shadow: -3px 3px 15px #939393;
+    color: black;
+    /*padding: 6px;*/
+    font-family: 'Open Sans', sans-serif;;
+    font-size: 1.1em;
+    max-width: 400px;
+    z-index: 100;
+}
+
+    .title{
+    color: #2d2d35;
+    font-family: 'Open Sans', sans-serif;;
+    text-align: center;
+    pointer-events: all;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    margin: auto;
+    width: 80%;
+    font-size: 1.8em;
+    line-height: 1.2em;
+    opacity: 1;
+    justify-content: center
+    }
+
+    .timestamp{
+      user-select: none;
+    pointer-events: all;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    color: #626262;
+    text-align: center;
+    width: auto;
+    font-family: 'Open Sans', sans-serif;;
+    margin: 10px auto;
+    font-size: 12px;
+    opacity: 1;
+    justify-content: center
+    }
+
+    .bodywrapper{
+     padding-left:10%;
+     padding-right:10%;
+    }
+
+p.solid {
+  border:1.5px;
+  border-style: solid;
+  border-radius: 5px; 
+  font-weight:bold;
+  display: inline-block;
+  line-height: 1.25;
+  padding: 1px;}
+
+body{
+  margin: 0px auto;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+h1{
+  margin: 50px;
+}
+
+h1{
+  text-align: center;
+}
+
+.scrolldown{
+position: relative;
+cursor: initial;
+font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial;
+color: #999999;
+background-size: 5em 5em;
+font-size: 20px;
+font-weight: bold;
+max-width: 19.75em;
+text-anchor: middle;
+margin: 0px auto;
+text-transform: capitalize;
+margin-bottom: 4px;
+z-index: 1;
+opacity: 1;
+transition: opacity .15s ease-in-out;
+/*border: solid;
+border-width: 2px;
+border-radius: 5px;*/
+padding-top: 4px;
+}
+
+.interactive_info{
+position: relative;
+cursor: initial;
+line-height: 1;
+font-size: 16px;
+font-weight: normal;
+max-width: 50%;
+text-anchor: middle;
+margin: 0px auto;
+margin-bottom: 4px;
+z-index: 1;
+opacity: 1;
+transition: opacity .15s ease-in-out;
+font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial;
+color: #999999;
+color: #999999;
+border: solid;
+border-width: 2px;
+border-radius: 5px;
+padding: 15px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ffffff;
+  text-align: right;
+  padding: 2px;
+}
+
+
+#container{
+  position: relative;
+}
+
+#sections{
+  width: 340px;
+  /*position: relative;
+  line-height: 1.2;*/
+}
+
+#sections > div{
+  background: white;
+  opacity: .2;
+  margin-bottom: 200px;
+}
+#sections > div:last-child{
+  margin-bottom: 30px;
+}
+#sections > div.graph-scroll-active{
+  opacity: 1;
+}
+
+#graph{
+  margin-left: 40px;
+  width: 54%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  float: right;
+}
+
+
+.cat_Misc {
+  color: white;
+}
+
+#map {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+
+@media (max-width: 925px)  {
+  #graph{
+    width: 100%;
+    margin-left: 0px;
+    float: none;
+  }
+
+  #sections{
+    width: auto;
+    position: relative;
+    margin: 0px auto;
+  }
+
+  #sections > div{
+    background: rgba(255,255,255,.5);
+    padding: 10px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    margin-bottom: 80vh;
+
+
+  }
+
+  table {
+  font-size: 8px;
+}
+
+  pre{
+    overflow: hidden;
+  }
+
+  h1{
+    margin: 10px;
+  }
+}
+
+
+circle{
+  fill: steelblue;
+}
+
+.mono{
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+
+</style>
+<body class="home page-template page-template-homepage page-template-homepage-php page page-id-5319 chrome page-homepage az wpb-js-composer js-comp-ver-3.6.2 vc_responsive is-device" data-gr-c-s-loaded="true" style="zoom: 1;">
+<div id="tooltip"></div>
+<div id="em" style="height:0;width:0;outline:none;border:none;padding:none;margin:none;box-sizing:content-box;"></div>
+<div id="bg-blue">
+  <header class="normal-header">
+
+  <div class="container">
+      <div class="row hidden-xs hidden-sm visible-md-block visible-lg-block">
+            
+    <div class="col-md-2 col-sm-3 col-xs-6">
+    <div id="logo">
+      <a href="https://www.hraadvisors.com" title="HR&amp;A">
+                              <img class="standard" src="https://www.hraadvisors.com/wp-content/uploads/2015/10/logo.png" alt="HR&amp;A" width="89" height="41">
+            <img class="retina" src="https://www.hraadvisors.com/wp-content/uploads/2015/10/logo-retina.png" alt="HR&amp;A" width="89" height="41">
+                        </a>
+    </div>
+    </div>
+            
+        <div class="col-md-10 col-sm-9 col-xs-6" style="font-size: 1em;
+    line-height: 1.750em;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;">
+            <!-- Mobile Menu -->
+            <a id="mobile-nav" class="menu-nav" href="#menu-nav"><span class="menu-icon"></span></a>
+            <a id="search-button" class="search-toggle" href="#"><i class="fa fa-search fa-1"></i></a>
+            <!-- Standard Menu -->
+            <div id="menu" class="ajax-menu">
+                <ul id="menu-nav" class="superfish">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5457"><a href="https://www.hraadvisors.com/about/">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8714"><a href="https://www.hraadvisors.com/team/">Team</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9885"><a href="https://www.hraadvisors.com/practice-areas/">Practice Areas</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5354"><a href="https://www.hraadvisors.com/services/">Services</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5404"><a href="https://www.hraadvisors.com/portfolio/">Portfolio</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5419"><a href="https://www.hraadvisors.com/news/">News</a></li>
+  
+                <div id="marker" style="left: 838.969px; width: 63px; display: block;"></div>
+                </ul>
+            </div>
+        </div>
+      
+        </div>
+        
+            
+        <div class="row hidden-md hidden-lg visible-xs-block visible-sm-block">
+            
+            <div class="col-md-2 col-sm-2 col-xs-2">
+                <!-- Mobile Menu -->
+                <a id="mobile-nav" class="menu-trigger menu-nav" href="#"><span class="menu-icon"></span></a>
+                
+            </div>
+            
+            <div class="col-md-8 col-sm-8 col-xs-8 text-center">
+    <div id="logo">
+      <a href="https://www.hraadvisors.com" title="HR&amp;A">
+                              <img class="standard" src="https://www.hraadvisors.com/wp-content/uploads/2015/10/logo.png" alt="HR&amp;A" width="89" height="41">
+            <img class="retina" src="https://www.hraadvisors.com/wp-content/uploads/2015/10/logo-retina.png" alt="HR&amp;A" width="89" height="41">
+                        </a>
+    </div>
+            </div>
+            
+            <div class="col-md-2 col-sm-2 col-xs-2 text-right">
+                <!-- Search Icon -->
+                <script src="https://kit.fontawesome.com/7a4305c6cb.js" crossorigin="anonymous"></script>
+                <a id="search-button" class="search-toggle" href="#"><i class="fas fa-search"></i></a>
+            </div>
+        </div>
+            </div>
+</header>
+</div>
+
+<div class="bodywrapper">
+<div class="title" style="opacity: 1;">Saving Our Retail Corridors Requires Good Data</div>
+<div class="timestamp" style="opacity: 1;">By <a target="_blank" href="https://www.hraadvisors.com/team/sulin-carling/" >Sulin Carling</a>, <a target="_blank" href="https://www.hraadvisors.com/team/kevin-clyne/">Kevin Clyne</a>, <a target="_blank" href="https://www.hraadvisors.com/team/corey-hebert/">Corey Hebert</a> (HR&A), and Phoebe Holtzman, Sarah Brown, and Dan Langus<a target="_blank" href="https://live.xyz"> (LiveXYZ)</a> | July 6, 2020</div>
+<br>
+<br>
+<script>
+  //Update open restaurant number 
+fetch("https://services.arcgis.com/wmZOI9vyUBq1zTZx/arcgis/rest/services/NYC_Open_Restaurants_Application_Public_View/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&outStatistics=%5B%7B%22statisticType%22%3A%22count%22%2C%22onStatisticField%22%3A%22objectid%22%2C%22outStatisticFieldName%22%3A%22value%22%7D%5D&resultType=standard&cacheHint=true").then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Error: ' +
+          response.status);
+        return;
+      }
+      response.json().then(function(data) {
+        document.getElementById('open').textContent = d3.format(",d")(data.features[0].attributes.value)
+      });
+    }
+  )
+  .catch(function(err) {
+    document.getElementById('open').textContent = '6,930' //As of 7/2/20 3pm
+    console.log('Fetch Error :-S', err);
+  });
+</script>
+<div style='line-height: 1.2'>On June 22nd, New York City entered the second phase of its post-COVID reopening, which allows restaurants and bars to reopen with a simple self-certification process for outdoor dining. As of the time of publication, <a id='open' href="https://nycdot.maps.arcgis.com/apps/opsdashboard/index.html#/0e60718f237c43c48c4be16a1a92ffde"></a> businesses had already completed the application process; it remains to be seen the extent to which this action will help businesses stay afloat and what corridors will fare best. While there are many policy tools that could have broad benefits for small business, we believe effective recovery strategies will need to focus on short-term reactivation strategies – and those will need to be tailored to local conditions.<br><br>
+
+HR&A partnered with <a href="https://livexyz.com/">Live XYZ</a>, a New York City-based startup that delivers precise, complete storefront and point-of-interest data and technology. Through Live XYZ’s proprietary mapping methodology, it has created a hyper-accurate map of places and how they change over time. Leveraging Live XYZ’s data set on conditions pre-COVID, HR&A analyzed retail conditions in three New York City neighborhoods to understand their vulnerabilities and adaptability.  
+</div> 
+<br>
+<br>
+<div class ="interactive_info">
+Live XYZ’s unique data captures the use and business located within every single storefront in New York City, allowing us to do a granular analysis of corridor conditions.<br>
+
+<div class="scrolldown"><br><p class='scrolldowntext' style='cursor: initial;
+font-family: "Open Sans","HaasTextBold",Arial,Helvetica;
+color: #999999;
+font-size: 20px;
+font-weight: bold;
+text-transform: capitalize;
+'><i class="fas fa-mouse"></i>&nbsp&nbspHover over the graphics to interact.</p></div>
+</div>
+<br>
+<br>
+<div id='container' class='container-1'>
+  <div id='graph'></div>
+  <div id='sections'>
+    <div>
+    </div>
+    <div style='padding-bottom: 300px'>
+      <h3><b>Our Thesis</b></h3><br>
+<b>Retail streets that are reactivated most quickly will have the greatest chance of thriving again.</b> The three retail strips we examined are very differently positioned for reactivation. To shape an equitable retail corridor recovery, cities will need access to accurate, complete, and trustworthy data on city storefronts to develop tailored, high-impact, equitable strategies for retail corridor reactivation and recovery post-COVID.  
+    </div>
+
+    <div style='padding-bottom: 300px'>
+      <h3><b>The Neighborhoods</b></h3>
+      <br>
+      <h3>Jackson Heights</h3>
+      <b>Jackson Heights, Queens is one of the most diverse neighborhoods in the country - middle-income with a large number of South American and Southeast Asian residents, many foreign-born.</b> The neighborhood attracts shoppers from across the city seeking international goods; to the extent that transit use regains acceptance, Jackson Heights should continue to attract regional shoppers.<br><br>
+
+    </div>
+
+    <div style='padding-bottom: 300px'>
+      
+       More local shopping may be constrained: the borough’s <b><a href="https://www.cnn.com/interactive/2020/health/coronavirus-us-maps-and-cases/">COVID case rate</a> is 1.6 times the citywide average</b>, and its <b><a href="https://www.labor.ny.gov/stats/nyc/">unemployment rate</a> has more than tripled to 16.4%</b>. The many immigrant-owned businesses are likely to have had difficulty securing Paycheck Protection Program (PPP) loans or other relief.
+     
+    </div>
+
+    <div style='padding-bottom: 300px'>
+      <h3>The Hub</h3>
+      <b>The Hub in the Bronx is a bustling shopping destination for many Bronx residents.</b> The <a href="https://data.census.gov/cedsci/table?q=ACS%205-Year%202018&hidePreview=true&tid=ACSDP5Y2018.DP05&y=2018&vintage=2018&t=Counts,%20Estimates,%20and%20Projections%3APopulations%20and%20People%3ARace%20and%20Ethnicity&g=7950000US3603710">immediately surrounding neighborhood</a> – a community of color with 67% Hispanic and 29% black residents – has a 46% poverty rate, one of the highest rates in the city. 
+ 
+
+    </div>
+
+    <div style='padding-bottom: 300px'>
+     
+      The borough’s <b><a href="https://www.cnn.com/interactive/2020/health/coronavirus-us-maps-and-cases/">COVID case rate</a> is higher than the citywide average</b>, and its <b><a href="https://www.labor.ny.gov/stats/nyc/">unemployment rate</a> increased from 4.9% to 16.5%</b> between January and April 2020. These devastating impacts may limit both the neighborhood and other Bronx consumers’ ability to support Hub businesses.
+      
+    </div>
+
+    <div style='padding-bottom: 300px'>
+      <h3>Madison Avenue</h3>
+      <b>Madison Avenue in Midtown Manhattan serves both office workers and high-income residents.</b> The majority of neighborhood residents are white, and <b>the borough’s <a href="https://www.cnn.com/interactive/2020/health/coronavirus-us-maps-and-cases/">COVID case rate</a> is well below the citywide average.</b> Manhattan <b>unemployment has increased less</b> than in the other boroughs.  
+    </div>
+
+    <div style='padding-bottom: 300px'>
+      
+        While high levels of prosperity would suggest faster recovery, <b>shifts to remote work</b> could mean a decline in office workers that frequent these stores. Residents in wealthier New York City neighborhoods have <a href="https://www.nytimes.com/interactive/2020/05/15/upshot/who-left-new-york-coronavirus.html">left in greater numbers</a> – <b>an estimated 30% of residents left this neighborhood</b> – raising the question of whether the residential customer base will be diminished.
+      
+    </div>
+
+    <div style='padding-bottom: 300px'>
+       <h3><b>The Odds for Short-Term Reactivation</b></h3><br>
+      We examined four surrogates for capacity to reactivate a retail strip – <b>pre-existing vacancy, percentage of “essential” businesses</b>, which were never required to close; <b>percentage of chain stores</b>, with presumably deeper pockets; and <b>ability to take advantage of loosened outdoor seating</b> regulations. Among that set of potential risk factors, The Hub, Jackson Heights, and Madison Avenue all have different combinations of strengths and weaknesses. While we fear that corridors in the most vulnerable communities will suffer the most, we also identified areas of strengths in the Hub and weaknesses on Madison Avenue.
+    </div>
+
+
+    <div style='padding-bottom: 300px'>
+      <h3>Storefront Vacancy</h3>
+      According to the <a href="https://www1.nyc.gov/assets/planning/download/pdf/planning-level/housing-economy/assessing-storefront-vacancy-nyc.pdf">NYC Department of City Planning</a>, prior to COVID, <b>storefront vacancy rates varied widely</b> across neighborhoods. If vacancy rates increase post-COVID, corridors starting out with lower vacancy may bounce back faster, attracting consumers to more activated streets.  
+    </div>
+
+    <div style='padding-bottom: 300px'>
+      <h3>Essential Businesses</h3>
+      <b>Essential businesses may be more likely to survive</b>, since they never closed and may provide goods consumers are less likely to seek online. They could provide a baseline of strength upon which retail corridors can build.  
+      <br>
+      <br>
+      Essential services include auto dealers & repair, banks & ATMs, beauty product stores, bicycle repair and stores, gas stations, groceries & convenience stores, hardware & home improvement stores, laundry/dry cleaners & tailors, liquor & wine shops, pawn shops, pet stores, pharmacies, printing & shipping/postal services, vapes/cigars & accessory shops, vitamin & supplement stores, and other listed in <a href="https://esd.ny.gov/guidance-executive-order-2026">New York State’s essential services definition</a>, with the exception of hotels, which this analysis excluded.
+
+    </div>
+
+    <div style='padding-bottom: 300px'>
+      <h3>Chains</h3>
+      Chains, i.e. businesses with more than five same-named establishment in NYC, <b>may be more resilient post-COVID compared to independent retailers</b>; approximately <a href="https://www.nber.org/papers/w26989.pdf">one half of small businesses</a> have only one to two months of cash on hand. Corridors with relatively high percentages of chains could be buoyed, although the outcome would be an even greater concentration of chains and loss of retail character. 
+    </div>
+
+     <div style='padding-bottom: 300px'>
+      <h3>Physical Adaptability</h3>
+      Restaurants and bars can now easily <b>create outdoor seating on sidewalks or in parking spots</b>. While indoor dining was expected to be permitted under the third phase of reopening, which began on July 6th, the city has changed course due to a rapid increase COVID-19 cases across the country. Outdoor dining will continue to be critical for ongoing restaurant revenues. 
+      <!--<div class='legend'>
+      </div>-->
+      <br>
+      <br>
+      However, to maintain required clearance for pedestrians, sidewalk seating is only permissible on <a href="https://www1.nyc.gov/html/dot/html/pedestrians/openrestaurants.shtml">sidewalks 11 feet or wider</a>. Less than half of such establishments in the Hub can create sidewalk seating. In Jackson Heights and on Madison Avenue, almost two-thirds of these businesses can create sidewalk seating.  
+    </div>
+
+
+    <div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<h1>
+</h1>
+
+<br>
+<br>
+<h3><b>Conclusion</b></h3><br>
+Retail corridor recovery will be driven by a confluence of many factors with different levels of impact. Among the potential risk factors we analyzed, <b>The Hub, Jackson Heights, and Madison Avenue all have different combinations of strengths and weaknesses.</b> However, the multiple indicators we analyzed suggest that the Hub may be the least resilient of the three – unfortunately no surprise given that this is also a low-income community of color.<br><br>
+
+<!--<font color='black'>
+<table>
+  <tr>
+    <th></th>
+    <th><b>Median Household Income</b></th>
+    <th><b>Workers/mi²</b></th>
+    <th><b>Vacancy Rate</b></th>
+    <th><b>Share Essential Stores</b></th>
+    <th><b>Share Chain Stores</b></th>
+    <th><b>Share Sidewalks >11 ft.</b></th>
+  </tr>
+  <tr>
+    <td><b>Jackson Heights</b></td>
+    <td style='background-color:#FED766'>$56,000</td>
+    <td style='background-color:#079FB5'>4,000</td>
+    <td style='background-color:#079FB5'>8%</td>
+    <td style='background-color:#FED766'>26%</td>
+    <td style='background-color:#FE4A49'>6%</td>
+    <td style='background-color:#079FB5'>64%</td>
+  </tr>
+  <tr>
+    <td><b>The Hub</b></td>
+    <td style='background-color:#FE4A49'>$21,000</td>
+    <td style='background-color:#FED766'>8,000</td>
+    <td style='background-color:#FE4A49'>14%</td>
+    <td style='background-color:#FED766'>27%</td>
+    <td style='background-color:#FED766'>16%</td>
+    <td style='background-color:#FED766'>40%</td>
+  </tr>
+  <tr>
+    <td><b>Madison Avenue</b></td>
+    <td style='background-color:#079FB5'>$146,000</td>
+    <td style='background-color:#FE4A49'>312,000</td>
+    <td style='background-color:#FE4A49'>14%</td>
+    <td style='background-color:#FE4A49'>13%</td>
+    <td style='background-color:#079FB5'>35%</td>
+    <td style='background-color:#079FB5'>65%</td>
+  </tr>
+
+</table>
+<br>
+<br>
+
+<small>
+<table style="width:150px; margin-left:50%;">
+<tr> <td style='background-color:#FE4A49'>Higher Risk</td></tr>
+<tr> <td style='background-color:#FED766'>Moderate Risk</td></tr>
+<tr> <td style='background-color:#079FB5'>Lower Risk</td></tr>
+</table>
+</small>
+</font>-->
+<center>
+<img src="https://clynekp.github.io/retail_scroll/img/matrix3.PNG" width="70%" class="matrix">
+</center>
+<br>
+<br>
+
+<b>Support for the Hub should address the devastating toll that COVID-19 has had on the community.</b> We should track the supply of essential retail services for resource-constrained residents who may have more limited ability to access other neighborhoods and provide targeted support for these businesses, based on their identification of need, such as loosened access to credit and support for rent renegotiation.<br><br>
+
+<b>Jackson Heights’ small, immigrant-owned businesses may have particular trouble navigating recovery resources and red tape.</b> We should assess their challenges and provide technical assistance, as needed, for challenges such as accessing emergency loans or adapting business operations to comply with new social distancing requirements.<br><br>
+
+<b>On Madison Avenue, if office workers and/or residents permanently decamp, the prior mix and amount of retail may no longer be viable.</b> Midtown contains many large buildings in which ground floor retail generates a relatively small share of rent. The City might encourage property owners to acknowledge retail may not be the rent generator it once was, fill spaces with experiential uses, and/or offer lower-rent spaces to small retailers to activate the street.<br><br>
+
+This crisis is unprecedented and these ideas will need to be tested based on outreach to retailers and continued data review and analysis.<b> We will need data such as <a href="https://livexyz.com/">Live XYZ’s</a> to undertake that testing and provide corridors with the tailored support they need.</b> <br><br> 
+
+
+</div>
+
+<footer>
+
+<!-- Start Footer Credits -->
+<section id="footer-content">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-12 locations">
+                <div class="col-md-6 col-xs-12 col-sm-6 hidden-lg hidden-md hidden-sm hidden-xs social-links-mobile">
+                    <div class="inner-content">
+                        <div class="social-links">
+                                    <li id="menu-item-7109" class="fa fa-linkedin menu-item menu-item-type-custom menu-item-object-custom menu-item-7109"><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/82288">LinkedIn</a></li>
+<li id="menu-item-7110" class="fa fa-twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-7110"><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/hraadvisors">Twitter</a></li>
+<li id="menu-item-7111" class="fa fa-facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-7111"><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/hraadvisors/">Facebook</a></li>
+<li id="menu-item-7112" class="fa fa-slideshare menu-item menu-item-type-custom menu-item-object-custom menu-item-7112"><a target="_blank" rel="noopener noreferrer" href="http://www.slideshare.net/HRAadvisors">Slide Share</a></li>
+                        </div>
+                        
+                        
+                    </div>
+                </div>  
+                
+                
+                
+                               
+            </div>
+            
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                                        <div class="inner-content" id="footer-logo">
+                        <a href="https://www.hraadvisors.com" title="HR&amp;A">
+                        <!--<img src="http://hraadvisors.pairserver.com/wp-content/uploads/2015/10/logo-retina.png" alt="HR&amp;A" >-->
+                                                                    <img src="https://www.hraadvisors.com/wp-content/uploads/2015/10/logo-retina.png" alt="HR&amp;A">
+                                        </a>
+                    </div>
+            </div>
+                    <!--col-md-offset-4-->
+            <div class="col-md-8">
+            <!-- footer sign up form  -->
+            <div class="col-md-12 subscribe-done" style="display: none;">
+                <h3>Thanks for signing up for our email list. Look out for our insights and updates in your inbox!</h3>
+            </div>    
+            <div class="form-div-container">    
+                <div class="col-md-12 intro-form-desc">
+                    <p>Stay up to date with our insights on the future of city building</p>
+                </div>
+                <div class="col-md-12">
+                    <div class="footer-form">
+                        <div class="row">
+                        <!-- Mailchimp singup form -->
+                        <div id="mc_embed_signup">
+                        <form action="https://hraadvisors.us9.list-manage.com/subscribe/post-json?u=569e6215860c116586a158d8f&amp;id=0f2eb5bc7f&amp;c=?" method="post" class="signup-email-form" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" novalidate="novalidate">
+                        <!-- <div class="indicates-required"><span class="asterisk"></span> indicates required</div> -->
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            
+                                <!-- <label for="mce-FNAME">First Name </label> -->
+                                <input type="text" value="" name="FNAME" required="" class="form-control footer-input" id="mce-FNAME" placeholder="First Name" aria-required="true">
+                           
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            
+                                <!-- <label for="mce-LNAME">Last Name </label> -->
+                                <input type="text" value="" name="LNAME" required="" class="form-control footer-input" id="mce-LNAME" placeholder="Last Name" aria-required="true">
+                            
+                        </div>
+
+                        <div class="col-md-5 col-sm-5 col-xs-10">
+                            
+                                <!-- <label for="mce-EMAIL">Email Address <span class="asterisk"></span>
+                                </label> -->
+                                <input type="email" value="" name="EMAIL" required="" class="required email form-control footer-input" id="mce-EMAIL" placeholder="Email Address" aria-required="true">
+                            
+                        </div>
+                        
+                        
+                        <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_569e6215860c116586a158d8f_0f2eb5bc7f" tabindex="-1" value=""></div>
+                        
+                        <div class="col-md-1 col-sm-1 col-xs-2 submit-col">
+                        <!-- <input type="submit" value="Subscribe" name="subscribe" class="submit-btn" id="mc-embedded-subscribe" class="button"> -->
+                            <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button submit-btn"><i class="fa fa-angle-right"></i></button>
+                        </div>
+
+                        <div class="col-md-12" id="subscribe-result"></div>
+                        </form>
+
+                        </div>
+                        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';fnames[4]='MMERGE4';ftypes[4]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+                        <!-- Mailchimp signup form end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- end of sign up form  -->
+
+                <div class="col-md-6">
+                    <div class="inner-content">
+                        <ul class="footer-menu">
+                            <li id="menu-item-6124" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6124"><a href="https://www.hraadvisors.com/about/">About</a></li>
+<li id="menu-item-8715" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8715"><a href="https://www.hraadvisors.com/contact/">Contact</a></li>
+<li id="menu-item-6125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6125"><a href="https://www.hraadvisors.com/clients/">Clients</a></li>
+<li id="menu-item-6126" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6126"><a href="https://www.hraadvisors.com/portfolio/">Portfolio</a></li>
+<li id="menu-item-4169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4169"><a href="https://www.hraadvisors.com/about/awards-and-recognition/">Awards</a></li>
+<li id="menu-item-6127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6127"><a href="https://www.hraadvisors.com/news/">News</a></li>
+<li id="menu-item-8557" class="no-ajaxy menu-item menu-item-type-post_type menu-item-object-page menu-item-8557"><a href="https://www.hraadvisors.com/career-opportunities/">Careers</a></li>
+<li id="menu-item-5625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5625"><a href="https://www.hraadvisors.com/services/">Services</a></li>
+<li id="menu-item-7929" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7929"><a href="https://www.hraadvisors.com/privacy-policy/">Privacy Policy</a></li>
+    
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="inner-content">
+                        <div class="social-links visible-sm-block visible-md-block visible-lg-block visible-md-block">
+                                        <li class="fa fa-linkedin menu-item menu-item-type-custom menu-item-object-custom menu-item-7109"><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/82288">LinkedIn</a></li>
+<li class="fa fa-twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-7110"><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/hraadvisors">Twitter</a></li>
+<li class="fa fa-facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-7111"><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/hraadvisors/">Facebook</a></li>
+<li class="fa fa-slideshare menu-item menu-item-type-custom menu-item-object-custom menu-item-7112"><a target="_blank" rel="noopener noreferrer" href="http://www.slideshare.net/HRAadvisors">Slide Share</a></li>
+                        </div>
+                        <ul>
+                                        <li>New York</li><li>Los Angeles</li><li>Washington, DC</li><li>Dallas</li><li>Raleigh</li>                                        
+                            
+                        </ul>
+                        <p class="copyright">© 2020 HR&amp;A Advisors. All Rights Reserved</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- Start Footer Credits -->
+
+</footer>
+</body>
+<script src="d3v4+jetpack.js"></script>
+<script src="graph-scroll.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+<script src="https://unpkg.com/d3-force-attract@latest"></script>
+    <script src="https://unpkg.com/d3-force-cluster@latest"></script>
+
+
+<script>
+
+
+
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+nodewidth = x*.002
+
+
+document.getElementById("graph").style.height = (e.clientWidth*.4) + 'px';
+
+document.getElementById("graph").style.width = (e.clientWidth*.4) + 'px';
+
+
+var oldWidth = 0
+function render(){
+  if (oldWidth == innerWidth) return
+  oldWidth = innerWidth
+
+  
+  var width = height = e.clientWidth*.4
+  //var width = height = d3.select('#graph').node().offsetHeight
+  var r = 40
+
+  var m = 0
+  if (innerWidth <= 925){
+    width = e.clientWidth*.8 //340
+    height = e.clientHeight
+    m = 1
+    document.getElementById("graph").style.height = (e.clientHeight) + 'px';
+
+
+document.getElementById("graph").style.width = e.clientWidth*.8 + 'px';
+  }
+
+
+
+  var em;
+  function getValue(id){
+    var div = document.getElementById(id);
+    div.style.height = '1em';
+    return ( em = div.offsetHeight );
+  }
+
+  getValue('em')
+
+  //Font Sizes
+  var h1 = (e.clientWidth*.0003)+.9368
+  var h2 = (e.clientWidth*.0003)+.6968
+  var h3 = (e.clientWidth*.0003)+.4968
+
+  const categories = ['Food','Body','Groups','Misc','Fitness','Markets/Pharmacies','Services','Lodging','Home & Hobby','Fashion','Auto','Drinks','Arts & Culture','Entertainment',]
+  const colors = ['#2ACEE6','#FF57CF','#B9DB46','#000000','#61CC8C','#2E8EF5','#B8A088','#B29B83','#F28A13','#F9D406','#B29B83','#933EEF','#E0A0FD','#C35E4B']
+
+  const categoriesXY = {'Hub': [(width/2), (height/3), '#FE4A49',2],
+                        'Madison': [(width/3), (height/3)*2, '#FED766',1],
+                        'Jackson': [(width/3)*2, (height/3)*2, '#009FB7',0],
+                        'None': [(width/2), (height/3), '#FE4A49', -2000]
+                        }
+
+
+  const categoryColors = {'Food':['#2ACEE6'],'Body':['#FF57CF'],'Groups':['#B9DB46'],'Misc':['#000000'],'Fitness':['#61CC8C'],'Markets/Pharmacies':['#2E8EF5'],'Services':['#B8A088'],'Lodging':['#B29B83'],'Home & Hobby':['#F28A13'],'Fashion':['#F9D406'],'Auto':['#B29B83'],'Drinks':['#933EEF'],'Arts & Culture':['#E0A0FD'],'Entertainment':['#C35E4B'],'':['#FFFFFF']}
+
+  
+  for (i in categoriesXY){
+  let t = 0
+    for (c in categoryColors){
+
+      width2 = Math.cos((t+1) / 15 * 2 * Math.PI) * 50 +categoriesXY[i][0];
+      height2 = Math.sin(t / 15 * 2 * Math.PI) * 50 + categoriesXY[i][1]; 
+
+      categoryColors[c][i] = [width2,height2];
+
+      t = t + 1
+    }
+
+  }
+
+
+  //Mobile Opacity Adjustment
+  var opac = .1
+  if (m == 1){
+      opac = .3
+
+      d3.select('.scrolldowntext')
+      .style('font-size','12px')
+
+      d3.select('.matrix')
+      .style('width','100%')
+  }
+
+
+
+  const essentialColors = {'Essential':['#009FB7'],'Non-essential':['#009FB7']}
+  const essentialOpacity = {'Essential':[1],'Non-essential':[opac]}
+
+  const chainColors = {'TRUE':['#FE4A49'],'FALSE':['#FE4A49']}
+  const chainOpacity = {'TRUE':[opac],'FALSE':[1]}
+
+  const occRadius = {'Occupied':[nodewidth+1],'Unoccupied':[0]}
+
+
+  categoryColorScale = d3.scaleOrdinal(colors, categories)
+  
+  //Mapbox Data
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb3NqY3JmIn0._sGjIhmL5Xt08WIMWRsSsg';
+
+  //Make Histogram Axis
+  histXScale = d3.scaleLinear().domain([4,22]).range([width*.3, width*.75])
+  histYScale = d3.scaleLinear().domain([100, 1]).range([height*.1,height*.8])
+
+  var map = new mapboxgl.Map({
+    container: "graph",
+    style: "mapbox://styles/kpclyne/ck82gt47u0gc11il8fmks6fqk",
+    center: [-73.923511, 40.783584],
+    zoom: Math.round((width*.002)+9.8378),
+    interactive: false,
+    attributionControl: false
+  });
+
+  map.on('load',function(){
+     map.addLayer(
+          {
+          'id': 'overlay2',
+          'type': 'background',
+          'paint': {
+          'background-color': 'white',
+          'background-opacity': 0,
+          "background-opacity-transition": {
+           "duration": 2000,
+           "delay": 0
+            }
+          },
+          
+        },
+        'country-label'
+        );
+  })
+ 
+
+  
+   function project(d) {
+        return map.project(new mapboxgl.LngLat(d[0], d[1]));
+      }
+  
+  var container = map.getCanvasContainer();
+      var svg = d3
+        .select(container)
+        .append("svg")
+        .attr('class',"svg")
+        .attr("width", width)
+        .attr("height", height)
+        .style("position", "absolute")
+        .style("z-index", 2);
+
+
+  /*let xAxis = d3.axisBottom(histXScale)
+                    .ticks(4)
+                    .tickSize(height + 80)
+                    .tickFormat(function(d) { return "$" + d3.format(",.2f")(d); });*/
+
+  /*let xAxisGroup = svg.append('g')
+        .attr('class', 'first-axis')
+        .attr('transform', 'translate(0, 0)')
+        .call(xAxis)
+        .call(g => g.select('.domain')
+            .remove())
+        .call(g => g.selectAll('.tick line'))
+            .attr('stroke-opacity', 0)
+            .attr('stroke-dasharray', 0)
+            .attr('opacity', 0)
+
+  let histxAxis = d3.axisBottom(histXScale).tickFormat(function(d) { return "$" + d3.format(",.2f")(d); });*/
+
+
+  ////Create White Map Overlay Layer
+
+
+
+  ////CREATE ALL NECESSARY OBJECTS; SET OPACITY TO ZERO
+      
+      ///Corner Demographic Box
+      demo = svg
+              .append("svg")
+              .attr("x", width*.02)
+              .attr("y", height*.05)
+              .attr("class","demo")
+              .attr('opacity',0)
+              .style('cursor','default')
+
+
+      //Underlying Rectangle
+      demo.append("rect")
+              .attr("width", h1*340)
+              .attr("height", h1*80)
+              .attr('rx', '10')
+              .attr("z-index", 5)
+              .attr("opacity",.75)
+              .style("fill", "#000000")
+            
+
+      //Corridor Text
+      var title = demo
+              .append("text")
+              .text("Jackson Heights")
+              .attr("dy", "1.5em")
+              .attr("dx", "1em")
+              .attr("class","demotext")
+              .style("fill","white")
+              .style("font-size",h1 + 'em')
+              .style("font-weight", "bold")
+              .style('font-family','Open Sans')
+
+      title.append("tspan")
+              .style("font-weight", "normal")
+              .text(': Overview')
+              //.attr("class","MHItext")
+
+          
+
+      //Stat Text
+      var MHI = demo
+              .append("text")
+              .text("Median Household Income: ")
+              .attr('class','MHI')
+              .attr("dy", "4em")
+              .attr("dx", "1em")
+              .style("fill","white")
+              .style("font-weight", "bold")
+              .style("font-size",h2 + 'em')
+              .style('font-family','Open Sans')
+        
+
+      MHI.append("tspan")
+              .style("font-weight", "normal")
+              .style("fill","white")
+              .text('$56,000 (Citywide: $62,000)')
+              .attr("class","MHItext")
+           
+      
+      var Density = demo
+              .append("text")
+              .text("Worker Density: ")
+              .attr('class','MHI')
+              .attr("dy", "5.5em")
+              .attr("dx", "1em")
+              .style("fill","white")
+              .style("font-weight", "bold")
+              .style("font-size",h2 + 'em')
+              .style('font-family','Open Sans')
+             
+      Density.append("tspan")
+              .style("font-weight", "normal")
+              .style("fill","white")
+              .text('4K Workers/mi² (Citywide: 7K)')
+              .attr("class","Densitytext")
+             
+
+      var COVID = demo
+              .append("text")
+              .text("COVID Rate: ")
+              .attr('class','COVID')
+              .attr("dy", "7em")
+              .attr("dx", "1em")
+              .style("fill","white")
+              .style("font-weight", "bold")
+              .style("font-size",h2 + 'em')
+              .style('font-family','Open Sans')
+         
+
+      COVID.append("tspan")
+              .style("font-weight", "normal")
+              .style("fill","white")
+              .text('3.6% of Residents (Citywide: 2.3%)')
+              .attr("class","COVIDtext")
+
+      d3.select('.demo').lower()
+
+
+
+    ////Retail Mix Labels
+
+    mix = svg
+              .append("svg")
+              .attr("x", width*.02)
+              .attr("y", height*.05)
+              .attr('class','mixlabel')
+              .attr('opacity',0)
+              .style('cursor','default')
+
+
+      //Underlying Rectangle
+    mix.append("rect")
+              .attr("width", h1*340)
+              .attr("height", h1*80)
+              //.attr("stroke", '#000000')
+              //.attr('stroke-width', '2px')
+              .attr('rx', '10')
+              .attr("opacity",.75)
+              .style("fill", "#000000")
+
+    var mixtitle = mix
+              .append("text")
+              .text("Jackson Heights")
+              .attr("dy", "1.5em")
+              .attr("dx", "1em")
+              .attr('class','mixlabel')
+              .attr('id','mixtitle')
+              .style("fill", 'white')
+              .style("font-size",h1 + 'em')
+              .style("font-weight", "bold")
+              .style('font-family','Open Sans')
+
+    mixtitle.append("tspan")
+              .style("font-weight", "normal")
+              .text(': Major Retail Types')
+
+
+
+    var mixone = mix.append("text")             
+      //.attr('x',width/2)
+      //.attr('y',height*.2)
+      .attr("dy", "4em")
+      .attr("dx", "1em")
+      .style("text-anchor", "start")
+      .style("vertical-align", "start")
+      .style("fill","#2ACEE6")
+      .text("19% Food")
+      //.style('stroke', '#ffffff')
+      //.style('stroke-opacity', .8)
+      //.attr('stroke-width', 6)
+      //.style('paint-order', 'stroke')
+      .attr('class','mixlabel')
+      .attr('id','mixlabel1')
+      .style("font-weight", "bold")
+      .style("font-size",h2 + 'em')
+      .style('font-family','Open Sans')
+      //.style("font-size", "25px")
+
+      mixone.append("tspan")
+      .style("fill","white")
+      .text(": diverse offerings including Indian, Tibetan, Colombian")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel1')
+      .style("font-weight", "normal")
+
+      var mixtwo = mix.append("text")             
+      .attr("dy", "5.5em")
+      .attr("dx", "1em")
+      .style("text-anchor", "start")
+      .style("vertical-align", "start")
+      .style("fill","#F9D406")
+      .text("16% Fashion")
+      .attr('class','mixlabel')
+      .attr('id','mixlabel2')
+      .style("font-weight", "bold")
+      .style("font-size",h2 + 'em')
+      .style('font-family','Open Sans')
+
+      mixtwo.append("tspan")             
+      .style("fill","white")
+      .text(": including general clothing and jewelry stores")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+
+      var mixthree = mix.append("text")             
+      .attr("dy", "7em")
+      .attr("dx", "1em")
+      .style("text-anchor", "start")
+      .style("vertical-align", "start")
+      .style("fill","#FF57CF")
+      .text("13% Body")
+      .attr('class','mixlabel')
+      .attr('id','mixlabel3')
+      .style("font-weight", "bold")
+      .style("font-size",h2 + 'em')
+      .style('font-family','Open Sans')
+
+      mixthree.append("tspan")
+      .style("fill","white")
+      .text(": including barber shops, salons, massage parlors")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel3')
+      .style("font-weight", "normal")
+
+
+      d3.selectAll('.mixlabel')
+      .attr('opacity',0)
+      .style('cursor','default')
+      .lower()
+
+  //CREATE HIST LEGENDS    
+  var legend = d3.select(".legend").append("svg")
+      .attr("width", 960)
+      .attr("height", 500);
+    
+    legend.append("g")
+      .attr("class", "legendOrdinal")
+      .attr("transform", "translate(20,20)");
+    
+    var legendcategories = ['The Hub','Madison Avenue','Jackson Heights'];
+
+    var legendcolors = ['#FE4A49','#FED766','#009FB7']
+
+    
+    var ordinal = d3.scaleOrdinal()
+      .domain(legendcategories)
+      .range(legendcolors);
+    
+    var legendOrdinal = d3.legendColor()
+      .scale(ordinal);
+    
+    legend.select(".legendOrdinal")
+      .call(legendOrdinal);
+
+
+      let xAxis = d3.axisBottom(histXScale).tickFormat(function(d) { return d3.format(",.2")(d) +"ft"; });
+
+
+    svg.append('g')
+        .attr('class', 'hist-axis')
+        .attr('transform', `translate(0, ${histYScale(0)})`)
+        .call(xAxis)
+
+    svg.append('g')
+        .attr('class', 'hist-axis')
+        .attr('transform', `translate(0, ${histYScale(37)})`)
+        .call(xAxis)
+    
+    svg.append('g')
+        .attr('class', 'hist-axis')
+        .attr('transform', `translate(0, ${histYScale(74)})`)
+        .call(xAxis)
+
+
+    svg.append("text")             
+      .attr("transform",
+            "translate("+ histXScale(10.5) + " ," + 
+                           (height*.09) + ")")
+      .style("text-anchor", "middle")
+      .text("Food and Drink Establishments by Sidewalk Width")
+      .attr('class','histtitle')
+      .style("font-weight", "bold")
+      .style("text-anchor", "middle")
+      .style("font-size", h1 + "em")
+      .style('font-family','Open Sans')
+
+
+    svg.append("text")             
+      .attr("transform",
+            "translate("+ histXScale(16) + " ," + 
+                           (height/10)*1.3 + ")")
+      .style("text-anchor", "middle")
+      .style("fill","gray")
+      .text(">11 ft for Sidewalk Seating")
+      .attr('class','histlabel')
+      .style("font-weight", "regular")
+      .style("font-size", h2+"em")
+      .style('font-family','Open Sans')
+
+
+
+    svg.append("text")             
+      .attr("transform",
+            "translate("+ histXScale(22) + " ," + 
+                           histYScale(10) + ")")
+      .style("text-anchor", "end")
+      .style("vertical-align", "middle")
+      .style("fill","black")
+      .text("64%")
+      .attr('class','histlabel')
+      .style("font-weight", "bold")
+      .style("font-size", h2+"em")
+      .style('font-family','Open Sans')
+
+
+    svg.append("text")             
+      .attr("transform",
+            "translate("+ histXScale(22) + " ," + 
+                           histYScale(85) + ")")
+      .style("text-anchor", "end")
+      .style("vertical-align", "middle")
+      .style("fill","black")
+      .text("40%")
+      .attr('class','histlabel')
+      .style("font-weight", "bold")
+      .style("font-size", h2+"em")
+      .style('font-family','Open Sans')
+
+
+    svg.append("text")             
+      .attr("transform",
+            "translate("+ histXScale(22) + " ," + 
+                           histYScale(48) + ")")
+      .style("text-anchor", "end")
+      .style("vertical-align", "middle")
+      .style("fill","black")
+      .text("65%")
+      .attr('class','histlabel')
+      .style("font-weight", "bold")
+      .style("font-size", h2+"em")
+      .style('font-family','Open Sans')
+
+
+    svg.append('line')
+        .attr('class', 'dash-line')
+        .style("stroke", "gray")
+        .style("stroke-dasharray", ("3, 3"))
+        .attr("x1", histXScale(10.5))
+        .attr("y1", (height/10)*1.45)    
+        .attr("x2", histXScale(10.5))      
+        .attr("y2", histYScale(.5)) 
+
+    d3.selectAll('.hist-axis')
+    .attr('opacity',0)
+    .style('cursor','default')
+    .lower()
+
+    d3.selectAll('.dash-line')
+    .attr('opacity',0)
+    .style('cursor','default')
+    .lower()
+
+    d3.selectAll('.histlabel')
+    .attr('opacity',0)
+    .style('cursor','default')
+    .lower()
+
+    d3.selectAll('.histtitle')
+    .attr('opacity',0)
+    .style('cursor','default')
+    .lower()
+
+
+
+
+  ///Main Corridor Labels
+  svg.append("text")
+                .text("Madison Avenue")
+                .attr("x", width*.333)
+                .attr("y", (height*.666)+(nodewidth*25))
+                .attr("class","labels")
+                .attr("id","madison_label")
+                .style("fill", 'black')
+                .attr("opacity",0)
+                .style("font-size",h1 + 'em')
+                .style("font-weight", "bold")
+                .style("text-anchor", "middle")
+                .style('font-family','Open Sans')
+
+  
+  svg.append("text")
+                .text("Jackson Heights")
+                .attr("x", width*.666)
+                .attr("y", (height*.666)+(nodewidth*25))
+                .attr("class","labels")
+                .attr("id","jackson_label")
+                .style("fill", 'black')
+                .attr("opacity",0)
+                .style("font-size",h1 + 'em')
+                .style("font-weight", "bold")
+                .style("text-anchor", "middle")
+                .style('font-family','Open Sans')
+              
+
+ 
+ svg.append("text")
+                .text("The Hub")
+                .attr("x", width*.5)
+                .attr("y", (height*.333)+(nodewidth*15))
+                .attr("class","labels")
+                .attr("id","hub_label")
+                .style("fill", 'black')
+                .attr("opacity",0)
+                .style("font-size",h1 + 'em')
+                .style("font-weight", "bold")
+                .style("text-anchor", "middle")
+                .style('font-family','Open Sans')
+
+  svg.append("text")
+              .text("12% Vacant")
+              .attr("x", width*.333)
+              .attr("y", (height*.666)+(nodewidth*25) + (em*1.5))
+              .attr("class","labels")
+              .attr("id","madison_text")
+              .style("fill", "black")
+              .attr("opacity",0)
+              .style("font-size",h1*1.2 + 'em')
+              .style("font-weight", "bold")
+              .style("text-anchor", "middle")
+              .style('font-family','Open Sans')
+
+      svg.append("text")
+              .text("8% Vacant")
+              .attr("x", width*.666)
+              .attr("y", (height*.666)+(nodewidth*25) + (em*1.5))
+              .attr("class","labels")
+              .attr("id","jackson_text")
+              .style("fill", "black")
+              .attr("opacity",0)
+              .style("font-size",h1*1.2 + 'em')
+              .style("font-weight", "bold")
+              .style("text-anchor", "middle")
+              .style('font-family','Open Sans')
+
+      svg.append("text")
+              .text("14% Vacant")
+              .attr("x", width*.5)
+              .attr("y", (height*.333)+(nodewidth*15) + (em*1.5))
+              .attr("class","labels")
+              .attr("opacity",0)
+              .attr("id","hub_text")
+              .style("fill", "black")
+              .style("font-size",h1*1.2 + 'em')
+              .style("font-weight", "bold")
+              .style("text-anchor", "middle")
+              .style('font-family','Open Sans')
+
+  d3.selectAll('.labels')
+  .attr('opacity',0)
+  .style('cursor','default')
+  .lower()
+
+
+    citywide = svg
+              .append("svg")
+              .attr("x", width*.05)
+              .attr("y", height*.05)
+              .attr("class","citywide")
+
+      citywide.append("rect")
+              .attr("width", h1*80)
+              .attr("height", 70)
+              .attr("stroke", '#d8d8d8')
+              .attr('stroke-width', '2px')
+              .attr('rx', '10')
+              .style("fill", "white");
+
+      citywide
+              .append("text")
+              .text("Citywide")
+              .attr("dy", "1.5em")
+              .attr("dx", "1em")
+              .style("fill", "black")
+              .style("font-size",h1 + 'em')
+              .style("font-weight", "bold")
+              .style('font-family','Open Sans')
+
+      var value = citywide
+              .append("text")
+              .text("15%")
+              .attr('class','cityvalue')
+              .attr("dy", "3em")
+              .style("font-size",h1 + 'em')
+              .attr("dx", "1.5em")
+              .style("fill", "black")
+              .style("font-weight", "bold")
+              .style('font-family','Open Sans')
+
+    d3.selectAll('.citywide')
+    .attr('opacity',0)
+    .style('cursor','default')
+    .lower()
+
+
+
+
+  d3.csv("data.csv", function(d){
+  return{
+    name: d.name,
+    long: +d.long,
+    lat: +d.lat,
+    status: d.status,
+    category: d.category,
+    category2: d.category2,
+    essential: d.essential_flag,
+    chain: d.chain_flag,
+    corridor: d.corridor,
+    id: +d.id,
+    sidewalk: +d.sidewalk_width,
+    histogram_column: +d.histogram_column,
+    image: d.image
+  };
+}, function(error, rows){
+if (error) throw error;
+// Add circles:
+
+  rows.forEach(function(d) { 
+    d.width = categoriesXY[d.corridor][0];
+    d.height = categoriesXY[d.corridor][1];
+    d.width2 = categoryColors[d.category][d.corridor][0]
+    d.height2 = categoryColors[d.category][d.corridor][1]
+    d.radius = 2;
+    if(d.category === "Drinks" | d.category === "Food"){
+      d.fincat = d.corridor
+    }else{
+      d.fincat = "None"
+    }
+    d.x = project([d.long, d.lat]).x; 
+    d.y = project([d.long, d.lat]).y; });
+
+
+  var circles = svg
+      .selectAll("myCircles")
+      .data(rows)
+      .enter()
+      .append("circle")
+      .filter(function (d) { return d.status === "Occupied"; })
+      .each(function (d, i){
+              var $this = d3.select(this)
+              
+              $this
+              .attr("r", 1)
+              .attr("class", "circle")
+              .attr("id", "circle")
+              .attr("stroke", "#003E7A")
+              .attr("stroke-width", 0)
+              .attr("fill-opacity", 1)
+              .style("fill", function(d){ return categoryColors[d.category][0]})
+
+            })
+
+  var unoccupiedCircles = svg
+      .selectAll("myCircles")
+      .data(rows)
+      .enter()
+      .append("circle")
+      .filter(function (d) { return d.status === "Unoccupied"; })
+      .each(function (d, i){
+            var $this = d3.select(this)
+            
+            $this
+            .attr("r", 0)
+            .attr("opacity", 0)
+            .attr("class", "unoccupiedCircle")
+            .attr("id", "circle")
+            .attr("stroke", "#003E7A")
+            .attr('stroke-dasharray', '1 1')
+            .attr("stroke-width", 3)
+            .attr("fill-opacity", 0)
+            .style("fill", "red");
+
+          })
+
+
+  simulation = d3.forceSimulation(rows)
+    .force('charge', d3.forceManyBody().strength([nodewidth*-.8]))
+    .force('collide', d3.forceCollide(0))
+    .on('tick', tick)
+    .stop()
+
+        function tick(e) {
+        d3.selectAll('.circle')
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
+      }
+  
+
+  var step = 0
+
+  svg.selectAll('.circle')
+        .on('mouseover', mouseOver)
+        .on('mouseout', mouseOut)
+
+  svg.selectAll('.unoccupiedCircle')
+        .on('mouseover', mouseOverVacant)
+        .on('mouseout', mouseOutvacant)
+
+    function mouseOver(d, i){
+        d3.select(this)
+            .transition('mouseover').duration(100)
+            //.attr('opacity', 1)
+            .attr('stroke-width', 5)
+            .attr('stroke', 'black')
+            
+        d3.select('#tooltip')
+            .style('left', (d3.event.pageX + 10)+ 'px')
+            .style('top', (d3.event.pageY - 25) + 'px')
+            .style('display', 'inline-block')
+            .html(`<div style='padding-left: 6px; padding-right: 6px;'><div class='cat_${d.category2}' style='font-size: .8em; color: ${categoryColors[d.category][0]};'><p class="solid">&nbsp${d.category}&nbsp</p></div></div><div style='min-width: ${width*.1}px; padding-left: 6px; padding-right: 6px;'><b> ${d.name}</b></div>`)
+
+    }
+
+    function mouseOverVacant(d, i){
+        d3.select(this)
+            .transition('mouseover').duration(100)
+            //.attr('opacity', 1)
+            .attr('stroke-width', 5)
+            .attr('stroke', 'black')
+            
+        d3.select('#tooltip')
+            .style('left', (d3.event.pageX + 10)+ 'px')
+            .style('top', (d3.event.pageY - 25) + 'px')
+            .style('display', 'inline-block')
+            .html(`<div style='min-width: ${width*.1}px; padding-left: 6px; padding-right: 6px;'><b> ${d.name}</b></div>`)
+
+    }
+    
+    function mouseOut(d, i){
+        d3.select('#tooltip')
+            .style('display', 'none')
+
+        d3.select(this)
+            .transition('mouseout').duration(100)
+            //.attr('opacity', 0.8)
+            .attr('stroke-width', 0)
+
+        svg.selectAll('.circle')
+            .attr('stroke-width', 0)
+    }
+
+    function mouseOutvacant(d, i){
+        d3.select('#tooltip')
+            .style('display', 'none')
+
+        d3.select(this)
+            .transition('mouseout').duration(100)
+            .attr("stroke", "#003E7A")
+            .attr('stroke-width', 3)
+
+    }
+
+    
+  
+ 
+
+      // Render method redraws circles
+      function render() {
+        d3.selectAll('.circle')
+          .attr("cx", function(d){ return project([d.long, d.lat]).x })
+          .attr("cy", function(d){ return project([d.long, d.lat]).y })
+
+      }
+
+
+      // Call render method, and whenever map changes
+      render();
+      map.on("viewreset", render);
+      map.on("move", render);
+      map.on("moveend", render);
+
+    });
+ 
+  function clean(list,duration,name){
+    
+    for (i in list){
+
+      transition_name = name + '_' + i
+
+      d3.selectAll(list[i])
+      .lower()
+
+      d3.selectAll(list[i])
+      .transition(transition_name).duration(duration)
+      .attr('opacity',0)
+      .attr('cursor','default')
+    }
+  }
+
+  function activate(list,duration,name){
+    
+    for (i in list){
+      transition_name = name + "_" + i
+
+      d3.selectAll(list[i])
+      .raise()
+
+      d3.selectAll(list[i])
+      .transition(transition_name).duration(duration)
+      .attr('opacity',1)
+      .attr('cursor','auto')
+    }
+  }
+
+ 
+    function load_Jackson(){
+      d3
+        .selectAll(".demo")
+        .raise()
+        .attr("opacity",1)
+        .style('cursor','auto')
+
+      d3
+        .selectAll(".demotext")
+        .text("Jackson Heights")
+        .style("fill","white")
+        .append("tspan")
+              .style("font-weight", "normal")
+              .text(': Overview')
+
+      d3.selectAll('.MHItext')
+      .text('$56,000 (Citywide: $62,000)')
+
+      d3.selectAll('.Densitytext')
+      .text('4K Workers/mi² (Citywide: 7K)')
+
+      d3.selectAll('.COVIDtext')
+      .text('3.6% of Residents (Citywide: 2.3%)')
+    }
+
+    function load_Hub(){
+
+      d3
+        .selectAll(".demo")
+        .raise()
+        .attr("opacity",1)
+        .style('cursor','auto')
+
+      d3.selectAll('.MHItext')
+      .text('$21,800 (Citywide: $62,000)')
+
+      d3.selectAll('.Densitytext')
+      .text('8K Workers/mi² (Citywide: 7K)')
+
+      d3.selectAll('.COVIDtext')
+      .text('3.1% of Residents (Citywide: 2.3%)')
+
+      d3
+        .selectAll(".demotext")
+        .text("The Hub")
+        .style("fill","white")
+        .append("tspan")
+              .style("font-weight", "normal")
+              .text(': Overview')
+     }
+
+
+     function load_Madison(){
+
+      d3
+        .selectAll(".demo")
+        .raise()
+        .attr("opacity",1)
+        .style('cursor','auto')
+
+      d3.selectAll('.MHItext')
+      .text('$146,600 (Citywide: $62,000)')
+
+      d3.selectAll('.Densitytext')
+      .text('312K Workers/mi² (Citywide: 7K)')
+
+      d3.selectAll('.COVIDtext')
+      .text('1.4% of Residents (Citywide: 2.3%)')
+
+     d3
+        .selectAll(".demotext")
+        .text("Madison Avenue")
+        .style("fill","white")
+        .append("tspan")
+              .style("font-weight", "normal")
+              .text(': Overview')
+
+     }
+
+
+
+////////////////STEP FUNCTIONS
+  
+  function initialize(){
+
+    if (m == 1){
+    console.log("whatsup, Arjun?")
+
+    d3.selectAll('.graph-scroll-active')
+    .style('background','rgba(255,255,255,0)')
+    .style('border-top','0px')
+    .style('border-bottom','0px')
+    }
+
+    //Set Reverse 
+    if (window.step == 2){
+      clean(['.demo','.mixlabel'],500,'hide_demo1')
+
+      d3
+      .selectAll(".circle")
+      .transition("shrink1").duration(500)
+      .attr("r", 1)
+
+      map.off("moveend", load_Jackson)
+      map.off("moveend", load_Madison)
+      map.off("moveend", load_Hub)
+    }
+
+    //Actions
+    map.flyTo({center: [-73.923511, 40.783584], zoom:Math.round((width*.002)+9.8378)});
+
+    //Set Step
+    window.step = 1
+
+  }
+
+
+  function stepone(){
+
+    //Set Reverse 
+    if (window.step == 2){
+      clean(['.demo','.mixlabel'],500,'hide_demo1')
+
+      d3
+      .selectAll(".circle")
+      .transition("shrink1").duration(500)
+      .attr("r", 1)
+
+      map.off("moveend", load_Jackson)
+      map.off("moveend", load_Madison)
+      map.off("moveend", load_Hub)
+    }
+
+    //Actions
+    map.flyTo({center: [-73.923511, 40.783584], zoom:Math.round((width*.002)+9.8378)});
+
+    //Set Step
+    window.step = 1
+
+  }
+
+
+  function steptwo(){
+    //Set Reverse
+      if (window.step == 3){
+        //Remove Retail Mix Labels
+        map.off("moveend")
+        clean(['.mixlabel'],500,'hide_demo2')
+      }
+
+    //Actions
+      //Zoom in to Jackson Heights
+      map.flyTo({center: [ -73.888122, 40.748345], zoom:Math.round((width*.002)+12.8378)});
+
+      //Make Circles Bigger
+      d3
+      .selectAll(".circle")
+      .transition("enhance").duration(500)
+      .attr("r", 2)
+
+      //When map is done moving, load the Demographic Box
+      map.on("moveend", load_Jackson);
+
+    ///Set Step
+     window.step = 2
+
+
+    }
+
+  function jackson_two(){
+
+    //Set Reverse
+      if (window.step == 4){
+        map.off("moveend", load_Hub)
+        //Remove Retail Mix Labels
+        clean(['.demo'],500,'hide_demo3')
+        map.flyTo({center: [ -73.888122, 40.748345], zoom:Math.round((width*.002)+12.8378)});
+
+        d3.select('#mixtitle')
+        .text('Jackson Heights')
+        .append("tspan")
+              .style("font-weight", "normal")
+              .text(': Major Retail Types')
+
+        d3.select('#mixlabel1')
+      .style('fill','#2ACEE6')
+      .text("19% Food")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": diverse offerings including Indian, Tibetan, Colombian")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+      d3.select('#mixlabel2')
+      .style('fill','#F9D406')
+      .text("16% Fashion")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": including general clothing; jewelry stores")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+      d3.select('#mixlabel3')
+      .style('fill','#FF57CF')
+      .text("13% Body")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": including barber shops, salons, massage parlors")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+      }
+
+    //Actions
+
+    clean(['.demo'],'hide_demo4')
+    activate(['.mixlabel'],500,'mixlabel')
+
+
+    ///Set Step
+    window.step = 3
+
+
+  }
+
+    function hub(){
+
+      //Set Reverse
+      if (window.step == 5){
+        //Remove Retail Mix Labels
+        clean(['.mixlabel'],500,'hide_mix1')
+      }
+
+      //Actions
+      clean(['.mixlabel'],500,'hide_mix2')
+
+      map.off("moveend", load_Jackson)
+      map.on("moveend", load_Hub);
+
+      map.flyTo({center: [-73.917654, 40.816110], zoom:Math.round((width*.002)+12.8378)});
+
+      d3
+      .selectAll(".circle")
+      .transition("grow2").duration(500)
+      .attr("r", 2)
+          
+      //Set Step
+      window.step = 4
+
+    }
+
+    function hub_two(){
+
+      //Set Reverse
+      if (window.step == 6){
+        //Remove Retail Mix Labels
+        clean(['.demo'],500,'hide_demo5')
+        map.flyTo({center: [-73.917654, 40.816110], zoom:Math.round((width*.002)+12.8378)});
+      }
+
+      //Actions
+      clean(['.demo'],500,'hide_demo6')
+
+      d3.select('#mixtitle')
+        .text('The Hub')
+        .append("tspan")
+              .style("font-weight", "normal")
+              .text(': Major Retail Types')
+
+      d3.select('#mixlabel1')
+      .style('fill','#F9D406')
+      .text("18% Fashion")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": including adult and children's clothing stores")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+      d3.select('#mixlabel2')
+      .style('fill','#F28A13')
+      .text("17% Home")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": including big box furniture; discount stores")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+      d3.select('#mixlabel3')
+      .style('fill','#2E8EF5')
+      .text("16% Essentials")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": including pharmacies; mobile phone stores")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+
+
+      activate(['.mixlabel'],500,'mixlabel4')
+
+      //Set Step
+      window.step = 5
+    
+  }
+
+    function madison(){
+
+    //Set Reverse
+      if (window.step == 7){
+        //Remove Retail Mix Labels
+        clean(['.mixlabel'],500,'hide_mix3')
+        activate(['.demo'],500,'demo1')        
+      }
+
+
+    if(window.step == 5){
+      map.off("moveend", load_Hub)
+      clean(['.mixlabel','.citywide'],500,'hide_mix4')
+      map.flyTo({center: [-73.976957, 40.756015], zoom:Math.round((width*.002)+11.8378)});
+      map.on("moveend", load_Madison);
+
+      d3
+      .selectAll(".circle")
+      .transition("grow3").duration(500)
+      .attr("r", 2)
+    }
+
+     window.step = 6
+
+    }
+
+    function madison_two(){
+
+      if (window.step == 8){
+        map.flyTo({center: [-73.976957, 40.756015], zoom:Math.round((width*.002)+11.8378)});
+
+        d3
+      .selectAll(".circle")
+      .transition("make_small").duration(500)
+      .attr("r", 2)
+      }
+
+      d3.select('#mixtitle')
+        .text('Madison Avenue')
+        .append("tspan")
+              .style("font-weight", "normal")
+              .text(': Major Retail Types')
+
+
+      clean(['.demo','.labels','.citywide'],500,'hide_demo7')
+      map.off("moveend", load_Madison)
+
+      d3.select('#mixlabel1')
+      .style('fill','#F9D406')
+      .text("32% Fashion")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": including men's clothing; accessory stores")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+      d3.select('#mixlabel2')
+      .style('fill','#2ACEE6')
+      .text("22% Food")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": including Italian & Mediterranean restaurants")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+      d3.select('#mixlabel3')
+      .style('fill','#BAA38C')
+      .text("9% Services")
+      .append("tspan")             
+      .style("fill","white")
+      .text(": including large number of banks")
+      .attr('class','mixlabel')
+      .attr('id','mixsublabel2')
+      .style("font-weight", "normal")
+
+      activate(['.mixlabel'],500,'mixlabel2')
+
+
+
+      svg.selectAll('.circle')
+            .attr('stroke-width', 0)
+
+
+      window.step = 7
+    
+  }
+
+  
+    function stepthree(){
+
+      if(window.step == 7){
+        map.flyTo({center: [-73.923511, 40.783584], zoom:Math.round((width*.002)+9.8378)});
+      }
+
+
+
+      if (window.step == 9){
+        clean(['.citywide','.demo','.mixlabel'],500,'hide_demo8')
+        map.setPaintProperty('overlay2', 'background-opacity', 0)
+
+        d3.selectAll('.circle')
+        .transition('re_color').duration(500)
+        .style("fill", function(d){ return categoryColors[d.category][0]})
+        .attr("r",1)
+
+        simulation  
+        .force('forceX', d3.forceX(d => project([d.long, d.lat]).x).strength(1))
+        .force('forceY', d3.forceY(d => project([d.long, d.lat]).y).strength(1))
+        .force('charge', d3.forceManyBody().strength([0])) 
+        .force('collide', d3.forceCollide(0))
+        .alpha(0.7).restart()
+
+        setTimeout(function(){
+          simulation.stop()
+
+          d3.selectAll('.circle')
+          .transition("truly_idk").duration(500)
+          .attr("cx", function(d){ return project([d.long, d.lat]).x })
+          .attr("cy", function(d){ return project([d.long, d.lat]).y })
+
+        }, 1000)
+        
+        //Hide Vacant Circles
+        d3.selectAll(".unoccupiedCircle")
+        .transition("hide_unocc").duration(500)
+        .attr("r", 0)
+        .attr("opacity", 0)
+
+        }
+
+        map.off("moveend", load_Madison)
+
+        clean(['.demo','.mixlabel','.labels'],500,'hide_demo9')
+
+        
+
+        svg
+          .selectAll(".circle")
+          .transition("shrink").duration(500)
+          .attr("r", 1)
+              
+        //d3.select(window).on('resize', render)
+
+        window.step = 8
+
+        }
+
+    function stepfour(){
+
+
+        let svg = d3.select("#graph")
+              .select('svg')
+
+        svg.selectAll('.circle')
+              .attr('stroke-width', 0)
+
+        d3.selectAll(".unoccupiedCircle")
+        .transition("hide").duration(500)
+        .attr("r", 0)
+        .attr("opacity", 0)
+
+        clean(['.labels','.citywide'],500,'hide_citywide')
+
+        map.setPaintProperty('overlay2', 'background-opacity', 1)
+
+        activate(['.labels'],500,'labels2')
+
+        /*simulation
+          .force('charge', d3.forceManyBody().strength([nodewidth*-.8]))  
+          .force('forceX', d3.forceX(d => categoriesXY[d.corridor][0]).strength(.2))
+          .force('forceY', d3.forceY(d => categoriesXY[d.corridor][1]*.8).strength(.2))*/
+          /*.force('collide', d3.forceCollide(d => occRadius[d.status[0]]))
+          .alphaDecay([0.00001])
+          .velocityDecay([.8])
+
+        simulation.alpha(.01).restart()*/
+        
+
+
+        svg
+        .selectAll(".circle")
+        .transition("category_fill").duration(500)
+        .style("fill", function(d){return categoryColors[d.category][0]})
+        .attr("r", nodewidth)
+     }
+
+    function vacancy(){
+
+      if (window.step == 8){
+      clean(['.demo','.mixlabel'],500,'hide_demo10')
+      //stepthree()
+      stepfour()
+      map.setPaintProperty('overlay2', 'background-opacity', 1)
+    }
+
+
+
+      d3.selectAll("#hub_text")
+      .text("12% Vacant")
+      .style('fill', '#345D80')
+      //.style('stroke', '#345D80')
+      //.style('stroke-opacity', 1)
+      //.attr('stroke-width', 3)
+      //.style('paint-order', 'stroke')
+
+      d3.selectAll("#jackson_text")
+      .text("8% Vacant")
+      .style('fill', '#345D80')
+
+
+      d3.selectAll("#madison_text")
+      .text("14% Vacant")
+      .style('fill', '#345D80')
+    
+
+
+      activate(['.citywide',"#jackson_text",'#madison_text','#hub_text'],500,'demos')
+
+
+      d3.selectAll('.cityvalue')
+      .text('15%')
+   
+
+      simulation.on('tick', tick)
+
+
+        function tick(e) {
+          d3.selectAll('#circle')
+              .attr("cx", function(d) { return d.x; })
+              .attr("cy", function(d) { return d.y; })
+        }
+
+      simulation.velocityDecay(0.6).alpha(0.9).restart()
+      simulation
+          .force('charge', d3.forceManyBody().strength([nodewidth*-.8]))  
+          .force('forceX', d3.forceX(d => categoriesXY[d.corridor][0]).strength(.2))
+          .force('forceY', d3.forceY(d => categoriesXY[d.corridor][1]*.8).strength(.2))
+
+      simulation.force('collide', d3.forceCollide(d => occRadius[d.status[0]]))
+      
+
+      d3.selectAll(".unoccupiedCircle")
+      .attr("r",0)
+
+      d3.selectAll(".unoccupiedCircle")
+      .transition("grow_unocc").duration(500)
+      .attr("r",nodewidth)
+      .attr("opacity", 1);
+
+      d3.selectAll(".circle")
+          .transition("vacancy_fill").duration(500)
+          .style('fill','#FED766')
+          .attr("opacity", 1)
+          .attr("r",nodewidth)
+
+
+      window.step = 9
+
+      }
+
+      function essential(){
+
+      d3.selectAll('.cityvalue')
+      .text('29%')
+
+      map.setPaintProperty('overlay2', 'background-opacity', 1)
+
+      //simulation.force('collide', d3.forceCollide(d => occRadius[d.status[0]]))
+      //simulation.velocityDecay(0.6).alpha(0.9).restart()
+
+      d3.selectAll(".unoccupiedCircle")
+      .transition("go_away").duration(500)
+      .attr("r", 0)
+      .attr("opacity", 0)
+      
+
+      d3.selectAll(".circle")
+      .transition("essential_change").duration(500)
+      .attr("opacity", function(d){ return essentialOpacity[d.essential][0] } )
+      .style('fill',function(d){ return essentialColors[d.essential]})
+
+
+      d3.selectAll("#hub_text")
+      .transition("essential1").duration(500)
+      .text("27% Essential")
+      .style('fill', '#009FB7')
+
+      d3.selectAll("#jackson_text")
+      .transition("essential2").duration(500)
+      .text("26% Essential")
+      .style('fill', '#009FB7')
+
+      d3.selectAll("#madison_text")
+      .transition("essential3").duration(500)
+      .text("15% Essential")
+      .style('fill', '#009FB7')
+
+      window.step = 10
+
+      }
+
+  function chains(){
+
+    if(window.step == 10){
+      d3.selectAll("#hub_text")
+      .text("16% Chains")
+      .style('fill', '#FE4A49')
+
+      d3.selectAll("#jackson_text")
+      .text("6% Chains")
+      .style('fill', '#FE4A49')
+
+      d3.selectAll("#madison_text")
+      .text("30% Chains")
+      .style('fill', '#FE4A49')
+    }
+
+    if (window.step == 12){
+      activate(['#hub_text','#jackson_text','#madison_text'],500,'labels3')
+      clean(['.hist-axis','.dash-line','.histtitle','.histlabel'],600,'hide_hist')
+
+        d3.selectAll("#madison_label")
+        .transition("l4").duration(500)
+                  .attr("x", width*.333)
+                  .attr("y", (height*.666)+(nodewidth*25))
+                  //.style("font-size",h1 + 'em')
+                  .style("font-weight", "bold")
+                  .style("text-anchor", "middle")
+             
+       d3.selectAll("#jackson_label")
+        .transition("l5").duration(500)
+                .attr("x", width*.666)
+                .attr("y", (height*.666)+(nodewidth*25))
+                  //.style("font-size",h1 + 'em')
+                  .style("font-weight", "bold")
+                  .style("text-anchor", "middle")
+                
+        d3.selectAll("#hub_label")
+        .transition("l6").duration(500)
+                  .attr("x", width*.5)
+                  .attr("y", (height*.333)+(nodewidth*15))
+                  //.style("font-size",h1 + 'em')
+                  .style("font-weight", "bold")
+                  .style("text-anchor", "middle")
+
+        d3.selectAll(".circle")
+        .attr("r", nodewidth)
+
+  
+
+        simulation
+          .force('charge', d3.forceManyBody().strength([nodewidth*-.8]))  
+          .force('forceX', d3.forceX(d => categoriesXY[d.corridor][0]).strength(.2))
+          .force('forceY', d3.forceY(d => categoriesXY[d.corridor][1]*.8).strength(.2))
+          .alphaDecay([0.001])
+          //.velocityDecay([.07])
+
+        simulation.force('collide', d3.forceCollide(d => occRadius[d.status[0]]))
+
+        simulation.alpha(1).restart()
+
+        d3
+        .selectAll(".circle")
+        .filter(function (d) { return isNaN(d.histogram_column) === true; })
+        .each(function (d, i){
+              var $this = d3.select(this)
+              $this
+              .transition('reappear').duration(500)
+              .attr('opacity', 1)
+            })
+    }
+
+      //Actions
+      d3.selectAll(".circle")
+        .transition("c1").duration(500)
+        .attr("opacity", function(d){ return chainOpacity[d.chain][0] } )
+        .style('fill',function(d){ return chainColors[d.chain]})
+      
+      d3.selectAll('.cityvalue')
+        .text('11%')
+
+      d3.selectAll(".unoccupiedCircle")
+      .transition("c2").duration(500)
+      .attr("r", 0)
+      .attr("opacity", 0)
+        
+
+      window.step = 11
+
+      }
+
+
+  function histogram(){
+
+
+    if(window.step == 11){
+
+      simulation
+        .force('charge', d3.forceManyBody().strength([0])) 
+        .force('collide', d3.forceCollide(0))
+        .force('forceX', d => histXScale(d.sidewalk))
+        .force('forceY', d => histYScale(d.histogram_column+(categoriesXY[d.fincat][3]*37)))
+
+        simulation.stop()
+    }
+    
+    clean(['.citywide','#madison_text','#jackson_text','#hub_text'],500,'hide_labels')
+
+    //Move Labels
+    d3.selectAll('#madison_label')
+    .transition("l1").duration(500).delay(100)
+      .attr("x",width*.3)
+      .attr("y",histYScale(48))
+      //.style("font-size",h2 + 'em')
+      .style("text-anchor", "end")
+
+    d3.selectAll('#jackson_label')
+    .transition("l2").duration(500).delay(100)
+      .attr("x",width*.3)
+      .attr("y",histYScale(10))
+      //.style("font-size",h2 + 'em')
+      .style("text-anchor", "end")
+
+    d3.selectAll('#hub_label')
+    .transition("l3").duration(500).delay(100)
+      .attr("x",width*.3)
+      .attr("y",histYScale(85))
+      //.style("font-size",h2 + 'em')
+      .style("text-anchor", "end")
+
+
+    d3
+        .selectAll(".circle")
+        .filter(function (d) { return isNaN(d.histogram_column) === true; })
+        .each(function (d, i){
+              var $this = d3.select(this)
+              $this
+              .transition("fade_away").duration(500)
+              .attr('opacity', 0)
+              .transition("move_offscreen").duration(500).delay(100)
+              .attr('cx', 0)
+              .attr('cy', 0)
+            })
+
+    svg.selectAll('.circle')
+    .filter(function (d) { return isNaN(d.histogram_column) === false; })
+    .each(function (d, i){
+              var $this = d3.select(this)
+              $this
+              .transition("change_opacity").duration(500).delay(100)
+              .attr('opacity', function(d){
+                if (d.sidewalk >= 11){
+                  return 1
+                }else{
+                  return .3
+                }
+              })
+              .attr('r', 4)
+              .attr('cx', d => histXScale(d.sidewalk))
+              .attr('cy', d => histYScale(d.histogram_column+(categoriesXY[d.fincat][3]*37)))
+              .style('fill', d => categoriesXY[d.corridor][2])
+            })
+        
+            //.attr('fill', d => categoryColorScale(d.Category))
+
+      activate(['.hist-axis','.dash-line','.histlabel','.histtitle'],500,'hist')
+
+    
+
+  
+      //STEP
+          window.step = 12
+    }
+
+
+
+  
+  function buffer(){
+
+          window.step = 13
+    }
+
+
+    let functions = [
+        initialize,
+        stepone,
+        steptwo,
+        jackson_two,
+        hub,
+        hub_two,
+        madison,
+        madison_two,
+        stepthree,
+        vacancy,
+        essential,
+        chains,
+        histogram,
+        buffer]
+
+
+
+  
+  var gs = d3.graphScroll()
+      .offset(350)
+      .container(d3.select('.container-1'))
+      .graph(d3.selectAll('container-1 #graph'))
+      .eventId('uniqueId1')  // namespace for scroll and resize events
+      .sections(d3.selectAll('.container-1 #sections > div'))
+      // .offset(innerWidth < 900 ? innerHeight - 30 : 200)
+      .on('active', function(i){
+        functions[i]()    
+      })
+
+
+  /*var svg2 = d3.select('.container-2 #graph').html('')
+    .append('svg')
+      .attrs({width: width, height: height})
+
+  var path = svg2.append('path')
+
+  var gs2 = d3.graphScroll()
+      .container(d3.select('.container-2'))
+      .graph(d3.selectAll('.container-2 #graph'))
+      .eventId('uniqueId2')  // namespace for scroll and resize events
+      .sections(d3.selectAll('.container-2 #sections > div'))
+      .on('active', function(i){
+      })*/
+
+  
+}
+render()
+
+
+
+</script>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Maps in D3js</title>
+        <meta name="description" content="Maps in d3js">
+        <meta name="author" content="Edward Mac Gillavry">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="d3js">
+        <link rel="shortcut icon" href="">
+        <style>
+            body {
+                background-color: #fffaf5;
+            }
+            svg {
+                background-color: #fffaf5;
+            }
+            .gemeente {
+                fill: #ccc;
+                stroke-width: 0.4;
+                stroke: #fff;
+            }
+            .quakes {
+                fill: #317581;
+                fill-opacity: 0.6;
+                stroke-width: 0.7;
+                stroke: #fff;
+            }
+            .induced {
+                fill: #EA9657;
+            }
+            .tectonic{
+                fill: #35495D;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="https://raw.githubusercontent.com/gka/d3-jetpack/master/build/d3v4%2Bjetpack.js?spm=a2c6h.14275010.0.0.2cf31e8bsomrPQ&file=d3v4%2Bjetpack.js"></script>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="https://d3js.org/d3-tile.v0.0.min.js"></script>
+        <script>
+            let width = 450,
+                height = 600,
+                svg = d3.select("body")
+                    .append("svg")
+                    .attr('width', width)
+                    .attr('height', height),
+                tau = 2 * Math.PI;
+            d3.queue()
+                .defer(d3.json, "gemeenten2017.topojson")
+                .defer(d3.json, "aardbevingen_NL.geojson")
+                .await(ready);
+            function ready(error, municipalities,earthquakes){
+                if (error) throw error;
+                let gemeenten = topojson.feature(municipalities, municipalities.objects.municipalities);
+                earthquakes.features.sort(function(a, b) { return b.properties.MAG - a.properties.MAG; });
+                let projection = d3.geoMercator()
+                    .fitSize([width, height], gemeenten);
+                let path = d3.geoPath()
+                    .projection(projection);
+                let tiles = d3.tile()
+                      .size([width, height])
+                      .scale(projection.scale() * tau)
+                      .translate(projection([0, 0]))
+                      ();
+                svg.selectAll("image")
+                    .data(tiles)
+                    .enter().append("image")
+                    .attr("xlink:href", function(d) { return "https://geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartgrijs/EPSG:3857/" + d[2] + "/" + d[0] + "/" + d[1] + ".png"; })
+                    .attr("x", function(d) { return (d[0] + tiles.translate[0]) * tiles.scale; })
+                    .attr("y", function(d) { return (d[1] + tiles.translate[1]) * tiles.scale; })
+                    .attr("width", tiles.scale)
+                    .attr("height", tiles.scale);
+                svg.append("g")
+                    .selectAll("path")
+                    .data(gemeenten.features)
+                    .enter()
+                    .append("path")
+                    .attr("class","gemeente")
+                    .attr("d", path)
+                    .append("title")
+                    .text(function(d) { return d.properties.name});
+                svg.selectAll(".quakes")
+                    .data(earthquakes.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", path.pointRadius(function(d) {
+                        return 2.5*Math.sqrt((Math.exp(parseFloat(d.properties.MAG))));
+                    })) 
+                    .attr("class",function(d) {
+                        return d.properties.TYPE == "ind" ? "quakes induced" : "quakes tectonic";
+                    });
+            }
+        </script>
+    </body>
+</html>
