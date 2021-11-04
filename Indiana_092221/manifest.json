@@ -203,8 +203,8 @@
           "source": "American Community Survey; 5-Year Estimates"
         },
         {
-          "title": "Tenure",
-          "description": "Renter versus owner-occupied existing housing units.",
+          "title": "Homeownership",
+          "description": "Renter versus owner-occupied existing housing units",
           "variables": [
             {
               "name": "Renter occupied",
@@ -280,7 +280,7 @@
         "housing": [
         {
           "title": "Housing Units by Typology",
-          "description": "Breakdown of existing housing units by housing type.",
+          "description": "Breakdown of existing housing units by housing type",
           "variables": [
             {
               "name": "Detached Single Family Home",
@@ -335,50 +335,50 @@
           "source": "American Community Survey; 5-Year Estimates"
         },
         {
-          "title": "Housing Units by Decade Built",
-          "description": "Breakdown of existing housing units by decade built.",
+          "title": "Housing Units by Year Built",
+          "description": "Breakdown of existing housing units by year built",
           "variables": [
-            {
-              "name": "Before 1940",
-              "code": "B25034_011E"
-            },
-            {
-              "name": "1940's",
-              "code": "B25034_010E"
-            },
-            {
-              "name": "1950's",
-              "code": "B25034_009E"
-            },
-            {
-              "name": "1960's",
-              "code": "B25034_008E"
-            },
-            {
-              "name": "1970's",
-              "code": "B25034_007E"
-            },
-            {
-              "name": "1980's",
-              "code": "B25034_006E"
-            },
-            {
-              "name": "1990's",
-              "code": "B25034_005E"
-            },
-            {
-              "name": "2000's",
-              "code": "B25034_004E"
-            },
-            {
-              "name": "2010-2014",
-              "code": "B25034_003E"
-            },
-            {
-              "name": "2014-2019",
-              "code": "B25034_002E"
-            }
-          ],
+    {
+        "name": "2014-2019",
+        "code": "B25034_002E"
+    },
+    {
+        "name": "2010-2014",
+        "code": "B25034_003E"
+    },
+    {
+        "name": "2000's",
+        "code": "B25034_004E"
+    },
+    {
+        "name": "1990's",
+        "code": "B25034_005E"
+    },
+    {
+        "name": "1980's",
+        "code": "B25034_006E"
+    },
+    {
+        "name": "1970's",
+        "code": "B25034_007E"
+    },
+    {
+        "name": "1960's",
+        "code": "B25034_008E"
+    },
+    {
+        "name": "1950's",
+        "code": "B25034_009E"
+    },
+    {
+        "name": "1940's",
+        "code": "B25034_010E"
+    },
+    {
+        "name": "Before 1940",
+        "code": "B25034_011E"
+    }
+],
           "type": "donut",
           "dataset": "G1",
           "year": "latest",
@@ -424,7 +424,7 @@
         },
         {
           "title": "Housing Starts",
-          "description": "Number of units constructed per year.",
+          "description": "Number of units constructed per year",
           "variables": [
             {
               "name": "Housing Starts",
@@ -445,7 +445,7 @@
         "housingafford": [
         {
           "title": "Cost Burdened Households",
-          "description": "Cost burdened households are those putting more than 30% of their household income towards housing expenses.",
+          "description": "Cost burdened households are those putting more than 30% of their household income towards housing expenses",
           "variables": [
             {
               "name": "Owners",
@@ -469,8 +469,8 @@
           "source": "American Community Survey; 5-Year Estimates"
         },
         {
-          "title": "Cost Burden by Tenure",
-          "description": "Cost burdened households are those putting more than 30% of their household income towards housing expenses. Tenure indicates renter versus owner-occupied existing housing units.",
+          "title": "Cost Burden by Homeownership Status",
+          "description": "Tenure indicates renter versus owner-occupied existing housing units",
           "variables": [
             {
               "name": "Total Population",
@@ -511,7 +511,6 @@
         },
         {
           "title": "Cost Burden by Income",
-          "description": "Cost burdened households are those putting more than 30% of their household income towards housing expenses.",
           "variables": [
             {
               "name": "$20k - $34k",
@@ -544,7 +543,7 @@
         },
         {
           "title": "Rental Housing Gap",
-          "description": "Number of households in each income group and existing housing units that are affordable to those households.",
+          "description": "Number of households in each income group and existing housing units that are affordable to those households",
           "variables": [
             {
               "name": "Total Population",
@@ -581,7 +580,7 @@
         },
         {
           "title": "Home Value Affordable to Median Household",
-          "description": "Home purchase price affordable to a household earning the median annual income.",
+          "description": "Home purchase price affordable to a household earning the median annual income",
           "variables": [
             {
               "name": "Less than $10,000",
@@ -616,7 +615,7 @@
         },
         {
           "title": "Top 5 Employers by Jobs",
-          "description": "Employers with the top 5 most employees.",
+          "description": "Employers with the top 5 most employees",
           "variables": [
             {
               "name": "Top 5 Jobs",
@@ -649,7 +648,7 @@
         },
         {
           "title": "Inflow/Outflow",
-          "description": "Indicates flow between home and employment location of workers.",
+          "description": "Indicates flow between home and employment location of workers",
           "variables": [
             {
               "name": "Work and Live",
