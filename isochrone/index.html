@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--  Include leaflet javascript and css -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/7a4305c6cb.js" crossorigin="anonymous"></script>
+
+    <!--  Include targomo core -->
+    <script src="https://releases.targomo.com/core/latest.min.js"></script>
+    <script src="https://releases.targomo.com/leaflet/latest.min.js"></script>
+
+     <script src="spin/dist/spin.min.js" charset="utf-8"></script>
+    <script src="leaflet.spin.min.js" charset="utf-8"></script>
+
+    <link rel="icon" type="image/png" href="/favicon-16x16.png"/>
+    <link rel="icon" type="image/png" href="https://www.hraadvisors.com/wp-content/themes/madeo-child/_include/img/favicon-16x16.png"/>
+
+<!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+    integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+    crossorigin=""></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <style>
+        body, html {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+
+        }
+        .button-group {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            z-index: 400;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .button {
+            font-family: sans-serif;
+            text-transform: uppercase;
+            color: #666;
+            cursor: pointer;
+            padding: 10px 10px 8px 10px;
+            display: inline-block;
+            font-size: 14px;
+        }
+        .button:hover {
+            background-color: #EEE;
+        }
+        .button.active {
+            color: #003E7A;
+        }
+
+    
+        #btn-spin {
+         position: absolute;
+        left: 200px;
+        z-index: 10;
+        font-size: 1.5em;
+        }
+        #export {
+            position: absolute;
+            top:50px;
+            right:0px;
+            z-index:100;
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+            color:#666;
+            padding:10px 10px 8px 10px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size:14px;
+            text-decoration:none;
+        }
+        #export {
+            top:40px;
+        }
+        #request {
+            position: absolute;
+            top:50px;
+            right:0px;
+            z-index:100;
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+            color:#666;
+            padding:10px 10px 8px 10px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size:14px;
+            text-decoration:none;
+        }
+        #request {
+            top:80px;
+        }
+        .slidecontainer {
+          width: 50%; /* Width of the outside container */
+          z-index: 100;
+          box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+          background-color: rgba(255, 255, 255, 1);
+          position: absolute;
+            right: 25%;
+            bottom: 10px;
+            z-index: 400;
+        }
+
+        /* The slider itself */
+        .slider {
+          -webkit-appearance: none;  /* Override default CSS styles */
+          width: 95%;
+          position: absolute;
+          right: 2%;
+          top: 10px; /* Full-width */
+          height: 25px; /* Specified height */
+          background: #d3d3d3; /* Grey background */
+          outline: none; /* Remove outline */
+          opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+          -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+          transition: opacity .2s;
+        }
+
+        /* Mouse-over effects */
+        .slider:hover {
+          opacity: 1; /* Fully shown on mouse-over */
+        }
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none; /* Override default look */
+          appearance: none;
+          width: 25px; /* Set a specific slider handle width */
+          height: 25px; /* Slider handle height */
+          background: #003E7A; /* Green background */
+          cursor: pointer; /* Cursor on hover */
+        }
+
+        .slider::-moz-range-thumb {
+          width: 25px; /* Set a specific slider handle width */
+          height: 25px; /* Slider handle height */
+          background: #4CAF50; /* Green background */
+          cursor: pointer; /* Cursor on hover */
+        }
+         .minute {
+            font-family: sans-serif;
+            text-transform: uppercase;
+            color: #003E7A;
+            cursor: pointer;
+            padding: 30px 10px 0px 10px;
+            display: inline-block;
+            font-size: 14px;
+        }
+        .logo {
+            position: absolute;
+            bottom:20px;
+            right:10px;
+            z-index:400;
+            cursor: pointer;
+        }
+        #info {
+            position: absolute;
+            bottom:10px;
+            left:10px;
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+            color:#666;
+            padding:10px 10px 8px 10px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size:14px;
+            text-decoration:none;
+            z-index:400;
+        }
+        #infowindow {
+           position: absolute;
+            bottom:111px;
+            width: 90%;
+            height: 77%;
+            margin-left: 5%;
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+            color:#666;
+            padding:10px 10px 8px 10px;
+            font-family: sans-serif;
+            cursor: pointer;
+            font-size:14px;
+            text-decoration:none;
+            z-index:900;
+        }
+        #header {
+        position: absolute;
+            top:10px;
+            width:98%;
+            font-size:15px;
+            z-index:-1;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            text-decoration:none;
+            color: #003E7A;
+            cursor: pointer;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        #assumptions {
+            position: absolute;
+            top:39px;
+            height: 90%;
+            width: 98.5%;
+            overflow: auto;
+        }
+        #closewindow {
+        position: absolute;
+            top:1.5%;
+            right:1.5%;
+            font-size:15px;
+            z-index:-1;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            text-decoration:none;
+            color: #003E7A;
+            cursor: pointer;
+        }
+        #isolate {
+        position: absolute;
+            width:100%;
+            height:100%;
+            z-index:900;
+            background-color: #000;
+            opacity:.75;
+        }
+    </style>
+</head>
+
+<body>
+    <div id=isolate> </div>
+    <div id="map"></div>
+<script>
+let medium = 'transit';
+</script>
+
+<div class="slidecontainer">
+    <center><input type="range" min="1" max="120" value="30" class="slider" id="myRange">
+    <p style ="margin-bottom: 6px;"><span id="demo" class = "minute"> min</span></p></center>
+</div>
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value + ' min'; // Display the default slider value
+    travelTimes = [slider.value*60];
+
+    slider.oninput = function() {
+          output.innerHTML = this.value + ' min';
+          travelTimes = [this.value*60]
+    }
+    slider.onchange = function() {
+            setData(medium);
+    }
+</script>
+
+    <div id="selectionBar" class="button-group">
+        <div id="btn-walk" onclick="setData(&apos;walk&apos;); medium = 'walk'" class="button">walk</div>
+        <div id="btn-bike" onclick="setData(&apos;bike&apos;); medium = 'bike'" class="button active">bike</div>
+        <div id="btn-car" onclick="setData(&apos;car&apos;); medium = 'car'"" class="button">car</div>
+        <div id="btn-transit" onclick="setData(&apos;transit&apos;); medium = 'transit'"" class="button">transit</div>
+        <a href='#' id='export'>Export Features</a>
+        <!-- <div id="request" onclick="showPop(convertedStudy2)" class="button">Calcuate Demographics</div> -->
+      <!-- fetchAPI(); -->  
+    </div>
+        <div id="info" class="button">User Guide</div>
+        <span id="info2"></span>
+        <div id=infowindow>
+        <div id=header> <b>      User Guide </b></div><div id=closewindow> <i class="far fa-times-circle"></i> </div>
+        <div id=assumptions>
+<h2> HR&A Travelshed Mapping Tool </h2>
+HR&A’s travelshed mapping tool is a web-based application for mapping the set of all destinations that can
+be reached from a location within a specified time budget. The travelshed area is sometimes also called an
+“isochrone.<br><br>
+<b>Directions:</b>
+<ul>
+<li><b>Origin:</b> Users can change the starting location by pointing and clicking on a new location on the
+map, or by using the search bar in the upper left corner to find a new origin point.</li>
+<li><b>Travel Mode:</b> The mode of travel can be toggled by selecting an option in the upper right-hand
+corner.<ul><li><i>Note: By default, this analysis assumes one will walk to the nearest transit stops before
+boarding. “Transit” is analogous to “Walk + Transit”</i></li></ul></li>
+<li><b>Time Interval:</b> The time interval can be adjusted by dragging the slider near the bottom of the
+page.<ul><li><i>Note: There is a 120-minute maximum time interval based on the restriction of the API we are
+utilizing, for increased time intervals, see the “Custom Inputs” section below.</i></li></ul></li>
+</ul>
+
+<h4>How is this useful?</h4>
+The resulting travelshed geometries give quick visual cues about access, but can be used in further geospatial
+analysis. Some examples of their utility include: <br>
+<ul><li>counting the population within 30 minutes time-distance of a public facility;</li>
+    <li>counting the number of businesses/jobs accessible from a given location;</li>
+    <li>finding the median income of residents living withing 30 minutes of an office development</li></ul>
+The “Export Features” button allows for the download of the geographic data of the displayed travelshed
+in “GeoJSON” format for import into other GIS software such as ArcGIS Online where the user may run a
+geoenrichment analysis to find demographic data. Guides for how to use GIS are saved <a href="file://hra.corp/public/HRAShare/Resources/GIS%20Tools%20and%20Best%20Practices/User%20Guides/User%20Guides" target="_blank">here</a>.<br><br>
+    
+<h4>Assumptions and Sources</h4>
+The core routing technology is the <a href="https://targomo.com/developers/documentation/javascript/">Targomo API</a> which utilizes <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap (OSM)</a> for the street network
+data represented in the “Walk”, “Bike”, and “Car” options. OSM provides both the geospatial data for the
+road network as well as data on street speed restrictions, accessibility flags, and turning restrictions, among
+others.<br><br>
+The generated transit routes where available are based on GTFS (General Transit Feed Specification) data
+provided by local transit agencies. A list of cities currently covered is available <a href="https://targomo.com/developers/resources/coverage/northamerica/" target="_blank">here</a>. Transit is defined as
+any service provided by a public transit agency and includes busses, trains, and ferries where they exist. If
+you are unsure if the transit system you are looking for is represented, you can confirm by toggling between
+"Walk" and "Transit" to check for differences. If no transit data is available, the Walk and Transit layers
+will be the same.<br><br>
+The trip planning software creates a graph object by overlaying the transit network with the street network
+and identifying connections and points of transfer. The intersections between roadways, along with individual transit stops, become nodes and the connecting roadways and transit lines become the “edges” of the graph. The software uses the travel assumptions listed below to find the travelshed for any given point. 
+
+<h4>Routing - Streets</h4>
+The trip planning software takes into account different types of roads as well as access flags, if present.
+Roads like motorways and other major roads are not accessible for pedestrians, while footways and
+pedestrian-only streets are not accessible for cars, unless they are flagged otherwise. It also fully considers
+turning restrictions for cars and bikes. If a crossing has a restriction that forbids turning from one street to
+another the algorithm will not take this route. Speed limitations of streets are also taken into account if
+present; otherwise, the following defaults are used. Elevation data has no impact on car routing. OSM’s
+default roadway assumptions for different classes of roads are listed below (Note: these assumptions are
+only utilized when a local municipal transportation authority has not provided more detailed speed
+restrictions):<br>
+<center>
+<h5>Open Street Map Edge Type Defaults</h5>
+<table>
+<thead>
+<tr>
+<th align="left">Roadway Type</th>
+<th align="center">Default speed (kph)</th>
+<th align="center">Default speed (mph)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Motorway</td>
+<td align="center">120</td>
+<td align="center">75</td>
+</tr>
+
+<tr>
+<td>Motorway Link</td>
+<td align="center">30</td>
+<td align="center">19</td>
+</tr>
+
+<tr>
+<td>Trunk</td>
+<td align="center">90</td>
+<td align="center">56</td>
+</tr>
+
+<tr>
+<td>Trunk Link</td>
+<td align="center">30</td>
+<td align="center">19</td>
+</tr>
+
+<tr>
+<td>Primary</td>
+<td align="center">70</td>
+<td align="center">43</td>
+</tr>
+
+<tr>
+<td>Primary Link</td>
+<td align="center">30</td>
+<td align="center">19</td>
+</tr>
+
+<tr>
+<td>Secondary</td>
+<td align="center">60</td>
+<td align="center">37</td>
+</tr>
+
+<tr>
+<td>Secondary Link</td>
+<td align="center">30</td>
+<td align="center">19</td>
+</tr>
+
+<tr>
+<td>Tertiary</td>
+<td align="center">40</td>
+<td align="center">25</td>
+</tr>
+
+<tr>
+<td>Residential</td>
+<td align="center">40</td>
+<td align="center">25</td>
+</tr>
+
+<tr>
+<td>Tertiary Link</td>
+<td align="center">30</td>
+<td align="center">19</td>
+</tr>
+
+<tr>
+<td>Road</td>
+<td align="center">30</td>
+<td align="center">19</td>
+</tr>
+
+<tr>
+<td>Unclassified</td>
+<td align="center">30</td>
+<td align="center">19</td>
+</tr>
+
+<tr>
+<td>Service</td>
+<td align="center">5</td>
+<td align="center">2</td>
+</tr>
+
+<tr>
+<td>Living Street</td>
+<td align="center">7</td>
+<td align="center">4</td>
+</tr>
+
+<tr>
+<td>Pedestrian</td>
+<td align="center">5</td>
+<td align="center">3</td>
+</tr>
+
+<tr>
+<td>Track</td>
+<td align="center">10</td>
+<td align="center">6</td>
+</tr>
+
+<tr>
+<td>Path</td>
+<td align="center">10</td>
+<td align="center">6</td>
+</tr>
+
+<tr>
+<td>Cycleway</td>
+<td align="center">15</td>
+<td align="center">9</td>
+</tr>
+
+<tr>
+<td>Footway</td>
+<td align="center">5</td>
+<td align="center">3</td>
+</tr>
+
+<tr>
+<td>Steps</td>
+<td align="center">5</td>
+<td align="center">3</td>
+</tr>
+
+<tr>
+<td>Unknown</td>
+<td align="center">5</td>
+<td align="center">3</td>
+</tr>
+
+<tr>
+<td>Ferry</td>
+<td align="center">10</td>
+<td align="center">6</td>
+</tr>
+</tbody>
+</table>
+</center>
+
+<h5 id="penalties">Penalties</h5>
+
+Driver’s-side turns and traffic lights impose a penalty to the travel time.<br>
+<i>A “Rush Hour” penalty is enabled by default (unless requested otherwise), applying a statistical probability for
+congestion based on the density of streets. This is then used to slow down the travel time for car travel.</i>
+<br>
+<h5 id="uphill-downhill-travel">Uphill/Downhill Travel</h5>
+Walking and cycling also take elevation into account (unless requested otherwise). Uphill and downhill travel
+are altered using “uphill” and “downhill” parameters. Positive values acquired from OSM slow down travel while negative values speed it up. This is done by virtually increasing or decreasing the length of a street. Every meter in elevation difference, multiplied by the uphill or downhill penalty, increases or decreases the length used to calculate the travel time. So every additional vertical meter uphill with an uphill penalty of 10 is equivalent to an additional 10m of horizontal travel. The defaults are currently: uphill=10.0, downhill=0.0 for walking and uphill=20.0, downhill=-10.0 for cycling. The default speed without elevation for walking is 5.0 km/h, for cycling is 15.0 km/h<br>
+<h4>Routing - Transit</h4>
+The General Transit Feed Specification (GTFS) is a data specification that allows public transit agencies to
+publish their transit data in a format that can be consumed by a wide variety of software applications. The
+GTFS used in the model is the static version that aligns with the published transit agency schedule along with
+geographic transit information such as stop locations and line routing. While real-time GTFS exists for routing
+in online mapping platforms such as Google Maps, accounting for delays and unexpected schedule changes,
+the model is meant to be a generalized tool based on macro-level transit schedules.<br><br>
+When using public transportation, the routing is performed for a time window (frame). The algorithm searches
+for the shortest route(s) in the given timeframe based on the static schedules provided by the local transit
+authority. For example, using a transit frame starting at 8:00am and a duration of 2 hours, a polygon ring
+for 20 minutes will include all points reachable within 20 min regardless of starting the travel at 8:00am or
+9:40am. The default travel time for this analysis is set at 1.30pm. with a duration of 2 hours (unless requested
+otherwise).<br><br>
+Entering, leaving and changing a transit vehicle imposes a penalty; a route has to be faster (compared to
+walking and other transit routes with their penalties) at least by the sum of these penalties to be considered.
+The penalties are currently 90 seconds for entering and leaving and 180 seconds for changing.
+<br><br>
+<h4>Custom Inputs</h4>
+If you are looking for a variance from the default assumptions, contact <a href="mailto:kclyne@hraadvisors.com">Kevin</a> who can set-up the analysis. Currently, the API utilized does not allow for time intervals greater than 120 minutes, but it is possible for us to deploy a server running the routing software independently to incorporate greater time intervals or to
+make adjustments for new or unrepresented transit agencies or to other default assumptions.<br><br>
+
+
+If the transit system you are looking for is not represented, check <a href="https://transitfeeds.com/feeds"  target="_blank">TransitFeeds</a> to check if your locality provides transit data in GTFS format, in which case it can be easily added to a new deployment of the routing software. If your local transit agency does not provide schedule data in GTFS format, it is still possible to run an analysis by converting the schedule to GTFS using an online GTFS manager (such as <a href="https://static-gtfs-manager.herokuapp.com/index.html" target="_blank">this one<a>.) If you are interested in modeling accessibility for a transit agency without data in GTFS or for a prospective future transit route, please contact Kevin.
+</div>
+</div>
+
+
+
+        </div>
+        <img src="logo.png" class="logo">
+
+
+    <script>
+
+
+
+
+
+        //slider
+        // create targomo client
+        const client = new tgm.TargomoClient('northamerica', '1AVFMMCTC28HZN1PPSN7JAG');
+        // define the basemap
+        const colorModes = [
+            {text: 'Standard', value:"standard", data: {60: '#003E7A',120: '#003E7A',180: '#003E7A',240: '#003E7A',300: '#003E7A',360: '#003E7A',420: '#003E7A',480: '#003E7A',540: '#003E7A',600: '#003E7A',660: '#003E7A',720: '#003E7A',780: '#003E7A',840: '#003E7A',900: '#003E7A',960: '#003E7A',1020: '#003E7A',1080: '#003E7A',1140: '#003E7A',1200: '#003E7A',1260: '#003E7A',1320: '#003E7A',1380: '#003E7A',1440: '#003E7A',1500: '#003E7A',1560: '#003E7A',1620: '#003E7A',1680: '#003E7A',1740: '#003E7A',1800: '#003E7A',1860: '#003E7A',1920: '#003E7A',1980: '#003E7A',2040: '#003E7A',2100: '#003E7A',2160: '#003E7A',2220: '#003E7A',2280: '#003E7A',2340: '#003E7A',2400: '#003E7A',2460: '#003E7A',2520: '#003E7A',2580: '#003E7A',2640: '#003E7A',2700: '#003E7A',2760: '#003E7A',2820: '#003E7A',2880: '#003E7A',2940: '#003E7A',3000: '#003E7A',3060: '#003E7A',3120: '#003E7A',3180: '#003E7A',3240: '#003E7A',3300: '#003E7A',3360: '#003E7A',3420: '#003E7A',3480: '#003E7A',3540: '#003E7A',3600: '#003E7A',3660: '#003E7A',3720: '#003E7A',3780: '#003E7A',3840: '#003E7A',3900: '#003E7A',3960: '#003E7A',4020: '#003E7A',4080: '#003E7A',4140: '#003E7A',4200: '#003E7A',4260: '#003E7A',4320: '#003E7A',4380: '#003E7A',4440: '#003E7A',4500: '#003E7A',4560: '#003E7A',4620: '#003E7A',4680: '#003E7A',4740: '#003E7A',4800: '#003E7A',4860: '#003E7A',4920: '#003E7A',4980: '#003E7A',5040: '#003E7A',5100: '#003E7A',5160: '#003E7A',5220: '#003E7A',5280: '#003E7A',5340: '#003E7A',5400: '#003E7A',5460: '#003E7A',5520: '#003E7A',5580: '#003E7A',5640: '#003E7A',5700: '#003E7A',5760: '#003E7A',5820: '#003E7A',5880: '#003E7A',5940: '#003E7A',6000: '#003E7A',6060: '#003E7A',6120: '#003E7A',6180: '#003E7A',6240: '#003E7A',6300: '#003E7A',6360: '#003E7A',6420: '#003E7A',6480: '#003E7A',6540: '#003E7A',6600: '#003E7A',6660: '#003E7A',6720: '#003E7A',6780: '#003E7A',6840: '#003E7A',6900: '#003E7A',6960: '#003E7A',7020: '#003E7A',7080: '#003E7A',7140: '#003E7A',7200: '#003E7A'
+}},
+        ];
+        const tileLayer = L.tileLayer('https://api.mapbox.com/styles/v1/kpclyne/cjy9ts3mh0y9j1do9uss5fz8o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoia3BjbHluZSIsImEiOiJjanN3MzlpY2EwZGpjM3lsaGNhb3NqY3JmIn0._sGjIhmL5Xt08WIMWRsSsg');
+        // Coordinates to center the map
+        const center = [40.719040, -74.008927];
+
+        // define the map
+        var map = L.map('map', {
+            layers: [tileLayer],
+            scrollWheelZoom: true
+        }).setView(center, 12);
+        
+        var markerimage = L.icon({
+            iconUrl: 'bluemarker.png',
+            shadowUrl: 'markershadow.png',
+
+            iconSize:     [35.5, 46], // size of the icon
+            shadowSize:   [36, 16], // size of the shadow
+            iconAnchor:   [18.5, 43], // point of the icon which will correspond to marker's location
+            shadowAnchor: [10, 10],  // the same for the shadow
+            popupAnchor:  [0, -43] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var geocoder = L.Control.geocoder({
+            defaultMarkGeocode: false,
+            position: "topleft"
+        })
+            .on('markgeocode', function(e) {
+                var lat = e.geocode.center.lat;
+                var lng = e.geocode.center.lng;
+                source = {id: source.id, lat: lat, lng: lng};
+                if (marker != undefined) {
+                  map.removeLayer(marker);
+                };
+                marker = L.marker((e.geocode.center), {icon: markerimage}).addTo(map);
+                async function setData(medium) {
+                const selector = `btn-${medium}`;
+                map.spin(false);
+
+                // you need to define some options for the polygon service
+                const options = {
+                travelType: medium,
+                travelEdgeWeights: travelTimes,
+                maxEdgeWeight: 7200,
+                edgeWeight: 'time',
+                transitMaxTransfers: medium === 'transit' ? 5 : null,
+                serializer: 'json',
+                rushHour: medium === 'car' ? true : null,
+                 };
+                const options2 = {
+                travelType: medium,
+                travelEdgeWeights: travelTimes,
+                maxEdgeWeight: 7200,
+                edgeWeight: 'time',
+                transitMaxTransfers: medium === 'transit' ? 5 : null,
+                serializer: 'geojson',
+                rushHour: medium === 'car' ? true : null,
+                buffer: '0.005',
+                };
+
+                // get the polygons
+                const polygons = await client.polygons.fetch([source], options);
+                const polygons2 = await client.polygons.fetch([source], options2);
+                var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(polygons2));
+                geom = polygons2.features[0].geometry.coordinates[0];
+                //
+                newgeo = [];
+                  polygons.forEach(function(entry) {
+                      newgeo.push(entry[0]);
+                  });
+                  console.log(newgeo);
+
+                convertedStudy2 = encodeURIComponent(JSON.stringify(newgeo));
+                convertedStudy = encodeURIComponent(JSON.stringify(geom));
+                // add polygons to overlay
+                setTimeout(function () {
+                    polygonOverlayLayer.setData(polygons);
+                    map.spin(false);
+                }, 200);
+                // calculate bounding box for polygons
+                const bounds = polygons.getMaxBounds();
+                // zoom to the polygon bounds
+                map.fitBounds(new L.latLngBounds(bounds.northEast, bounds.southWest));
+                // get the geojson
+                geocodeService.reverse().latlng(e.geocode.center).run(function(error, result){
+                geo = result.address.City;
+                name = today + '_' + geo + '_' + output.innerHTML + '_' + medium;
+                newname = name.toUpperCase()
+                console.log(newname);
+                document.getElementById('export').onclick = function(e) {
+                document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+                document.getElementById('export').setAttribute('download', newname +'.geojson');
+
+            } 
+            });
+
+        }
+                setData(medium);
+            })
+            .addTo(map);
+        // set the attribution
+        const attributionText = `<a href='https://www.hraadvisors.com' target='_blank'>&copy; Kevin Clyne</a> <a href='http://mapbox.com/' target='_blank'>&copy; MapBox</a> <a href='https://targomo.com/developers/attribution/' target='_blank'>&copy; Targomo</a>`
+        map.attributionControl.addAttribution(attributionText);
+        var geocodeService = L.esri.Geocoding.geocodeService();
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        var yy = (yyyy - 2000);
+        if (dd < 10) {
+         dd = '0' + dd;
+        } 
+        if (mm < 10) {
+        mm = '0' + mm;
+        } 
+
+        var today = yy + mm + dd;
+        // const travelTimes = [300, 600, 900, 1200, 1500, 1800];
+        let source = {id: 0, lat: 40.719040, lng: -74.008927};
+        let marker = L.marker([40.719040, -74.008927], {icon: markerimage}).addTo(map);
+        const polygonOverlayLayer = new tgm.leaflet.TgmLeafletPolygonOverlay({ strokeWidth: 20 });
+        polygonOverlayLayer.addTo(map);
+        polygonOverlayLayer.setColors(colorModes[0].data)
+        
+        // draw marker and add source
+        function onMapClick(e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+            source = {id: source.id, lat: lat, lng: lng};
+            if (marker != undefined) {
+              map.removeLayer(marker);
+            };
+            marker = L.marker((e.latlng), {icon: markerimage}).addTo(map);
+            async function setData(medium) {
+                const selector = `btn-${medium}`;
+                map.spin(true);
+
+                // you need to define some options for the polygon service
+                const options = {
+                travelType: medium,
+                travelEdgeWeights: travelTimes,
+                maxEdgeWeight: 7200,
+                edgeWeight: 'time',
+                transitMaxTransfers: medium === 'transit' ? 5 : null,
+                serializer: 'json',
+                rushHour: medium === 'car' ? true : null,
+                 };
+                const options2 = {
+                travelType: medium,
+                travelEdgeWeights: travelTimes,
+                maxEdgeWeight: 7200,
+                edgeWeight: 'time',
+                transitMaxTransfers: medium === 'transit' ? 5 : null,
+                serializer: 'geojson',
+                rushHour: medium === 'car' ? true : null,
+                buffer: '0.005',
+                };
+
+                // get the polygons
+                const polygons = await client.polygons.fetch([source], options);
+                const polygons2 = await client.polygons.fetch([source], options2);
+                var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(polygons2));
+                geom = polygons2.features[0].geometry.coordinates[0];
+                //
+                newgeo = [];
+                  polygons.forEach(function(entry) {
+                      newgeo.push(entry[0]);
+                  });
+                  console.log(newgeo);
+
+                convertedStudy2 = encodeURIComponent(JSON.stringify(newgeo));
+                convertedStudy = encodeURIComponent(JSON.stringify(geom));
+                // add polygons to overlay
+                setTimeout(function () {
+                    polygonOverlayLayer.setData(polygons);
+                    map.spin(false);
+                }, 200);
+                // calculate bounding box for polygons
+                const bounds = polygons.getMaxBounds();
+                // zoom to the polygon bounds
+                map.fitBounds(new L.latLngBounds(bounds.northEast, bounds.southWest));
+                // get the geojson
+                geocodeService.reverse().latlng(e.latlng).run(function(error, result){
+                geo = result.address.City;
+                name = today + '_' + geo + '_' + output.innerHTML + '_' + medium;
+                newname = name.toUpperCase()
+                console.log(newname);
+                document.getElementById('export').onclick = function(e) {
+                document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+                document.getElementById('export').setAttribute('download', newname +'.geojson');
+
+            } 
+            });
+
+        }
+            setData(medium);
+        }
+
+        async function setData(mode) {
+                const selector = `btn-${mode}`;
+                map.spin(true);
+                document.getElementsByClassName('active')[0].classList.remove('active');
+                document.getElementById(selector).classList.add('active');
+
+                // you need to define some options for the polygon service
+                const options = {
+                travelType: mode,
+                travelEdgeWeights: travelTimes,
+                maxEdgeWeight: 7200,
+                edgeWeight: 'time',
+                transitMaxTransfers: mode === 'transit' ? 5 : null,
+                serializer: 'json',
+                rushHour: mode === 'car' ? true : null,
+                 };
+                const options2 = {
+                travelType: mode,
+                travelEdgeWeights: travelTimes,
+                maxEdgeWeight: 7200,
+                edgeWeight: 'time',
+                transitMaxTransfers: mode === 'transit' ? 5 : null,
+                serializer: 'geojson',
+                rushHour: mode === 'car' ? true : null,
+                buffer: '0.005',
+                };
+
+                // get the polygons
+                const polygons = await client.polygons.fetch([source], options);
+                const polygons2 = await client.polygons.fetch([source], options2);
+                var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(polygons2));
+                geom = polygons2.features[0].geometry.coordinates[0];
+                console.log(polygons2);
+                //
+                newgeo = [];
+                  polygons2.features[0].geometry.coordinates.forEach(function(entry) {
+                      newgeo.push(entry);
+                  });
+                  console.log(newgeo);
+
+                convertedStudy2 = encodeURIComponent(JSON.stringify(newgeo));
+                convertedStudy = encodeURIComponent(JSON.stringify(geom));
+                // add polygons to overlay
+                setTimeout(function () {
+                    polygonOverlayLayer.setData(polygons);
+                    map.spin(false);
+                }, 200);
+                // calculate bounding box for polygons
+                const bounds = polygons.getMaxBounds();
+                // zoom to the polygon bounds
+                map.fitBounds(new L.latLngBounds(bounds.northEast, bounds.southWest));
+                // get the geojson
+                geocodeService.reverse().latlng(source).run(function(error, result){
+                geo = result.address.City;
+                name = today + '_' + geo + '_' + output.innerHTML + '_' + mode;
+                newname = name.toUpperCase()
+                document.getElementById('export').onclick = function(e) {
+                document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+                document.getElementById('export').setAttribute('download', newname +'.geojson');
+            } 
+            });
+
+            }
+        var token = 'DyQ1CBflybQI_4WdJzCz1noCVqCajMwsmtODv9V3ouNXZh5rxlVdN28ZthEkYEJS2eEoXLdPYQttKlzTL_aM6fhhZbiC9xkHfVXp6GhFiaync4rg_2os2xhadMH_piGs19yr87tQjZaE0nHgED_7XkhH-XdspHx9wHqJdaTkZfqe-OQTwvplmnlz0GAiYFxELcc-St9ub8IgAHYqx6_GYg..';
+        async function fetchAPI(){
+                    response2 = await fetch('https://geoenrich.arcgis.com/arcgis/rest/services/World/geoenrichmentserver/GeoEnrichment/enrich?StudyAreas=[{"geometry":{"rings":'+convertedStudy2+',"spatialReference":{"wkid":3857}}}]&StudyAreasOptions={"GeometryType":"esriGeometryPolygon","SpatialRelationship":"esriSpatialRelIntersects"}&dataCollections=["KeyUSFacts"]&returngeometry=true&f=pjson&token=' + token);
+                    json2 = await response2.json();
+                    console.log(json2);
+                    marker.bindPopup("<b>Population: </b>" + json2.results[0].value.FeatureSet[0].features[0].attributes.TOTPOP_CY ).openPopup();
+                }
+        setData('transit');
+
+        // Blegh
+
+        function showPop(str) {
+          var xhttp;    
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var ESRI = JSON.parse(this.responseText);
+              console.log(str);
+              console.log(ESRI);
+            }
+          };
+          xhttp.open("GET", 'https://geoenrich.arcgis.com/arcgis/rest/services/World/geoenrichmentserver/GeoEnrichment/enrich?StudyAreas=[{"geometry":{"rings":'+str+',"spatialReference":{"wkid":3857}}}]&StudyAreasOptions={"GeometryType":"esriGeometryPolygon","SpatialRelationship":"esriSpatialRelIntersects"}&dataCollections=["KeyUSFacts"]&returngeometry=true&f=pjson&token=' + token, true);
+          xhttp.send();
+        }
+
+        map.on('click', onMapClick);
+
+        var assumptions = document.getElementById('assumptions').innerHTML;
+        
+        document.getElementById('info').onclick = function(e) {
+                document.getElementById('infowindow').style.zIndex ='1002';
+                document.getElementById('closewindow').style.zIndex ='1002';
+                document.getElementById('isolate').style.zIndex ='1001';
+
+        }; 
+        
+        document.getElementById('closewindow').onclick = function() {
+                document.getElementById('infowindow').style.zIndex ='-1';
+                document.getElementById('closewindow').style.zIndex ='-1';
+                document.getElementById('isolate').style.zIndex ='-1';
+        }
+
+
+        </script>
+</body>
+
+</html>
+        
