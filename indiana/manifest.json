@@ -711,7 +711,7 @@
       "name": "G1",
       "endpoints": [
         {
-          "url": "https://docs.google.com/spreadsheets/d/1pScOz5KINsX50gDz-V8gW9Q7VCNj6hJty1xVvj2y4wk/gviz/tq?tqx=out:csv&gid=0"
+          "url": "https://hraadvisors-indiana-dashboard-data.s3.amazonaws.com/FRONTEND_DATASOURCE.csv"
         }
       ]
     }
