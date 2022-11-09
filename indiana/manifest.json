@@ -513,19 +513,19 @@
           "title": "Cost Burden by Income",
           "variables": [
             {
-              "name": "$20k - $34k",
+              "name": "<$35K",
               "code": "costburden_renter_1"
             },
             {
-              "name": "$35k - $49k",
+              "name": "$35K-$50K",
               "code": "costburden_renter_2"
             },
             {
-              "name": "$50k - $74k",
+              "name": "$50K-$75K",
               "code": "costburden_renter_3"
             },
             {
-              "name": "$75k +",
+              "name": "$75K+",
               "code": "costburden_renter_4"
             }
           ],
