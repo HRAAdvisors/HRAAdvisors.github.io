@@ -1,0 +1,67 @@
+industry,id,jobs20,jobs10,group,naics2,growth,bin_column,bin_row
+Industry,1,14240,16130,Government,90,0,0,0
+Industry,2,16300,12390,"Professional, Scientific, and Technical Services",54,0,0,0
+Industry,3,2160,1830,Health Care and Social Assistance,62,0,0,0
+Industry,4,8240,6110,Accommodation and Food Services,72,0,0,0
+Industry,5,10830,9310,Finance and Insurance,52,0,0,0
+Industry,6,2890,1840,Transportation and Warehousing,48,0,0,0
+Industry,7,4270,3190,Administrative and Support and Waste Management and Remediation Services,56,0,0,0
+Industry,8,1240,880,Educational Services,61,0,0,0
+Industry,9,1820,1610,Retail Trade,44,0,0,0
+Industry,10,2310,1830,Other Services (except Public Administration),81,0,0,0
+Industry,11,2580,1720,Real Estate and Rental and Leasing,53,0,0,0
+Industry,12,1690,1670,Wholesale Trade,42,0,0,0
+Industry,13,1180,800,"Arts, Entertainment, and Recreation",71,0,0,0
+Industry,14,1080,850,Construction,23,0,0,0
+Industry,15,1260,1260,Information,51,0,0,0
+Industry,16,690,520,Management of Companies and Enterprises,55,0,0,0
+Industry,17,70,40,Manufacturing,31,0,0,0
+Industry,18,180,150,"Agriculture, Forestry, Fishing and Hunting",11,0,0,0
+Industry,19,100,10,Unclassified Industry,99,0,0,0
+Industry,20,20,20,Utilities,22,0,0,0
+Industry,21,10,10,"Mining, Quarrying, and Oil and Gas Extraction",21,0,0,0
+Occupation,62,850,1260,Tellers,43-3071,-0.32692296,1,1
+Occupation,63,390,590,Loan Officers,13-2072,-0.348470491,1,2
+Occupation,61,220,300,Loan Interviewers and Clerks,43-4131,-0.281329841,1,3
+Occupation,66,200,420,Executive Secretaries and Executive Administrative Assistants,43-6011,-0.515083687,1,4
+Occupation,64,120,210,File Clerks,43-4071,-0.416641609,1,5
+Occupation,65,110,210,Bill and Account Collectors,43-3011,-0.487979315,1,6
+Occupation,60,690,960,Legal Secretaries and Administrative Assistants,43-6012,-0.279788039,2,1
+Occupation,57,610,660,"Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",43-6014,-0.077576869,2,2
+Occupation,58,240,260,Brokerage Clerks,43-4011,-0.086903025,2,3
+Occupation,59,120,140,Insurance Claims and Policy Processing Clerks,43-9041,-0.121734974,2,4
+Occupation,50,3100,2650,Lawyers,23-1011,0.169527447,3,1
+Occupation,54,630,590,"Bookkeeping, Accounting, and Auditing Clerks",43-3031,0.058796006,3,2
+Occupation,53,540,510,First-Line Supervisors of Office and Administrative Support Workers,43-1011,0.05887487,3,3
+Occupation,56,290,300,Receptionists and Information Clerks,43-4171,-0.027921436,3,4
+Occupation,51,140,120,Billing and Posting Clerks,43-3021,0.145874006,3,5
+Occupation,52,140,130,Advertising Sales Agents,41-3011,0.098075649,3,6
+Occupation,55,110,120,First-Line Supervisors of Non-Retail Sales Workers,41-1012,-0.01345122,3,7
+Occupation,43,1780,1250,Paralegals and Legal Assistants,23-2011,0.4226051,4,1
+Occupation,48,1160,910,Accountants and Auditors,13-2011,0.264950701,4,2
+Occupation,45,1120,810,Customer Service Representatives,43-4051,0.385066408,4,3
+Occupation,49,750,630,"Office Clerks, General",43-9061,0.196912401,4,4
+Occupation,44,650,460,Insurance Sales Agents,41-3021,0.413090459,4,5
+Occupation,47,450,350,"Financial and Investment Analysts, Financial Risk Specialists, and Financial Specialists, All Other",13-2098,0.298986746,4,6
+Occupation,46,310,240,"Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel",41-3091,0.32130359,4,7
+Occupation,38,1160,720,Personal Financial Advisors,13-2052,0.609986508,5,1
+Occupation,41,850,580,Management Analysts,13-1111,0.468279774,5,2
+Occupation,42,400,280,"Project Management Specialists and Business Operations Specialists, All Other",13-1198,0.432832027,5,3
+Occupation,40,220,140,Computer Systems Analysts,15-1211,0.542518923,5,4
+Occupation,37,140,80,Chief Executives,11-1011,0.653962207,5,5
+Occupation,39,120,80,Graphic Designers,27-1024,0.563523934,5,6
+Occupation,34,1740,960,"Securities, Commodities, and Financial Services Sales Agents",41-3031,0.818358206,6,1
+Occupation,36,240,140,"Title Examiners, Abstractors, and Searchers",23-2093,0.713016652,6,2
+Occupation,35,160,90,"Claims Adjusters, Examiners, and Investigators",13-1031,0.793096538,6,3
+Occupation,29,540,250,Financial Managers,Nov-31,1.125851071,7,1
+Occupation,30,410,200,Software Developers and Software Quality Assurance Analysts and Testers,15-1256,1.053026655,7,2
+Occupation,33,180,90,Tax Preparers,13-2082,0.909971029,7,3
+Occupation,32,160,80,Compliance Officers,13-1041,1.012052789,7,4
+Occupation,31,130,60,Sales Managers,Nov-22,1.019632106,7,5
+Occupation,28,240,110,"Personal Service Managers, All Other; Entertainment and Recreation Managers, Except Gambling; and Managers, All Other",Nov-98,1.157082572,8,1
+Occupation,27,170,80,Human Resources Specialists,13-1071,1.171659875,8,2
+Occupation,24,580,230,General and Operations Managers,11-1021,1.593609759,9,1
+Occupation,26,230,100,Computer User Support Specialists,15-1232,1.360769892,9,2
+Occupation,25,120,50,Marketing Managers,Nov-21,1.386787862,9,3
+Occupation,23,160,60,Computer and Information Systems Managers,Nov-21,1.770404097,10,1
+Occupation,22,430,110,Market Research Analysts and Marketing Specialists,13-1161,3.001915519,15,1

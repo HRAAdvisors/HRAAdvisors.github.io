@@ -1,0 +1,445 @@
+﻿school,name,fullname,lat,lon,metroTotal,otherTotal,miami
+uAB,Alabama at Birmingham,University of Alabama at Birmingham,33.503198,-86.80396,76.8,23.2,0.558
+uAlabama,Alabama,University of Alabama,33.214023,-87.539142,56.82,43.18,0.979
+uAlbany,Albany,SUNY at Albany,42.68827,-73.819492,69.82,30.18,1.504
+uAlbion ,Albion ,Albion College,42.244006,-84.745178,65.33,34.67,0.738
+uAllegheny ,Allegheny ,Allegheny College,41.649349,-80.144949,75.48,24.52,0.802
+uAmherst,Amherst,Amherst College,42.37091,-72.517003,64.56,35.44,0.333
+uArizona,Arizona,University of Arizona,32.231885,-110.950109,83.16,16.84,0.697
+uArkansas,Arkansas,University of Arkansas,36.067832,-94.173655,50.34,49.66,0.528
+uASU,Arizona State,Arizona State University,34.412522,-109.410673,88.85,11.15,0.485
+uAuburn,Auburn,Auburn University,32.593357,-85.495166,54.42,45.58,0.997
+uAugustana,Augustana (Ill.),Augustana College Ill.,41.505105,-90.55071,66.29,33.71,0.295
+uAustin,Austin,Austin College,33.64626,-96.594854,78.01,21.99,0.385
+uBarnard,Barnard,Barnard College,40.809097,-73.963963,89.47,10.53,1.471
+uBates,Bates,Bates College,44.105722,-70.202186,76.51,23.49,0.609
+uBaylor,Baylor,Baylor University,31.549841,-97.114315,73.87,26.13,0.442
+uBeloit,Beloit,Beloit College,42.503033,-89.030905,65.01,34.99,0.7
+uBenedict,Saint Benedict,College of Saint Benedict,45.581304,-94.394288,40.52,59.48,0.426
+uBerea,Berea,Berea College,37.575152,-84.288134,43.49,56.51,0.785
+uBostonColl,Boston College,Boston College,42.335549,-71.168495,86.8,13.2,1.485
+uBostonU,Boston U.,Boston University,42.3505,-71.105399,86.86,13.14,1.979
+uBowdoin,Bowdoin,Bowdoin College,43.907011,-69.965236,83.75,16.25,0.77
+uBrandeis,Brandeis,Brandeis University,42.364989,-71.258663,89.77,10.23,1.771
+uBrown,Brown,Brown University,41.826772,-71.402548,87,13,1.144
+uBrynMawr,Bryn Mawr,Bryn Mawr College,40.028107,-75.315234,80.4,19.6,0.872
+uBucknell,Bucknell,Bucknell University,40.954687,-76.883551,77.39,22.61,0.671
+uBuffalo,Buffalo,University at Buffalo,42.896922,-78.868521,82.5,17.5,1.707
+uButler,Butler,Butler University,39.841124,-86.171191,82.22,17.78,0.681
+uCalifornia,California,University of California-Berkeley,37.871899,-122.25854,87.74,12.26,0.541
+uCaltech,Caltech,California Institute of Technology,34.137658,-118.125269,84.63,15.37,0.508
+uCarleton,Carleton,Carleton College,44.461304,-93.156084,64.7,35.3,0.393
+uCarnegie,Carnegie Mellon,Carnegie Mellon University,40.441318,-79.944229,88.49,11.51,0.87
+uCaseWestern,Case Western Reserve,Case Western Reserve University,41.504341,-81.608384,80.13,19.87,1.2
+uCentre,Centre,Centre College,37.645692,-84.781506,44.25,55.75,0.989
+uCF,Central Florida,University of Central Florida,28.602427,-81.20006,79.17,20.83,7.206
+uChicago,Chicago,University of Chicago,41.788608,-87.598713,87.44,12.56,0.931
+uCincinnati,Cincinnati,University of Cincinnati,39.132922,-84.51495,85.6,14.4,0.676
+uCLA,UCLA,University of California-Los Angeles,34.068921,-118.445181,89.99,10.01,0.557
+uClaremontMcKenna,Claremont McKenna,Claremont McKenna College,34.101777,-117.707922,89.07,10.93,0.448
+uClemson,Clemson,Clemson University,34.676094,-82.836415,66.47,33.53,0.742
+uColby,Colby,Colby College,44.563869,-69.662636,77.67,22.33,0.615
+uColgate,Colgate,Colgate University,42.816615,-75.540176,79.48,20.52,1.32
+uColorado,Colorado,University of Colorado,40.007581,-105.265942,73.14,26.86,0.697
+uColoradoCollege,Colorado College,Colorado College,38.846594,-104.824394,68.72,31.28,0.487
+uColoradoSt,Colorado State,Colorado State University,40.573436,-105.086547,58.16,41.84,0.48
+uColumbia,Columbia,Columbia University,40.807536,-73.962573,88.73,11.27,1.595
+uConn,Uconn,University of Connecticut,41.807741,-72.253981,73.38,26.62,1.126
+uConnCollege,Connecticut College,Connecticut College,41.378688,-72.104587,77.66,22.34,1.284
+uCornell,Cornell,Cornell University,42.453449,-76.473503,75.92,24.08,1.77
+uCornellC,Cornell (Iowa),Cornell College,41.926955,-91.42535,62.84,37.16,0.953
+uCreighton,Creighton,Creighton University,41.265311,-95.947192,76.33,23.67,0.527
+uCUNY,"CUNY, Graduate Center","City University of New York, Graduate Center",40.748449,-73.983492,85.45,14.55,1.238
+uDartmouth,Dartmouth,Dartmouth College,43.704441,-72.288694,78.84,21.16,1.085
+uDavidson,Davidson,Davidson College,35.501732,-80.846779,69.72,30.28,1.03
+uDavis,UC Davis,University of California-Davis,38.536048,-121.749286,84.85,15.15,0.224
+uDelaware,Delaware,University of Delaware,39.67795,-75.750611,85.55,14.45,0.941
+uDenison,Denison,Denison University,40.073458,-82.522331,81.85,18.15,0.851
+uDePaul,DePaul,DePaul University,41.925649,-87.654968,93.53,6.47,0.602
+uDePauw,DePauw,DePauw University,39.639394,-86.862895,79.57,20.43,0.769
+uDickinson,Dickinson,Dickinson College,40.202721,-77.197232,76.01,23.99,0.919
+uDrew,Drew,Drew University,40.760567,-74.426977,84.31,15.69,1.033
+uDuke,Duke,Duke University,36.001426,-78.938229,66.73,33.27,1.599
+uElizabethtown,Elizabethtown,Elizabethtown College,40.150325,-76.589792,46.87,53.13,0.505
+uElon,Elon,Elon University,36.102753,-79.502357,60.45,39.55,1.312
+uEmory,Emory,Emory University,33.79252,-84.323999,83.44,16.56,2.222
+uFIU,Florida International,Florida International University,25.756576,-80.373949,90.86,9.14,70.069
+uFlorida,Florida,University of Florida,29.643633,-82.35493,66.87,33.13,13.676
+uFM,Franklin & Marshall,Franklin & Marshall College,40.047526,-76.317902,75.92,24.08,1.297
+uFSU,Florida State,Florida State University,30.441878,-84.298489,63.9,36.1,12.428
+uFurman,Furman,Furman University,34.9237,-82.438269,71.4,28.6,1.263
+uGaState,Georgia State,Georgia State University,33.753068,-84.385282,88.25,11.75,0.914
+uGaTech,Georgia Tech,Georgia Institute of Technology,33.775618,-84.396285,82.23,17.77,1.452
+uGeorgetown,Georgetown,Georgetown University,38.907609,-77.072258,87.77,12.23,1.697
+uGeorgia,Georgia,University of Georgia,33.948005,-83.377322,67.73,32.27,0.891
+uGettysburg,Gettysburg,Gettysburg College,39.834949,-77.232193,77.46,22.54,0.884
+uGonzaga,Gonzaga,Gonzaga University,47.667189,-117.402385,62.31,37.69,0.319
+uGustavus,Gustavus Adolphus,Gustavus Adolphus College,44.322162,-93.968777,42.5,57.5,0.329
+uGWU,George Washington,George Washington University,38.899715,-77.048599,87.32,12.68,1.637
+uHamilton,Hamilton,Hamilton College,43.052587,-75.405044,66.56,33.44,0.841
+uHanover,Hanover,Hanover College,38.71925,-85.462368,70.51,29.49,0.904
+uHarvard,Harvard,Harvard University,42.377003,-71.11666,84.15,15.85,1.745
+uHaverford,Haverford,Haverford College,40.006652,-75.305318,87.18,12.82,0.641
+uHawaii,Hawai'i,University of Hawaii,21.299186,-157.817198,81.81,18.19,0.736
+uHobartWilliam,Hobart and William Smith,Hobart and William Smith Colleges,42.859153,-76.984487,80.29,19.71,1.142
+uHolyCross,Holy Cross,College of the Holy Cross,42.239239,-71.807961,83.37,16.63,0.887
+uHope,Hope,Hope College,42.78718,-86.102357,73.98,26.02,0.528
+uHopkins,Johns Hopkins,Johns Hopkins University,39.329901,-76.620518,86.81,13.19,0.956
+uHouston,Houston,University of Houston,29.719949,-95.342233,92.29,7.71,0.462
+uIllinois,Illinois,University of Illinois,40.101952,-88.227161,75.31,24.69,0.655
+uIllinoisChicago,Illinois at Chicago,University of Illinois at Chicago,41.87496,-87.658107,90.29,9.71,0.797
+uIllinoisWesleyan,Illinois Wesleyan,Illinois Wesleyan University,40.490889,-88.990654,71.15,28.85,0.397
+uIndiana,Indiana,Indiana University,39.16609,-86.526548,69.57,30.43,0.847
+uIowa,Iowa,University of Iowa,41.662696,-91.5549,59.93,40.07,0.675
+uIowaSt,Iowa State,Iowa State University,42.026619,-93.646465,59.5,40.5,0.382
+uIrvine,UC Irvine,University of California-Irvine,33.640495,-117.844296,91.36,8.64,0.288
+uIthaca,Ithaca,Ithaca College,42.421658,-76.498564,73.47,26.53,1.574
+uJuniata,Juniata,Juniata College,40.50014,-78.015898,53.64,46.36,0.498
+uKalamazoo,Kalamazoo,Kalamazoo College,42.290035,-85.598145,63.36,36.64,0.608
+uKansas,Kansas,University of Kansas,38.954344,-95.255796,73.83,26.17,0.537
+uKentucky,Kentucky,University of Kentucky,38.030651,-84.50397,49.39,50.61,0.781
+uKenyon,Kenyon,Kenyon College,40.371897,-82.398308,79.52,20.48,0.562
+uKnox,Knox,Knox College,40.941889,-90.371867,65.63,34.37,2.09
+uKState,Kansas State,Kansas State University,39.197444,-96.584725,64.39,35.61,0.479
+uLafayette,Lafayette,Lafayette College,40.69862,-75.20873,73.03,26.97,1.103
+uLakeForest,Lake Forest,Lake Forest College,42.249058,-87.828913,86.16,13.84,1.146
+uLawrence,Lawrence,Lawrence University,44.261576,-88.3981,64.37,35.63,0.819
+uLewisClark,Lewis & Clark,Lewis & Clark College,45.451742,-122.668863,82.13,17.87,0.222
+uLinfield,Linfield,Linfield College,45.200606,-123.199224,71.55,28.45,0.174
+uLouisville,Louisville,University of Louisville,38.212276,-85.758502,83.12,16.88,0.879
+uLSU,Louisiana State,Louisiana State University,30.413258,-91.180002,50.44,49.56,0.884
+uMacalester,Macalester,Macalester College,44.939763,-93.168729,64.76,35.24,0.456
+uManhattan,Manhattan,Manhattan College,40.889962,-73.901062,89.81,10.19,1.812
+uMarietta,Marietta,Marietta College,39.414546,-81.449107,63.46,36.54,0.959
+uMarquette,Marquette,Marquette University,43.038222,-87.929755,81.87,18.13,0.643
+uMaryland,Maryland,University of Maryland,38.986918,-76.942554,85.99,14.01,1.284
+uMason,George Mason,George Mason University,38.831554,-77.312089,90.96,9.04,0.675
+uMass,UMass,University of Massachusetts,42.391157,-72.526712,74.49,25.51,1.319
+uMercer,Mercer,Mercer University,33.872925,-84.263179,69.25,30.75,1.358
+uMiami,Miami,University of Miami,25.719169,-80.277125,87.34,12.66,45.31
+uMichigan,Michigan,University of Michigan,42.278044,-83.738224,74.78,25.22,1.012
+uMichiganSt,Michigan State,Michigan State University,42.701848,-84.482172,66.38,33.62,0.862
+uMilwaukee,Wisconsin-Milwaukee,University of Wisconsin-Milwaukee,43.078263,-87.881969,79.6,20.4,0.469
+uMinnesota,Minnesota,University of Minnesota,44.97399,-93.227729,50.3,49.7,0.438
+uMiss,Ole Miss,University of Mississippi,34.364732,-89.538443,63.69,36.31,0.652
+uMissouri,Missouri,University of Missouri,38.940381,-92.327738,70.32,29.68,0.606
+uMissSt,Mississippi State,Mississippi State University,33.455174,-88.794377,54.66,45.34,0.541
+uMIT,MIT,Massachusetts Institute of Technology,42.360091,-71.09416,85.42,14.58,1.232
+uMountHolyoke,Mount Holyoke,Mount Holyoke College,42.253254,-72.576139,71.56,28.44,1.252
+uMuhlenberg,Muhlenberg,Muhlenberg College,40.597544,-75.510132,71.48,28.52,1.274
+uNCState,North Carolina State,North Carolina State University,35.784663,-78.682095,53.52,46.48,0.635
+uNebraska,Nebraska,University of Nebraska,40.820197,-96.700476,57.45,42.55,0.434
+uNewMexico,New Mexico,University of New Mexico,35.084319,-106.619781,78.69,21.31,0.628
+uNorthCarolina,North Carolina,University of North Carolina,35.904912,-79.046913,53.77,46.23,0.964
+uNortheastern,Northeastern,Northeastern University,42.339807,-71.089172,88.12,11.88,1.407
+uNorthwestern,Northwestern,Northwestern University,42.056459,-87.675267,85.94,14.06,1.265
+uNotreDame,Notre Dame,University of Notre Dame,41.705572,-86.235339,75.16,24.84,1.361
+uNTexas,North Texas,University of North Texas,33.207488,-97.152586,89.43,10.57,0.301
+uNYU,NYU,New York University,40.729513,-73.996461,91.07,8.93,2.335
+uOberlin,Oberlin,Oberlin College,41.293483,-82.2236,82.68,17.32,0.639
+uOccidental,Occidental,Occidental College,34.127362,-118.210504,87.63,12.37,0.488
+uOhioSt,Ohio State,Ohio State University,40.014191,-83.030914,79.39,20.61,0.974
+uOhioWesleyan,Ohio Wesleyan,Ohio Wesleyan University,40.296479,-83.069306,79.27,20.73,0.921
+uOklahoma,Oklahoma,University of Oklahoma,35.205894,-97.445714,83.18,16.82,0.524
+uOklahomaSt,Oklahoma State,Oklahoma State University,36.127024,-97.073722,74.96,25.04,0.386
+uOregon,Oregon,University of Oregon,44.04483,-123.072606,67.97,32.03,0.285
+uOregonSt,Oregon State,Oregon State University,44.563781,-123.279444,64,36,0.215
+uPenn,Penn,University of Pennsylvania,39.952219,-75.193214,86.87,13.13,1.767
+uPennState,Penn State,Pennsylvania State University,40.798213,-77.859908,64.62,35.38,0.961
+uPittsburgh,Pittsburgh,University of Pittsburgh,40.444353,-79.960835,82.5,17.5,1.065
+uPitzer,Pitzer,Pitzer College,34.104662,-117.704719,87.86,12.14,1.382
+uPomona,Pomona,Pomona College,34.097743,-117.711803,87.33,12.67,0.363
+uPrinceton,Princeton,Princeton University,40.343989,-74.651448,80.33,19.67,1.101
+uProvidence,Providence,Providence College,41.844093,-71.438165,86.47,13.53,0.868
+uPurdue,Purdue,Purdue University,40.423705,-86.921195,66.12,33.88,0.693
+uReed,Reed,Reed College,45.480978,-122.630372,71.37,28.63,0.34
+uRhodes,Rhodes,Rhodes College,35.155084,-89.989287,78.66,21.34,0.658
+uRice,Rice,Rice University,29.717394,-95.401831,85.89,14.11,0.667
+uRiverside,UC Riverside,University of California-Riverside,33.973706,-117.328064,91.41,8.59,0.204
+uRochester,Rochester,University of Rochester,43.130553,-77.626003,83.08,16.92,1.068
+uRollins,Rollins,Rollins College,28.592242,-81.348326,78.13,21.87,4.152
+uRutgers,Rutgers,Rutgers University,40.497842,-74.446429,89.22,10.78,1.284
+uSaintAnselm,Saint Anselm,Saint Anselm College,42.987472,-71.507231,77.84,22.16,0.747
+uSaintMaryCA,Saint Mary's (Calif.),Saint Mary's College (Calif.),37.841347,-122.110135,74.55,25.45,0.45
+uSaintMarysIN,Saint Mary's (Ind.),Saint Mary's College (Ind.),41.707304,-86.256745,72.61,27.39,0.879
+uCSanDiego,UC San Diego,University of California-San Diego,32.88006,-117.234013,90.62,9.38,0.376
+uSantaBarbara,UC Santa Barbara,University of California-Santa Barbara,34.413963,-119.848947,73.94,26.06,0.308
+uSantaCruz,UC Santa Cruz,University of California-Santa Cruz,36.991474,-122.058297,79.77,20.23,0.369
+uSC,Southern California,University of Southern California,34.022352,-118.285117,90.16,9.84,0.534
+uSCarolina,South Carolina,University of South Carolina,33.996112,-81.027428,45.5,54.5,1.042
+uScripps,Scripps,Scripps College,34.103935,-117.710213,87.24,12.76,0.291
+uSeattle,Seattle,Seattle University,47.609228,-122.317714,89.19,10.81,0.247
+uSetonHall,Seton Hall,Seton Hall University,40.743011,-74.2471,88.58,11.42,1.27
+uSewanee,Sewanee,Sewanee-The University of the South,35.20518,-85.917661,65.16,34.84,0.762
+uSF,South Florida,University of South Florida,28.058703,-82.413854,79.67,20.33,5.655
+uSiena,Siena,Siena College,42.718452,-73.752195,49.43,50.57,1.56
+uSimmons,Simmons,Simmons College,42.339366,-71.099936,85.17,14.83,0.963
+uSkidmore,Skidmore,Skidmore College,43.097276,-73.784181,78.59,21.41,1.215
+uSmith,Smith,Smith College,42.318096,-72.637234,72.3,27.7,1.143
+uSpelman,Spelman,Spelman College,33.74636,-84.412293,89.61,10.39,1.139
+uStanford,Stanford,Stanford University,37.427475,-122.169719,86.75,13.25,0.745
+uStJohns,St. John's,St John's University,40.721597,-73.79469,86.71,13.29,2.105
+uStLawrence,St. Lawrence,St Lawrence University,44.589212,-75.160881,65.67,34.33,0.829
+uStMarysMD,St. Mary's (Md.),St Mary's College of Maryland,38.190926,-76.429031,82.46,17.54,0.559
+uStOlaf,St. Olaf,St Olaf College,44.461768,-93.182817,48.01,51.99,0.249
+uStonehill,Stonehill,Stonehill College,42.059015,-71.080628,87.43,12.57,0.8
+uStonyBrook,Stony Brook,Stony Brook University,40.912376,-73.123389,88.83,11.17,1.606
+uSusquehanna,Susquehanna,Susquehanna University,40.797327,-76.87448,62.98,37.02,0.754
+uSwarthmore,Swarthmore,Swarthmore College,39.906841,-75.355648,84.1,15.9,0.715
+uSyracuse,Syracuse,Syracuse University,43.039153,-76.135116,70.89,29.11,1.723
+uTAMU,Texas A&M,Texas A&M University,30.618531,-96.336499,73.66,26.34,0.411
+uTCU,Texas Christian,Texas Christian University,32.70953,-97.362795,88.28,11.72,0.592
+uTemple,Temple,Temple University,39.981194,-75.155351,87.4,12.6,1.221
+uTennessee,Tennessee,University of Tennessee,35.954401,-83.929456,50.06,49.94,0.837
+uTexas,Texas,University of Texas at Austin,30.284919,-97.734057,87.71,12.29,0.645
+uTexasArlington,Texas at Arlington,University of Texas at Arlington,32.730108,-97.116252,90.4,9.6,0.334
+uTexasDallas,Texas at Dallas,University of Texas at Dallas,32.985762,-96.750099,93.59,6.41,0.301
+uTexasTech,Texas Tech,Texas Tech University,30.245105,-98.84276,65.8,34.2,0.35
+uTrinityCT,Trinity C. (Conn.),Trinity College Conn.,41.747933,-72.690334,76.74,23.26,1.13
+uTrinityTX,Trinity U. (Texas),Trinity University Texas,29.461844,-98.483162,83.63,16.37,1.108
+uTufts,Tufts,Tufts University,42.407484,-71.119023,86.89,13.11,1.426
+uTulane,Tulane,Tulane University,29.940348,-90.120728,82.32,17.68,2.732
+uUnion,Union,Union College,42.817017,-73.929805,64.22,35.78,1.288
+uUtah,Utah,University of Utah,40.764937,-111.842102,79.34,20.66,0.318
+uVanderbilt,Vanderbilt,Vanderbilt University,36.144703,-86.802655,81.9,18.1,1.305
+uVassar,Vassar,Vassar College,41.686799,-73.8957,85.42,14.58,1.138
+uVaTech,Virginia Tech,Virginia Polytechnic Institute and State University,37.228384,-80.423417,69.71,30.29,0.689
+uVCU,Virginia Commonwealth,Virginia Commonwealth University,37.546508,-77.45346,84.82,15.18,0.829
+uVillanova,Villanova,Villanova University,40.037056,-75.34358,84.56,15.44,1.299
+uVirginia,Virginia,University of Virginia,38.033553,-78.507977,73.06,26.94,0.993
+uWake,Wake Forest,Wake Forest University,36.13525,-80.276342,59.36,40.64,1.05
+uWashington,Washington,University of Washington,47.655335,-122.30352,87.2,12.8,0.274
+uWashU,Washington U. (Mo.),Washington University St Louis Mo.,38.64879,-90.310796,85.26,14.74,1.088
+uWayne,Wayne State,Wayne State University,42.359139,-83.066546,87.37,12.63,0.698
+uWazzu,Washington State,Washington State University,46.731923,-117.154212,67.13,32.87,0.282
+uWellesley,Wellesley,Wellesley College,42.293573,-71.305928,85.81,14.19,0.968
+uWesleyan,Wesleyan,Wesleyan University,41.55661,-72.656904,84.5,15.5,0.973
+uWheatonIL,Wheaton (Ill.),Wheaton College Ill.,41.86833,-88.099622,78.8,21.2,0.744
+uWheatonMA,Wheaton (Mass.),Wheaton College Mass.,41.96801,-71.185194,62.32,37.68,1.825
+uWhitman,Whitman,Whitman College,46.07058,-118.330635,72.86,27.14,0.282
+uWillamette,Willamette,Willamette University,44.935971,-123.03186,70.45,29.55,0.317
+uWilliams,Williams,Williams College,42.712804,-73.203021,76,24,2.058
+uWisconsin,Wisconsin,University of Wisconsin-Madison,43.076592,-89.412487,55.87,44.13,0.676
+uWofford,Wofford,Wofford College,34.958066,-81.93449,47.71,52.29,0.744
+uWooster,Wooster,The College of Wooster,40.81105,-81.933619,72.62,27.38,0.701
+uWVU,West Virginia,West Virginia University,39.63614,-79.955936,62.03,37.97,1.123
+uXavier,Xavier,Xavier University,39.149364,-84.474512,87.02,12.98,0.748
+uYale,Yale,Yale University,41.316324,-72.922343,76.4,23.6,1.122
+uAbileneChristian,Abilene Christian,Abilene Christian University,32.469732,-99.708098,67.21,32.79,0.358
+uAlabamaAM,Alabama A&M,Alabama A&M University,34.7846,-86.572,52.31,47.69,0.982
+uAlabamaSt,Alabama State,Alabama State University,32.363662,-86.294054,51.48,48.52,1.738
+uAppState,Appalachian State,Appalachian State University,36.213484,-81.684145,44.87,55.13,0.608
+uArkansasSt,Arkansas State,Arkansas State University,35.843086,-90.674859,46.27,53.73,0.392
+uAustinPeay,Austin Peay,Austin Peay State University,36.53498,-87.354886,49.14,50.86,0.558
+uBallState,Ball State,Ball State University,40.21475,-85.418382,63.3,36.7,0.544
+uBelmont,Belmont,Belmont University,36.132898,-86.79407,85.25,14.75,0.489
+uBethuneCookman,Bethune-Cookman,Bethune-Cookman University,29.21101,-81.031575,70.49,29.51,15.991
+uBoiseState,Boise State,Boise State University,43.603313,-116.201649,83.26,16.74,0.217
+uBowlingGreen,Bowling Green,Bowling Green State University,41.379779,-83.630083,59.16,40.84,0.744
+uBradley,Bradley,Bradley University,40.697774,-89.615348,63.62,36.38,0.659
+uBYU,Brigham Young ,Brigham Young University Provo,40.251844,-111.649316,71.73,28.27,0.293
+uBryant,Bryant,Bryant University,41.921192,-71.537882,57.06,42.94,1.421
+uCalPoly,Cal Poly,California Polytechnic State University-San Luis Obispo,35.30221,-120.665112,68.07,31.93,0.195
+uCSUBakersfield,CSU Bakersfield,California State University-Bakersfield,35.348251,-119.103684,36.19,63.81,0.209
+uFresno,Fresno State,California State University-Fresno,36.813364,-119.746094,36.73,63.27,0.2
+uFullerton,Cal State Fullerton,California State University-Fullerton,33.882923,-117.886926,92.11,7.89,0.229
+uLongBeach,Long Beach State,California State University-Long Beach,33.783824,-118.11409,91.29,8.71,0.282
+uCSUNorthridge,CSU Northridge,California State University-Northridge,34.242591,-118.527712,85.9,14.1,0.359
+uSacramento,Sacramento State,California State University-Sacramento,38.561144,-121.424042,84.17,15.83,0.2
+uCampbell,Campbell,Campbell University,35.408337,-78.73943,42.89,57.11,0.906
+uCanisius,Canisius,Canisius College,42.924834,-78.851485,86.24,13.76,0.927
+uCCSU,Central Connecticut State,Central Connecticut State University,41.693255,-72.764167,76.96,23.04,1.062
+uCMU,Central Michigan,Central Michigan University,43.581909,-84.775636,64.56,35.44,0.593
+uCharlestonSouthern,Charleston Southern,Charleston Southern University,32.982183,-80.070655,30.37,69.63,0.649
+uChicagoState,Chicago State,Chicago State University,41.717958,-87.609374,94.17,5.83,0.315
+uCitadel,The Citadel,Citadel Military College of South Carolina,32.797075,-79.960674,42.65,57.35,1.071
+uCleveland,Cleveland State,Cleveland State University,41.502497,-81.674718,88.53,11.47,0.739
+uCoastalCarolina,Coastal Carolina,Coastal Carolina University,33.794966,-79.01173,43.24,56.76,1.344
+uCharleston,Charleston,College of Charleston,32.783612,-79.937176,42.52,57.48,0.97
+uWilliamMary,William and Mary,College of William and Mary,37.271674,-76.713378,82.44,17.56,0.782
+uCoppin,Coppin State,Coppin State University,39.312614,-76.657906,94.63,5.37,0.295
+uDelawareState,Delaware State,Delaware State University,39.186137,-75.542273,72.56,27.44,0.703
+uDrake,Drake,Drake University,41.602913,-93.655298,77.65,22.35,0.595
+uDrexel,Drexel,Drexel University,39.956613,-75.189944,86.94,13.06,0.848
+uDuquesne,Duquesne,Duquesne University,40.437295,-79.990173,84.38,15.62,0.985
+uEastCarolina,East Carolina,East Carolina University,35.605511,-77.364565,42.7,57.3,0.707
+uEastTenn,East Tennessee State,East Tennessee State University,36.302537,-82.370193,33.23,66.77,0.539
+uEasternllinois,Eastern Illinois,Eastern Illinois University,39.478029,-88.175905,64.71,35.29,0.578
+uEasternKentucky,Eastern Kentucky,Eastern Kentucky University,37.735321,-84.298672,39.63,60.37,0.679
+uEMU,Eastern Michigan ,Eastern Michigan University,42.25068,-83.624089,72.62,27.38,0.702
+uEasternWashington,Eastern Washington,Eastern Washington University,47.490616,-117.585481,42.69,57.31,0.23
+uFairfield,Fairfield,Fairfield University,41.158764,-73.257362,74.79,25.21,1.066
+uFairleighDickinson,Fairleigh Dickinson,Fairleigh Dickinson University,40.897793,-74.030864,89.58,10.42,1.926
+uFAMU,Florida A&M,Florida Agricultural and Mechanical University,30.423894,-84.287445,63.63,36.37,9.694
+uFAU,Florida Atlantic,Florida Atlantic University,26.373528,-80.102218,86.82,13.18,62.612
+uFCGU,Florida Gulf Coast,Florida Gulf Coast University,26.464321,-81.77339,34.63,65.37,8.128
+uFordham,Fordham,Fordham University,40.86204,-73.885699,90.49,9.51,1.708
+uGardnerWebb,Gardner-Webb,Gardner-Webb University,35.247563,-81.670737,47.93,52.07,0.522
+uGaSouthern,Georgia Southern,Georgia Southern University,32.420549,-81.786535,56.02,43.98,0.906
+uGrambling,Grambling State,Grambling State University,32.521291,-92.719296,64.54,35.46,0.91
+uGrandCanyon,Grand Canyon,Grand Canyon University,33.510165,-112.128786,73.27,26.73,1.091
+uHampton,Hampton,Hampton University,37.022839,-76.33436,87.77,12.23,1.14
+uHighPoint,High Point,High Point University,35.972384,-79.995308,42.79,57.21,1.086
+uHofstra,Hofstra,Hofstra University,40.716792,-73.599404,92.02,7.98,2.882
+uHoustonBaptist,Houston Baptist,Houston Baptist University,29.695289,-95.515332,91.94,8.06,0.283
+uHoward,Howard,Howard University,38.922684,-77.019438,89.42,10.58,1.723
+uIdahoState,Idaho State,Idaho State University,42.862723,-112.429716,41.66,58.34,0.224
+uIllinoisState,Illinois State,Illinois State University,40.512283,-88.99467,67.95,32.05,0.465
+uIndianaState,Indiana State,Indiana State University,39.470531,-87.410374,56.69,43.31,0.633
+uFortWayne,Fort Wayne,Indiana University-Purdue University-Fort Wayne,41.117335,-85.107782,22.48,77.52,0.369
+uIUPUI,IUPUI,Indiana University-Purdue University-Indianapolis,39.773883,-86.176339,82.52,17.48,0.477
+uIona,Iona,Iona College,40.927319,-73.786183,85.63,14.37,2.102
+uJacksonState,Jackson State,Jackson State University,32.296885,-90.206396,83.25,16.75,0.717
+uJacksonvilleState,Jacksonville State,Jacksonville State University,33.823059,-85.768108,47.47,52.53,0.654
+uJacksonville,Jacksonville U.,Jacksonville University,30.352531,-81.607244,80.17,19.83,4.034
+uJMU,James Madison,James Madison University,38.435092,-78.869755,74.2,25.8,0.648
+uKennesawState,Kennesaw State,Kennesaw State University,34.038078,-84.581572,77.03,22.97,1.737
+uKentState,Kent State,Kent State University at Kent,41.149063,-81.341465,60.66,39.34,0.825
+uLaSalle,La Salle,La Salle University,40.038756,-75.156632,86.96,13.04,2.171
+uLamar,Lamar,Lamar University,30.040144,-94.075231,57.07,42.93,0.345
+uLehigh,Lehigh,Lehigh University,40.606909,-75.378283,71.81,28.19,1.068
+uLiberty,Liberty,Liberty University,37.352932,-79.176928,54.69,45.31,1.305
+uLipscomb,Lipscomb,Lipscomb University,36.105632,-86.79999,83.4,16.6,0.511
+uLIUBrooklyn,LIU Brooklyn,LIU Brooklyn,40.690849,-73.980508,90.63,9.37,2.662
+uLaTech,Louisiana Tech,Louisiana Tech University,32.526375,-92.64811,43.12,56.88,0.458
+uLoyolaMarymount,Loyola Marymount,Loyola Marymount University,33.969818,-118.418497,92.92,7.08,0.377
+uLoyolaChicago,Loyola Chicago,Loyola University Chicago,41.998997,-87.658192,89.88,10.12,0.809
+uLoyolaMaryland,Loyola Maryland,Loyola University Maryland,39.347674,-76.617237,88.92,11.08,0.899
+uMarist,Marist,Marist College,41.722457,-73.93412,36.94,63.06,3.85
+uMarshall,Marshall,Marshall University,38.423533,-82.426314,47.22,52.78,0.983
+uMcNeese,McNeese State,McNeese State University,30.178366,-93.215629,31.89,68.11,0.287
+uMiamiOH,Miami  of Ohio,Miami University of Ohio,39.510533,-84.730877,82.02,17.98,2.714
+uMTSU,Middle Tennessee State,Middle Tennessee State University,35.848611,-86.364881,81.14,18.86,0.509
+uMVSU,Mississippi Valley State,Mississippi Valley State University,33.512698,-90.341672,60.24,39.76,0.274
+uMissouriState,Missouri State,Missouri State University-Springfield,37.200566,-93.28067,54.72,45.28,0.45
+uMonmouth,Monmouth,Monmouth University,40.280456,-74.005811,90.53,9.47,1.563
+uMontanaState,Montana State,Montana State University,45.666756,-111.04981,45.49,54.51,0.271
+uMorganState,Morgan State,Morgan State University,39.343796,-76.584385,92.19,7.81,0.725
+uMurrayState,Murray State,Murray State University,36.616384,-88.321498,42.72,57.28,0.572
+uNJIT,NJIT,New Jersey Institute of Technology,40.742335,-74.179341,91.05,8.95,1.046
+uNewMexicoState,New Mexico State,New Mexico State University,32.278774,-106.747906,51.19,48.81,0.472
+uNiagara,Niagara,Niagara University,43.136515,-79.03532,81.08,18.92,1.312
+uNicholls,Nicholls State,Nicholls State University,29.790742,-90.80286,38.55,61.45,0.487
+uNorfolk,Norfolk State,Norfolk State University,36.848016,-76.262085,88.07,11.93,0.758
+uNCAT,North Carolina A&T,North Carolina A & T State University,36.07259,-79.773367,49.36,50.64,0.496
+uNCC,North Carolina Central,North Carolina Central University,35.974737,-78.898101,45.26,54.74,0.553
+uNDSU,North Dakota State,North Dakota State University,46.897753,-96.802437,57.92,42.08,0.263
+uNorthernArizona,Northern Arizona,Northern Arizona University,35.18519,-111.654707,72.17,27.83,0.275
+uNorthernIllinois,Northern Illinois,Northern Illinois University,41.934233,-88.774069,84.89,15.11,0.5
+uNorthernKentucky,Northern Kentucky,Northern Kentucky University,39.031803,-84.464383,88.74,11.26,0.321
+uNorthwesternState,Northwestern State,Northwestern State University of Louisiana,31.748761,-93.097793,35.69,64.31,0.409
+uOakland ,Oakland ,Oakland University,42.668848,-83.206641,87.8,12.2,0.534
+uOhio,Ohio,Ohio University,39.324358,-82.101389,68.94,31.06,0.818
+uODU,Old Dominion,Old Dominion University,36.88561,-76.306778,82.87,17.13,0.802
+uOralRoberts,Oral Roberts,Oral Roberts University,36.051315,-95.951689,77.89,22.11,1.388
+uPepperdine,Pepperdine,Pepperdine University,34.041405,-118.709581,88.14,11.86,0.657
+uPortlandState,Portland State,Portland State University,45.510966,-122.683555,87.56,12.44,0.244
+uPrairieView,Prairie View A&M,Prairie View A & M University,30.11214,-95.986545,90.63,9.37,0.24
+uPresbyterian,Presbyterian,Presbyterian College,34.465182,-81.877559,60.05,39.95,0.499
+uQuinnipiac,Quinnipiac,Quinnipiac University,41.419682,-72.895218,72.54,27.46,1.03
+uRadford,Radford,Radford University,37.138269,-80.550622,61.55,38.45,0.735
+uRider,Rider,Rider University,40.279623,-74.738187,81.52,18.48,1.392
+uRobertMorris,Robert Morris,Robert Morris University,40.521551,-80.211922,88.19,11.81,0.624
+uSacredHeart,Sacred Heart,Sacred Heart University,41.22039,-73.2433,63.96,36.04,2.891
+uSaintFrancis,Saint Francis,Saint Francis University,40.50382,-78.637619,56.37,43.63,0.993
+uSaintJosephs,Saint Joseph's,Saint Joseph's University,39.994683,-75.241641,88.6,11.4,0.839
+uSaint Louis,Saint Louis,Saint Louis University,38.63546,-90.233823,84.31,15.69,0.87
+uSaintPeters,Saint Peter's,Saint Peter's University,40.727223,-74.071503,87.86,12.14,2.793
+uSamHouston,Sam Houston State,Sam Houston State University,30.714662,-95.550244,79.61,20.39,0.273
+uSamford ,Samford ,Samford University,33.464749,-86.793631,72.3,27.7,1.131
+uSDSU,San Diego State,San Diego State University,32.775722,-117.071889,89.5,10.5,0.475
+uSJSU,San Jose State,San Jose State University,37.335187,-121.881072,88.47,11.53,0.352
+uSantaClara,Santa Clara,Santa Clara University,37.349642,-121.938987,90.34,9.66,0.812
+uSavannah,Savannah State,Savannah State University,32.024521,-81.062637,58.82,41.18,1.691
+uSouthCarolinaState,South Carolina State,South Carolina State University,33.498344,-80.850149,45.56,54.44,1.028
+uSouthDakotaState,South Dakota State,South Dakota State University,44.318946,-96.783968,51.36,48.64,0.246
+uSoutheastMissouri,Southeast Missouri,Southeast Missouri State University,37.314878,-89.528044,65.89,34.11,0.371
+uSoutheasternLouisiana,Southeastern Louisiana,Southeastern Louisiana University,30.517316,-90.468857,46.86,53.14,0.385
+uSouthernIllinois,Southern Illinois,Southern Illinois University-Carbondale,37.713637,-89.217963,69.19,30.81,0.76
+uSIUEdwardsville,Southern Illinois-Edwardsville,Southern Illinois University-Edwardsville,38.793098,-89.997945,83.85,16.15,0.444
+uSMU,Southern Methodist,Southern Methodist University,32.841218,-96.784517,89.75,10.25,0.84
+uSouthern,Southern,Southern University and A&M College,30.526765,-91.193577,52.91,47.09,1.63
+uSouthernUtah,Southern Utah,Southern Utah University,37.676444,-113.071332,47.59,52.41,0.148
+uStBonaventure,St. Bonaventure,St Bonaventure University,42.078411,-78.482882,71.91,28.09,1.245
+uStFrancis,St. Francis,St Francis College,40.69323,-73.992165,84.56,15.44,2.001
+uSFA,Stephen F Austin,Stephen F Austin State University,31.621924,-94.646258,72.27,27.73,0.226
+uStetson,Stetson,Stetson University,29.035664,-81.301505,68.85,31.15,7.524
+uBinghamton,Binghamton,SUNY at Binghamton,42.089355,-75.969705,73.08,26.92,1.262
+uTennState,Tennessee State,Tennessee State University,36.166822,-86.827582,87.42,12.58,0.737
+uTennTech,Tennessee Tech,Tennessee Technological University,36.175903,-85.507022,51.93,48.07,0.453
+uTexasAMCC,Texas A&M Corpus Christi,Texas A & M University-Corpus Christi,27.712745,-97.324143,50.5,49.5,0.288
+uTexas Southern,Texas Southern,Texas Southern University,29.721763,-95.360612,94.03,5.97,0.417
+uTexasState,Texas State,Texas State University,29.888411,-97.938351,89.04,10.96,0.264
+uTowson,Towson,Towson University,39.392512,-76.612639,90.6,9.4,0.828
+uTroy,Troy,Troy University,31.80189,-85.957228,42.43,57.57,0.832
+uAirForce,Air Force,United States Air Force Academy,38.998309,-104.861318,64.08,35.92,1.063
+uArmy,Army,United States Military Academy,41.391837,-73.962503,69.06,30.94,1.097
+uNavy,Navy,United States Naval Academy,38.982066,-76.483941,75.02,24.98,1.192
+uAkron ,Akron ,University of Akron ,41.076655,-81.511339,56.97,43.03,0.685
+uALR,Arkansas at Little Rock,University of Arkansas at Little Rock,34.724057,-92.338887,80.96,19.04,0.914
+uAPB,Arkansas at Pine Bluff,University of Arkansas at Pine Bluff,34.246872,-92.021339,68.81,31.19,0.274
+uCentralArkansas,Central Arkansas,University of Central Arkansas,35.078091,-92.457938,73.21,26.79,0.57
+uDayton,Dayton,University of Dayton,39.7393,-84.179967,65.11,34.89,0.671
+uDenver,Denver,University of Denver,39.676617,-104.961896,83.92,16.08,0.784
+uDetroit,Detroit,University of Detroit Mercy,42.414062,-83.137903,86.57,13.43,0.845
+uEvansville,Evansville,University of Evansville,37.973411,-87.532172,49.6,50.4,0.578
+uHartford,Hartford,University of Hartford,41.798599,-72.714,82.69,17.31,2.056
+uIdaho,Idaho,University of Idaho,46.728812,-117.012608,53.98,46.02,0.257
+uLouisianaLafayette,Louisiana Lafayette,University of Louisiana at Lafayette,30.21144,-92.020412,34.23,65.77,0.527
+uLouisianaMonroe,Louisiana Monroe,University of Louisiana at Monroe,32.5093,-92.1193,35.48,64.52,0.385
+uMaine,Maine,University of Maine,44.90122,-68.666651,56.73,43.27,0.827
+uMES,Maryland Eastern Shore,University of Maryland Eastern Shore,38.210217,-75.6848,79.15,20.85,0.539
+uMBC,UMBC,University of Maryland-Baltimore County,39.255613,-76.710975,90.9,9.1,0.584
+uMassLowell,UMass-Lowell,University of Massachusetts-Lowell,42.650057,-71.324047,86.15,13.85,0.63
+uMemphis,Memphis,University of Memphis,35.118741,-89.937141,85.41,14.59,0.637
+uMKC,UMKC,University of Missouri-Kansas City,39.033554,-94.576026,86.43,13.57,0.455
+uMontana,Montana,University of Montana,46.860067,-113.985208,44.92,55.08,0.352
+uNO,Nebraska Omaha,University of Nebraska at Omaha,41.25825,-96.010705,85.52,14.48,0.409
+uNLV,UNLV,University of Nevada-Las Vegas,36.10852,-115.143171,86.91,13.09,0.78
+uNevada,Nevada,University of Nevada-Reno,39.544192,-119.816397,39.81,60.19,0.287
+uNewHampshire,New Hampshire,University of New Hampshire,43.138948,-70.937025,77.44,22.56,0.707
+uNewOrleans,New Orleans,University of New Orleans,30.028596,-90.066036,82.71,17.29,1.052
+uNCAsheville,UNC Asheville,University of North Carolina at Asheville,35.616292,-82.567313,35.26,64.74,0.603
+uCharlotte,Charlotte,University of North Carolina at Charlotte,35.307093,-80.735164,80.06,19.94,0.601
+uNCGreensboro,UNC Greensboro,University of North Carolina at Greensboro,36.06893,-79.810198,34.65,65.35,0.577
+uNCWilmington,UNC Wilmington,University of North Carolina Wilmington,34.223987,-77.870133,38.9,61.1,0.775
+uNorthDakota,North Dakota,University of North Dakota,47.922891,-97.076801,44.41,55.59,0.453
+uNorthFlorida,North Florida,University of North Florida,30.26612,-81.507231,86.09,13.91,3.309
+uNorthernColorado,Northern Colorado,University of Northern Colorado,40.405512,-104.696038,64.45,35.55,0.401
+uNorthernIowa,Northern Iowa,University of Northern Iowa,42.513389,-92.462003,45.63,54.37,0.307
+uPortland,Portland,University of Portland,45.573205,-122.727571,81.75,18.25,0.339
+uRhodeIsland,Rhode Island,University of Rhode Island,41.486065,-71.530854,86.03,13.97,1.271
+uRichmond,Richmond,University of Richmond,37.575868,-77.540974,84.84,15.16,0.916
+uSanDiego,San Diego,University of San Diego,32.776873,-117.154901,89.41,10.59,0.624
+uSanFrancisco,San Francisco,University of San Francisco,37.776647,-122.450683,88.13,11.87,0.627
+uSouthAlabama,South Alabama,University of South Alabama,30.695941,-88.184236,33.89,66.11,0.873
+uUpstate,South Carolina-Upstate,University of South Carolina-Upstate,34.999247,-81.971272,57.64,42.36,0.875
+uSouthDakota,South Dakota,University of South Dakota,42.788302,-96.925338,57.54,42.46,0.284
+uSouthernMiss,Southern Mississippi,University of Southern Mississippi,31.330012,-89.334042,45.5,54.5,0.58
+uTChattanooga,Tennessee-Chattanooga,University of Tennessee-Chattanooga,35.046407,-85.29447,36.82,63.18,0.544
+uTMartin,Tennessee-Martin,University of Tennessee-Martin,36.341936,-88.864404,52.83,47.17,0.402
+uTEP,UTEP,University of Texas at El Paso,31.770854,-106.504622,39.23,60.77,0.502
+uTSA,Texas at San Antonio,University of Texas at San Antonio,29.583045,-98.619656,90.09,9.91,0.349
+uRioGrandeValley,Texas Rio Grande Valley,University of Texas Rio Grande Valley,26.304653,-98.174275,34.37,65.63,0.445
+uIncarnateWord,Incarnate Word,University of the Incarnate Word,29.467594,-98.467622,88.04,11.96,0.362
+uPacific,Pacific,University of the Pacific,37.980815,-121.312023,72.06,27.94,0.782
+uToledo,Toledo,University of Toledo,41.658031,-83.61407,45.08,54.92,0.74
+uTulsa,Tulsa,University of Tulsa,36.151988,-95.946,85.06,14.94,0.745
+uVermont,Vermont,University of Vermont,44.477853,-73.196464,77.93,22.07,0.841
+uGreen Bay,Wisconsin-Green Bay,University of Wisconsin-Green Bay,44.532073,-87.921714,25.24,74.76,0.266
+uWyoming,Wyoming,University of Wyoming,41.314875,-105.566574,53.31,46.69,0.321
+uUtahState,Utah State,Utah State University,41.745161,-111.809742,55.92,44.08,0.282
+uUtahValley,Utah Valley,Utah Valley University,40.278831,-111.715197,38.26,61.74,0.219
+uValparaiso,Valparaiso,Valparaiso University,41.463939,-87.043889,76.93,23.07,0.601
+uWagner,Wagner,Wagner College,40.61498,-74.094405,88.27,11.73,1.905
+uWeber State,Weber State,Weber State University,41.192077,-111.944139,54.09,45.91,0.201
+uWesternCarolina,Western Carolina,Western Carolina University,35.308922,-83.184378,40.47,59.53,0.863
+uWesternIllinois,Western Illinois,Western Illinois University,40.472665,-90.685397,63.38,36.62,0.546
+uWesternKentucky,Western Kentucky,Western Kentucky University,36.985354,-86.456138,53.51,46.49,0.524
+uWesternMichigan,Western Michigan,Western Michigan University,42.283734,-85.610251,58.42,41.58,0.697
+uWichitaState,Wichita State,Wichita State University,37.719393,-97.292869,85.5,14.5,0.445
+uWinthrop,Winthrop,Winthrop University,34.939514,-81.03162,69.92,30.08,0.467
+uWrightState,Wright State,Wright State University,39.784532,-84.059772,42.17,57.83,0.46
+uYoungstownState,Youngstown State,Youngstown State University,41.10626,-80.6477,40.49,59.51,1.021
+uAugustanaSD,Augustana U. (S.D),Augustana University Sioux Falls SD,43.5226,-96.7397,62.86,37.14,0.622
+uMiddlebury,Middlebury,Middlebury College,44.0083,-73.1773,77.45,22.55,0.77

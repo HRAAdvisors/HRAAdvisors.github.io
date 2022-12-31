@@ -1,0 +1,421 @@
+<style>
+/*! CSS Used from: https://www.miamidda.com/wp-content/themes/miamidda-v2/style.scss.php/all-global.scss?ver=5.5.3 ; media=all */
+@media all{
+body *{-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);line-height:125%;outline:none;}
+div,span,a,img,ul,li,form,header{border:0px;font-size:100%;font:inherit;margin:0px;padding:0px;vertical-align:baseline;}
+header{display:block;}
+ul{list-style:none;}
+input{-webkit-margin-after:0px;-webkit-margin-before:0px;box-sizing:content-box;}
+body *:first-child{margin-top:0px;}
+body *:last-child{margin-bottom:0px;}
+a:focus,a:active{outline:none!important;}
+body.has-alerts header{margin-top:30px;}
+div.container{margin-left:auto;margin-right:auto;max-width:1060px;padding-left:0px;padding-right:0px;}
+div.container.expanded{max-width:1200px;width:94%;}
+body > header *{font-family:"Nunito", "Arial", sans-serif!important;}
+img.lazy-images{transition:opacity 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655);opacity:0;will-change:opacity;}
+img.lazy-images.loaded{opacity:1;}
+@media (min-width:1260px){
+.no-desktop{display:none!important;}
+}
+@media (min-width:950px) and (max-width:1260px){
+div.container{width:92%;}
+.no-desktop{display:none!important;}
+}
+@media (min-width:550px) and (max-width:950px){
+div.container{width:92%;}
+.no-tablet{display:none!important;}
+}
+@media (max-width:550px){
+div.container{width:92%;}
+.no-mobile{display:none!important;}
+}
+header{left:0px;max-height:150px;max-width:100vw;position:fixed;top:0px;width:100%;z-index:10000;}
+header > div{width:100%;height:50px;}
+header.is-not-front-page div.secondary-menu{background-color:#242358;}
+header div.secondary-menu{background-color:#242358;}
+header div.secondary-menu ul li + li{margin-left:15px;}
+header div.secondary-menu div.logo > a{display:block;position:relative;}
+header div.secondary-menu div.logo > a > img{height:auto;position:absolute;top:1px;width:24px;}
+header > div.primary-menu{background-color:#1884b8;}
+header > div.primary-menu ul{justify-content:space-between;width:100%;}
+header > div.primary-menu ul li a{font-size:18px;}
+header div.flex{align-items:center;display:flex;height:100%;}
+header div.primary-menu{height:35px;opacity:0;visibility:hidden;}
+header div.secondary-menu{height:100px;background-color:rgba(36, 35, 88, 0);}
+header div.primary-menu,header div.secondary-menu{padding-left:7.25px;}
+header div.primary-menu div.container,header div.secondary-menu div.container{width:calc(100% - 75px);max-width:unset;}
+header div.primary-menu div.logo,header div.secondary-menu div.logo{margin-right:75px;width:200px;flex-shrink:0;}
+header div.secondary-menu div.logo > a > img{width:24px;}
+header div.secondary-menu div.logo > a{width:200px;height:36px;}
+header div.secondary-menu div.logo > a svg{width:inherit;height:inherit;}
+header div.search{transition:height 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655);background-color:#eb529d;height:0px;overflow:hidden;position:relative;will-change:height;}
+header div.search input{border-radius:3px;border:0px;box-sizing:border-box;display:block;font-family:"Nunito", "Arial", sans-serif;font-size:14px;font-weight:300;margin:0px;padding:0px 16px;width:100%;line-height:50px;background-color:rgba(0, 0, 0, 0);color:#fff;}
+header div.search input::placeholder{color:#fff;}
+header a.search-trigger-close{position:absolute;right:15px;top:50%;transform:translateY(-50%);display:block;width:16px;height:16px;}
+header a.search-trigger-close svg{width:inherit;height:inherit;}
+header a.search-trigger-close svg path{fill:#fff;}
+header li.google-translate div.sub-menu,header li.networks div.sub-menu{padding:0px!important;}
+header li.google-translate div.sub-menu ul,header li.networks div.sub-menu ul{max-height:200px;overflow-y:auto;}
+header li.google-translate div.sub-menu ul li,header li.networks div.sub-menu ul li{transition:color 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655);color:#1884b8;cursor:pointer;font-size:14px;font-weight:400;margin-left:0px!important;padding:5px 15px;}
+header li.google-translate div.sub-menu ul li[data-value]{text-transform:capitalize;}
+header li.google-translate div.sub-menu ul > span{display:block;height:15px;width:100%;}
+header li.google-translate div.sub-menu ul:before,header li.networks div.sub-menu ul:before,header li.google-translate div.sub-menu ul:after,header li.networks div.sub-menu ul:after{clear:both;content:"";display:block;height:15px;width:100%;}
+header li.networks div.sub-menu li{padding-top:0px!important;padding-bottom:0px!important;}
+header .has-options:after{content:"";background-image:url("https://www.miamidda.com/wp-content/themes/miamidda-v2/assets/home-v2/img/down-arrow.svg");display:inline-block;height:10px;margin-left:5px;position:relative;top:-1px;vertical-align:middle;width:10px;}
+header div.extra{display:flex;flex-grow:1;justify-content:space-between;margin:0px 15px;}
+header div.extra ul.menu li a{padding:5px 0px;}
+header div.extra ul.menu li + li{margin-left:40px;}
+header div.extra ul.menu:nth-child( 2) li a svg{display:inline-block;height:16px;position:relative;top:-2.25px;vertical-align:middle;width:16px;}
+header div.extra ul.menu:nth-child( 2) li a svg path{fill:#fff;}
+header ul.menu{display:flex;}
+header ul.menu li a{color:#fff;font-weight:400;text-decoration:none;}
+header ul.menu > li > a{line-height:35px;}
+header ul.menu li{position:relative;}
+header ul.menu li a{display:block;max-width:100%;padding:5px 15px;}
+header ul.menu li:hover > .sub-menu{box-shadow:0px 3.5px 7px rgba(0, 0, 0, 0.1);opacity:1;transform:translateX(-50%) translateY(0px);visibility:visible;}
+header ul.menu .sub-menu{transition:box-shadow 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655), opacity 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655), transform 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655), visibility 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655);background-color:#fff;box-sizing:border-box;display:block;left:50%;max-width:250px;min-width:250px;opacity:0;padding:15px 0px;position:absolute;top:100%;transform:translateX(-50%) translateY(10px);visibility:hidden;width:auto;will-change:transform, opacity, visibility, box-shadow;z-index:100;}
+header ul.menu .sub-menu li a{color:#1884b8;font-size:14px;}
+header ul.menu .sub-menu li:hover{background-color:rgba(24, 132, 184, 0.1);}
+header ul.menu .sub-menu:after{bottom:100%;left:50%;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(0, 0, 0, 0);border-bottom-color:#fff;border-width:5px;margin-left:-5px;}
+header ul.menu li.menu-item-has-children > a{background-image:url("https://www.miamidda.com/wp-content/themes/miamidda-v2/assets/home-v2/img/menu-arrow.svg");background-position:calc(100% - 15px) center;background-repeat:no-repeat;background-size:6px 6px;padding-right:35px;}
+header.headroom div.primary-menu,header.headroom div.secondary-menu{transition:background-color 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655), height 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655), opacity 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655), visibility 175ms cubic-bezier(0.77, 0.005, 0.41, 0.655);will-change:background-color, height;}
+header.is-not-front-page{height:auto;}
+header.is-not-front-page div.primary-menu{opacity:1;visibility:visible;}
+header.is-not-front-page div.secondary-menu{height:50px;background-color:rgba(36, 35, 88, 1);}
+header div.mobile-menu{align-items:center;background-color:#232357;box-sizing:border-box;display:flex;justify-content:space-between;padding:0px 6px;max-width:100vw;}
+header div.mobile-menu a.logo{display:block;height:36px;position:relative;top:-3px;width:auto;}
+header div.mobile-menu a.logo svg{display:block;height:inherit;width:inherit;}
+header div.mobile-menu a.menu-trigger,header div.mobile-menu a.search-trigger{display:block;padding:9px;}
+header div.mobile-menu a.menu-trigger svg,header div.mobile-menu a.search-trigger svg{display:block;height:16px;width:16px;}
+header div.mobile-menu a.menu-trigger svg path,header div.mobile-menu a.search-trigger svg path{fill:#fff;}
+header ul#header-navigation > li > a{padding:0px 15px!important;}
+header ul#header-navigation > li > a{text-transform:capitalize!important;}
+@media (min-width:950px) and (max-width:1260px){
+header div.logo{margin-right:35px!important;}
+}
+}
+/*! CSS Used from: https://www.miamidda.com/wp-content/themes/miamidda-v2/assets/build/css/bundle.css?id=7ed64d1e5cb83a7339d4 ; media=all */
+@media all{
+a{background-color:transparent;}
+img{border-style:none;}
+input{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}
+input{overflow:visible;}
+*,:after,:before{-webkit-box-sizing:inherit;box-sizing:inherit;}
+.container{max-width:1170px;margin-right:auto;margin-left:auto;padding-right:15px;padding-left:15px;}
+input{font-family:Roboto,sans-serif;}
+a{text-decoration:none;}
+}
+/*! CSS Used from: Embedded ; media=all */
+@media all{
+.cls-1{fill:#fff;}
+}
+/*! CSS Used fontfaces */
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200.svg#svgFontName) format("svg");font-style:normal;font-weight:200;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200italic.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200italic.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200italic.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200italic.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200italic.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-200italic.svg#svgFontName) format("svg");font-style:italic;font-weight:200;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300.svg#svgFontName) format("svg");font-style:normal;font-weight:300;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300italic.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300italic.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300italic.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300italic.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300italic.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-300italic.svg#svgFontName) format("svg");font-style:italic;font-weight:300;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-regular.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-regular.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-regular.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-regular.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-regular.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-regular.svg#svgFontName) format("svg");font-style:normal;font-weight:400;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-italic.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-italic.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-italic.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-italic.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-italic.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-italic.svg#svgFontName) format("svg");font-style:italic;font-weight:400;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600.svg#svgFontName) format("svg");font-style:normal;font-weight:600;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600italic.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600italic.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600italic.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600italic.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600italic.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-600italic.svg#svgFontName) format("svg");font-style:italic;font-weight:600;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700.svg#svgFontName) format("svg");font-style:normal;font-weight:700;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700italic.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700italic.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700italic.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700italic.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700italic.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-700italic.svg#svgFontName) format("svg");font-style:italic;font-weight:700;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800.svg#svgFontName) format("svg");font-style:normal;font-weight:800;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800italic.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800italic.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800italic.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800italic.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800italic.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-800italic.svg#svgFontName) format("svg");font-style:italic;font-weight:800;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900.svg#svgFontName) format("svg");font-style:normal;font-weight:900;}
+@font-face{font-family:Nunito;src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900italic.eot);src:url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900italic.eot#iefix) format("embedded-opentype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900italic.woff2) format("woff2"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900italic.woff) format("woff"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900italic.ttf) format("truetype"),url(https://www.miamidda.com/wp-content/plugins/gdpr-cookie-compliance/dist/fonts/nunito-v8-latin-900italic.svg#svgFontName) format("svg");font-style:italic;font-weight:900;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAnsSUbOvISTs.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAnsSUZevISTs.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAnsSUbuvISTs.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAnsSUb-vISTs.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAnsSUYevI.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofIOOaBXso.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofIMeaBXso.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofIOuaBXso.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofIO-aBXso.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofINeaB.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAjsOUbOvISTs.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAjsOUZevISTs.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAjsOUbuvISTs.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAjsOUb-vISTs.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Nunito';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAjsOUYevI.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu72xKOzY.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu5mxKOzY.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7mxKOzY.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4WxKOzY.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7WxKOzY.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fCRc4EsA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fABc4EsA.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fCBc4EsA.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBxc4EsA.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfCRc4EsA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfABc4EsA.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfCBc4EsA.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBxc4EsA.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfCxc4EsA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+</style>
+<header class="is-not-front-page headroom headroom--top headroom--not-bottom">
+            <div class="search">
+                <form action="/" method="GET">
+                    <input id="query" name="s" type="text" placeholder="Search...">
+                    <a href="javascript: void( 0 );" class="search-trigger-close" title="Close">
+                        
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 612 612">
+    <path d="M612 36.004L576.521.603 306 270.608 35.478.603 0 36.004l270.522 270.007L0 575.997l35.478 35.4L306 341.411l270.521 269.986 35.479-35.4-270.541-269.986z"></path>
+</svg>                    </a>
+                </form>
+            </div>
+            <div class="secondary-menu no-mobile no-tablet">
+                <div class="container expanded flex">
+                    <div class="logo">
+                        <a href="https://www.miamidda.com" title="Navigate to first page...">
+                            <img class="lazy-images loaded" data-src="https://www.miamidda.com/wp-content/themes/miamidda-v2/assets/home-v2/img/logo-animated.gif" src="https://www.miamidda.com/wp-content/themes/miamidda-v2/assets/home-v2/img/logo-animated.gif" data-was-processed="true">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 592.81 107.05">
+    <path fill="#fff" d="M143.79 107.04v-60.2L121.6 96.8h-5.51L93.5 46.84v60.2h-5.53V34.01h5.53l25.45 56.32 24.84-56.32h5.5v73.03h-5.5zM172.9 34.01h5.53v73.04h-5.53zM221.64 41.39l-15.29 43h30.58zM245 107l-6.36-17.72h-34L198.25 107h-5.94l26.87-73h4.92l26.9 73h-6M320.63 107.04v-60.2L298.47 96.8h-5.53l-22.57-49.96v60.2h-5.53V34.01h5.53l25.45 56.32 24.81-56.32h5.56v73.03h-5.56zM349.77 34.01h5.53v73.04h-5.53zM400.91 91c12.62 0 20.83-8.1 20.83-20.48s-8.21-20.42-20.83-20.42h-4.35V91h4.35M377.6 34h28c19.27 0 35.9 16.87 35.9 36.46S424.92 107 405.65 107h-28V34M475.39 91c12.62 0 20.8-8.1 20.8-20.48S488 50.1 475.39 50.1H471V91h4.38m-23.3-57h28C499.4 34 516 50.88 516 70.47S499.4 107 480.1 107h-28V34M554.93 56.57l-8 23.31h15.77zm-13.26 37.77L536.61 107h-20l28-73h20.72l27.48 73h-20.26l-4.71-12.7h-26.17"></path>
+</svg>                        </a>
+                    </div>
+                    <div class="extra">
+                        <ul class="menu">
+                            <li><a href="https://www.miamidda.com/media-center/">Media and Press Center</a></li>
+                            <li><a href="https://www.miamidda.com/public-meetings/">Public Meetings</a></li>
+                        </ul>
+                        <ul class="menu">
+                            <li class="google-translate">
+                                <a href="javascript: void( 0 );" class="has-options">Translate</a>
+                                <div class="sub-menu">
+                                    <ul>
+                                        <li data-reset="" class="skiptranslate">Reset to default language...</li>
+                                        <span></span>
+                                        <li data-value="af">Afrikaans</li>
+                                        <li data-value="sq">Albanian</li>
+                                        <li data-value="am">Amharic</li>
+                                        <li data-value="ar">Arabic</li>
+                                        <li data-value="hy">Armenian</li>
+                                        <li data-value="az">Azerbaijani</li>
+                                        <li data-value="eu">Basque</li>
+                                        <li data-value="be">Belarusian</li>
+                                        <li data-value="bn">Bengali</li>
+                                        <li data-value="bs">Bosnian</li>
+                                        <li data-value="bg">Bulgarian</li>
+                                        <li data-value="ca">Catalan</li>
+                                        <li data-value="ceb">Cebuano</li>
+                                        <li data-value="ny">Chichewa</li>
+                                        <li data-value="zh-CN">Chinese (Simplified)</li>
+                                        <li data-value="zh-TW">Chinese (Traditional)</li>
+                                        <li data-value="co">Corsican</li>
+                                        <li data-value="hr">Croatian</li>
+                                        <li data-value="cs">Czech</li>
+                                        <li data-value="da">Danish</li>
+                                        <li data-value="nl">Dutch</li>
+                                        <li data-value="eo">Esperanto</li>
+                                        <li data-value="et">Estonian</li>
+                                        <li data-value="tl">Filipino</li>
+                                        <li data-value="fi">Finnish</li>
+                                        <li data-value="fr">French</li>
+                                        <li data-value="fy">Frisian</li>
+                                        <li data-value="gl">Galician</li>
+                                        <li data-value="ka">Georgian</li>
+                                        <li data-value="de">German</li>
+                                        <li data-value="el">Greek</li>
+                                        <li data-value="gu">Gujarati</li>
+                                        <li data-value="ht">Haitian Creole</li>
+                                        <li data-value="ha">Hausa</li>
+                                        <li data-value="haw">Hawaiian</li>
+                                        <li data-value="iw">Hebrew</li>
+                                        <li data-value="hi">Hindi</li>
+                                        <li data-value="hmn">Hmong</li>
+                                        <li data-value="hu">Hungarian</li>
+                                        <li data-value="is">Icelandic</li>
+                                        <li data-value="ig">Igbo</li>
+                                        <li data-value="id">Indonesian</li>
+                                        <li data-value="ga">Irish</li>
+                                        <li data-value="it">Italian</li>
+                                        <li data-value="ja">Japanese</li>
+                                        <li data-value="jw">Javanese</li>
+                                        <li data-value="kn">Kannada</li>
+                                        <li data-value="kk">Kazakh</li>
+                                        <li data-value="km">Khmer</li>
+                                        <li data-value="ko">Korean</li>
+                                        <li data-value="ku">Kurdish (Kurmanji)</li>
+                                        <li data-value="ky">Kyrgyz</li>
+                                        <li data-value="lo">Lao</li>
+                                        <li data-value="la">Latin</li>
+                                        <li data-value="lv">Latvian</li>
+                                        <li data-value="lt">Lithuanian</li>
+                                        <li data-value="lb">Luxembourgish</li>
+                                        <li data-value="mk">Macedonian</li>
+                                        <li data-value="mg">Malagasy</li>
+                                        <li data-value="ms">Malay</li>
+                                        <li data-value="ml">Malayalam</li>
+                                        <li data-value="mt">Maltese</li>
+                                        <li data-value="mi">Maori</li>
+                                        <li data-value="mr">Marathi</li>
+                                        <li data-value="mn">Mongolian</li>
+                                        <li data-value="my">Myanmar (Burmese)</li>
+                                        <li data-value="ne">Nepali</li>
+                                        <li data-value="no">Norwegian</li>
+                                        <li data-value="ps">Pashto</li>
+                                        <li data-value="fa">Persian</li>
+                                        <li data-value="pl">Polish</li>
+                                        <li data-value="pt">Portuguese</li>
+                                        <li data-value="pa">Punjabi</li>
+                                        <li data-value="ro">Romanian</li>
+                                        <li data-value="ru">Russian</li>
+                                        <li data-value="sm">Samoan</li>
+                                        <li data-value="gd">Scots Gaelic</li>
+                                        <li data-value="sr">Serbian</li>
+                                        <li data-value="st">Sesotho</li>
+                                        <li data-value="sn">Shona</li>
+                                        <li data-value="sd">Sindhi</li>
+                                        <li data-value="si">Sinhala</li>
+                                        <li data-value="sk">Slovak</li>
+                                        <li data-value="sl">Slovenian</li>
+                                        <li data-value="so">Somali</li>
+                                        <li data-value="es">Spanish</li>
+                                        <li data-value="su">Sundanese</li>
+                                        <li data-value="sw">Swahili</li>
+                                        <li data-value="sv">Swedish</li>
+                                        <li data-value="tg">Tajik</li>
+                                        <li data-value="ta">Tamil</li>
+                                        <li data-value="te">Telugu</li>
+                                        <li data-value="th">Thai</li>
+                                        <li data-value="tr">Turkish</li>
+                                        <li data-value="uk">Ukrainian</li>
+                                        <li data-value="ur">Urdu</li>
+                                        <li data-value="uz">Uzbek</li>
+                                        <li data-value="vi">Vietnamese</li>
+                                        <li data-value="cy">Welsh</li>
+                                        <li data-value="xh">Xhosa</li>
+                                        <li data-value="yi">Yiddish</li>
+                                        <li data-value="yo">Yoruba</li>
+                                        <li data-value="zu">Zulu</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="networks">
+                                <a href="javascript: void( 0 );" class="has-options">Social</a>
+                                <div class="sub-menu">
+                                    <ul>
+                                                                                    <li>
+                                                <a target="_blank" href="https://www.instagram.com/downtownmia/">
+                                                    Instagram                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a target="_blank" href="https://twitter.com/downtownmia">
+                                                    Twitter                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a target="_blank" href="https://www.youtube.com/user/miamidda2929">
+                                                    YouTube                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a target="_blank" href="https://www.facebook.com/downtownMIA/">
+                                                    Facebook                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a target="_blank" href="https://www.linkedin.com/company/miami-downtown-development-authority">
+                                                    LinkedIn                                                </a>
+                                            </li>
+                                                                                <li>
+                                            <a href="mailto:info@miamidda.com">
+                                                Email
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="javascript: void( 0 );" class="search-trigger">
+                                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+    <path d="M495 466.2L377.2 348.4c29.2-35.6 46.8-81.2 46.8-130.9C424 103.5 331.5 11 217.5 11 103.4 11 11 103.5 11 217.5S103.4 424 217.5 424c49.7 0 95.2-17.5 130.8-46.7L466.1 495c8 8 20.9 8 28.9 0 8-7.9 8-20.9 0-28.8zm-277.5-83.3C126.2 382.9 52 308.7 52 217.5S126.2 52 217.5 52C308.7 52 383 126.3 383 217.5s-74.3 165.4-165.5 165.4z"></path>
+</svg>                                    Search
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="primary-menu no-mobile no-tablet">
+                <div class="container expanded flex">
+                    <div class="logo">
+                        <a href="https://www.miamidda.com" title="Navigate to first page...">
+                            
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 592.8 22.28">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}
+        </style>
+    </defs>
+    <path class="cls-1" d="M438.2 2.39l-4.58 12.87h9.16zm7 19.66l-1.9-5.31h-10.2L431.19 22h-1.78l8-21.87h1.49L447 22zM458.78 22.23c-4.39 0-7.5-3-7.5-7.27V.18H453v14.55c0 3.64 2.33 6 5.83 6s5.84-2.39 5.84-6V.18h1.66V15c0 4.27-3.11 7.27-7.5 7.27M479.21 1.66v20.39h-1.66V1.66h-6.51V.18h14.71v1.48h-6.54zM503.88 22.05V11.76h-11.4v10.29h-1.66V.18h1.66v10.1h11.4V.18h1.66v21.87h-1.66zM523.85 3.17a5.89 5.89 0 0 0-8.3 0c-1.56 1.56-1.69 3.25-1.69 7.94s.13 6.39 1.69 8a6 6 0 0 0 8.3 0c1.57-1.57 1.69-3.26 1.69-8s-.12-6.38-1.69-7.94M525.17 20a7.79 7.79 0 0 1-10.94 0c-2-2-2-3.93-2-8.88s0-6.88 2-8.87a7.76 7.76 0 0 1 10.94 0c2 2 2 3.94 2 8.87s0 6.89-2 8.88M542 1.66h-6.45v8.84H542c2.8 0 4.83-1.41 4.83-4.43s-2-4.41-4.83-4.41M546.76 22l-5.22-10h-6v10h-1.66V.18h8.32c3.57 0 6.27 2.06 6.27 5.86a5.64 5.64 0 0 1-5 5.9L548.69 22zM554.81.18h1.65v21.87h-1.65zM569.71 1.66v20.39h-1.66V1.66h-6.51V.18h14.71v1.48h-6.54zM586.35 12.98v9.07h-1.65v-9.07L578.25.18h1.78l5.56 11.06L591.03.18h1.77l-6.45 12.8zM204.39 3.34a6.23 6.23 0 0 0-4.7-1.68h-5.28v18.91h5.28a6.2 6.2 0 0 0 4.7-1.69c1.75-1.77 1.64-5.64 1.64-8.07s.11-5.69-1.64-7.47M205.57 20a7.59 7.59 0 0 1-5.48 2h-7.33V.18h7.33a7.68 7.68 0 0 1 5.48 2c2.21 2.22 2.12 5.69 2.12 8.64s.09 7-2.12 9.24M214.35 22.05V.18h13.27v1.48H216v8.62h9.9v1.48H216v8.81h11.62v1.48h-13.27zM239.01 22.05h-1.41L230.42.18h1.74l6.16 18.94L244.45.18h1.76l-7.2 21.87zM250.66 22.05V.18h13.28v1.48h-11.62v8.62h9.91v1.48h-9.91v8.81h11.62v1.48h-13.28zM269.81 22.05V.18h1.65v20.39h11.61v1.48h-13.26zM297.69 3.17a5.89 5.89 0 0 0-8.3 0c-1.56 1.56-1.68 3.25-1.68 7.94s.12 6.39 1.68 8a6 6 0 0 0 8.3 0c1.57-1.57 1.68-3.26 1.68-8s-.11-6.38-1.68-7.94M299 20a7.8 7.8 0 0 1-10.95 0c-2-2-2-3.93-2-8.88s0-6.88 2-8.87a7.77 7.77 0 0 1 10.95 0c2 2 2 3.94 2 8.87s0 6.88-2 8.88M315.53 1.66h-6.17v9.64h6.17c3 0 5.14-1.54 5.14-4.82s-2.11-4.82-5.14-4.82m.2 11.12h-6.37V22h-1.66V.18h8c3.76 0 6.59 2.3 6.59 6.3s-2.83 6.3-6.59 6.3M344.58 22.05V4.01l-6.64 14.97h-1.66l-6.77-14.97v18.04h-1.66V.18h1.66l7.63 16.86L344.58.18h1.65v21.87h-1.65zM353.75 22.05V.18h13.28v1.48h-11.62v8.62h9.9v1.48h-9.9v8.81h11.62v1.48h-13.28zM387.18 22.05L374.55 3.03v19.02h-1.66V.18h1.66l12.63 18.94V.18h1.65v21.87h-1.65zM402.08 1.66v20.39h-1.66V1.66h-6.51V.18h14.71v1.48h-6.54zM11.64 3.34a6.24 6.24 0 0 0-4.7-1.68H1.66v18.91h5.28a6.24 6.24 0 0 0 4.7-1.69c1.75-1.77 1.63-5.64 1.63-8.07s.12-5.69-1.63-7.47M12.81 20a7.56 7.56 0 0 1-5.47 2H0V.18h7.34a7.66 7.66 0 0 1 5.47 2c2.19 2.22 2.12 5.69 2.12 8.64s.09 7-2.12 9.24M32.37 3.17a5.88 5.88 0 0 0-8.29 0c-1.57 1.56-1.69 3.25-1.69 7.94s.12 6.39 1.69 8a5.93 5.93 0 0 0 8.29 0c1.57-1.57 1.7-3.25 1.7-8s-.13-6.38-1.7-7.94M33.69 20a7.78 7.78 0 0 1-10.93 0c-2-2-2-3.93-2-8.88s0-6.88 2-8.87a7.74 7.74 0 0 1 10.93 0c2 2 2 3.94 2 8.87s0 6.89-2 8.88M58.49 22.05H56.8L51.64 3.01l-5.16 19.04h-1.7L39.32.18h1.74l4.62 19.01L50.77.18h1.72l5.1 19.01L62.21.18h1.75l-5.47 21.87zM83.01 22.05L70.38 3.03v19.02h-1.67V.18h1.67l12.63 18.94V.18h1.64v21.87h-1.64zM97.9 1.66v20.39h-1.65V1.66h-6.52V.18h14.71v1.48H97.9zM119.68 3.17a5.89 5.89 0 0 0-8.3 0c-1.56 1.56-1.68 3.25-1.68 7.94s.12 6.39 1.68 8a6 6 0 0 0 8.3 0c1.57-1.57 1.69-3.25 1.69-8s-.12-6.38-1.69-7.94M121 20a7.79 7.79 0 0 1-10.94 0c-2-2-2-3.93-2-8.88s0-6.88 2-8.87a7.76 7.76 0 0 1 10.94 0c2 2 2 3.94 2 8.87s0 6.88-2 8.88M145.79 22.05h-1.69l-5.16-19.04-5.16 19.04h-1.7L126.62.18h1.75l4.61 19.01L138.09.18h1.71l5.1 19.01L149.51.18h1.75l-5.47 21.87zM170.31 22.05L157.67 3.03v19.02h-1.65V.18h1.65l12.64 18.94V.18h1.66v21.87h-1.66z"></path>
+</svg>                        </a>
+                    </div>
+                    <ul id="header-navigation" class="menu"><li id="menu-item-12647" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12647"><a href="#">Focus Areas</a>
+<ul class="sub-menu">
+	<li id="menu-item-12171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12171"><a href="https://www.miamidda.com/business/">Business Support + Economic Development</a></li>
+	<li id="menu-item-7100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7100"><a href="https://www.miamidda.com/quality-of-life/">Enhanced Services</a></li>
+	<li id="menu-item-7099" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7099"><a href="https://www.miamidda.com/marketing-comm/">Branding, Communications, and Events</a></li>
+	<li id="menu-item-7103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7103"><a href="https://www.miamidda.com/placemaking-transportation/">Planning, Transportation &amp; Resiliency</a></li>
+	<li id="menu-item-7110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7110"><a target="_blank" rel="noopener noreferrer" href="https://www.miamidda.com/collateral/">Research &amp; Reports</a></li>
+</ul>
+</li>
+<li id="menu-item-9676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9676"><a href="https://www.miamidda.com/communityresources/">Community Resources</a></li>
+<li id="menu-item-12641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12641"><a href="#">Explore Downtown</a>
+<ul class="sub-menu">
+	<li id="menu-item-12639" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12639"><a href="https://www.miamidda.com/explore-downtown/">Attractions</a></li>
+	<li id="menu-item-11597" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11597"><a href="https://www.miamidda.com/dine/">Dine</a></li>
+	<li id="menu-item-11600" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11600"><a href="https://www.miamidda.com/explore-downtown/shop/">Shop</a></li>
+	<li id="menu-item-11601" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11601"><a href="https://www.miamidda.com/explore-downtown/stay/">Stay</a></li>
+	<li id="menu-item-11602" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11602"><a href="https://www.miamidda.com/explore-downtown/nightlife/">Downtown Nightlife</a></li>
+	<li id="menu-item-11607" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11607"><a href="https://www.miamidda.com/explore-downtown/mobility/">Getting to and Around Downtown</a></li>
+</ul>
+</li>
+<li id="menu-item-12669" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12669"><a href="#">About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-12250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12250"><a href="https://www.miamidda.com/message-to-our-directors/">Welcome to Downtown Miami</a></li>
+	<li id="menu-item-7114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7114"><a href="https://www.miamidda.com/dda-budget/">DDA Budget</a></li>
+	<li id="menu-item-7115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7115"><a href="https://www.miamidda.com/dda-procurement/">DDA Procurement</a></li>
+	<li id="menu-item-12041" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12041"><a href="https://www.miamidda.com/data-resources/districts-maps/">DDA District Maps</a></li>
+	<li id="menu-item-7116" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7116"><a href="https://www.miamidda.com/dda-board/">DDA Board</a></li>
+	<li id="menu-item-7117" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7117"><a href="https://www.miamidda.com/staff-roster/">DDA Staff</a></li>
+	<li id="menu-item-7118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7118"><a href="https://www.miamidda.com/contact-us/">Contact Us</a></li>
+</ul>
+</li>
+<li id="menu-item-7120" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7120"><a href="/dda-meetings/">Event Calendar</a></li>
+</ul>                </div>
+            </div>
+            <div class="mobile-menu no-desktop">
+                <div>
+                    <a href="javascript: void( 0 );" class="menu-trigger" title="Open website menu">
+                        
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+    <path d="M491.318 235.318H20.682C9.26 235.318 0 244.577 0 256s9.26 20.682 20.682 20.682h470.636c11.423 0 20.682-9.259 20.682-20.682 0-11.422-9.259-20.682-20.682-20.682zM491.318 78.439H20.682C9.26 78.439 0 87.699 0 99.121c0 11.422 9.26 20.682 20.682 20.682h470.636c11.423 0 20.682-9.26 20.682-20.682 0-11.422-9.259-20.682-20.682-20.682zM491.318 392.197H20.682C9.26 392.197 0 401.456 0 412.879s9.26 20.682 20.682 20.682h470.636c11.423 0 20.682-9.259 20.682-20.682s-9.259-20.682-20.682-20.682z"></path>
+</svg>                    </a>
+                </div>
+                <div>
+                    <a href="javascript: void( 0 );" class="logo">
+                        
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 592.81 148.22">
+    <path shape-rendering="geometricPrecision" fill="#76cedd" d="M0 107.05h19.76V34.73L0 54.38v52.67zM59.11 107.05h14.81V31.48L59.11 46.23v60.82z"></path>
+    <path shape-rendering="geometricPrecision" fill="#00b5cc" d="M24.68 29.36v77.69h29.49V0L24.68 29.36z"></path>
+    <path shape-rendering="geometricPrecision" fill="#ffffff" d="M143.79 107.04v-60.2L121.6 96.8h-5.51L93.5 46.84v60.2h-5.53V34.01h5.53l25.45 56.32 24.84-56.32h5.5v73.03h-5.5zM172.9 34.01h5.53v73.04h-5.53zM221.64 41.39l-15.29 43h30.58zM245 107l-6.36-17.72h-34.03L198.25 107h-5.94l26.87-73h4.92l26.9 73h-6M320.63 107.04v-60.2L298.47 96.8h-5.53l-22.57-49.96v60.2h-5.53V34.01h5.53l25.45 56.32 24.81-56.32h5.56v73.03h-5.56zM349.77 34.01h5.53v73.04h-5.53zM400.91 91c12.62 0 20.83-8.1 20.83-20.48s-8.21-20.42-20.83-20.42h-4.35V91h4.35M377.6 34h28c19.27 0 35.9 16.87 35.9 36.46S424.92 107 405.65 107h-28V34M475.39 91c12.62 0 20.8-8.1 20.8-20.48S488 50.1 475.39 50.1H471V91h4.38m-23.3-57h28C499.4 34 516 50.88 516 70.47S499.4 107 480.1 107h-28V34M554.93 56.57l-8 23.31h15.77zm-13.26 37.77L536.61 107h-20l28-73h20.72l27.48 73h-20.26l-4.71-12.7h-26.17M438.2 128.38l-4.58 12.87h9.16zm7 19.66l-1.9-5.31h-10.2l-1.91 5.27h-1.78l8-21.87h1.49L447 148zM458.78 148.22c-4.39 0-7.5-3-7.5-7.27v-14.78H453v14.55c0 3.64 2.33 6 5.83 6s5.84-2.39 5.84-6v-14.55h1.66V141c0 4.27-3.11 7.27-7.5 7.27M479.21 127.65v20.39h-1.66v-20.39h-6.51v-1.48h14.71v1.48h-6.54zM503.88 148.04v-10.29h-11.4v10.29h-1.66v-21.87h1.66v10.1h11.4v-10.1h1.66v21.87h-1.66zM523.85 129.16a5.89 5.89 0 0 0-8.3 0c-1.56 1.56-1.69 3.25-1.69 7.94s.13 6.39 1.69 8a5.94 5.94 0 0 0 8.3 0c1.57-1.57 1.69-3.26 1.69-8s-.12-6.38-1.69-7.94m1.32 16.84a7.8 7.8 0 0 1-10.94 0c-2-2-2-3.93-2-8.88s0-6.88 2-8.87a7.75 7.75 0 0 1 10.94 0c2 2 2 3.94 2 8.87s0 6.89-2 8.88M542 127.65h-6.45v8.84H542c2.8 0 4.83-1.41 4.83-4.43s-2-4.41-4.83-4.41m4.76 20.35l-5.22-10h-6v10h-1.66v-21.83h8.32c3.57 0 6.27 2.06 6.27 5.86a5.64 5.64 0 0 1-5 5.9l5.22 10.07zM554.81 126.17h1.65v21.87h-1.65zM569.71 127.65v20.39h-1.66v-20.39h-6.51v-1.48h14.71v1.48h-6.54zM586.35 138.97v9.07h-1.65v-9.07l-6.45-12.8h1.78l5.56 11.06 5.44-11.06h1.77l-6.45 12.8zM204.39 129.33a6.24 6.24 0 0 0-4.7-1.68h-5.28v18.91h5.28a6.2 6.2 0 0 0 4.7-1.69c1.75-1.77 1.64-5.64 1.64-8.07s.11-5.69-1.64-7.47m1.18 16.67a7.57 7.57 0 0 1-5.48 2h-7.33v-21.83h7.33a7.65 7.65 0 0 1 5.48 2c2.21 2.22 2.12 5.69 2.12 8.64s.09 7-2.12 9.24M214.35 148.04v-21.87h13.27v1.48H216v8.62h9.9v1.48H216v8.81h11.62v1.48h-13.27zM239.01 148.04h-1.41l-7.18-21.87h1.74l6.16 18.94 6.13-18.94h1.76l-7.2 21.87zM250.66 148.04v-21.87h13.28v1.48h-11.62v8.62h9.91v1.48h-9.91v8.81h11.62v1.48h-13.28zM269.81 148.04v-21.87h1.65v20.39h11.61v1.48h-13.26zM297.69 129.16a5.89 5.89 0 0 0-8.3 0c-1.56 1.56-1.68 3.25-1.68 7.94s.12 6.39 1.68 8a5.94 5.94 0 0 0 8.3 0c1.57-1.57 1.68-3.26 1.68-8s-.11-6.38-1.68-7.94M299 146a7.81 7.81 0 0 1-10.95 0c-2-2-2-3.93-2-8.88s0-6.88 2-8.87a7.76 7.76 0 0 1 10.95 0c2 2 2 3.94 2 8.87s0 6.89-2 8.88M315.53 127.65h-6.17v9.64h6.17c3 0 5.14-1.54 5.14-4.82s-2.11-4.82-5.14-4.82m.2 11.12h-6.37V148h-1.66v-21.83h8c3.76 0 6.59 2.3 6.59 6.3s-2.83 6.3-6.59 6.3M344.58 148.04V130l-6.64 14.97h-1.66L329.51 130v18.04h-1.66v-21.87h1.66l7.63 16.86 7.44-16.86h1.65v21.87h-1.65zM353.75 148.04v-21.87h13.28v1.48h-11.62v8.62h9.9v1.48h-9.9v8.81h11.62v1.48h-13.28zM387.18 148.04l-12.63-19.02v19.02h-1.66v-21.87h1.66l12.63 18.94v-18.94h1.65v21.87h-1.65zM402.08 127.65v20.39h-1.66v-20.39h-6.51v-1.48h14.71v1.48h-6.54zM11.64 129.33a6.26 6.26 0 0 0-4.7-1.68H1.66v18.91h5.28a6.23 6.23 0 0 0 4.7-1.69c1.75-1.77 1.63-5.64 1.63-8.07s.12-5.69-1.63-7.47M12.81 146a7.54 7.54 0 0 1-5.47 2H0v-21.83h7.34a7.62 7.62 0 0 1 5.47 2c2.21 2.22 2.12 5.69 2.12 8.64s.09 7-2.12 9.24M32.37 129.16a5.88 5.88 0 0 0-8.29 0c-1.57 1.56-1.69 3.25-1.69 7.94s.12 6.39 1.69 8a5.93 5.93 0 0 0 8.29 0c1.57-1.57 1.7-3.25 1.7-8s-.13-6.38-1.7-7.94M33.69 146a7.79 7.79 0 0 1-10.93 0c-2-2-2-3.93-2-8.88s0-6.88 2-8.87a7.74 7.74 0 0 1 10.93 0c2 2 2 3.94 2 8.87s0 6.89-2 8.88M58.49 148.04H56.8L51.64 129l-5.16 19.04h-1.7l-5.46-21.87h1.74l4.62 19.01 5.09-19.01h1.72l5.1 19.01 4.62-19.01h1.75l-5.47 21.87zM83.01 148.04l-12.63-19.02v19.02h-1.67v-21.87h1.67l12.63 18.94v-18.94h1.64v21.87h-1.64zM97.9 127.65v20.39h-1.65v-20.39h-6.52v-1.48h14.71v1.48H97.9zM119.68 129.16a5.89 5.89 0 0 0-8.3 0c-1.56 1.56-1.68 3.25-1.68 7.94s.12 6.39 1.68 8a5.94 5.94 0 0 0 8.3 0c1.57-1.57 1.69-3.25 1.69-8s-.12-6.38-1.69-7.94M121 146a7.8 7.8 0 0 1-10.94 0c-2-2-2-3.93-2-8.88s0-6.88 2-8.87a7.75 7.75 0 0 1 10.94 0c2 2 2 3.94 2 8.87s0 6.89-2 8.88M145.79 148.04h-1.69L138.94 129l-5.16 19.04h-1.7l-5.46-21.87h1.75l4.61 19.01 5.11-19.01h1.71l5.1 19.01 4.61-19.01h1.75l-5.47 21.87zM170.31 148.04l-12.64-19.02v19.02h-1.65v-21.87h1.65l12.64 18.94v-18.94h1.66v21.87h-1.66z"></path>
+</svg>                    </a>
+                </div>
+                <div>
+                    <a class="search-trigger" href="javascript: void( 0 );" title="Search the website">
+                        
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+    <path d="M495 466.2L377.2 348.4c29.2-35.6 46.8-81.2 46.8-130.9C424 103.5 331.5 11 217.5 11 103.4 11 11 103.5 11 217.5S103.4 424 217.5 424c49.7 0 95.2-17.5 130.8-46.7L466.1 495c8 8 20.9 8 28.9 0 8-7.9 8-20.9 0-28.8zm-277.5-83.3C126.2 382.9 52 308.7 52 217.5S126.2 52 217.5 52C308.7 52 383 126.3 383 217.5s-74.3 165.4-165.5 165.4z"></path>
+</svg>                    </a>
+                </div>
+            </div>
+        </header>
