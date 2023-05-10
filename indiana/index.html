@@ -35,8 +35,7 @@
   <script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
   <script src="https://d3js.org/d3-array.v1.min.js"></script>
   <script src="https://d3js.org/d3-format.v2.min.js"></script>
-  <script src="js/citysdk.js"></script>
-  <script src="https://unpkg.com/shpjs@latest/dist/shp.js"></script>
+
   <script src="https://d3js.org/d3-geo.v1.min.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"></script>
@@ -960,19 +959,7 @@ fetch( "https://docs.google.com/spreadsheets/d/1pScOz5KINsX50gDz-V8gW9Q7VCNj6hJt
     }
     window.years = x
 
-    census(
-    {
-      vintage: String(window.maxyear),
-      geoHierarchy: {
-        state: "18",
-        tract:"*"
-      },
-      geoResolution: "500k" // required
-    },
-    (err, res) => window.tracts = res
-  )
-  }
-  ).then(console.log('Now!'))
+  })
 
   
 
@@ -1265,7 +1252,7 @@ window.addEventListener("load", function(){
           }
         })
 
-        new Highcharts.chart(divs, {
+        new Highcharts.Chart(divs, {
 
           title: {
             text: title,
@@ -1627,7 +1614,7 @@ window.addEventListener("load", function(){
               }
             })
 
-    Highcharts.chart(divs, {
+    Highcharts.Chart(divs, {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: 0,
@@ -1733,7 +1720,7 @@ window.addEventListener("load", function(){
               }
             })
 
-  Highcharts.chart(divs, {
+  Highcharts.Chart(divs, {
     accessibility: {
         point: {
             descriptionFormatter: function (point) {
@@ -1819,7 +1806,7 @@ div.selectAll("g")
 
 
 
-    Highcharts.chart(divs, {
+    Highcharts.Chart(divs, {
 
   chart: {
     type: 'bar',
@@ -1909,7 +1896,7 @@ div.selectAll("g")
       r.push(String(i+1) + '. ' + d)
     })
 
-    Highcharts.chart(divs, {
+    Highcharts.Chart(divs, {
 
   chart: {
     type: 'bar',
@@ -2042,7 +2029,7 @@ div.selectAll("g")
               }
             })
 
-    Highcharts.chart(divs, {
+    Highcharts.Chart(divs, {
     chart: {
         type: 'bar'
     },
@@ -2314,7 +2301,7 @@ bar.on("mouseover", function(d,i) {
               }
             })
 
-    Highcharts.chart(divs, {
+    Highcharts.Chart(divs, {
     chart: {
         type: 'bar'
     },
@@ -2496,7 +2483,7 @@ Highcharts.setOptions({
 })
 
 
-Highcharts.chart(divs, {
+Highcharts.Chart(divs, {
 
   exporting:{
     menuItemDefinitions:{"printChart": {}, "separator": {}, "downloadPNG": {}, "downloadJPEG": {}, "downloadPDF": {}, "downloadSVG": {}}
@@ -2878,7 +2865,7 @@ var y = d3.scaleLinear()
       })
 
 
-      Highcharts.chart(divs, {
+      new Highcharts.Chart(divs, {
         
         exporting:{
           menuItemDefinitions:{"printChart": {}, "separator": {}, "downloadPNG": {}, "downloadJPEG": {}, "downloadPDF": {}, "downloadSVG": {}}
@@ -3567,7 +3554,7 @@ var y = d3.scaleLinear()
 
       //Heat Map - B19013_001E
       console.log(window.tracts)
-      tractsgeo = window.tracts
+      tractsgeo = json[1]
       nhpd = json[2]
       fakedots = json[3] 
       pois = json[4]
@@ -4284,18 +4271,6 @@ var y = d3.scaleLinear()
       x.push(i)
     }
     window.years = x
-
-    census(
-    {
-      vintage: String(window.maxyear),
-      geoHierarchy: {
-        state: "18",
-        tract:"*"
-      },
-      geoResolution: "500k" // required
-    },
-    (err, res) => window.tracts = res
-  )
   }
   ).then(function(){
 
